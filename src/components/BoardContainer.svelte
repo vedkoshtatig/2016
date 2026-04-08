@@ -17,6 +17,8 @@
 <Container
 	x={context.stateGameDerived.boardLayout().x}
 	y={context.stateGameDerived.boardLayout().y-35}
+	height={context.stateGameDerived.boardLayout().height}
+	scale={0.9}
 	pivot={context.stateGameDerived.boardLayout().pivot}
 >
 	{@render props.children()}
