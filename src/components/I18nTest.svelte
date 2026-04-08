@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import { Container, Rectangle, Text } from 'pixi-svelte';
 
 	import { getContext } from '../game/context';
@@ -13,4 +13,4 @@
 	<Text text={`${context.i18nDerived.settings()} (from ui-pixi)`} style={{ fill: 0xffffff }} y={60} />
 	<Text text={`${context.i18nDerived.masterVolume()} (from ui-html)`} style={{ fill: 0xffffff }} y={90} />
 	<Text text={`${context.i18nDerived.notTranslated()}`} style={{ fill: 0xffffff }} y={120} />
-</Container>
+</Container> -->

@@ -1,0 +1,39 @@
+{
+"skeleton": {
+	"hash": "VrY6QNtwgKU",
+	"spine": "4.1.20",
+	"x": -295,
+	"y": -87,
+	"width": 591,
+	"height": 173,
+	"images": "./images/",
+	"audio": "E:/MoonGlade/2016 Musium/all final files 6-4-2026/All spine files/2016_logo/spine"
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Layer 1", "bone": "root", "attachment": "Layer 1" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"Layer 1": {
+				"Layer 1": { "x": 0.5, "y": -0.5, "width": 591, "height": 173 }
+			}
+		}
+	}
+],
+"animations": {
+	"2016_logo": {
+		"bones": {
+			"root": {
+				"scale": [
+					{}
+				]
+			}
+		}
+	}
+}
+}

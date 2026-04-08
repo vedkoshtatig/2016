@@ -16,11 +16,11 @@
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
 
 <FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
-	<SpineProvider key="foregroundAnimation" {...backgroundProps}>
-		<SpineTrack trackIndex={0} animationName={'idle'} loop />
+	<SpineProvider key="loader" {...backgroundProps}>
+		<SpineTrack trackIndex={0} animationName={'bg'} loop />
 	</SpineProvider>
-	<SpineProvider key="foregroundAnimation" {...backgroundProps}>
-		<SpineTrack trackIndex={0} animationName={'dust'} loop />
+	<SpineProvider key="loader" {...backgroundProps}>
+		<SpineTrack trackIndex={0} animationName={'bg'} loop />
 	</SpineProvider>
 </FadeContainer>
 

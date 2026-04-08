@@ -62,8 +62,16 @@
 		/>
 	</SpineProvider>
 {/if}
-
-<Sprite
+<SpineProvider
+	key="loader"
+	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
+	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
+	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*1.55}
+	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.3}
+>
+	<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
+</SpineProvider>
+<!-- <Sprite
 	key="frame_bg.png"
 	anchor={0.5}
 	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
@@ -79,4 +87,4 @@
 	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
 	width={context.stateGameDerived.boardLayout().width * BG_RATIO * SPRITE_SCALE.width}
 	height={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.height}
-/>
+/> -->
