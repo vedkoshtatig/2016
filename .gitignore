@@ -1,0 +1,53 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+.svelte-kit/
+.turbo/
+.node_modules/
+node_modules
+.history/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+.pnp
+.pnp.js
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Storybook static build
+storybook-static/
+
+# Lingui compile output
+locale/
+build
+
+# SvelteKit preview output
+.vercel/
+.netlify/
+
+# Misc
+coverage/
+*.log
+*.tgz
