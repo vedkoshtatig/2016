@@ -3,14 +3,14 @@ import _ from 'lodash';
 import type { RawSymbol, SymbolState } from './types';
 
 export const SYMBOL_SIZE = 100;
-
+export const SYMBOL_GAP = 103;
 export const REEL_PADDING = 0.53;
 
 // initial board (padded top and bottom)
 export const INITIAL_BOARD: RawSymbol[][] = [
 	[
 		{ name: 'M', multiplier: 10 },
-		{ name: 'H1' },
+		{ name: 'L4' },
 		{ name: 'M', multiplier: 2 },
 		{ name: 'L1' },
 		{ name: 'H1' },
@@ -19,16 +19,16 @@ export const INITIAL_BOARD: RawSymbol[][] = [
 	],
 	[
 		{ name: 'L3' },
-		{ name: 'H2' },
+		{ name: 'L4' },
 		{ name: 'M', multiplier: 4 },
-		{ name: 'L2' },
-		{ name: 'S', scatter: true },
-		{ name: 'S', scatter: true },
-		{ name: 'L2' },
+		{ name: 'L3' },
+		{ name: 'L3', scatter: true },
+		{ name: 'L3', scatter: true },
+		{ name: 'L3' },
 	],
 	[
 		{ name: 'L2' },
-		{ name: 'H3' },
+		{ name: 'L4' },
 		{ name: 'M', multiplier: 5 },
 		{ name: 'L3' },
 		{ name: 'W' },
@@ -37,7 +37,7 @@ export const INITIAL_BOARD: RawSymbol[][] = [
 	],
 	[
 		{ name: 'L3' },
-		{ name: 'H4' },
+		{ name: 'L4' },
 		{ name: 'M', multiplier: 7 },
 		{ name: 'L4' },
 		{ name: 'W' },
@@ -46,7 +46,7 @@ export const INITIAL_BOARD: RawSymbol[][] = [
 	],
 	[
 		{ name: 'H3' },
-		{ name: 'H4' },
+		{ name: 'L4' },
 		{ name: 'M', multiplier: 10 },
 		{ name: 'H2' },
 		{ name: 'S', scatter: true },
@@ -55,7 +55,7 @@ export const INITIAL_BOARD: RawSymbol[][] = [
 	],
 	[
 		{ name: 'H2' },
-		{ name: 'H2' },
+		{ name: 'L4' },
 		{ name: 'S', scatter: true },
 		{ name: 'L3' },
 		{ name: 'H1' },

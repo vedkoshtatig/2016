@@ -64,10 +64,11 @@
 {/if}
 <SpineProvider
 	key="loader"
-	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
-	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT-20}
-	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*1.35}
-	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.15}
+	x={context.stateGameDerived.boardLayout().x }
+	y={context.stateGameDerived.boardLayout().y +2}
+	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*1.76}
+	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.4}
+	
 >
 	<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
 </SpineProvider>

@@ -14,7 +14,7 @@
 	<Rectangle
 		alpha={0.5}
 		backgroundColor={0xffffff}
-		width={context.stateGameDerived.boardLayout().width}
+		width={context.stateGameDerived.boardLayout().width+10}
 		height={context.stateGameDerived.boardLayout().height}
 	/>
 {/if}
@@ -22,6 +22,6 @@
 <Rectangle
 	isMask
 	x={-SYMBOL_SIZE}
-	width={context.stateGameDerived.boardLayout().width + SYMBOL_SIZE * 2}
+	width={context.stateGameDerived.boardLayout().width + SYMBOL_SIZE * 2+30}
 	height={context.stateGameDerived.boardLayout().height}
 />

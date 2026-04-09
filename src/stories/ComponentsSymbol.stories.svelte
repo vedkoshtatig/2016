@@ -7,7 +7,7 @@
 		args: {
 			x: 100,
 			y: 100,
-			rawSymbol: { name: 'S', scatter: true },
+			rawSymbol: { name: 'L4'},
 			state: 'static',
 		},
 	});

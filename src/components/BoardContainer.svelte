@@ -15,10 +15,10 @@
 </script>
 
 <Container
-	x={context.stateGameDerived.boardLayout().x}
-	y={context.stateGameDerived.boardLayout().y-35}
+	x={context.stateGameDerived.boardLayout().x-130}
+	y={context.stateGameDerived.boardLayout().y-22}
 	height={context.stateGameDerived.boardLayout().height}
-	scale={0.9}
+	scale={1.12}
 	pivot={context.stateGameDerived.boardLayout().pivot}
 >
 	{@render props.children()}
