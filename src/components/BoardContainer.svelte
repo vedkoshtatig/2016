@@ -15,8 +15,8 @@
 </script>
 
 <Container
-	x={context.stateGameDerived.boardLayout().x-130}
-	y={context.stateGameDerived.boardLayout().y-22}
+	x={context.stateGameDerived.boardLayout().x-170}
+	y={context.stateGameDerived.boardLayout().y-12}
 	height={context.stateGameDerived.boardLayout().height}
 	scale={1.12}
 	pivot={context.stateGameDerived.boardLayout().pivot}

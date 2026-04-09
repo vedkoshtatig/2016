@@ -3,7 +3,7 @@ import _ from 'lodash';
 import type { RawSymbol, SymbolState } from './types';
 
 export const SYMBOL_SIZE = 100;
-export const SYMBOL_GAP = 103;
+export const SYMBOL_GAP = 115;
 export const REEL_PADDING = 0.53;
 
 // initial board (padded top and bottom)

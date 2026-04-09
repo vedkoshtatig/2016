@@ -65,9 +65,9 @@
 <SpineProvider
 	key="loader"
 	x={context.stateGameDerived.boardLayout().x }
-	y={context.stateGameDerived.boardLayout().y +2}
-	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*1.76}
-	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.4}
+	y={context.stateGameDerived.boardLayout().y +12}
+	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*2}
+	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.38}
 	
 >
 	<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
