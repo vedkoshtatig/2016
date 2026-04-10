@@ -62,36 +62,32 @@
 		/>
 	</SpineProvider>
 {/if}
-<SpineProvider
-	key="loader"
-	x={context.stateGameDerived.boardLayout().x }
-	y={context.stateGameDerived.boardLayout().y +12}
-	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width*2}
-	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height*1.38}
-	
->
-	<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
-</SpineProvider>
-<SpineProvider
-	key="logo"
-	x={context.stateGameDerived.boardLayout().x }
-	y={context.stateGameDerived.boardLayout().y /8}
-	width={context.stateGameDerived.boardLayout().width/2.5}
-	height={context.stateGameDerived.boardLayout().height/9 }
-	
->
-	<SpineTrack trackIndex={0} animationName={"2016_logo"} loop timeScale={3} />
-</SpineProvider>
-<!-- <Sprite
-	key="frame_bg.png"
-	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
-	y={context.stateGameDerived.boardLayout().y * POSITION_ADJUSTMENT}
-	width={context.stateGameDerived.boardLayout().width * BG_RATIO * SPRITE_SCALE.width}
-	height={context.stateGameDerived.boardLayout().width * SPRITE_SCALE.height}
-/>
 
 <Sprite
+	key="reel_base"
+	anchor={0.5}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y -45}
+	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
+	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
+	scale={{ x: 0.73, y: 0.8 }}
+/>
+
+
+
+<!-- 
+<Sprite
+	key="reel_top"
+	anchor={0.5}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y -45}
+	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
+	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
+	scale={{ x: 0.73, y: 0.8 }}
+	zIndex={10} 
+/> -->
+
+<!-- <Sprite
 	key="frame_edge.png"
 	anchor={0.5}
 	x={context.stateGameDerived.boardLayout().x * POSITION_ADJUSTMENT}
