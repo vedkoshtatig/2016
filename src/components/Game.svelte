@@ -85,7 +85,7 @@
 			<MultiplierTotal />
 		</MainContainer>
 
-		<!-- <UI>
+		<UI>
 			{#snippet gameName()}
 				<UiGameName name="SCATTER GAME" />
 			{/snippet}
@@ -102,7 +102,7 @@
 					}}
 				/>
 			{/snippet}
-		</UI> -->
+		</UI>
 		<Win />
 		<FreeSpinIntro />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}

@@ -8,6 +8,15 @@ export default {
 		},
 		preload: true,
 	},
+	logo: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/logo/logo.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/logo/logo.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	pressToContinueText: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,

@@ -72,6 +72,16 @@
 >
 	<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
 </SpineProvider>
+<SpineProvider
+	key="logo"
+	x={context.stateGameDerived.boardLayout().x }
+	y={context.stateGameDerived.boardLayout().y /8}
+	width={context.stateGameDerived.boardLayout().width/2.5}
+	height={context.stateGameDerived.boardLayout().height/9 }
+	
+>
+	<SpineTrack trackIndex={0} animationName={"2016_logo"} loop timeScale={3} />
+</SpineProvider>
 <!-- <Sprite
 	key="frame_bg.png"
 	anchor={0.5}
