@@ -22,6 +22,252 @@ export default {
 		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
 		preload: true,
 	},
+	///Added
+	spinButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spineBtn_main_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	spinButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spineBtn_main_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	spinButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spineBtn_main_down.png', import.meta.url).href,
+		preload: true,
+	},
+	spinButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spineBtn_main_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autospin_active.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autospin_active_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autospin_active_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autospin_active_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	menuButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	menuButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	menuButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	menuButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/closeBtn_menu_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/closeBtn_menu_down.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/closeBtn_menu_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/closeBtn_menu_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	infoButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/rulesIcon.png', import.meta.url).href,
+		preload: true,
+	},
+	settingsButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	settingsButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	settingsButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	settingsButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/menuIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	payTableButton:{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/paytableIcon.png', import.meta.url).href,
+		preload: true,
+	},
+	payTableButton_hover:{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/paytableIcon.png', import.meta.url).href,
+		preload: true,
+	},
+	decreaseButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	decreaseButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	decreaseButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	decreaseButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	increaseButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	increaseButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	increaseButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	increaseButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOnIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOnIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOnIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOnIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOffIcon_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOffIcon_down.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOffIcon_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundOffIcon_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	buyBonusButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buyBonusBtn_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	buyBonusButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buyBonusBtn_down.png', import.meta.url).href,
+		preload: true,
+	},
+	buyBonusButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buyBonusBtn_disabled.png', import.meta.url).href,
+		preload: true,
+	},
+	buyBonusButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buyBonusBtn_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbo_active.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbo_active_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	stopButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	stopButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_hover.png', import.meta.url).href,
+		preload: true,
+	},
+	stopButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_down.png', import.meta.url).href,
+		preload: true,
+	},
+	stopButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_disabled.png', import.meta.url).href,
+		preload: true,
+	},
 	H1: {
 		type: 'spine',
 		src: {

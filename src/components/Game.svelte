@@ -30,8 +30,10 @@
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
-	import Transition from './Transition.svelte';
+	// import Transition from './Transition.svelte';
 	import I18nTest from './I18nTest.svelte';
+	import LayoutDesktop from './LayoutDesktop.svelte';
+	import UIDefault from './UIDefault.svelte';
 
 	const context = getContext();
 
@@ -85,7 +87,7 @@
 			<MultiplierTotal />
 		</MainContainer>
 
-		<UI>
+		<UIDefault>
 			{#snippet gameName()}
 				<UiGameName name="SCATTER GAME" />
 			{/snippet}
@@ -102,14 +104,15 @@
 					}}
 				/>
 			{/snippet}
-		</UI>
+		</UIDefault>
+		
 		<Win />
 		<FreeSpinIntro />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}
 			<FreeSpinCounter />
 		{/if}
 		<FreeSpinOutro />
-		<Transition />
+		<!-- <Transition /> -->
 
 		<I18nTest />
 	{/if}

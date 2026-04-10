@@ -1,6 +1,7 @@
 import { type CascadingReelSymbolState } from 'utils-slots';
 import type config from './config';
-
+import type { Snippet } from 'svelte';
+import type { ButtonProps } from 'components-pixi';
 export type SymbolName = keyof typeof config.symbols;
 export type RawSymbol = { name: SymbolName; multiplier?: number; scatter?: boolean };
 export type BetMode = keyof typeof config.betModes;
@@ -20,4 +21,35 @@ export type SymbolState = CascadingReelSymbolState | (typeof SYMBOL_STATES)[numb
 export type Position = {
 	reel: number;
 	row: number;
+};
+export type ButtonIcon =
+	| 'decrease'
+	| 'increase'
+	| 'menu'
+	| 'turbo'
+	| 'autoSpin'
+	| 'payTable'
+	| 'info'
+	| 'settings'
+	| 'soundOn'
+	| 'soundOff'
+	| 'menuExit';
+export type LayoutUiProps = {
+	gameName: Snippet;
+	logo: Snippet;
+	amountBalance: Snippet<[{ stacked?: boolean }]>;
+	amountWin: Snippet<[{ stacked?: boolean }]>;
+	amountBet: Snippet<[{ stacked?: boolean }]>;
+	buttonBuyBonus: Snippet<[Partial<ButtonProps>]>;
+	buttonBet: Snippet<[Partial<ButtonProps>]>;
+	buttonTurbo: Snippet<[Partial<ButtonProps>]>;
+	buttonAutoSpin: Snippet<[Partial<ButtonProps>]>;
+	buttonIncrease: Snippet<[Partial<ButtonProps>]>;
+	buttonDecrease: Snippet<[Partial<ButtonProps>]>;
+	buttonMenu: Snippet<[Partial<ButtonProps>]>;
+	buttonMenuClose: Snippet<[Partial<ButtonProps>]>;
+	buttonPayTable: Snippet<[Partial<ButtonProps>]>;
+	buttonGameRules: Snippet<[Partial<ButtonProps>]>;
+	buttonSettings: Snippet<[Partial<ButtonProps>]>;
+	buttonSoundSwitch: Snippet<[Partial<ButtonProps>]>;
 };
