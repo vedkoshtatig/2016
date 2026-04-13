@@ -1,0 +1,132 @@
+{
+"skeleton": { "hash": "AM9WOdKU3gs", "spine": "4.1.20", "images": "./images/", "audio": "E:/MoonGlade/2016 Musium/all final files 6-4-2026/All spine files/intro_page/spine" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "main", "parent": "root" }
+],
+"slots": [
+	{ "name": "intro_page_reel", "bone": "main" },
+	{ "name": "intro_page_check box_font", "bone": "main" },
+	{ "name": "intro_page_checkbox_yellow frame", "bone": "main" },
+	{ "name": "intro_page_checkbox_right_symbol", "bone": "main" },
+	{ "name": "intro_page_font", "bone": "main" },
+	{ "name": "intro_page_spin_button", "bone": "main" },
+	{ "name": "intro_page_volatility_button_font", "bone": "main" },
+	{ "name": "intro_page_volatility_button_green_base", "bone": "main" },
+	{ "name": "intro_page_volatility_button_yellow_frame", "bone": "main" },
+	{ "name": "intro_page_volatility_Indicator_Button", "bone": "main" },
+	{ "name": "intro_page_white_dot_disable_1", "bone": "main" },
+	{ "name": "intro_page_white_dot_disable_2", "bone": "main" },
+	{ "name": "intro_page_white_dot_disable_3", "bone": "main" },
+	{ "name": "intro_page_white_dot_normal", "bone": "main" },
+	{ "name": "intro_page_white_dot_normal_2", "bone": "main" },
+	{ "name": "intro_page_white_dot_normal_3", "bone": "main" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"intro_page_check box_font": {
+				"intro_page_check box_font": { "x": 3.5, "y": 1.5, "width": 345, "height": 23 }
+			},
+			"intro_page_checkbox_right_symbol": {
+				"intro_page_checkbox_right_symbol": { "x": 1.5, "y": 0.5, "width": 63, "height": 47 }
+			},
+			"intro_page_checkbox_yellow frame": {
+				"intro_page_checkbox_yellow frame": { "x": 1, "y": -0.5, "width": 48, "height": 47 }
+			},
+			"intro_page_font": {
+				"intro_page_font": { "x": 1, "width": 620, "height": 168 }
+			},
+			"intro_page_reel": {
+				"intro_page_reel": { "x": 0.5, "y": -1.5, "width": 1259, "height": 967 }
+			},
+			"intro_page_spin_button": {
+				"intro_page_spin_button": { "x": 1.5, "y": -0.5, "width": 187, "height": 185 }
+			},
+			"intro_page_volatility_button_font": {
+				"intro_page_volatility_button_font": { "x": 1, "width": 130, "height": 20 }
+			},
+			"intro_page_volatility_button_green_base": {
+				"intro_page_volatility_button_green_base": { "x": 1, "y": -0.5, "width": 324, "height": 43 }
+			},
+			"intro_page_volatility_button_yellow_frame": {
+				"intro_page_volatility_button_yellow_frame": { "x": 1, "y": -0.5, "width": 342, "height": 61 }
+			},
+			"intro_page_volatility_Indicator_Button": {
+				"intro_page_volatility_Indicator_Button": { "x": 1, "width": 102, "height": 34 }
+			},
+			"intro_page_white_dot_disable_1": {
+				"intro_page_white_dot_disable_1": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			},
+			"intro_page_white_dot_disable_2": {
+				"intro_page_white_dot_disable_2": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			},
+			"intro_page_white_dot_disable_3": {
+				"intro_page_white_dot_disable_3": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			},
+			"intro_page_white_dot_normal": {
+				"intro_page_white_dot_normal": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			},
+			"intro_page_white_dot_normal_2": {
+				"intro_page_white_dot_normal_2": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			},
+			"intro_page_white_dot_normal_3": {
+				"intro_page_white_dot_normal_3": { "x": 1, "y": -0.5, "width": 24, "height": 25 }
+			}
+		}
+	}
+],
+"animations": {
+	"check_box_text": {
+		"slots": {
+			"intro_page_check box_font": {
+				"attachment": [
+					{ "name": "intro_page_check box_font" }
+				]
+			}
+		}
+	},
+	"dont_dhow_next_time_checked": {
+		"slots": {
+			"intro_page_checkbox_right_symbol": {
+				"attachment": [
+					{ "name": "intro_page_checkbox_right_symbol" }
+				]
+			},
+			"intro_page_checkbox_yellow frame": {
+				"attachment": [
+					{ "name": "intro_page_checkbox_yellow frame" }
+				]
+			}
+		}
+	},
+	"dont_dhow_next_time_unchecked": {
+		"slots": {
+			"intro_page_checkbox_yellow frame": {
+				"attachment": [
+					{ "name": "intro_page_checkbox_yellow frame" }
+				]
+			}
+		}
+	},
+	"pay_anywhere": {
+		"slots": {
+			"intro_page_font": {
+				"attachment": [
+					{ "name": "intro_page_font" }
+				]
+			}
+		}
+	},
+	"reel": {
+		"slots": {
+			"intro_page_reel": {
+				"attachment": [
+					{ "name": "intro_page_reel" }
+				]
+			}
+		}
+	}
+}
+}

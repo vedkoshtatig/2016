@@ -92,7 +92,7 @@
 				<UiGameName name="SCATTER GAME" />
 			{/snippet}
 			{#snippet logo()}
-				<Text
+				<!-- <Text
 					anchor={{ x: 1, y: 0 }}
 					text="ADD YOUR LOGO"
 					style={{
@@ -102,7 +102,7 @@
 						lineHeight: REM * 2,
 						fill: 0xffffff,
 					}}
-				/>
+				/> -->
 			{/snippet}
 		</UIDefault>
 		
