@@ -1,69 +1,17 @@
 <script lang="ts">
-	import { Tween } from 'svelte/motion';
-	import { cubicInOut } from 'svelte/easing';
-
 	import { stateUi } from 'state-shared';
 	import { BLACK } from 'constants-shared/colors';
-	import { FadeContainer } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
-	import { Container, Rectangle } from 'pixi-svelte';
-	import { waitForResolve } from 'utils-shared/wait';
+	import { Container, Rectangle, Sprite, anchorToPivot } from 'pixi-svelte';
 
-	import LabelFreeSpinCounter from './LabelFreeSpinCounter.svelte';
-	import ButtonDrawer from './ButtonDrawer.svelte';
-	import type { LayoutUiProps } from '../game/types';
+	import { DESKTOP_BASE_SIZE, DESKTOP_BACKGROUND_WIDTH_LIST } from '../game/constants';
 	import { getContext } from '../game/context';
+	import type { LayoutUiProps } from '../game/types';
 
 	const props: LayoutUiProps = $props();
+	const baseHeight = DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0);
 	const context = getContext();
-
-	const DRAWER_Y = {
-		unfold: 0,
-		fold: 550,
-	};
-	const drawerTween = new Tween(stateUi.drawerFold ? DRAWER_Y.fold : DRAWER_Y.unfold, {
-		easing: cubicInOut,
-	});
-
-	const DRAWER_BUTTON_Y = {
-		unfold: 0,
-		fold: 50,
-	};
-	const drawerButtonTween = new Tween(
-		stateUi.drawerFold ? DRAWER_BUTTON_Y.fold : DRAWER_BUTTON_Y.unfold,
-		{
-			easing: cubicInOut,
-		},
-	);
-
-	let drawerButtonFadeComplete = $state(() => {});
-
-	context.eventEmitter.subscribeOnMount({
-		drawerButtonShow: async () => {
-			if (!stateUi.drawerButtonShow) {
-				stateUi.drawerButtonShow = true;
-				await waitForResolve((resolve) => (drawerButtonFadeComplete = resolve));
-			}
-		},
-		drawerButtonHide: async () => {
-			if (stateUi.drawerButtonShow) {
-				stateUi.drawerButtonShow = false;
-				await waitForResolve((resolve) => (drawerButtonFadeComplete = resolve));
-			}
-		},
-		drawerUnfold: async () => {
-			if (stateUi.drawerFold) {
-				drawerButtonTween.set(DRAWER_BUTTON_Y.unfold);
-				await drawerTween.set(DRAWER_Y.unfold);
-			}
-		},
-		drawerFold: async () => {
-			if (!stateUi.drawerFold) {
-				drawerButtonTween.set(DRAWER_BUTTON_Y.fold);
-				await drawerTween.set(DRAWER_Y.fold);
-			}
-		},
-	});
+	const layout = () => context.stateLayoutDerived.mainLayoutStandard();
 </script>
 
 <Container x={20}>
@@ -75,146 +23,100 @@
 </Container>
 
 <MainContainer standard alignVertical="bottom">
-	<!-- drawer container -->
-	<Container y={drawerTween.current}>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
+	<!-- <Rectangle
+		alpha={0.5}
+		backgroundColor={BLACK}
+		anchor={0.5}
+		width={context.stateLayoutDerived.mainLayoutStandard().width*1.2}
+		height={DESKTOP_BASE_SIZE}
+		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
+		y={
+			context.stateLayoutDerived.mainLayoutStandard().height
+			- DESKTOP_BASE_SIZE * 0.4
+			
+		}
+	/> -->
+
+
+	<Container
+		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE }
+		pivot={anchorToPivot({
+			anchor: { x: 0.5, y: 0 },
+			sizes: {
+				height: DESKTOP_BASE_SIZE/6,
+				width: DESKTOP_BACKGROUND_WIDTH_LIST.reduce((sum, width) => sum + width, 0),
+			},
+		})}
+	>
+		<Container>	
+
+<Sprite	
+		key="betControl"
+		anchor={0.5}
+		y={70	} x={DESKTOP_BASE_SIZE * 3.7}
+		scale={{ x: 1.7, y: 1.7 }}
+	/>
+
+			<Container y={33} x={DESKTOP_BASE_SIZE * 4.6} scale={1}>
+			{@render props.amountBalance({ stacked: true })}
+		</Container>
+<Sprite	
+		key="betControl"
+		anchor={0.5}
+		y={70} x={DESKTOP_BASE_SIZE * 8.4}
+		scale={{ x: 1.7, y: 1.7 }}
+	/>
+		<Container y={33} x={DESKTOP_BASE_SIZE * 9.3} scale={1}>
+			{@render props.amountWin({ stacked: true })}
+		</Container>
+
+		
+
+		</Container>
+		<Container y={DESKTOP_BASE_SIZE * 0.7} x={DESKTOP_BASE_SIZE *2.3} scale={0.3}>
+			{@render props.buttonGameRules({ anchor: 0.5 })}
+		</Container>
+		<Container y={DESKTOP_BASE_SIZE * 0.25} x={DESKTOP_BASE_SIZE *2.3} scale={0.4}>
 			{@render props.buttonMenu({ anchor: 0.5 })}
 		</Container>
 
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonBuyBonus({ anchor: 0.5 })}
+		<Container y={DESKTOP_BASE_SIZE * 0.65} x={DESKTOP_BASE_SIZE * 11.05} scale={{ x: 0.8, y: 0.3 }}>
+			{@render props.buttonAutoSpin({ anchor: 0.5 })}
 		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
+		<Container 	y={DESKTOP_BASE_SIZE * 0.29} x={DESKTOP_BASE_SIZE * 11.05} scale={{ x: 0.8, y: 0.3}}>
+			{@render props.buttonTurbo({ anchor: 0.5 })}
+		</Container>
+		<Sprite	
+		key="betControl"
+		anchor={0.5}
+		y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 6.15}
+		scale={{ x: 2.3, y: 1.75 }}
+	/>
+	<Container y={DESKTOP_BASE_SIZE * 0.25} x={DESKTOP_BASE_SIZE * 7.38} scale={1}>
+			{@render props.amountBet({ stacked: true })}
+		</Container>
+		<Container>	
+			<Container
+			y={DESKTOP_BASE_SIZE * 0.45} x={DESKTOP_BASE_SIZE * 10}
+			scale={1.18}
+			width={DESKTOP_BASE_SIZE * 1.6}
 		>
 			{@render props.buttonBet({ anchor: 0.5 })}
 		</Container>
 
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 180}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonAutoSpin({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 180}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			{@render props.buttonTurbo({ anchor: 0.5 })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 270}
-		>
-			{@render props.amountBalance({ stacked: true })}
-		</Container>
-	</Container>
-
-	<Container y={Math.min(drawerTween.current, 350)}>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 670}
-		>
-			{@render props.amountWin({ stacked: true })}
-		</Container>
-	</Container>
-</MainContainer>
-
-<MainContainer standard alignVertical="bottom">
-	{#if stateUi.freeSpinCounterShow}
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 130}
-		>
-			<LabelFreeSpinCounter stacked />
-		</Container>
-	{:else}
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 130}
-		>
-			{@render props.amountBet({ stacked: true })}
-		</Container>
-
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 390}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 85}
-		>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={DESKTOP_BASE_SIZE * 5.265} scale={{ x: 0.5, y: 0.5 }}>
 			{@render props.buttonDecrease({ anchor: 0.5 })}
 		</Container>
 
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 390}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 85}
-		>
+		<Container y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 7.04} scale={0.5}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
-	{/if}
-
-	<!-- drawer button -->
-	<FadeContainer
-		persistent
-		show={stateUi.drawerButtonShow}
-		oncomplete={drawerButtonFadeComplete}
-		y={drawerButtonTween.current}
-	>
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 + 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 105}
-		>
-			<ButtonDrawer disabled={!stateUi.drawerButtonShow} anchor={0.5} />
 		</Container>
-	</FadeContainer>
+	</Container>
 </MainContainer>
 
-{#if stateUi.menuOpen}
-	<Rectangle
-		eventMode="static"
-		cursor="pointer"
-		alpha={0.5}
-		anchor={0.5}
-		backgroundColor={BLACK}
-		width={context.stateLayoutDerived.canvasSizes().width}
-		height={context.stateLayoutDerived.canvasSizes().height}
-		x={context.stateLayoutDerived.canvasSizes().width * 0.5}
-		y={context.stateLayoutDerived.canvasSizes().height * 0.5}
-		onpointerup={() => (stateUi.menuOpen = false)}
-	/>
 
-	<MainContainer standard alignVertical="bottom">
-		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5 - 440}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - 400}
-		>
-			<Container y={-190 - 210 * 3}>
-				{@render props.buttonPayTable({ anchor: 0.5 })}
-			</Container>
 
-			<Container y={-190 - 210 * 2}>
-				{@render props.buttonGameRules({ anchor: 0.5 })}
-			</Container>
+	
 
-			<Container y={-190 - 210 * 1}>
-				{@render props.buttonSettings({ anchor: 0.5 })}
-			</Container>
-
-			<Container y={-190}>
-				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
-			</Container>
-
-			<Container>
-				{@render props.buttonMenuClose({ anchor: 0.5 })}
-			</Container>
-		</Container>
-	</MainContainer>
-{/if}

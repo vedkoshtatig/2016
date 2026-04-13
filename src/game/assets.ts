@@ -233,22 +233,22 @@ export default {
 	
 	stopButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop-buttons_normal.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
 		preload: true,
 	},
 	stopButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop-buttons_down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
 		preload: true,
 	},
 	stopButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop-buttons_hover.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
 		preload: true,
 	},
 	stopButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_disabled.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
 		preload: true,
 	},
 	doubleBetbg: {
