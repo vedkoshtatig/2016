@@ -31,7 +31,7 @@
 		active?: boolean
 	): string | undefined => {
 		// ✅ guard invalid icons (fixes ".Button" error)
-		if (!icon || icon.trim() === '' || icon === '.') {
+		if (!icon || icon.trim() === '' ) {
 			return undefined;
 		}
 
