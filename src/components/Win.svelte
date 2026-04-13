@@ -96,7 +96,7 @@
 					</Container>
 				</MainContainer>
 
-				<WinCoins emit={!countUpCompleted} levelAlias={winLevelData?.alias} />
+				<!-- <WinCoins emit={!countUpCompleted} levelAlias={winLevelData?.alias} /> -->
 
 				<PressToContinue onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())} />
 			{/snippet}

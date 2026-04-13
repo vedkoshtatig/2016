@@ -11,7 +11,7 @@
 	);
 </script>
 
-{#if hasAnticipation}
+<!-- {#if hasAnticipation}
 	<OnMount
 		onmount={() => {
 			context.eventEmitter.broadcast({ type: 'soundLoop', name: 'sfx_anticipation' });
@@ -34,4 +34,6 @@
 	{#if reel.reelState.anticipating}
 		<Anticipation {reel} oncomplete={() => (reel.reelState.anticipating = false)} />
 	{/if}
-{/each}
+{/each} -->
+
+

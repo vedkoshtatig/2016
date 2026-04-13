@@ -58,7 +58,7 @@
 	});
 </script>
 
-<MainContainer>
+<!-- <MainContainer>
 	<FadeContainer {show} {...position} {scale}>
 		<Sprite key={panelKey} {...panelSizes} />
 		<Container
@@ -90,4 +90,4 @@
 			/>
 		</Container>
 	</FadeContainer>
-</MainContainer>
+</MainContainer> -->
