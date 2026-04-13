@@ -27,16 +27,16 @@
 
 <SpineProvider
 	key="anticipation"
-	width={SYMBOL_SIZE * 0.56}
+	width={SYMBOL_SIZE * 0.63}
 	x={context.stateGameDerived.boardLayout().x -
-		context.stateGameDerived.boardLayout().width * 0.5 +
-		(props.reel.reelIndex + REEL_PADDING) * SYMBOL_SIZE}
-	y={context.stateGameDerived.boardLayout().y - SYMBOL_SIZE * 0.06}
+		context.stateGameDerived.boardLayout().width * 0.653 +
+		(props.reel.reelIndex + REEL_PADDING) * SYMBOL_SIZE *1.3}
+	y={context.stateGameDerived.boardLayout().y - SYMBOL_SIZE +83}
 >
 	<SpineTrack
 		trackIndex={0}
 		{animationName}
-		loop={animationName === 'anticipation_loop'}
+		loop={true}
 		timeScale={stateBetDerived.timeScale()}
 		listener={{
 			complete: () => {

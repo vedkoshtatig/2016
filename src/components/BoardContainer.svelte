@@ -34,12 +34,12 @@
 	width={context.stateGameDerived.boardLayout().width * 1.12}
 	height={context.stateGameDerived.boardLayout().height * 1.12}
 	scale={{ x: 0.73, y: 0.8 }}
-	zIndex={10} 
+	zIndex={-10} 
 />
 <SpineProvider
 	key="logo"
 	x={context.stateGameDerived.boardLayout().x}
-	y={context.stateGameDerived.boardLayout().y / 8}
+	y={100}
 	width={context.stateGameDerived.boardLayout().width / 2.5}
 	height={context.stateGameDerived.boardLayout().height / 9}
 	zIndex={20} 

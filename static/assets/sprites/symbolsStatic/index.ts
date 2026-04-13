@@ -1,6 +1,6 @@
 import { createAsset } from 'pixi-svelte';
 
-import img from './symbolsStatic.webp';
-import atlas from './symbolsStatic.json';
+import img from './spritesheet.png';
+import atlas from './spritesheet.json';
 
 export default createAsset({ img, atlas });

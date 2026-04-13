@@ -45,7 +45,7 @@ const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContext> = {
 	reveal: async (bookEvent: BookEventOfType<'reveal'>, { bookEvents }: BookEventContext) => {
 
-  const USE_MOCK = true; // 🔥 toggle ON/OFF anytime
+  const USE_MOCK = false; // 🔥 toggle ON/OFF anytime
 
   if (USE_MOCK) {
     const MOCK_SPIN_BOARD = [

@@ -132,7 +132,7 @@ export const PORTRAIT_MAIN_SIZES = {
 	height: PORTRAIT_HEIGHT,
 };
 
-export const HIGH_SYMBOLS = ['H1', 'H2', 'H3', 'H4', 'H5'];
+export const HIGH_SYMBOLS = ['H1', 'H2', 'H3', 'H4'];
 
 export const INITIAL_SYMBOL_STATE: SymbolState = 'static';
 
@@ -185,33 +185,34 @@ const explosion = {
 	sizeRatios: { width: 1, height: 1 },
 };
 
-const h1Static = { type: 'sprite', assetKey: 'h1.webp', sizeRatios: { width: 1, height: 1 } };
-const h2Static = { type: 'sprite', assetKey: 'h2.webp', sizeRatios: { width: 1, height: 1 } };
-const h3Static = { type: 'sprite', assetKey: 'h3.webp', sizeRatios: { width: 1, height: 1 } };
-const h4Static = { type: 'sprite', assetKey: 'h4.webp', sizeRatios: { width: 1, height: 1 } };
-const h5Static = { type: 'sprite', assetKey: 'h5.webp', sizeRatios: { width: 1, height: 1 } };
+const h1Static = { type: 'sprite', assetKey: 'h1', sizeRatios: { width: 1, height: 1 } };
+const h2Static = { type: 'sprite', assetKey: 'h2', sizeRatios: { width: 1, height: 1 } };
+const h3Static = { type: 'sprite', assetKey: 'h3', sizeRatios: { width: 1, height: 1 } };
+const h4Static = { type: 'sprite', assetKey: 'h4', sizeRatios: { width: 1, height: 1 } };
 
-const l1Static = { type: 'sprite', assetKey: 'l1.webp', sizeRatios: { width: 1, height: 1 } };
-const l2Static = { type: 'sprite', assetKey: 'l2.webp', sizeRatios: { width: 1, height: 1 } };
-const l3Static = { type: 'sprite', assetKey: 'l3.webp', sizeRatios: { width: 1, height: 1 } };
-const l4Static = { type: 'sprite', assetKey: 'l4.webp', sizeRatios: { width: 1, height: 1 } };
+const l1Static = { type: 'sprite', assetKey: 'l1', sizeRatios: { width: 1, height: 1 } };
+const l2Static = { type: 'sprite', assetKey: 'l2', sizeRatios: { width: 1, height: 1 } };
+const l3Static = { type: 'sprite', assetKey: 'l3', sizeRatios: { width: 1, height: 1 } };
+const l4Static = { type: 'sprite', assetKey: 'l4', sizeRatios: { width: 1, height: 1 } };
+const l5Static = { type: 'sprite', assetKey: 'l5', sizeRatios: { width: 1, height: 1 } };
+const l6Static = { type: 'sprite', assetKey: 'l6', sizeRatios: { width: 1, height: 1 } };
 
-const sStatic = { type: 'sprite', assetKey: 's.png', sizeRatios: { width: 1.243, height: 1.243 } };
-const wStatic = { type: 'sprite', assetKey: 'w.png', sizeRatios: { width: 1.12, height: 1.12 } };
+const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1.243, height: 1.243 } };
+const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1.12, height: 1.12 } };
 
 const m2Static = {
 	type: 'sprite',
-	assetKey: 'm1_2x.png',
+	assetKey: 'w',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
 const m4Static = {
 	type: 'sprite',
-	assetKey: 'm1_4x.png',
+	assetKey: 'w',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
-const m5Static = { type: 'sprite', assetKey: 'm2_5x.png', sizeRatios: { width: 1, height: 1 } };
-const m7Static = { type: 'sprite', assetKey: 'm2_7x.png', sizeRatios: { width: 1, height: 1 } };
-const m10Static = { type: 'sprite', assetKey: 'm3_10x.png', sizeRatios: { width: 1, height: 1 } };
+const m5Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
+const m7Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
+const m10Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
 
 const wSizeRatios = { width: 1.5 * 0.9, height: SPECIAL_SYMBOL_SIZE * 1.15 };
 const sSizeRatios = { width: 2.5, height: SPECIAL_SYMBOL_SIZE * 2.3 };
@@ -307,13 +308,20 @@ const backgroundHigh = {
 	},
 };
 
+// explosion
+// landing
+// post_win_static
+// spin
+// static
+// win
+
 export const SYMBOL_INFO_MAP = {
 	H1: {
 		explosion,
 		win: {
 			type: 'spine',
 			assetKey: 'H1',
-			animationName: 'h1',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: HIGH_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: h1Static,
@@ -326,7 +334,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'H2',
-			animationName: 'h2',
+			animationName: 'win',
 			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: h2Static,
@@ -339,7 +347,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'H3',
-			animationName: 'h3',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: HIGH_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: h3Static,
@@ -352,7 +360,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'H4',
-			animationName: 'h4',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: HIGH_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: h4Static,
@@ -360,25 +368,12 @@ export const SYMBOL_INFO_MAP = {
 		spin: h4Static,
 		land: h4Static,
 	},
-	H5: {
-		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H5',
-			animationName: 'h5',
-			sizeRatios: { width: 0.5 , height: HIGH_SYMBOL_SIZE * 0.57 },
-		},
-		postWinStatic: h5Static,
-		static: h5Static,
-		spin: h5Static,
-		land: h5Static,
-	},
 	L1: {
 		explosion,
 		win: {
 			type: 'spine',
 			assetKey: 'L1',
-			animationName: 'l1',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: l1Static,
@@ -391,7 +386,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'L2',
-			animationName: 'l2',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57},
 		},
 		postWinStatic: l2Static,
@@ -404,7 +399,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'L3',
-			animationName: 'l3',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57 },
 		},
 		postWinStatic: l3Static,
@@ -417,13 +412,39 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'L4',
-			animationName: 'l4',
+			animationName: 'win',
 			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57},
 		},
 		postWinStatic: l4Static,
 		static: l4Static,
 		spin: l4Static,
 		land: l4Static,
+	},
+	L5: {
+		explosion,
+		win: {
+			type: 'spine',
+			assetKey: 'L5',
+			animationName: 'win',
+			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57},
+		},
+		postWinStatic: l5Static,
+		static: l5Static,
+		spin: l5Static,
+		land: l5Static,
+	},
+	L6: {
+		explosion,
+		win: {
+			type: 'spine',
+			assetKey: 'L6',
+			animationName: 'win',
+			sizeRatios: { width: 0.5 , height: LOW_SYMBOL_SIZE * 0.57},
+		},
+		postWinStatic: l6Static,
+		static: l6Static,
+		spin: l6Static,
+		land: l6Static,
 	},
 	W: {
 		explosion,
