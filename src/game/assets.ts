@@ -405,17 +405,7 @@ export default {
 	},
 	stopButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop-buttons_disable.png', import.meta.url).href,
-		preload: true,
-	},
-	betControl: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/up_and_down_bg.png', import.meta.url).href,
-		preload: true,
-	},
-	lane: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/lane_1.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stop_disabled.png', import.meta.url).href,
 		preload: true,
 	},
 	// HIGH SYMBOLS (use hsymbols.atlas)
@@ -510,9 +500,9 @@ export default {
 	S: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols2/S.json', import.meta.url).href,
-			scale: 2,
+			atlas: new URL('../../assets/spines/symbols2/scatter.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/symbols2/scatter.json', import.meta.url).href,
+			scale: 0.5,
 		},
 	},
 	explosion: {

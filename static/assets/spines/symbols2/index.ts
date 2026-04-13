@@ -1,15 +1,33 @@
 import { createAsset } from 'pixi-svelte';
 
-import img from './symbols2.webp';
-import rawAtlas from './symbols2.atlas?raw';
-import M from './M.json';
-import S from './S.json';
+// ✅ Scatter
+import scatterImg from './scatter.png';
+import scatterAtlas from './scatter.atlas?raw';
+import scatterJson from './scatter.json';
+
+// ✅ Pokeball (⚠️ rename file to remove space!)
+import pokeImg from './poke_ball.png';
+import pokeAtlas from './poke_ball.atlas?raw';
+import pokeJson from './poke_ball.json';
 
 export default createAsset({
-	img,
-	rawAtlas,
+	// 🔥 Load textures also
+	textures: {
+		scatter: scatterImg,
+		pokeball: pokeImg,
+	},
+
+	// 🔥 Load spine animations
 	spines: {
-		M,
-		S,
+		S: {
+			atlas: scatterAtlas,
+			skeleton: scatterJson,
+			scale: 2,
+		},
+		M: {
+			atlas: pokeAtlas,
+			skeleton: pokeJson,
+			scale: 2,
+		},
 	},
 });
