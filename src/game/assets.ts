@@ -276,6 +276,16 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buy_super_free_spin_down_button.png', import.meta.url).href,
 		preload: true,
 	},
+	lane: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/lane_1.png', import.meta.url).href,
+		preload: true,
+	},
+	betControl: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/up_and_down_bg.png', import.meta.url).href,
+		preload: true,
+	},
 	
 	// HIGH SYMBOLS (use hsymbols.atlas)
 	H1: {
