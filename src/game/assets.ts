@@ -65,7 +65,7 @@ export default {
 	},
 	spinButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spin buttons_disable', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spin_disable.png', import.meta.url).href,
 		preload: true,
 	},
 
@@ -215,6 +215,11 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_normal.png', import.meta.url).href,
 		preload: true,
 	},
+	betDoubleButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_normal.png', import.meta.url).href,
+		preload: true,
+	},
 	betDoubleButton_hover: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_hover.png', import.meta.url).href,
@@ -237,6 +242,11 @@ export default {
 		preload: true,
 	},
 	buyFreeSpinButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buy_free_spin_normal_button.png', import.meta.url).href,
+		preload: true,
+	},
+	buyFreeSpinButton: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buy_free_spin_normal_button.png', import.meta.url).href,
 		preload: true,

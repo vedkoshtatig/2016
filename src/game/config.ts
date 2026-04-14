@@ -1,7 +1,7 @@
 export default {
 	providerName: 'sample_provider',
 	gameName: 'sample_scatter',
-	gameID: '0_0_scatter',
+	gameID: '2016 Game',
 	rtp: 0.97,
 	numReels: 6,
 	numRows: [5, 5, 5, 5, 5, 5],

@@ -1,0 +1,53 @@
+{
+"skeleton": {
+	"hash": "KeAFqFUxy14",
+	"spine": "4.1.20",
+	"x": -653,
+	"y": -478,
+	"width": 1306,
+	"height": 956,
+	"images": "./images/",
+	"audio": "E:/MoonGlade/2016 Musium/all final files 6-4-2026/All spine files/reel_and_logo/spine"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "main", "parent": "root" }
+],
+"slots": [
+	{ "name": "2016_reel", "bone": "main", "attachment": "2016_reel" },
+	{ "name": "2016_logo", "bone": "main", "attachment": "2016_logo" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"2016_logo": {
+				"2016_logo": { "x": -1.5, "y": 391.5, "width": 591, "height": 173 }
+			},
+			"2016_reel": {
+				"2016_reel": { "y": -4, "width": 1306, "height": 948 }
+			}
+		}
+	}
+],
+"animations": {
+	"logo": {
+		"slots": {
+			"2016_reel": {
+				"rgba": [
+					{ "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"reel": {
+		"slots": {
+			"2016_logo": {
+				"rgba": [
+					{ "color": "ffffff00" }
+				]
+			}
+		}
+	}
+}
+}

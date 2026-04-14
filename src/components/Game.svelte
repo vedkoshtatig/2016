@@ -30,6 +30,7 @@
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
+	import BuyBoards from './BuyBoards.svelte';
 	// import Transition from './Transition.svelte';
 	import I18nTest from './I18nTest.svelte';
 	import LayoutDesktop from './LayoutDesktop.svelte';
@@ -67,6 +68,7 @@
 
 		<MainContainer>
 			<BoardFrame />
+			<BuyBoards/>
 		</MainContainer>
 
 		<MainContainer>
