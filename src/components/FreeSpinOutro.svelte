@@ -60,7 +60,7 @@
 								anchor={{ x: 0.5, y: 1.2 }}
 								width={500 * 2.2}
 								height={156 * 2.2}
-								key="freespins_{stateUrlDerived.lang()}.png"
+								key="freeSpinPopup"
 							/>
 						{:else}
 							<Sprite

@@ -52,8 +52,8 @@
 		<UiSprite
 			assetKey={
 				state === 'default'
-					? 'buyBonusButton'
-					: `buyBonusButton_${state}`
+					? 'buyFreeSpinButton'
+					: `buyFreeSpinButton_${state}`
 			}
 			{...center}
 			anchor={0.5}

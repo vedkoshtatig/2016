@@ -28,7 +28,7 @@
 			context.stateGameDerived.boardLayout().x -
 			context.stateGameDerived.boardLayout().width * 0.5 -
 			panelSizes.width -
-			SYMBOL_SIZE * 0.7,
+			SYMBOL_SIZE * 1.6,
 		y:
 			context.stateGameDerived.boardLayout().y -
 			context.stateGameDerived.boardLayout().height * 0.5,
@@ -58,9 +58,9 @@
 	});
 </script>
 
-<!-- <MainContainer>
+<MainContainer>
 	<FadeContainer {show} {...position} {scale}>
-		<Sprite key={panelKey} {...panelSizes} />
+		<Sprite key="freeSpinCounter" {...panelSizes} />
 		<Container
 			x={panelSizes.width * 0.5}
 			y={panelSizes.height * 0.48}
@@ -90,4 +90,4 @@
 			/>
 		</Container>
 	</FadeContainer>
-</MainContainer> -->
+</MainContainer>

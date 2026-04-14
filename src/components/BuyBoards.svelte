@@ -3,6 +3,7 @@
 	import { getContext } from '../game/context';
 	import ButtonBuy from './ButtonBuy.svelte';
 	import BuyDoubleBet from './BuyDoubleBet.svelte';
+	import ButtonBuyBonus from './ButtonBuyBonus.svelte';
 
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
@@ -34,7 +35,8 @@
 			zIndex={-10}
 		/>
 		<Container x={0} y={-40}>
-			<ButtonBuy x={0} y={0} scale={{ x: 0.83, y: 0.43 }} anchor={0.5} />
+			<!-- <ButtonBuy  /> -->
+			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5}/>
 
 			<Text
 				text="BUY"
@@ -49,7 +51,7 @@
 			/>
 		</Container>
 		<Container x={0} y={40}>
-			<ButtonBuy x={0} y={0} scale={{ x: 0.83, y: 0.43 }} anchor={0.5} />
+			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 
 			<Text
 				text="BUY"
@@ -76,7 +78,7 @@
 			zIndex={-10}
 		/>
         <Container x={0} y={148}>
-			<BuyDoubleBet x={0} y={0} scale={{ x: 0.83, y: 0.42 }} anchor={0.5} />
+			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.73 }} anchor={0.5} />
 
 			<Text
 				text="Double"
@@ -91,4 +93,21 @@
 			/>
 		</Container>
 	</Container>
+    <Container
+    x={layout.x /1.98}
+	y={layout.y*1.63}
+	height={layout.height}
+	scale={scaleFactor}
+	pivot={layout.pivot}>
+        	<Sprite
+			key="Leaderboard"
+			anchor={0.5}
+			x={0}
+			y={0}
+			width={layout.width * 1.2}
+			height={layout.height * 1.1}
+			scale={{ x: 0.22, y: 0.21 }}
+			zIndex={-10}
+		/>
+    </Container>
 </Container>

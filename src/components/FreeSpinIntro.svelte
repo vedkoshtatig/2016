@@ -48,10 +48,10 @@
 				anchor={{ x: 0.5, y: 1.2 }}
 				width={500 * 2.2}
 				height={156 * 2.2}
-				key="freespins_{stateUrlDerived.lang()}.png"
+				key="freeSpinPopup"
 			/>
 
-			<SpineProvider key="fsIntroNumber" width={sizes.width * 0.4}>
+			<!-- <SpineProvider key="fsIntroNumber" width={sizes.width * 0.4}>
 				<SpineTrack
 					trackIndex={0}
 					{animationName}
@@ -71,7 +71,7 @@
 						}}
 					/>
 				</SpineSlot>
-			</SpineProvider>
+			</SpineProvider> -->
 
 			<Sprite anchor={{ x: 0.5, y: -3 }} width={183 * 2.2} height={42 * 2.2} key="freespins.png" />
 		{/snippet}

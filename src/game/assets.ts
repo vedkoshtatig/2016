@@ -43,6 +43,22 @@ export default {
 		preload: true,
 	},
 	///Added
+	Leaderboard: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stand_with_board.png', import.meta.url).href,
+		preload: true,
+	},
+	freeSpinPopup: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/board_popup.png', import.meta.url).href,
+		preload: true,
+	},
+	freeSpinCounter: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/freespin_meter.png', import.meta.url).href,
+		preload: true,
+	},
+	
 	spinButton: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spin buttons_normal.png', import.meta.url).href,

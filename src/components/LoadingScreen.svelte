@@ -2,10 +2,13 @@
 	import { SpineProvider, SpineTrack, Container, Sprite } from 'pixi-svelte';
 	import { FadeContainer, LoadingProgress } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
-
+	import gsap from 'gsap';
 	import { getContext } from '../game/context';
 	import PressToContinue from './PressToContinue.svelte';
+	import { onMount, onDestroy } from 'svelte';
 
+	let spinRef: any;
+	let pulseTween: gsap.core.Tween;
 	type Props = {
 		onloaded: () => void;
 	};
@@ -16,6 +19,7 @@
 	let loadingType = $state<'start'>('start'); // ✅ only start
 	let isChecked = $state(false);
 	let isHover = $state(false);
+
 </script>
 
 <!-- logo and loading progress -->
@@ -27,7 +31,7 @@
 		>
 			<SpineProvider
 				key="intro"
-				x={-context.stateGameDerived.boardLayout().x /4}
+				x={-context.stateGameDerived.boardLayout().x / 4}
 				y={-context.stateGameDerived.boardLayout().y / 10}
 				scale={{ x: 0.37, y: 0.37 }}
 			>
@@ -83,18 +87,19 @@
 			scale={0.7}
 		>
 			<Sprite
-	key={isHover ? "spinButton_hover" : "spinButton"}
-	anchor={0.5}
-	eventMode="static"
-	cursor="pointer"
-	onpointerenter={() => (isHover = true)}
-	onpointerleave={() => (isHover = false)}
-	onpointerdown={(e) => e.currentTarget.scale.set(0.9)}
-	onpointerup={(e) => e.currentTarget.scale.set(1)}
-	onpointertap={() => {
-		props.onloaded();
-	}}
-/>
+				key={isHover ? 'spinButton_hover' : 'spinButton'}
+				
+				anchor={0.5}
+				eventMode="static"
+				cursor="pointer"
+				onpointerenter={() => (isHover = true)}
+				onpointerleave={() => (isHover = false)}
+				onpointerdown={(e) => e.currentTarget.scale.set(0.9)}
+				onpointerup={(e) => e.currentTarget.scale.set(1)}
+				onpointertap={() => {
+					props.onloaded();
+				}}
+			/>
 		</Container>
 	</MainContainer>
 </FadeContainer>

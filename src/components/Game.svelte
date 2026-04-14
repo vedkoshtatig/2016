@@ -37,7 +37,9 @@
 	import UIDefault from './UIDefault.svelte';
 
 	const context = getContext();
-
+const showBuyBoards = $derived(
+	context.stateGame.gameType === 'basegame'
+);
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
 	context.eventEmitter.subscribeOnMount({
@@ -68,7 +70,9 @@
 
 		<MainContainer>
 			<BoardFrame />
-			<BuyBoards/>
+			{#if showBuyBoards}
+	<BuyBoards />
+{/if}
 		</MainContainer>
 
 		<MainContainer>
