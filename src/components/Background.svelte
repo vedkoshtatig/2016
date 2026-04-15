@@ -10,7 +10,8 @@
 		context.stateLayoutDerived.normalBackgroundLayout({ scale: 0.5 }),
 	);
 	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame');
-	const showFeatureBackground = $derived(context.stateGame.gameType === 'freeSpins');
+	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame');
+
 </script>
 
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
@@ -39,6 +40,6 @@
 	width={context.stateGameDerived.boardLayout().width * 1.12}
 	height={context.stateGameDerived.boardLayout().height * 1.12}
 	scale={{ x: 0.73, y: 0.8 }}
-	zIndex={-10} 
+	
 />
 </FadeContainer>
