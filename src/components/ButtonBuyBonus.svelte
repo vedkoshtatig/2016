@@ -18,7 +18,7 @@
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
-
+eventEmitter.broadcast({ type: 'buyBonusConfirm' });
 		if (active) {
 			disableActiveBetMode();
 		} else {

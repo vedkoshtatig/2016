@@ -11,9 +11,12 @@
 
 	import { getContext } from '../game/context';
 	import { SYMBOL_SIZE } from '../game/constants';
+const context = getContext();
 	import { anchorToPivot, BitmapText, Container, Sprite, type Sizes } from 'pixi-svelte';
+const showBuyBoards = $derived(
+	context.stateGame.gameType !== 'basegame'
+);
 
-	const context = getContext();
 	const PANEL_KEY_DESKTOP = 'Frame_FSCounter.png';
 	const PANEL_RATIO_DESKTOP = 824 / 622;
 	const panelKey = PANEL_KEY_DESKTOP;
@@ -57,8 +60,8 @@
 		},
 	});
 </script>
-
-<MainContainer>
+	{#if showBuyBoards}
+	<MainContainer>
 	<FadeContainer {show} {...position} {scale}>
 		<Sprite key="freeSpinCounter" {...panelSizes} />
 		<Container
@@ -91,3 +94,5 @@
 		</Container>
 	</FadeContainer>
 </MainContainer>
+
+{/if}
