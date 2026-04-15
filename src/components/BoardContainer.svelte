@@ -41,7 +41,7 @@ const reelTopY = layout.y - 45;
 <SpineProvider
 	key="logo"
 	x={context.stateGameDerived.boardLayout().x}
-	y={100}
+	y={50}
 	width={context.stateGameDerived.boardLayout().width / 2.5}
 	height={context.stateGameDerived.boardLayout().height / 9}
 	zIndex={20}

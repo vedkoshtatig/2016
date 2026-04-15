@@ -84,7 +84,7 @@
 		<Container
 			x={context.stateLayoutDerived.mainLayout().width / 1.2}
 			y={context.stateLayoutDerived.mainLayout().height / 2}
-			scale={0.7}
+			scale={1.5}
 		>
 			<Sprite
 				key={isHover ? 'spinButton_hover' : 'spinButton'}

@@ -25,5 +25,5 @@
 </script>
 
 <Container eventMode="static" cursor={disabled ? 'not-allowed' : 'pointer'} onpointerup={onpress}>
-	<UiLabel tiled {label} {value} stacked={props.stacked} borderRadius={65} />
+	<UiLabel tiled {label} {value} stacked={props.stacked} borderRadius={65} labelColor={"#FFD103"} />
 </Container>
