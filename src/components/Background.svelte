@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Rectangle, SpineProvider, SpineTrack } from 'pixi-svelte';
+	import { Rectangle, SpineProvider, SpineTrack ,Sprite} from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { SECOND } from 'constants-shared/time';
 
@@ -25,10 +25,20 @@
 </FadeContainer>
 
 <FadeContainer show={showFeatureBackground} duration={SECOND} zIndex={-1}>
-	<SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
+	<!-- <SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'idle'} loop />
 	</SpineProvider>
 	<SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'dust'} loop />
-	</SpineProvider>
+	</SpineProvider> -->
+	<Sprite
+	key="freeSpinBg"
+	anchor={0.5}
+	x={context.stateGameDerived.boardLayout().x}
+	y={context.stateGameDerived.boardLayout().y - 45}
+	width={context.stateGameDerived.boardLayout().width * 1.12}
+	height={context.stateGameDerived.boardLayout().height * 1.12}
+	scale={{ x: 0.73, y: 0.8 }}
+	zIndex={-10} 
+/>
 </FadeContainer>

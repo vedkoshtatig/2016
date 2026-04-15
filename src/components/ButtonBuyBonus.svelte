@@ -25,6 +25,12 @@
 			openModal();
 		}
 	};
+	// onclick={() => {
+	// 					stateBonus.selectedBetModeKey = betModeData.mode;
+	// 					console.log(betModeData.mode);
+	// 					eventEmitter.broadcast({ type: 'buyBonusConfirm' });
+	// 					eventEmitter.broadcast({ type: 'soundPressGeneral' });
+	// 				}}
 
 	const getState = (value: {
 		active: boolean;
