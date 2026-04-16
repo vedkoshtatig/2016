@@ -55,7 +55,7 @@ const showBuyBoards = $derived(
 	<EnableHotkey />
 	<EnableGameActor />
 	<EnablePixiExtension />
-	<BonusPopup />
+	
 	<Background />
 
 	{#if context.stateLayout.showLoadingScreen}
@@ -81,12 +81,14 @@ const showBuyBoards = $derived(
 			<Anticipations />
 			<TumbleWinAmount />
 			<GlobalMultiplier />
+			
 		</MainContainer>
 
 		<MainContainer>
 			<TumbleBoard />
 			<!-- <TumbleAnticipations /> -->
 			<ClusterWinAmounts />
+			<BonusPopup />
 		</MainContainer>
 
 		<MainContainer>

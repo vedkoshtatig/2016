@@ -21,8 +21,8 @@ const context = getContext();
 
 {#if visible}
 
-	<Container zIndex={9999} interactive={true} onclick={close} x={context.stateLayoutDerived.mainLayout().width * 0.5}
-			y={context.stateLayoutDerived.mainLayout().height * 0.5}>
+	<Container zIndex={9999} interactive={true} onclick={close} x={context.stateLayoutDerived.mainLayout().width * 0.358}
+			y={context.stateLayoutDerived.mainLayout().height * 0.35} scale={0.8}>
 		
 		
 		<!-- 📦 POPUP BOX -->
@@ -31,8 +31,7 @@ const context = getContext();
 				anchor={{ x: 0.5, y: 0.5 }}
 				x={context.stateLayoutDerived.mainLayout().x/3.8}
 				y={context.stateLayoutDerived.mainLayout().y/4}
-				width={context.stateLayoutDerived.mainLayout().width/2.1}
-				height={context.stateLayoutDerived.mainLayout().height/1.8}
+					scale={{ x: 0.6, y: 0.55 }}
 				key="freeSpinPopup"
 			/>
 			 <Sprite
