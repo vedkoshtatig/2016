@@ -35,6 +35,7 @@
 	import I18nTest from './I18nTest.svelte';
 	import LayoutDesktop from './LayoutDesktop.svelte';
 	import UIDefault from './UIDefault.svelte';
+	import BonusPopup from './BonusPopup.svelte'
 
 	const context = getContext();
 const showBuyBoards = $derived(
@@ -54,7 +55,7 @@ const showBuyBoards = $derived(
 	<EnableHotkey />
 	<EnableGameActor />
 	<EnablePixiExtension />
-
+	<BonusPopup />
 	<Background />
 
 	{#if context.stateLayout.showLoadingScreen}

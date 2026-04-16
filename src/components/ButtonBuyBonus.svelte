@@ -13,16 +13,16 @@
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 	const disabled = $derived(!stateXstateDerived.isIdle());
 	const active = $derived(stateBetDerived.activeBetMode()?.type === 'activate');
-
+	
 	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
-eventEmitter.broadcast({ type: 'buyBonusConfirm' });
+		eventEmitter.broadcast({type:'openPopUp'} as any)
 		if (active) {
 			disableActiveBetMode();
 		} else {
-			openModal();
+			
 		}
 	};
 	// onclick={() => {
