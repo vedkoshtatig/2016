@@ -35,11 +35,11 @@
 	<Sprite
 	key="freeSpinBg"
 	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x}
+	x={context.stateGameDerived.boardLayout().x+150}
 	y={context.stateGameDerived.boardLayout().y - 45}
 	width={context.stateGameDerived.boardLayout().width * 1.12}
 	height={context.stateGameDerived.boardLayout().height * 1.12}
-	scale={{ x: 0.73, y: 0.8 }}
+	scale={{ x: 1, y: 1 }}
 	
 />
 </FadeContainer>
