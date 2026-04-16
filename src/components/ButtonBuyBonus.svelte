@@ -18,11 +18,12 @@
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
-		eventEmitter.broadcast({type:'openPopUp'} as any)
+		
 		if (active) {
 			disableActiveBetMode();
 		} else {
-			
+			//openModal()
+			eventEmitter.broadcast({type:'openPopUp'} as any)
 		}
 	};
 	// onclick={() => {

@@ -22,6 +22,14 @@ export default {
 			max_win: 5000.0,
 			description: 'by bonus 1',
 		},
+		superbonus: {
+			cost: 200,
+			feature: false,
+			buyBonus: true,
+			rtp: 0.97,
+			max_win: 5000.0,
+			description: 'by bonus 1',
+		},
 	},
 	symbols: {
 		H4: {

@@ -73,10 +73,32 @@ export const getSymbolInfo = ({
 	rawSymbol: RawSymbol;
 	state: SymbolState;
 }) => {
-	const symbolKey = getSymbolKey({ rawSymbol });
-	return SYMBOL_INFO_MAP[symbolKey][state];
-};
+	//console.log(rawSymbol, state);
 
+	const symbolKey = getSymbolKey({ rawSymbol });
+
+	const symbolInfo = SYMBOL_INFO_MAP[symbolKey];
+
+	// 1. direct match
+	if (symbolInfo?.[state]) {
+		return symbolInfo[state];
+	}
+
+	// 2. fallback for multiplier symbols (M_25 etc.)
+	if (rawSymbol.name === 'M') {
+		const fallback = SYMBOL_INFO_MAP.M_10; // default safe fallback
+
+		if (fallback?.[state]) {
+			return fallback[state];
+		}
+	}
+
+	// 3. final safety fallback (avoid crash completely)
+	const defaultSymbol =
+		SYMBOL_INFO_MAP.L1 ?? Object.values(SYMBOL_INFO_MAP)[0];
+
+	return defaultSymbol?.[state] ?? null;
+};
 export const getSymbolBackgroundInfo = ({
 	rawSymbol,
 	state,
@@ -86,8 +108,56 @@ export const getSymbolBackgroundInfo = ({
 }) => {
 	if (rawSymbol.name === 'M') {
 		const symbolKey = getSymbolKey({ rawSymbol }) as keyof typeof MULTIPLIER_BACKGROUND_INFO_MAP;
-		return MULTIPLIER_BACKGROUND_INFO_MAP[symbolKey][state];
+
+		// 1. try direct match
+		const direct = MULTIPLIER_BACKGROUND_INFO_MAP[symbolKey];
+		if (direct?.[state]) {
+			return direct[state];
+		}
+
+		// 2. fallback: normalize multiplier buckets
+		const multiplier = rawSymbol.multiplier;
+
+		let fallbackKey: keyof typeof MULTIPLIER_BACKGROUND_INFO_MAP = 'M_10';
+
+		if (multiplier <= 2) fallbackKey = 'M_2';
+		else if (multiplier <= 4) fallbackKey = 'M_4';
+		else if (multiplier <= 7) fallbackKey = 'M_7';
+		else fallbackKey = 'M_10';
+
+		const fallback = MULTIPLIER_BACKGROUND_INFO_MAP[fallbackKey];
+
+		return fallback?.[state] ?? null;
 	}
 
 	return null;
 };
+
+
+// export const getSymbolInfo = ({
+// 	rawSymbol,
+// 	state,
+// }: {
+// 	rawSymbol: RawSymbol;
+// 	state: SymbolState;
+// }) => {
+// 	console.log(rawSymbol,state)
+// 	const symbolKey = getSymbolKey({ rawSymbol });
+// 	return SYMBOL_INFO_MAP[symbolKey][state];
+// };
+
+// export const getSymbolBackgroundInfo = ({
+// 	rawSymbol,
+// 	state,
+// }: {
+// 	rawSymbol: RawSymbol;
+// 	state: SymbolState;
+// }) => {
+// 	if (rawSymbol.name === 'M') {
+// 		const symbolKey = getSymbolKey({ rawSymbol }) as keyof typeof MULTIPLIER_BACKGROUND_INFO_MAP;
+// 		return MULTIPLIER_BACKGROUND_INFO_MAP[symbolKey][state];
+// 	}
+
+// 	return null;
+// };
+

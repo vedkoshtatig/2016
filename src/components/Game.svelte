@@ -35,12 +35,18 @@
 	import I18nTest from './I18nTest.svelte';
 	import LayoutDesktop from './LayoutDesktop.svelte';
 	import UIDefault from './UIDefault.svelte';
-	import BonusPopup from './BonusPopup.svelte'
+	import BonusPopup from './BonusPopup.svelte';
+	import { stateMeta } from 'state-shared';
+	import { EXTENDED_BET_MODE_META } from '../game/betMode';
 
+	stateMeta.betModeMeta = {
+		...stateMeta.betModeMeta,
+		...EXTENDED_BET_MODE_META,
+	};
+
+	console.log(stateMeta.betModeMeta);
 	const context = getContext();
-const showBuyBoards = $derived(
-	context.stateGame.gameType === 'basegame'
-);
+	const showBuyBoards = $derived(context.stateGame.gameType === 'basegame');
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
 	context.eventEmitter.subscribeOnMount({
@@ -55,7 +61,7 @@ const showBuyBoards = $derived(
 	<EnableHotkey />
 	<EnableGameActor />
 	<EnablePixiExtension />
-	
+
 	<Background />
 
 	{#if context.stateLayout.showLoadingScreen}
@@ -72,8 +78,8 @@ const showBuyBoards = $derived(
 		<MainContainer>
 			<BoardFrame />
 			{#if showBuyBoards}
-	<BuyBoards />
-{/if}
+				<BuyBoards />
+			{/if}
 		</MainContainer>
 
 		<MainContainer>
@@ -81,7 +87,6 @@ const showBuyBoards = $derived(
 			<Anticipations />
 			<TumbleWinAmount />
 			<GlobalMultiplier />
-			
 		</MainContainer>
 
 		<MainContainer>
@@ -114,7 +119,7 @@ const showBuyBoards = $derived(
 				/> -->
 			{/snippet}
 		</UIDefault>
-		
+
 		<Win />
 		<FreeSpinIntro />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}

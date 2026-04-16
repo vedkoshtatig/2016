@@ -4,7 +4,7 @@
     import ButtonBuy from './ButtonBuy.svelte';
     import BuyDoubleBet from './BuyDoubleBet.svelte';
     import ButtonBuyBonus from './ButtonBuyBonus.svelte';
-
+    import { stateBet } from 'state-shared';
     const context = getContext();
     const layout = context.stateGameDerived.boardLayout();
 
@@ -34,7 +34,9 @@
             scale={{ x: 0.7, y: 0.7 }}
             zIndex={-10}
         />
-        <Container x={0} y={-40}>
+        <Container x={0} y={-40}
+        interactive={true}
+         onclick={()=>{stateBet.activeBetModeKey='BONUS'}}>
             <!-- <ButtonBuy  /> -->
             <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5}/>
 
@@ -75,7 +77,9 @@
                 }}
             />
         </Container>
-        <Container x={0} y={40}>
+        <Container x={0} y={40}
+        interactive={true}
+         onclick={()=>{stateBet.activeBetModeKey='superBonus'}}>
             <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 
             <Text
