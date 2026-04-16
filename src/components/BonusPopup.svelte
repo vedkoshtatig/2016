@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from '../game/context';
-	import { Container, Graphics, Text } from 'pixi-svelte';
+	import { Container, Graphics, Text , Sprite } from 'pixi-svelte';
 
 	const { eventEmitter } = getContext();
 
@@ -13,65 +13,68 @@
 			visible = true;
 		},
 	});
-
+const context = getContext();
 	const close = () => {
 		visible = false;
 	};
 </script>
 
 {#if visible}
-	<Container zIndex={9999} interactive={true} onclick={close}>
+
+	<Container zIndex={9999} interactive={true} onclick={close} x={context.stateLayoutDerived.mainLayout().width * 0.5}
+			y={context.stateLayoutDerived.mainLayout().height * 0.5}>
 		
-		<!-- 🔲 DARK BACKGROUND -->
-		<Graphics
-			draw={(g) => {
-				g.clear();
-				g.beginFill(0x000000, 0.7);
-				g.drawRect(0, 0, window.innerWidth, window.innerHeight);
-				g.endFill();
-			}}
-		/>
-
+		
 		<!-- 📦 POPUP BOX -->
-		<Container x={window.innerWidth / 2} y={window.innerHeight / 2}>
-			
-			<Graphics
-				draw={(g) => {
-					g.clear();
-					g.beginFill(0x1e1e1e);
-					g.drawRoundedRect(-200, -120, 400, 240, 20);
-					g.endFill();
-
-					g.lineStyle(4, 0xffffff);
-					g.drawRoundedRect(-200, -120, 400, 240, 20);
-				}}
+		<Container >
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateLayoutDerived.mainLayout().x/3.8}
+				y={context.stateLayoutDerived.mainLayout().y/4}
+				width={context.stateLayoutDerived.mainLayout().width/2.1}
+				height={context.stateLayoutDerived.mainLayout().height/1.8}
+				key="freeSpinPopup"
 			/>
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateLayoutDerived.mainLayout().x/2.35}
+				y={context.stateLayoutDerived.mainLayout().y/2}
+				scale={0.65}
+				key="yesButton"
+			/>
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateLayoutDerived.mainLayout().x/2.35}
+				y={context.stateLayoutDerived.mainLayout().y/2}
+				scale={0.8}
+				key="yesText"
+			/>
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateLayoutDerived.mainLayout().x/10}
+				y={context.stateLayoutDerived.mainLayout().y/2}
+				scale={0.65}
+				key="noButton"
+			/>
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+					x={context.stateLayoutDerived.mainLayout().x/10}
+				y={context.stateLayoutDerived.mainLayout().y/2}
+				scale={0.8}
+				key="noText"
+			/>
+			 <Sprite
+				anchor={{ x: 0.5, y: 0.5 }}
+				x={context.stateLayoutDerived.mainLayout().x/3.85}
+				y={context.stateLayoutDerived.mainLayout().y/8.5}
+				scale={0.55}
+				key="popupText"
+			/>
+			
+			
 
 			<!-- 📝 TEXT -->
-			<Text
-				text="FREE SPIN ACTIVATED 🎉"
-				anchor={0.5}
-				x={0}
-				y={-20}
-				style={{
-					fill: '#ffffff',
-					fontSize: 24,
-					fontWeight: 'bold',
-					align: 'center',
-				}}
-			/>
-
-			<Text
-				text="Click anywhere to close"
-				anchor={0.5}
-				x={0}
-				y={40}
-				style={{
-					fill: '#cccccc',
-					fontSize: 16,
-					align: 'center',
-				}}
-			/>
+			
 		</Container>
 	</Container>
 {/if}

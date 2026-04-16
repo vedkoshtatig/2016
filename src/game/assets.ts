@@ -48,6 +48,21 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/stand_with_board.png', import.meta.url).href,
 		preload: true,
 	},
+	yesText: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/yes_button.png', import.meta.url).href,
+		preload: true,
+	},
+	noText: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/no_button.png', import.meta.url).href,
+		preload: true,
+	},
+	popupText: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/free_spins.png', import.meta.url).href,
+		preload: true,
+	},
 	freeSpinPopup: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/board_popup.png', import.meta.url).href,
@@ -58,17 +73,17 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/freespin_meter.png', import.meta.url).href,
 		preload: true,
 	},
-	
-	spinButton: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
-		preload: true,
-	},
 	betPanelbg: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/ui_bg.png', import.meta.url).href,
 		preload: true,
 	},
+	spinButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
+		preload: true,
+	},
+	
 	spinButton_hover: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
@@ -84,6 +99,39 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url).href,
 		preload: true,
 	},
+	yesButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/yes_button_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	
+	yesButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/yes_button_over.png', import.meta.url).href,
+		preload: true,
+	},
+	yesButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/yes_button_press.png', import.meta.url).href,
+		preload: true,
+	},
+	noButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/no_button_normal.png', import.meta.url).href,
+		preload: true,
+	},
+	
+	noButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/no_button_over.png', import.meta.url).href,
+		preload: true,
+	},
+	noButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/no_button_press.png', import.meta.url).href,
+		preload: true,
+	},
+
 
 	freeSpinBg: {
 		type: 'sprite',
