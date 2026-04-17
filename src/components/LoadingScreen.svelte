@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { SpineProvider, SpineTrack, Container, Sprite } from 'pixi-svelte';
-	import { FadeContainer, LoadingProgress } from 'components-pixi';
+	import { FadeContainer } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
 	import gsap from 'gsap';
 	import { getContext } from '../game/context';
-	import PressToContinue from './PressToContinue.svelte';
-	import { onMount, onDestroy } from 'svelte';
+	import { onDestroy } from 'svelte';
 
-	let spinRef: any;
-	let pulseTween: gsap.core.Tween;
+	let pulseTween: gsap.core.Tween | undefined;
+	let spinPulse = $state({ scale: 1, alpha: 1 });
 	type Props = {
 		onloaded: () => void;
 	};
@@ -20,6 +19,34 @@
 	let isChecked = $state(false);
 	let isHover = $state(false);
 
+	const stopPulse = () => {
+		pulseTween?.kill();
+		pulseTween = undefined;
+		spinPulse.scale = 1;
+		spinPulse.alpha = 1;
+	};
+
+	const startPulse = () => {
+		stopPulse();
+		pulseTween = gsap.to(spinPulse, {
+			scale: 1.08,
+			alpha: 0.85,
+			duration: 0.45,
+			repeat: -1,
+			yoyo: true,
+			ease: 'sine.inOut',
+		});
+	};
+
+	$effect(() => {
+		const shouldPulse = loadingType === 'start' && context.stateApp.loaded;
+		if (!shouldPulse) return stopPulse();
+		startPulse();
+	});
+
+	onDestroy(() => {
+		stopPulse();
+	});
 </script>
 
 <!-- logo and loading progress -->
@@ -88,14 +115,16 @@
 		>
 			<Sprite
 				key={isHover ? 'spinButton_hover' : 'spinButton'}
-				
 				anchor={0.5}
+				scale={{
+					x: spinPulse.scale,
+					y: spinPulse.scale,
+				}}
+				alpha={spinPulse.alpha}
 				eventMode="static"
 				cursor="pointer"
 				onpointerenter={() => (isHover = true)}
 				onpointerleave={() => (isHover = false)}
-				onpointerdown={(e) => e.currentTarget.scale.set(0.9)}
-				onpointerup={(e) => e.currentTarget.scale.set(1)}
 				onpointertap={() => {
 					props.onloaded();
 				}}
