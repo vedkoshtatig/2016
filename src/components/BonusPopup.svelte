@@ -7,6 +7,8 @@
 	const context = getContext();
 
 	let visible = false;
+	const boardPopupX = 300;
+	const boardPopupY = 500;
 
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
@@ -44,11 +46,11 @@
 
 			<!-- BACKGROUND / PANEL -->
 			<Sprite
-				key="freeSpinPopup"
+				key="board_popup"
 				anchor={{ x: 0.5, y: 0.5 }}
-				x={context.stateLayoutDerived.mainLayout().x / 3.8}
-				y={context.stateLayoutDerived.mainLayout().y / 4}
-				scale={{ x: 0.6, y: 0.55 }}
+				scale={0.5}
+				x={boardPopupX}
+				y={boardPopupY}
 			/>
 
 			<!-- YES BUTTON (interactive container fix) -->

@@ -63,7 +63,7 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/free_spins.png', import.meta.url).href,
 		preload: true,
 	},
-	freeSpinPopup: {
+	board_popup: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/board_popup.png', import.meta.url).href,
 		preload: true,
@@ -553,26 +553,10 @@ export default {
 			scale: 2,
 		},
 	},
-	fsIntro: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/fsIntro/fs_screen.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-	fsIntroNumber: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/fsIntro/fs_screen_number.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
 	fsOutroNumber: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/fsIntro/fs_screen.atlas', import.meta.url).href,
+			atlas: new URL('../../assets/spines/fsIntro/board_popup.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/fsIntro/fs_total_number.json', import.meta.url).href,
 			scale: 2,
 		},

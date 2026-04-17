@@ -19,6 +19,8 @@
 	type AnimationName = 'intro' | 'idle';
 
 	const context = getContext();
+	const boardPopupX = 0;
+	const boardPopupY = 200;
 
 	let show = $state(false);
 	let animationName = $state<AnimationName>('intro');
@@ -46,9 +48,10 @@
 		{#snippet children({ sizes })}
 			<Sprite
 				anchor={{ x: 0.5, y: 1.2 }}
-				width={500 * 2.2}
-				height={156 * 2.2}
-				key="freeSpinPopup"
+				key="board_popup"
+				scale={0.5}
+				x={boardPopupX}
+				y={boardPopupY}
 			/>
 
 			<!-- <SpineProvider key="fsIntroNumber" width={sizes.width * 0.4}>
