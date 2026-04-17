@@ -40,7 +40,7 @@
 			},
 		}}
 	/>
-	<SpineSlot slotName="slot_win_count">
+	<!-- <SpineSlot slotName="slot_win_count">
 		{@render props.children()}
-	</SpineSlot>
+	</SpineSlot> -->
 </SpineProvider>
