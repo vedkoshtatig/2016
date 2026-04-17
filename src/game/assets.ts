@@ -539,8 +539,8 @@ export default {
 	bigwin: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/bigwin/big_wins.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/bigwin/mm_bigwin.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/bigwin/win_banners.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/bigwin/win_banners.json', import.meta.url).href,
 			scale: 2,
 		},
 	},
