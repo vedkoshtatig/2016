@@ -1,14 +1,11 @@
 <script lang="ts">
 	import { getContext } from '../game/context';
-	import { Container, Sprite } from 'pixi-svelte';
-	import { stateBet } from 'state-shared';
-	import { stateMeta } from 'state-shared';
-	const { eventEmitter } = getContext();
+	import { MainContainer } from 'components-layout';
+	import { Container, Rectangle, Sprite } from 'pixi-svelte';
 	const context = getContext();
+	const { eventEmitter } = context;
 
 	let visible = false;
-	const boardPopupX = 300;
-	const boardPopupY = 500;
 
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
@@ -21,88 +18,48 @@
 	};
 
 	const confirm = () => {
-		
 		eventEmitter.broadcast({ type: 'bet' });
-		console.log(stateMeta.betModeMeta)
 		visible = false;
 	};
 </script>
 
 {#if visible}
 
-	<!-- FULL SCREEN WRAPPER -->
-	<Container
-		zIndex={9999}
-		interactive={true}
-		onclick={close}
-	>
+	<Container zIndex={9999}>
+		<Rectangle
+			eventMode="static"
+			cursor="pointer"
+			alpha={0.001}
+			backgroundColor={0x000000}
+			width={context.stateLayoutDerived.canvasSizes().width}
+			height={context.stateLayoutDerived.canvasSizes().height}
+			x={context.stateLayoutDerived.canvasSizes().width * 0.5}
+			y={context.stateLayoutDerived.canvasSizes().height * 0.5}
+			anchor={0.5}
+			onpointertap={close}
+		/>
 
-		<!-- POPUP ROOT (keep your ratio positioning) -->
-		<Container
-			x={context.stateLayoutDerived.mainLayout().width * 0.358}
-			y={context.stateLayoutDerived.mainLayout().height * 0.35}
-			scale={0.8}
-		>
-
-			<!-- BACKGROUND / PANEL -->
-			<Sprite
-				key="board_popup"
-				anchor={{ x: 0.5, y: 0.5 }}
-				scale={0.55}
-			x={context.stateLayoutDerived.mainLayout().x / 3.85}
-				y={context.stateLayoutDerived.mainLayout().y / 4}
-			/>
-
-			<!-- YES BUTTON (interactive container fix) -->
+		<MainContainer>
 			<Container
-				interactive={true}
-				onclick={confirm}
-				x={context.stateLayoutDerived.mainLayout().x / 2.35}
-				y={context.stateLayoutDerived.mainLayout().y / 2}
+				x={context.stateLayoutDerived.mainLayout().width * 0.37}
+				y={context.stateLayoutDerived.mainLayout().height * 0.37}
+				scale={0.65}
 			>
-				<Sprite
-					anchor={{ x: 0.5, y: 0.5 }}
-					scale={0.65}
-					key="yesButton"
-				/>
+				<Sprite key="board_popup" anchor={0.5} scale={0.55} />
 
-				<Sprite
-					anchor={{ x: 0.5, y: 0.5 }}
-					scale={0.8}
-					key="yesText"
-				/>
+				<Sprite key="popupText" anchor={0.5} x={0} y={-70} scale={0.55} />
+
+				<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
+					<Sprite anchor={0.5} scale={0.65} key="noButton" />
+					<Sprite anchor={0.5} scale={0.8} key="noText" />
+				</Container>
+
+				<Container eventMode="static" cursor="pointer" onpointertap={confirm} x={190} y={145}>
+					<Sprite anchor={0.5} scale={0.65} key="yesButton" />
+					<Sprite anchor={0.5} scale={0.8} key="yesText" />
+				</Container>
 			</Container>
-
-			<!-- NO BUTTON -->
-			<Container
-				interactive={true}
-				onclick={close}
-				x={context.stateLayoutDerived.mainLayout().x / 10}
-				y={context.stateLayoutDerived.mainLayout().y / 2}
-			>
-				<Sprite
-					anchor={{ x: 0.5, y: 0.5 }}
-					scale={0.65}
-					key="noButton"
-				/>
-
-				<Sprite
-					anchor={{ x: 0.5, y: 0.5 }}
-					scale={0.8}
-					key="noText"
-				/>
-			</Container>
-
-			<!-- TITLE TEXT -->
-			<Sprite
-				anchor={{ x: 0.5, y: 0.5 }}
-				x={context.stateLayoutDerived.mainLayout().x / 3.85}
-				y={context.stateLayoutDerived.mainLayout().y / 8.5}
-				scale={0.55}
-				key="popupText"
-			/>
-
-		</Container>
+		</MainContainer>
 	</Container>
 
 {/if}

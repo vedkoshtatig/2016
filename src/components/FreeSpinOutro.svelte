@@ -1,25 +1,29 @@
 <script lang="ts" module>
+	
 	import type { WinLevelData } from '../game/winLevelMap';
 
 	export type EmitterEventFreeSpinOutro =
 		| { type: 'freeSpinOutroShow' }
 		| { type: 'freeSpinOutroHide' }
-		| { type: 'freeSpinOutroCountUp'; amount: number; winLevelData: WinLevelData };
+		| {
+				type: 'freeSpinOutroCountUp';
+				amount: number;
+				winLevelData: WinLevelData;
+				totalFreeSpins: number;
+		  };
 </script>
 
 <script lang="ts">
-	import { Sprite, SpineProvider, SpineTrack, SpineSlot } from 'pixi-svelte';
+	import { Sprite, SpineProvider, SpineTrack, SpineSlot, BitmapText } from 'pixi-svelte';
 	import { FadeContainer, WinCountUpProvider, ResponsiveBitmapText } from 'components-pixi';
 	import { bookEventAmountToCurrencyString } from 'utils-shared/amount';
 	import { waitForResolve } from 'utils-shared/wait';
 	import { CanvasSizeRectangle } from 'components-layout';
 	import { OnMount } from 'components-shared';
-	import { stateUrlDerived } from 'state-shared';
 
 	import { getContext } from '../game/context';
 	import FreeSpinAnimation from './FreeSpinAnimation.svelte';
 	import PressToContinue from './PressToContinue.svelte';
-	import WinCoins from './WinCoins.svelte';
 
 	type AnimationName = 'intro' | 'idle';
 
@@ -30,6 +34,7 @@
 	let show = $state(true);
 	let animationName = $state<AnimationName>('intro');
 	let amount = $state(0);
+	let freeSpinsFromEvent = $state(0);
 	let winLevelData = $state<WinLevelData>();
 	let oncomplete = $state(() => {});
 	let onCountUpComplete = $state(() => {});
@@ -40,6 +45,8 @@
 		freeSpinOutroCountUp: async (emitterEvent) => {
 			amount = emitterEvent.amount;
 			winLevelData = emitterEvent.winLevelData;
+			freeSpinsFromEvent = emitterEvent.totalFreeSpins;
+
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});
@@ -49,6 +56,7 @@
 	{#if winLevelData}
 		{@const duration = winLevelData.presentDuration}
 		{@const isBigWin = winLevelData.type === 'big'}
+
 		<WinCountUpProvider {amount} {duration} oncomplete={() => onCountUpComplete()}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
 				<OnMount onmount={() => startCountUp()} />
@@ -57,24 +65,31 @@
 
 				<FreeSpinAnimation>
 					{#snippet children({ sizes })}
-						{#if isBigWin}
-							<Sprite
-								anchor={{ x: 0.5, y: 1.2 }}
-								key="board_popup"
-								scale={0.5}
-								x={boardPopupX}
-								y={boardPopupY}
-							/>
-						{:else}
-							<Sprite
-								anchor={{ x: 0.5, y: 1.2 }}
-								width={500 * 4.5}
-								height={80 * 4.5}
-								key="winsmall_{stateUrlDerived.lang()}.png"
-							/>
-						{/if}
+						<Sprite
+							anchor={{ x: 0.5, y: 1.2 }}
+							key="board_popup"
+							scale={0.5}
+							x={boardPopupX}
+							y={boardPopupY}
+						/>
 
-						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.4}>
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							x={boardPopupX}
+							y={-boardPopupY - 30}
+							text="CONGRATULATION"
+							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+						/>
+
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							x={boardPopupX}
+							y={-boardPopupY + 50}
+							text="YOU HAVE WON"
+							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						/>
+
+						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.1} y={-90}>
 							<SpineTrack
 								trackIndex={0}
 								{animationName}
@@ -83,6 +98,7 @@
 									complete: () => (animationName = 'idle'),
 								}}
 							/>
+
 							<SpineSlot slotName="slot_number">
 								<ResponsiveBitmapText
 									anchor={0.5}
@@ -96,18 +112,19 @@
 							</SpineSlot>
 						</SpineProvider>
 
-						<Sprite
-							anchor={{ x: 0.5, y: isBigWin ? -3.2 : -2 }}
-							width={177 * (isBigWin ? 2.2 : 3)}
-							height={42 * (isBigWin ? 2.2 : 3)}
-							key="totalwin.png"
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							x={boardPopupX}
+							y={-boardPopupY + 230}
+							text={`IN FREE SPINS`}
+							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
 						/>
 					{/snippet}
 				</FreeSpinAnimation>
 
-				<!-- <WinCoins emit={!countUpCompleted} levelAlias={winLevelData?.alias} /> -->
-
-				<PressToContinue onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())} />
+				<PressToContinue
+					onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())}
+				/>
 			{/snippet}
 		</WinCountUpProvider>
 	{/if}

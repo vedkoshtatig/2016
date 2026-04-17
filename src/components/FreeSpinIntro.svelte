@@ -53,7 +53,45 @@
 				x={boardPopupX}
 				y={boardPopupY}
 			/>
+<BitmapText
+	anchor={{ x: 0.5, y: 0.5 }}
+	x={boardPopupX}
+	y={-boardPopupY-30}
+	text="CONGRATULATION"
+	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+/>
 
+<BitmapText
+	anchor={{ x: 0.5, y: 0.5 }}
+	x={boardPopupX}
+	y={-boardPopupY + 50}
+	text="YOU HAVE WON"
+	style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+/>
+
+<BitmapText
+	anchor={{ x: 0.5, y: 0.5 }}
+	x={boardPopupX}
+	y={-boardPopupY+130}
+	text={`${freeSpinsFromEvent}`}
+	style={{ fontFamily: 'gold', fontSize: 88, align: 'center' }}
+/>
+
+<BitmapText
+	anchor={{ x: 0.5, y: 0.5 }}
+	x={boardPopupX}
+	y={-boardPopupY + 230}
+	text="FREE SPINS"
+	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+/>
+
+<!-- <BitmapText
+	anchor={{ x: 0.5, y: 0.5 }}
+	x={boardPopupX}
+	y={-boardPopupY + 280}
+	text="PRESS ANYWHERE TO CONTINUE"
+	style={{ fontFamily: 'gold', fontSize: 36, align: 'center' }}
+/> -->
 			<!-- <SpineProvider key="fsIntroNumber" width={sizes.width * 0.4}>
 				<SpineTrack
 					trackIndex={0}
@@ -76,9 +114,9 @@
 				</SpineSlot>
 			</SpineProvider> -->
 
-			<Sprite anchor={{ x: 0.5, y: -3 }} width={183 * 2.2} height={42 * 2.2} key="freespins.png" />
+			<!-- <Sprite anchor={{ x: 0.5, y: -3 }} width={183 * 2.2} height={42 * 2.2} key="freespins.png" /> -->
 		{/snippet}
 	</FreeSpinAnimation>
 
-	<PressToContinue onpress={() => oncomplete()} />
+	<PressToContinue onpress={() => oncomplete()} />	
 </FadeContainer>
