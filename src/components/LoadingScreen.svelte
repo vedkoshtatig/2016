@@ -16,7 +16,6 @@
 	const context = getContext();
 
 	let loadingType = $state<'start'>('start'); // ✅ only start
-	let isChecked = $state(false);
 	let isHover = $state(false);
 
 	const stopPulse = () => {
@@ -72,34 +71,13 @@
 			>
 				<SpineTrack trackIndex={0} animationName={'pay_anywhere'} loop timeScale={3} />
 			</SpineProvider>
-			<SpineProvider
-				key="intro"
-				x={context.stateGameDerived.boardLayout().x / 1.4}
-				y={context.stateGameDerived.boardLayout().y / 1.3}
-				scale={{ x: 0.45, y: 0.45 }}
-			>
-				<SpineTrack trackIndex={0} animationName={'check_box_text'} loop timeScale={3} />
-			</SpineProvider>
-			<SpineProvider
-				key="intro"
-				x={context.stateGameDerived.boardLayout().x / 2.13}
-				y={context.stateGameDerived.boardLayout().y / 1.3}
-				scale={{ x: 0.35, y: 0.35 }}
-				eventMode="static"
-				cursor="pointer"
-				onpointertap={() => {
-					isChecked = !isChecked;
-				}}
-			>
-				<SpineTrack
-					trackIndex={0}
-					animationName={isChecked
-						? 'dont_dhow_next_time_checked'
-						: 'dont_dhow_next_time_unchecked'}
-					loop
-					timeScale={3}
-				/>
-			</SpineProvider>
+			<Sprite
+				key="volatility"
+				x={475}
+				y={238}
+				anchor={0.5}
+				scale={0.8}
+			/>
 		</Container>
 	</MainContainer>
 </FadeContainer>
