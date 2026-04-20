@@ -390,6 +390,11 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Balance.png', import.meta.url).href,
 		preload: true,
 	},
+	volatility: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/volatility.png', import.meta.url).href,
+		preload: true,
+	},
 	
 	// HIGH SYMBOLS (use hsymbols.atlas)
 	H1: {
@@ -413,7 +418,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/hsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/h3.json', import.meta.url).href,
-			scale: 2,
+			scale: 2.5,
 		},
 	},
 	H4: {
@@ -421,7 +426,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/hsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/h4.json', import.meta.url).href,
-			scale: 2,
+			scale: 2.5,
 		},
 	},
 	L1: {

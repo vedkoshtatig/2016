@@ -62,25 +62,31 @@
 					<Container
 						x={context.stateGameDerived.boardLayout().x}
 						y={context.stateGameDerived.boardLayout().y}
+						sortableChildren={true}
 					>
 						{#if winLevelData?.animation}
-							<WinAnimation animationMap={winLevelData.animation}>
+							<Container zIndex={0}>
+								<WinAnimation animationMap={winLevelData.animation} />
+							</Container>
+							<Container zIndex={1}>
 								<ResponsiveBitmapText
 									anchor={0.5}
+									y={SYMBOL_SIZE * 1.8}
 									maxWidth={2130}
 									text={bookEventAmountToCurrencyString(countUpAmount)}
 									style={{
 										fontFamily: 'gold',
-										fontSize: SYMBOL_SIZE * 3.6,
+										fontSize: SYMBOL_SIZE * 1.2,
 										align: 'center',
 										fontWeight: 'bold',
 										letterSpacing: 0,
 									}}
 								/>
-							</WinAnimation>
+							</Container>
 						{:else}
 							<ResponsiveBitmapText
 								anchor={0.5}
+								y={SYMBOL_SIZE * 1.2}
 								maxWidth={context.stateLayoutDerived.canvasSizes().width /
 									context.stateLayoutDerived.mainLayout().scale}
 								text={bookEventAmountToCurrencyString(countUpAmount)}

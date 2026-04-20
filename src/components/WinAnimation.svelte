@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	import { SpineProvider, SpineTrack, SpineSlot } from 'pixi-svelte';
+	import { Container, SpineProvider, SpineTrack } from 'pixi-svelte';
 
 	import { getContext } from '../game/context';
 
@@ -18,7 +18,7 @@
 			idle: 'nice_loop' | 'sensational_loop' | 'super_loop' | 'congratulation_loop' | 'congratulation_loop';
 			outro: 'nice_outro' | 'sensational_outro' | 'super_outro' | 'congratulation_outro' | 'congratulation_outro';
 		};
-		children: Snippet;
+		children?: Snippet;
 	};
 
 	const props: Props = $props();
@@ -40,7 +40,9 @@
 			},
 		}}
 	/>
-	<!-- <SpineSlot slotName="slot_win_count">
-		{@render props.children()}
-	</SpineSlot> -->
+	{#if props.children}
+		<Container>
+			{@render props.children()}
+		</Container>
+	{/if}
 </SpineProvider>
