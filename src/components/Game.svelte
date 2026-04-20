@@ -74,7 +74,12 @@
 			Ref: https://developer.chrome.com/blog/autoplay
 		-->
 		<Sound />
-
+		<MainContainer>
+			<TumbleWinAmount />
+			<TumbleBoard />
+			<!-- <TumbleAnticipations /> -->
+			<ClusterWinAmounts />
+		</MainContainer>
 		<MainContainer>
 			<BoardFrame />
 			{#if showBuyBoards}
@@ -85,14 +90,11 @@
 		<MainContainer>
 			<Board />
 			<Anticipations />
-			<TumbleWinAmount />
+
 			<GlobalMultiplier />
 		</MainContainer>
 
 		<MainContainer>
-			<TumbleBoard />
-			<!-- <TumbleAnticipations /> -->
-			<ClusterWinAmounts />
 			<BonusPopup />
 		</MainContainer>
 
@@ -103,7 +105,7 @@
 
 		<UIDefault>
 			{#snippet gameName()}
-				<UiGameName name="SCATTER GAME" />
+				<!-- <UiGameName name="SCATTER GAME" /> -->
 			{/snippet}
 			{#snippet logo()}
 				<!-- <Text

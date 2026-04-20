@@ -19,8 +19,10 @@
 
 	let animationName = $state<AnimationName | undefined>(undefined);
 	let loop = $state(false);
-
+let show = $state(false);
 	context.eventEmitter.subscribeOnMount({
+		freeSpinIntroHide: () => (show = true),
+		freeSpinOutroHide: async () => (show = false),
 		boardFrameGlowShow: () => {
 			animationName = 'reelhouse_glow_start';
 			loop = false;
@@ -62,17 +64,29 @@
 		/>
 	</SpineProvider>
 {/if}
-
+{#if show}
+	
+		<Sprite
+		key="reel_base_bonus"
+		anchor={0.5}
+		x={context.stateGameDerived.boardLayout().x}
+		y={context.stateGameDerived.boardLayout().y - 45}
+		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
+		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
+		scale={{ x: 0.73, y: 0.8 }}
+		zIndex={10}
+	/>
+{:else}
 <Sprite
-	key="reel_base"
-	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x}
-	y={context.stateGameDerived.boardLayout().y -45}
-	width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
-	height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
-	scale={{ x: 0.73, y: 0.8 }}
-/>
-
+		key="reel_base"
+		anchor={0.5}
+		x={context.stateGameDerived.boardLayout().x}
+		y={context.stateGameDerived.boardLayout().y - 45}
+		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
+		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
+		scale={{ x: 0.73, y: 0.8 }}
+	/>
+{/if}
 
 
 <!-- 

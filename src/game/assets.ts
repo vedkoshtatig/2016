@@ -36,6 +36,11 @@ export default {
 		src: new URL('../../assets/sprites/reelsFrame/reel_base.png', import.meta.url).href,
 		preload: true,
 	},
+	reel_base_bonus: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/reelsFrame/reel_base_feature.png', import.meta.url).href,
+		preload: true,
+	},
 	pressToContinueText: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url)
@@ -550,7 +555,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/lsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/l5.json', import.meta.url).href,
-			scale: 2,
+			scale: 4.5,
 		},
 	},
 	L6: {

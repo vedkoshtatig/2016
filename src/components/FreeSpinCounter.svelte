@@ -66,7 +66,7 @@ const showBuyBoards = $derived(
 		<Sprite key="freeSpinCounter" {...panelSizes} />
 		<Container
 			x={panelSizes.width * 0.5}
-			y={panelSizes.height * 0.48}
+			y={panelSizes.height * 0.44}
 			pivot={anchorToPivot({
 				sizes: textContainerSizes,
 				anchor: { x: 0.5, y: 0.5 },
@@ -83,12 +83,14 @@ const showBuyBoards = $derived(
 			/>
 			<BitmapText
 				text={`${current} OF ${total}`}
+			
 				{...counterPosition}
 				anchor={{ x: 0.5, y: 0 }}
 				style={{
 					fontFamily: 'gold',
 					fontSize,
 				}}
+					y={40}
 				onresize={(sizes) => (counterSizes = sizes)}
 			/>
 		</Container>
