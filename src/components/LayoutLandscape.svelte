@@ -84,6 +84,7 @@
 		<Container y={DESKTOP_BASE_SIZE * 0.65} x={DESKTOP_BASE_SIZE*10.4} scale={0.6}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
+		
 	</Container>
 </MainContainer>
 

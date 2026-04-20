@@ -184,6 +184,26 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button.png', import.meta.url).href,
 		preload: true,
 	},
+	menuExitButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	menuExitButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
 	infoButton :{
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button.png', import.meta.url).href,
@@ -408,6 +428,51 @@ export default {
 	menuBackground: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/MenuBg.png', import.meta.url).href,
+		preload: true,
+	},
+		soundOnButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOnButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundHover.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
+		preload: true,
+	},
+	soundOffButton_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
+		preload: true,
+	},
+	vantaLogo :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Circle.png', import.meta.url).href,
 		preload: true,
 	},
 	
@@ -657,7 +722,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/transition/transition.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/transition/transition.json', import.meta.url).href,
-			scale: 2,
+			scale: 0.4,
 		},
 	},
 	symbolsStatic: {

@@ -10,10 +10,20 @@
 	const context = getContext();
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 
+	const active = $derived(stateUi.menuOpen);
+
 	const onpress = () => {
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
-		stateUi.menuOpen = true;
+
+		// toggle menu open / close
+		stateUi.menuOpen = !stateUi.menuOpen;
 	};
 </script>
 
-<UiButton {...props} {sizes} {onpress} icon="menu" />
+<UiButton
+	{...props}
+	{sizes}
+	{active}
+	{onpress}
+	icon={stateUi.menuOpen ? 'menuExit' : 'menu'}
+/>

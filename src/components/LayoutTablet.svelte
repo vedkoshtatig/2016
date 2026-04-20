@@ -112,6 +112,12 @@
 		<Container y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 6.98} scale={0.6}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
+		<Sprite	
+		key="vantaLogo"
+		anchor={0.5}
+		y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 1.6}
+		scale={1.5}
+	/>
 		</Container>
 	</Container>
 </MainContainer>

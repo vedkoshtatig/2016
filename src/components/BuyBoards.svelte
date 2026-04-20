@@ -38,9 +38,10 @@
         interactive={true}
          onclick={()=>{stateBet.activeBetModeKey='BONUS'}}>
             <!-- <ButtonBuy  /> -->
-            <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5}/>
+            <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} interactive={true}/>
 
             <Text
+              interactive={false}
                 text={"BUY"}
                 anchor={0.5}
                 x={0}
@@ -53,6 +54,7 @@
                 }}
             />
             <Text
+              interactive={false}
                 text={"FREE SPIN"}
                 anchor={0.5}
                 x={0}
@@ -65,6 +67,7 @@
                 }}
             />
             <Text
+              interactive={false}
                 text={"$200.00"}
                 anchor={0.5}
                 x={0}
@@ -83,6 +86,7 @@
             <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 
             <Text
+            interactive={false}
                 text={"BUY"}
                 anchor={0.5}
                 x={0}
@@ -95,6 +99,7 @@
                 }}
             />
             <Text
+              interactive={false}
                 text={"SUPER \n "}
                 anchor={0.5}
                 x={0}
@@ -107,6 +112,7 @@
                 }}
             />
             <Text
+              interactive={false}
                 text={"FREE SPIN"}
                 anchor={0.5}
                 x={0}
@@ -119,6 +125,7 @@
                 }}
             />
             <Text
+              interactive={false}
                 text={"$1,000.00"}
                 anchor={0.5}
                 x={0}
@@ -147,6 +154,7 @@
             <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.73 }} anchor={0.5} />
 
             <Text
+              interactive={false}
                 text="Double"
                 anchor={0.5}
                 x={0}

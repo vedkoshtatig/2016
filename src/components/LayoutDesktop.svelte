@@ -112,48 +112,36 @@
 		<Container y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 7.04} scale={0.5}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
+		<Sprite	
+		key="vantaLogo"
+		anchor={0.5}
+		y={DESKTOP_BASE_SIZE * 0.52} x={DESKTOP_BASE_SIZE * 1.6}
+		scale={1.5}
+	/>
 		</Container>
 	</Container>
 </MainContainer>
 
 {#if stateUi.menuOpen}
-	<Rectangle
-		eventMode="static"
-		cursor="pointer"
-		alpha={0.5}
-		anchor={0.5}
-		backgroundColor={BLACK}
-		width={context.stateLayoutDerived.canvasSizes().width}
-		height={context.stateLayoutDerived.canvasSizes().height}
-		x={context.stateLayoutDerived.canvasSizes().width * 0.5}
-		y={context.stateLayoutDerived.canvasSizes().height * 0.5}
-		onpointerup={() => (stateUi.menuOpen = false)}
-	/>
+
 
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={298}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE - 10}
+				x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE }
 		>
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 3}>
-				{@render props.buttonPayTable({ anchor: 0.5 })}
-			</Container>
-
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 2}>
-				{@render props.buttonGameRules({ anchor: 0.5 })}
-			</Container>
-
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 1}>
-				{@render props.buttonSettings({ anchor: 0.5 })}
-			</Container>
-
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150}>
+			
+<Sprite	
+		key="menuBackground"
+		anchor={0.5}
+		y={-65} x={-475}
+		scale={{ x: 1.7, y: 1.7 }}
+	/>
+				<Container scale={{ x: 1.1, y: 0.2 }} y={-65} x={-450}>
 				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
 			</Container>
 
-			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5}>
-				{@render props.buttonMenuClose({ anchor: 0.5 })}
-			</Container>
+		
 		</Container>
 	</MainContainer>
 {/if}
