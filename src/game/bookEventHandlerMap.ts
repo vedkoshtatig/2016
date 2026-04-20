@@ -126,7 +126,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 
   eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
 },
-	winInfo: async (bookEvent: BookEventOfType<'winInfo'>) => {
+	winInfo: async (bookEvent: BookEventOfType<'winInfo'>) => {		
 		const promise1 = async () => {
 			eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_winlevel_small' });
 			await animateSymbols({ positions: _.flatten(bookEvent.wins.map((win) => win.positions)) });
@@ -149,6 +149,13 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 
 		await Promise.all([promise1(), promise2()]);
 	},
+
+	scatterWin: async (bookEvent: BookEventOfType<'scatterWin'>) => {
+	console.warn('scatterWin:', bookEvent);
+
+	// optional
+	eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
+},
 	updateTumbleWin: async (bookEvent: BookEventOfType<'updateTumbleWin'>) => {
 		if (bookEvent.amount > 0) {
 			eventEmitter.broadcast({ type: 'tumbleWinAmountShow' });
@@ -237,6 +244,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'uiShow' });
 		await eventEmitter.broadcastAsync({ type: 'drawerUnfold' });
 		eventEmitter.broadcast({ type: 'drawerButtonHide' });
+		
 	},
 	boardMultiplierInfo: async (bookEvent: BookEventOfType<'boardMultiplierInfo'>) => {
 		eventEmitter.broadcast({ type: 'tumbleWinAmountShow' });

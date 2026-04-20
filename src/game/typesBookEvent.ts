@@ -99,6 +99,11 @@ type BookEventSetWin = {
 	amount: number;
 	winLevel: number;
 };
+type BookEventScatterWin = {
+	index: number;
+	type: 'scatterWin';
+	amount: number;
+};
 
 // customised
 type BookEventCreateBonusSnapshot = {
@@ -123,6 +128,7 @@ export type BookEvent =
 	| BookEventFreeSpinEnd
 	// customised
 	| BookEventCreateBonusSnapshot;
+	| BookEventScatterWin;
 
 export type Bet = BetType<BookEvent>;
 export type BookEventOfType<T> = Extract<BookEvent, { type: T }>;
