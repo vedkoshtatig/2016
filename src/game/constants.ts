@@ -3,7 +3,7 @@ import { WHITE } from 'constants-shared/colors';
 import type { RawSymbol, SymbolState } from './types';
 
 export const SYMBOL_SIZE = 100;
-export const SYMBOL_GAP = 115;
+
 export const UI_BASE_SIZE = 150;
 
 export const UI_BASE_FONT_SIZE = UI_BASE_SIZE * 0.25;

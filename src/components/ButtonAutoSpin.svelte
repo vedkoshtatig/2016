@@ -27,8 +27,17 @@
 	};
 </script>
 
-<UiButton {...props} {sizes} {active} {onpress} {disabled} icon="autoSpin">
-	<Container x={sizes.width * 0.5} y={sizes.height * 0.5}>
-		<ButtonBetAutoSpinsCounter />
-	</Container>
+<UiButton
+	{...props}
+	{sizes}
+	{active}
+	{onpress}
+	{disabled}
+	icon={stateBetDerived.hasAutoBetCounter() ? undefined : 'autoSpin'}
+>
+	{#if stateBetDerived.hasAutoBetCounter()}
+		<Container x={sizes.width * 0.5} y={sizes.height * 0.5}>
+			<ButtonBetAutoSpinsCounter />
+		</Container>
+	{/if}
 </UiButton>

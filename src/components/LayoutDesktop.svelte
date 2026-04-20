@@ -116,7 +116,44 @@
 	</Container>
 </MainContainer>
 
+{#if stateUi.menuOpen}
+	<Rectangle
+		eventMode="static"
+		cursor="pointer"
+		alpha={0.5}
+		anchor={0.5}
+		backgroundColor={BLACK}
+		width={context.stateLayoutDerived.canvasSizes().width}
+		height={context.stateLayoutDerived.canvasSizes().height}
+		x={context.stateLayoutDerived.canvasSizes().width * 0.5}
+		y={context.stateLayoutDerived.canvasSizes().height * 0.5}
+		onpointerup={() => (stateUi.menuOpen = false)}
+	/>
 
+	<MainContainer standard alignVertical="bottom">
+		<Container
+			x={298}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE - 10}
+		>
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 3}>
+				{@render props.buttonPayTable({ anchor: 0.5 })}
+			</Container>
 
-	
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 2}>
+				{@render props.buttonGameRules({ anchor: 0.5 })}
+			</Container>
 
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150 - 170 * 1}>
+				{@render props.buttonSettings({ anchor: 0.5 })}
+			</Container>
+
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5 - 150}>
+				{@render props.buttonSoundSwitch({ anchor: 0.5 })}
+			</Container>
+
+			<Container scale={0.8} y={DESKTOP_BASE_SIZE * 0.5}>
+				{@render props.buttonMenuClose({ anchor: 0.5 })}
+			</Container>
+		</Container>
+	</MainContainer>
+{/if}

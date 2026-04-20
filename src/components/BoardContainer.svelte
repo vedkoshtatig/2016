@@ -19,7 +19,7 @@ const reelTopY = layout.y - 45;
 </script>
 
 <Container
-	x={context.stateGameDerived.boardLayout().x - 170}
+	x={context.stateGameDerived.boardLayout().x -60}
 	y={context.stateGameDerived.boardLayout().y }
 	height={context.stateGameDerived.boardLayout().height}
 	scale={1.12}

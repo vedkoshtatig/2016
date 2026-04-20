@@ -9,7 +9,7 @@ import {
 	SYMBOL_INFO_MAP,
 	BOARD_DIMENSIONS,
 	MULTIPLIER_BACKGROUND_INFO_MAP,
-	SYMBOL_GAP,
+
 } from './constants';
 import { eventEmitter } from './eventEmitter';
 import type { Bet, BookEventOfType } from './typesBookEvent';
@@ -56,7 +56,7 @@ export const convertTorResumableBet = (betToResume: Bet) => {
 };
 
 // other utils
-export const getSymbolX = (reelIndex: number) => SYMBOL_SIZE+SYMBOL_GAP * (reelIndex + REEL_PADDING);
+export const getSymbolX = (reelIndex: number) => SYMBOL_SIZE * (reelIndex + REEL_PADDING)*1.15	;
 export const getSymbolY = (symbolIndexOfBoard: number) => (symbolIndexOfBoard + 0.5) * SYMBOL_SIZE;
 
 export const getSymbolKey = ({ rawSymbol }: { rawSymbol: RawSymbol }) => {

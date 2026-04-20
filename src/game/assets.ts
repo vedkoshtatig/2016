@@ -273,6 +273,21 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
 		preload: true,
 	},
+	turboButton_active :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButton_active_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButton_active_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		preload: true,
+	},
 	turboButton_disabled :{
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url).href,
@@ -388,6 +403,11 @@ export default {
 	betControl: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Balance.png', import.meta.url).href,
+		preload: true,
+	},
+	menuBackground: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/MenuBg.png', import.meta.url).href,
 		preload: true,
 	},
 	

@@ -1,20 +1,24 @@
 <script lang="ts">
 	import { getContext } from '../game/context';
 	import { MainContainer } from 'components-layout';
+		import { FadeContainer } from 'components-pixi';
 	import { Container, Rectangle, Sprite } from 'pixi-svelte';
 	const context = getContext();
 	const { eventEmitter } = context;
 
 	let visible = false;
+	let show = false;
 
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
 			visible = true;
+			show=true;
 		},
 	});
 
 	const close = () => {
 		visible = false;
+		show=false;
 	};
 
 	const confirm = () => {
@@ -39,11 +43,11 @@
 			onpointertap={close}
 		/>
 
-		<MainContainer>
+		<FadeContainer {show}>
 			<Container
-				x={context.stateLayoutDerived.mainLayout().width * 0.37}
-				y={context.stateLayoutDerived.mainLayout().height * 0.37}
-				scale={0.65}
+				x={context.stateLayoutDerived.mainLayout().width * 0.5	}
+				y={context.stateLayoutDerived.mainLayout().height * 0.48}
+				scale={0.8}
 			>
 				<Sprite key="board_popup" anchor={0.5} scale={0.55} />
 
@@ -59,7 +63,7 @@
 					<Sprite anchor={0.5} scale={0.8} key="yesText" />
 				</Container>
 			</Container>
-		</MainContainer>
+		</FadeContainer>
 	</Container>
 
 {/if}

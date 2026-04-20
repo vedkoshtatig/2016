@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Text, Rectangle } from 'pixi-svelte';
+	import { Text, Rectangle,Sprite } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
+	import { DESKTOP_BASE_SIZE } from '../game/constants';
 	import { WHITE } from 'constants-shared/colors';
 
 	import { UI_BASE_SIZE } from '../game/constants';
@@ -14,11 +15,11 @@
 </script>
 
 {#if stateBet.autoSpinsCounter > 0}
-	<Rectangle
+<Sprite	
+		key="betControl"
 		anchor={0.5}
-		width={UI_BASE_SIZE * 0.9}
-		height={UI_BASE_SIZE * 0.9}
-		borderRadius={50}
+	
+		scale={{ x: 1.1, y: 2.3 }}
 	/>
 	<Text
 		anchor={0.5}
