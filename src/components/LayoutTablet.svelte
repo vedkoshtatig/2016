@@ -14,13 +14,13 @@
 	const layout = () => context.stateLayoutDerived.mainLayoutStandard();
 </script>
 
-<Container x={20}>
+<!-- <Container x={20}>
 	{@render props.gameName()}
 </Container>
 
 <Container x={context.stateLayoutDerived.canvasSizes().width - 20}>
 	{@render props.logo()}
-</Container>
+</Container> -->
 
 <MainContainer standard alignVertical="bottom">
 	<!-- <Rectangle

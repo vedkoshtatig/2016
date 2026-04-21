@@ -40,7 +40,7 @@
 								: baseKey
 						}
 						width={sizes.width}
-						height={sizes.height +110   }
+						height={sizes.height +110}
 						anchor={0.5}
 					/>
 				</Container>

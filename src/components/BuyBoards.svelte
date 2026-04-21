@@ -31,7 +31,7 @@
 
 			// ✅ only move when overflowing
 			if (totalHeight > MASK_HEIGHT) {
-				stackOffsetY += 20 // ✅ move only one step
+				stackOffsetY += 20; // ✅ move only one step
 			} else {
 				stackOffsetY = 0;
 			}
@@ -73,6 +73,8 @@
 				x={0}
 				y={-15}
 				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				interactive={false}
+				eventMode="none"
 			/>
 			<Text
 				text={'FREE SPIN'}
@@ -80,6 +82,8 @@
 				x={0}
 				y={-2}
 				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				interactive={false}
+				eventMode="none"
 			/>
 			<Text
 				text={'$200.00'}
@@ -87,6 +91,8 @@
 				x={0}
 				y={15}
 				style={{ fill: '#7F5112', fontSize: 18, fontWeight: 'bolder' }}
+				interactive={false}
+				eventMode="none"
 			/>
 		</Container>
 
@@ -104,14 +110,26 @@
 				x={0}
 				y={-6}
 				style={{ fill: '#7F5112', fontSize: 15, fontWeight: 'bolder' }}
+				interactive={false}
+				eventMode="none"
 			/>
-			<Text text={'FREE SPIN'} anchor={0.5} x={0} y={6} style={{ fill: '#7F5112', fontSize: 11 }} />
+			<Text
+				text={'FREE SPIN'}
+				anchor={0.5}
+				x={0}
+				y={6}
+				style={{ fill: '#7F5112', fontSize: 11 }}
+				interactive={false}
+				eventMode="none"
+			/>
 			<Text
 				text={'$1,000.00'}
 				anchor={0.5}
 				x={0}
 				y={18}
 				style={{ fill: '#7F5112', fontSize: 15, fontWeight: '900' }}
+				interactive={false}
+				eventMode="none"
 			/>
 		</Container>
 	</Container>
@@ -136,6 +154,8 @@
 				x={0}
 				y={0}
 				style={{ fill: '#7F5112', fontSize: 25, fontWeight: 'bold' }}
+				interactive={false}
+				eventMode="none"
 			/>
 		</Container>
 	</Container>
@@ -179,21 +199,19 @@
 		<Container y={stackOffsetY}>
 			{#each explosionStack as item, i}
 				<Container x={0} y={-20 * (explosionStack.length - 1 - i)}>
-					
-
 					<Sprite key="buyBoardPlaceHolder" anchor={0.5} scale={{ x: 0.22, y: 0.21 }} />
-                    <Sprite
+					<Sprite
 						key={`${item.symbol.toLowerCase()}`}
 						anchor={0.5}
 						x={-30}
-                        y={0}
+						y={0}
 						scale={{ x: 0.16, y: 0.15 }}
 					/>
 
 					<Text
 						text={`+${item.value / 100}`}
 						anchor={0.5}
-                        x={20}
+						x={20}
 						style={{
 							fill: '#7F5112',
 							fontSize: 14,

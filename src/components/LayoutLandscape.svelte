@@ -11,14 +11,14 @@
 	const props: LayoutUiProps = $props();
 	const context = getContext();
 </script>
-
+<!-- 
 <Container x={20}>
 	{@render props.gameName()}
 </Container>
 
 <Container x={context.stateLayoutDerived.canvasSizes().width - 20}>
 	{@render props.logo()}
-</Container>
+</Container> -->
 
 <MainContainer standard alignVertical="bottom">
 
