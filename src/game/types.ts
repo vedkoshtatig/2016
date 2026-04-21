@@ -37,13 +37,19 @@ export type ButtonIcon =
 export type LayoutUiProps = {
 	gameName: Snippet;
 	logo: Snippet;
-	amountBalance: Snippet<[{ stacked?: boolean }]>;
-	amountWin: Snippet<[{ stacked?: boolean }]>;
-	amountBet: Snippet<[{ stacked?: boolean }]>;
+	amountBalance: Snippet<[{ stacked?: boolean; center?: boolean }]>;
+	amountWin: Snippet<[{ stacked?: boolean; center?: boolean }]>;
+	amountBet: Snippet<[{ stacked?: boolean; center?: boolean }]>;
 	buttonBuyBonus: Snippet<[Partial<ButtonProps>]>;
 	buttonBet: Snippet<[Partial<ButtonProps>]>;
 	buttonTurbo: Snippet<[Partial<ButtonProps>]>;
-	buttonAutoSpin: Snippet<[Partial<ButtonProps>]>;
+	buttonAutoSpin: Snippet<
+		[
+			Partial<ButtonProps> & {
+				iconName?: ButtonProps['icon'];
+			},
+		]
+	>;
 	buttonIncrease: Snippet<[Partial<ButtonProps>]>;
 	buttonDecrease: Snippet<[Partial<ButtonProps>]>;
 	buttonMenu: Snippet<[Partial<ButtonProps>]>;

@@ -2,7 +2,7 @@
 	import { stateUi } from 'state-shared';
 	import { BLACK } from 'constants-shared/colors';
 	import { MainContainer } from 'components-layout';
-	import { Container, Rectangle, anchorToPivot } from 'pixi-svelte';
+	import { Container, Rectangle, anchorToPivot , Sprite} from 'pixi-svelte';
 	import { DESKTOP_BASE_SIZE, DESKTOP_BACKGROUND_WIDTH_LIST } from '../game/constants';
 	import { LANDSCAPE_BASE_SIZE, LANDSCAPE_BACKGROUND_WIDTH_LIST } from '../game/constants';
 	import type { LayoutUiProps } from '../game/types';
@@ -42,6 +42,12 @@
 	y={context.stateLayoutDerived.canvasSizes().height * 0.5}
 	anchor={0.5}
 /> -->
+<Sprite	
+		key="desktopBg"
+		anchor={0.5}
+		y={DESKTOP_BASE_SIZE/3} x={DESKTOP_BASE_SIZE * 6.5}
+		scale={{ x:1.8, y: 1.2}}
+	/>
 		<Container y={DESKTOP_BASE_SIZE * 0.42} x={DESKTOP_BASE_SIZE*3.4} scale={0.7}>
 			{@render props.amountBalance({ stacked: true })}
 		</Container>

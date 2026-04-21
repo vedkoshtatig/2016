@@ -9,16 +9,31 @@
 
 	type Props = {
 		stacked?: boolean;
+		center?: boolean;
 	};
 
 	const props: Props = $props();
+
 	const winBookEventAmountTween = new Tween(stateBet.winBookEventAmount);
-	const label = $derived(i18nDerived.win());
-	const value = $derived(bookEventAmountToCurrencyString(winBookEventAmountTween.current));
+
+	const label = $derived.by(() => i18nDerived.win());
+
+	const value = $derived.by(() =>
+		bookEventAmountToCurrencyString(winBookEventAmountTween.current)
+	);
 
 	$effect(() => {
 		winBookEventAmountTween.set(stateBet.winBookEventAmount);
 	});
 </script>
 
-<UiLabel tiled {label} {value} stacked={props.stacked} labelColor={"#FFFFFF"} textColor={"#FFD103"}/>
+<UiLabel
+	tiled
+	{label}
+	{value}
+	stacked={props.stacked}
+	borderRadius={65}
+	labelColor="#FFFFFF"
+	textColor="#FFD103"
+	align={props.center ? 'center' : 'left'}
+/>

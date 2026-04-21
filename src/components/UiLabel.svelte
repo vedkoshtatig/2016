@@ -11,41 +11,30 @@
 		value: string;
 		tiled?: boolean;
 		stacked?: boolean;
-		borderRadius?: number;   // 👈 add this
+		borderRadius?: number;
 		labelColor?: string;
-		textColor?:string;
+		textColor?: string;
+		align?: 'left' | 'center';
 	};
 
 	const props: Props = $props();
 
+	const isCenter = props.align === 'center';
+
 	const labelStyle = {
 		fontFamily: 'proxima-nova',
-		fontSize: UI_BASE_FONT_SIZE/1.6,
-			letterSpacing: 0.02,
-		fontWeight:'510',
+		fontSize: UI_BASE_FONT_SIZE / 1.6,
+		letterSpacing: 0.02,
+		fontWeight: '510',
 		fill: props.labelColor ?? '#5F5F68'
 	} as const;
 
-const valueStyle = {
-	fontFamily: 'proxima-nova',
-	fontSize: UI_BASE_FONT_SIZE,
-
-	// 💰 Bright gold
-	fill: props.textColor ?? '#FFFFFF',
-	fontWeight:600,
-
-	// 🖤 subtle edge definition (VERY important)
-	// stroke: '#B8860B',
-	// strokeThickness: 1.5,
-
-	// 🌑 tight shadow (not blurry glow)
-	// dropShadow: true,
-	// dropShadowColor: '#000000',
-	// dropShadowBlur: 4,       // 👈 reduce A LOT
-	// dropShadowDistance: 2,   // 👈 gives direction
-	// dropShadowAngle: Math.PI / 4, // bottom-right shadow
-
-} as const;
+	const valueStyle = {
+		fontFamily: 'proxima-nova',
+		fontSize: UI_BASE_FONT_SIZE,
+		fill: props.textColor ?? '#FFFFFF',
+		fontWeight: 600
+	} as const;
 </script>
 
 {#if props.stacked}
@@ -61,23 +50,23 @@ const valueStyle = {
 	{/if}
 
 	<Text
-		x={-220}
-		anchor={{ x: 0, y: 0 }}
+		x={isCenter ? 0 : -220}
+		anchor={{ x: isCenter ? 0.5 : 0, y: 0 }}
 		text={props.label}
 		style={labelStyle}
 	/>
 
 	<Text
-		x={-220}
+		x={isCenter ? 0 : -220}
 		y={UI_BASE_FONT_SIZE * 0.75}
-		anchor={{ x: 0, y: 0 }}
+		anchor={{ x: isCenter ? 0.5 : 0, y: 0 }}
 		text={props.value}
 		style={valueStyle}
 	/>
 {:else}
 	{#if props.tiled}
 		<UiSprite
-			x={-90}
+			x={isCenter ? -((UI_BASE_FONT_SIZE * 3 * (326 / 73)) / 2) : -90}
 			anchor={{ x: 0, y: 0.5 }}
 			key="base_ticker"
 			width={UI_BASE_FONT_SIZE * 3 * (326 / 73)}
@@ -87,14 +76,14 @@ const valueStyle = {
 	{/if}
 
 	<Text
-		x={0}
-		anchor={{ x: 0, y: 0.5 }}
+		x={isCenter ? -10 : 0}
+		anchor={{ x: isCenter ? 1 : 0, y: 0.5 }}
 		text={props.label}
 		style={labelStyle}
 	/>
 
 	<Text
-		x={UI_BASE_FONT_SIZE * 5}
+		x={isCenter ? 10 : UI_BASE_FONT_SIZE * 5}
 		anchor={{ x: 0, y: 0.5 }}
 		text={props.value}
 		style={valueStyle}

@@ -9,16 +9,29 @@
 
 	type Props = {
 		stacked?: boolean;
+		center?: boolean;
 	};
 
 	const props: Props = $props();
+
 	const balanceTween = new Tween(stateBet.balanceAmount);
-	const label = $derived(i18nDerived.balance());
-	const value = $derived(numberToCurrencyString(balanceTween.current));
+
+	const label = $derived.by(() => i18nDerived.balance());
+
+	const value = $derived.by(() =>
+		numberToCurrencyString(balanceTween.current)
+	);
 
 	$effect(() => {
 		balanceTween.set(stateBet.balanceAmount);
 	});
 </script>
 
-<UiLabel tiled {label} {value} stacked={props.stacked} />
+<UiLabel
+	tiled
+	{label}
+	{value}
+	stacked={props.stacked}
+	borderRadius={65}
+	align={props.center ? 'center' : 'left'}
+/>

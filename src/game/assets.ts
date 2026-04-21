@@ -434,6 +434,21 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Balance.png', import.meta.url).href,
 		preload: true,
 	},
+	betControl2: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Bet.png', import.meta.url).href,
+		preload: true,
+	},
+	portraitBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/pannel.png', import.meta.url).href,
+		preload: true,
+	},
+	desktopBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/desktopBg.png', import.meta.url).href,
+		preload: true,
+	},
 	menuBackground: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/MenuBg.png', import.meta.url).href,

@@ -44,7 +44,6 @@
 		...EXTENDED_BET_MODE_META,
 	};
 
-	console.log(stateMeta.betModeMeta);
 	const context = getContext();
 	const showBuyBoards = $derived(context.stateGame.gameType === 'basegame');
 	onMount(() => (context.stateLayout.showLoadingScreen = true));

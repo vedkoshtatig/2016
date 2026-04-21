@@ -38,6 +38,7 @@
 	/> -->
 
 
+
 	<Container
 		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
 		y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE }
@@ -50,7 +51,12 @@
 		})}
 	>
 		<Container>	
-
+<Sprite	
+		key="desktopBg"
+		anchor={0.5}
+		y={DESKTOP_BASE_SIZE/3} x={DESKTOP_BASE_SIZE * 6.5}
+		scale={{ x:1.8, y: 1.2}}
+	/>
 <Sprite	
 		key="betControl"
 		anchor={0.5}
