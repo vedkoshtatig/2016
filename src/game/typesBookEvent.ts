@@ -127,8 +127,8 @@ export type BookEvent =
 	| BookEventSetWin
 	| BookEventFreeSpinEnd
 	// customised
-	| BookEventCreateBonusSnapshot;
-	| BookEventScatterWin;
+	| BookEventCreateBonusSnapshot
+	| BookEventScatterWin
 
 export type Bet = BetType<BookEvent>;
 export type BookEventOfType<T> = Extract<BookEvent, { type: T }>;

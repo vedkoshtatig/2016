@@ -9,6 +9,7 @@ import { winLevelMap, type WinLevel, type WinLevelData } from './winLevelMap';
 import { stateGame, stateGameDerived } from './stateGame.svelte';
 import type { BookEvent, BookEventOfType, BookEventContext } from './typesBookEvent';
 import type { Position } from './types';
+let lastWinInfo: BookEventOfType<'winInfo'> | null = null;
 
 const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) => {
 	if (winLevelData?.alias === 'max') eventEmitter.broadcastAsync({ type: 'uiHide' });
@@ -44,118 +45,209 @@ const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 
 export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContext> = {
 	reveal: async (bookEvent: BookEventOfType<'reveal'>, { bookEvents }: BookEventContext) => {
+		const USE_MOCK = false; // 🔥 toggle ON/OFF anytime
 
-  const USE_MOCK = false; // 🔥 toggle ON/OFF anytime
+		if (USE_MOCK) {
+			const MOCK_SPIN_BOARD = [
+				[
+					{ name: 'L1' },
+					{ name: 'H2' },
+					{ name: 'M', multiplier: 5 },
+					{ name: 'W' },
+					{ name: 'H1' },
+					{ name: 'H1' },
+					{ name: 'H4' },
+				],
+				[
+					{ name: 'L2' },
+					{ name: 'S', scatter: true },
+					{ name: 'L4' },
+					{ name: 'M', multiplier: 2 },
+					{ name: 'L3' },
+					{ name: 'H1' },
+					{ name: 'L1' },
+				],
+				[
+					{ name: 'H3' },
+					{ name: 'L2' },
+					{ name: 'W' },
+					{ name: 'L4' },
+					{ name: 'M', multiplier: 10 },
+					{ name: 'H1' },
+					{ name: 'H1' },
+				],
+				[
+					{ name: 'L3' },
+					{ name: 'H4' },
+					{ name: 'M', multiplier: 7 },
+					{ name: 'L2' },
+					{ name: 'W' },
+					{ name: 'H1' },
+					{ name: 'L4' },
+				],
+				[
+					{ name: 'H1' },
+					{ name: 'L1' },
+					{ name: 'S', scatter: true },
+					{ name: 'M', multiplier: 4 },
+					{ name: 'L2' },
+					{ name: 'H1' },
+					{ name: 'L3' },
+				],
+				[
+					{ name: 'L4' },
+					{ name: 'H3' },
+					{ name: 'L2' },
+					{ name: 'W' },
+					{ name: 'M', multiplier: 5 },
+					{ name: 'S', scatter: true },
+					{ name: 'H1' },
+				],
+			];
 
-  if (USE_MOCK) {
-    const MOCK_SPIN_BOARD = [
-      [
-        { name: 'L1' },
-        { name: 'H2' },
-        { name: 'M', multiplier: 5 },
-        { name: 'W' },
-        { name: 'H1' },
-        { name: 'H1' },
-        { name: 'H4' },
-      ],
-      [
-        { name: 'L2' },
-        { name: 'S', scatter: true },
-        { name: 'L4' },
-        { name: 'M', multiplier: 2 },
-        { name: 'L3' },
-        { name: 'H1' },
-        { name: 'L1' },
-      ],
-      [
-        { name: 'H3' },
-        { name: 'L2' },
-        { name: 'W' },
-        { name: 'L4' },
-        { name: 'M', multiplier: 10 },
-        { name: 'H1' },
-        { name: 'H1' },
-      ],
-      [
-        { name: 'L3' },
-        { name: 'H4' },
-        { name: 'M', multiplier: 7 },
-        { name: 'L2' },
-        { name: 'W' },
-        { name: 'H1' },
-        { name: 'L4' },
-      ],
-      [
-        { name: 'H1' },
-        { name: 'L1' },
-        { name: 'S', scatter: true },
-        { name: 'M', multiplier: 4 },
-        { name: 'L2' },
-        { name: 'H1' },
-        { name: 'L3' },
-      ],
-      [
-        { name: 'L4' },
-        { name: 'H3' },
-        { name: 'L2' },
-        { name: 'W' },
-        { name: 'M', multiplier: 5 },
-        { name: 'S', scatter: true },
-        { name: 'H1' },
-      ],
-    ];
+			// 🔥 override backend event
+			bookEvent = {
+				...bookEvent,
+				board: MOCK_SPIN_BOARD, // ⚠️ if not working → change to revealSymbols
+			} as any;
+		}
 
-    // 🔥 override backend event
-    bookEvent = {
-      ...bookEvent,
-      board: MOCK_SPIN_BOARD, // ⚠️ if not working → change to revealSymbols
-    } as any;
-  }
+		eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
 
-  eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
+		const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
+		if (isBonusGame) {
+			eventEmitter.broadcast({ type: 'stopButtonEnable' });
+			recordBookEvent({ bookEvent });
+		}
 
-  const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
-  if (isBonusGame) {
-    eventEmitter.broadcast({ type: 'stopButtonEnable' });
-    recordBookEvent({ bookEvent });
-  }
+		stateGame.gameType = bookEvent.gameType;
 
-  stateGame.gameType = bookEvent.gameType;
+		await stateGameDerived.enhancedBoard.spin({ revealEvent: bookEvent });
 
-  await stateGameDerived.enhancedBoard.spin({ revealEvent: bookEvent });
+		eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
+	},
+	winInfo: async (bookEvent) => {
+		lastWinInfo = bookEvent; // ✅ STORE for tumble stage
 
-  eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
-},
-	winInfo: async (bookEvent: BookEventOfType<'winInfo'>) => {		
-		const promise1 = async () => {
-			eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_winlevel_small' });
-			await animateSymbols({ positions: _.flatten(bookEvent.wins.map((win) => win.positions)) });
-		};
+		await Promise.all([
+			(async () => {
+				eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_winlevel_small' });
 
-		const promise2 = async () => {
-			await eventEmitter.broadcastAsync({
-				type: 'showClusterWinAmounts',
-				wins: bookEvent.wins.map((win) => {
-					return {
+				await animateSymbols({
+					positions: _.flatten(bookEvent.wins.map((win) => win.positions)),
+				});
+			})(),
+
+			(async () => {
+				await eventEmitter.broadcastAsync({
+					type: 'showClusterWinAmounts',
+					wins: bookEvent.wins.map((win) => ({
 						win: win.meta.winWithoutMult,
 						mult: win.meta.globalMult,
 						result: win.meta.winWithoutMult * win.meta.globalMult,
 						reel: win.meta.overlay.reel,
 						row: win.meta.overlay.row,
-					};
-				}),
-			});
-		};
-
-		await Promise.all([promise1(), promise2()]);
+					})),
+				});
+			})(),
+		]);
 	},
 
-	scatterWin: async (bookEvent: BookEventOfType<'scatterWin'>) => {
-	console.warn('scatterWin:', bookEvent);
+	// ================= TUMBLE BOARD =================
+	tumbleBoard: async (bookEvent) => {
+		eventEmitter.broadcast({ type: 'boardHide' });
+		eventEmitter.broadcast({ type: 'tumbleBoardShow' });
+		eventEmitter.broadcast({
+			type: 'tumbleBoardInit',
+			addingBoard: bookEvent.newSymbols,
+		});
 
-	// optional
-	eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
-},
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_multiplier_explosion_b' });
+
+		// ================= 🔥 FINAL FIX HERE =================
+		if (lastWinInfo) {
+			const aggregated = lastWinInfo.wins.map((win) => ({
+				symbol: win.symbol,
+				value: win.win, // ✅ total win per symbol
+			}));
+
+			// ✅ EMIT ONE EVENT PER SYMBOL
+			aggregated.forEach((item) => {
+				console.log('🚀 EMIT FROM TUMBLE:', item);
+
+				eventEmitter.broadcast({
+					type: 'symbolExplode',
+					data: {
+						symbol: item.symbol,
+						value: item.value,
+						reel: -1,
+						row: -1,
+					},
+				});
+			});
+
+			// optional UI sync
+			eventEmitter.broadcast({
+				type: 'boardShowWinInfo',
+				wins: aggregated.map((w) => ({
+					symbol: w.symbol,
+					totalWin: w.value,
+					count: 0,
+				})),
+			});
+
+			lastWinInfo = null;
+		}
+		// ===================================================
+
+		await eventEmitter.broadcastAsync({
+			type: 'tumbleBoardExplode',
+			explodingPositions: bookEvent.explodingSymbols,
+		});
+
+		eventEmitter.broadcast({ type: 'tumbleBoardRemoveExploded' });
+
+		await eventEmitter.broadcastAsync({ type: 'tumbleBoardSlideDown' });
+
+		eventEmitter.broadcast({
+			type: 'boardSettle',
+			board: stateGameDerived
+				.tumbleBoardCombined()
+				.map((tumbleReel) => tumbleReel.map((tumbleSymbol) => tumbleSymbol.rawSymbol)),
+		});
+
+		eventEmitter.broadcast({ type: 'tumbleBoardReset' });
+		eventEmitter.broadcast({ type: 'tumbleBoardHide' });
+		eventEmitter.broadcast({ type: 'boardShow' });
+	},
+	// tumbleBoard: async (bookEvent: BookEventOfType<'tumbleBoard'>) => {
+	// 	eventEmitter.broadcast({ type: 'boardHide' });
+	// 	eventEmitter.broadcast({ type: 'tumbleBoardShow' });
+	// 	eventEmitter.broadcast({ type: 'tumbleBoardInit', addingBoard: bookEvent.newSymbols });
+	// 	eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_multiplier_explosion_b' });
+	// 	await eventEmitter.broadcastAsync({
+	// 		type: 'tumbleBoardExplode',
+	// 		explodingPositions: bookEvent.explodingSymbols,
+	// 	});
+	// 	eventEmitter.broadcast({ type: 'tumbleBoardRemoveExploded' });
+	// 	await eventEmitter.broadcastAsync({ type: 'tumbleBoardSlideDown' });
+	// 	eventEmitter.broadcast({
+	// 		type: 'boardSettle',
+	// 		board: stateGameDerived
+	// 			.tumbleBoardCombined()
+	// 			.map((tumbleReel) => tumbleReel.map((tumbleSymbol) => tumbleSymbol.rawSymbol)),
+	// 	});
+	// 	eventEmitter.broadcast({ type: 'tumbleBoardReset' });
+	// 	eventEmitter.broadcast({ type: 'tumbleBoardHide' });
+	// 	eventEmitter.broadcast({ type: 'boardShow' });
+	// },
+
+	scatterWin: async (bookEvent: BookEventOfType<'scatterWin'>) => {
+		console.warn('scatterWin:', bookEvent);
+
+		// optional
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
+	},
 	updateTumbleWin: async (bookEvent: BookEventOfType<'updateTumbleWin'>) => {
 		if (bookEvent.amount > 0) {
 			eventEmitter.broadcast({ type: 'tumbleWinAmountShow' });
@@ -244,8 +336,8 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'uiShow' });
 		await eventEmitter.broadcastAsync({ type: 'drawerUnfold' });
 		eventEmitter.broadcast({ type: 'drawerButtonHide' });
-		
 	},
+	
 	boardMultiplierInfo: async (bookEvent: BookEventOfType<'boardMultiplierInfo'>) => {
 		eventEmitter.broadcast({ type: 'tumbleWinAmountShow' });
 		await eventEmitter.broadcastAsync({
@@ -276,27 +368,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 			animate: true,
 		});
 	},
-	tumbleBoard: async (bookEvent: BookEventOfType<'tumbleBoard'>) => {
-		eventEmitter.broadcast({ type: 'boardHide' });
-		eventEmitter.broadcast({ type: 'tumbleBoardShow' });
-		eventEmitter.broadcast({ type: 'tumbleBoardInit', addingBoard: bookEvent.newSymbols });
-		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_multiplier_explosion_b' });
-		await eventEmitter.broadcastAsync({
-			type: 'tumbleBoardExplode',
-			explodingPositions: bookEvent.explodingSymbols,
-		});
-		eventEmitter.broadcast({ type: 'tumbleBoardRemoveExploded' });
-		await eventEmitter.broadcastAsync({ type: 'tumbleBoardSlideDown' });
-		eventEmitter.broadcast({
-			type: 'boardSettle',
-			board: stateGameDerived
-				.tumbleBoardCombined()
-				.map((tumbleReel) => tumbleReel.map((tumbleSymbol) => tumbleSymbol.rawSymbol)),
-		});
-		eventEmitter.broadcast({ type: 'tumbleBoardReset' });
-		eventEmitter.broadcast({ type: 'tumbleBoardHide' });
-		eventEmitter.broadcast({ type: 'boardShow' });
-	},
+
 	setWin: async (bookEvent: BookEventOfType<'setWin'>) => {
 		const winLevelData = winLevelMap[bookEvent.winLevel as WinLevel];
 

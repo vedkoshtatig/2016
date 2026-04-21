@@ -9,7 +9,24 @@
 				type: 'boardWithAnimateSymbols';
 				symbolPositions: Position[];
 		  }
-		| { type: 'boardWithMovingMultiplierTexts' };
+		| { type: 'boardWithMovingMultiplierTexts' }
+		| {
+				type: 'boardShowWinInfo';
+				wins: {
+					symbol: string;
+					totalWin: number;
+					count: number;
+				}[];
+		  }
+		| {
+				type: 'symbolExplode';
+				data: {
+					symbol: string;
+					value: number;
+					reel: number;
+					row: number;
+				};
+		  };
 </script>
 
 <script lang="ts">
@@ -31,15 +48,46 @@
 		boardShow: () => (show = true),
 		boardHide: () => (show = false),
 		boardWithAnimateSymbols: async ({ symbolPositions }) => {
+			const grouped: Record<string, { total: number; count: number }> = {};
+
 			const getPromises = () =>
 				symbolPositions.map(async (position) => {
 					const reelSymbol = context.stateGame.board[position.reel].reelState.symbols[position.row];
+
+					if (!reelSymbol.winValue || !reelSymbol.winSymbol) return;
+
+					// ✅ GROUP by symbol
+					if (!grouped[reelSymbol.winSymbol]) {
+						grouped[reelSymbol.winSymbol] = { total: 0, count: 0 };
+					}
+
+					grouped[reelSymbol.winSymbol].total += reelSymbol.winValue;
+					grouped[reelSymbol.winSymbol].count += 1;
+
 					reelSymbol.symbolState = 'win';
+
 					await waitForResolve((resolve) => (reelSymbol.oncomplete = resolve));
+
 					reelSymbol.symbolState = 'postWinStatic';
+
+					reelSymbol.winValue = null;
+					reelSymbol.winSymbol = null;
 				});
 
 			await Promise.all(getPromises());
+
+			// ✅ EMIT ONLY ONCE PER SYMBOL
+			Object.entries(grouped).forEach(([symbol, data]) => {
+				context.eventEmitter.broadcast({
+					type: 'symbolExplode',
+					data: {
+						symbol,
+						value: data.total, // 🔥 total win
+						reel: -1, // not needed anymore
+						row: -1,
+					},
+				});
+			});
 		},
 		boardWithMovingMultiplierTexts: () => {
 			context.stateGame.board.forEach((reel) => {
@@ -51,6 +99,15 @@
 						};
 					}
 				});
+			});
+		},
+		boardShowWinInfo: ({ wins }) => {
+			wins.forEach((win) => {
+				//console.log(`💣 EXPLOSION → Symbol: ${win.symbol}, Total Win: ${win.totalWin}`);
+
+				// optional: store global display (not per symbol)
+				context.stateGame.lastExplodedSymbol = win.symbol;
+				context.stateGame.lastExplodedValue = win.totalWin;
 			});
 		},
 	});

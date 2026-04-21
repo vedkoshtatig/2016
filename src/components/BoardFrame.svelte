@@ -64,6 +64,15 @@ let show = $state(false);
 		/>
 	</SpineProvider>
 {/if}
+<Sprite
+		key="reel_base"
+		anchor={0.5}
+		x={context.stateGameDerived.boardLayout().x}
+		y={context.stateGameDerived.boardLayout().y - 45}
+		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
+		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
+		scale={{ x: 0.73, y: 0.8 }}
+	/>
 {#if show}
 	
 		<Sprite
@@ -74,7 +83,6 @@ let show = $state(false);
 		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
 		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
 		scale={{ x: 0.73, y: 0.8 }}
-		zIndex={10}
 	/>
 {:else}
 <Sprite

@@ -10,12 +10,11 @@
 <script lang="ts">
 	import { Container } from 'pixi-svelte';
 	import { FadeContainer, WinCountUpProvider, ResponsiveBitmapText } from 'components-pixi';
-	import { waitForResolve, waitForTimeout } from 'utils-shared/wait';
+	import { waitForTimeout } from 'utils-shared/wait';
 	import { bookEventAmountToCurrencyString } from 'utils-shared/amount';
 	import { CanvasSizeRectangle, MainContainer } from 'components-layout';
 	import { OnMount } from 'components-shared';
 
-	import WinCoins from './WinCoins.svelte';
 	import WinAnimation from './WinAnimation.svelte';
 	import PressToContinue from './PressToContinue.svelte';
 	import { SYMBOL_SIZE } from '../game/constants';
@@ -26,16 +25,40 @@
 	let show = $state(false);
 	let amount = $state(0);
 	let winLevelData = $state<WinLevelData>();
-	let oncomplete = $state(() => {});
-	let onCountUpComplete = $state(() => {});
+	let countUpResolved = $state(false);
+
+	// ===============================
+	// SAFE PROMISE PER WIN EVENT
+	// ===============================
+	let resolveWinUpdate: (() => void) | null = null;
+
+	const waitForWinComplete = () => {
+		countUpResolved = false;
+
+		return new Promise<void>((resolve) => {
+			resolveWinUpdate = resolve;
+
+			// 🔥 SAFETY NET: prevents freeze forever
+			setTimeout(() => {
+				if (resolveWinUpdate) {
+					console.warn('⚠️ winUpdate auto-resolved (timeout fallback)');
+					resolveWinUpdate();
+					resolveWinUpdate = null;
+				}
+			}, 8000);
+		});
+	};
 
 	context.eventEmitter.subscribeOnMount({
 		winShow: () => (show = true),
 		winHide: () => (show = false),
+
 		winUpdate: async (emitterEvent) => {
 			amount = emitterEvent.amount;
 			winLevelData = emitterEvent.winLevelData;
-			await waitForResolve((resolve) => (oncomplete = resolve));
+
+			// 🔥 IMPORTANT: block until UI animation completes OR timeout hits
+			await waitForWinComplete();
 		},
 	});
 </script>
@@ -44,17 +67,29 @@
 	{#if winLevelData}
 		{@const isBigWin = winLevelData.type === 'big'}
 		{@const duration = winLevelData.presentDuration}
-		<WinCountUpProvider {amount} {duration} oncomplete={() => onCountUpComplete()}>
+
+		<WinCountUpProvider {amount} {duration}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
+
 				{#if isBigWin}
 					<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
 				{/if}
 
+				<!-- ===============================
+				     START ANIMATION ON MOUNT
+				=============================== -->
 				<OnMount
 					onmount={async () => {
 						await startCountUp();
 						await waitForTimeout(300);
-						oncomplete();
+
+						// 🔥 RELEASE BACKEND FLOW
+						if (resolveWinUpdate) {
+							resolveWinUpdate();
+							resolveWinUpdate = null;
+						}
+
+						countUpResolved = true;
 					}}
 				/>
 
@@ -79,7 +114,6 @@
 										fontSize: SYMBOL_SIZE * 1.2,
 										align: 'center',
 										fontWeight: 'bold',
-										letterSpacing: 0,
 									}}
 								/>
 							</Container>
@@ -95,16 +129,27 @@
 									fontSize: SYMBOL_SIZE,
 									align: 'center',
 									fontWeight: 'bold',
-									letterSpacing: 0,
 								}}
 							/>
 						{/if}
 					</Container>
 				</MainContainer>
 
-				<!-- <WinCoins emit={!countUpCompleted} levelAlias={winLevelData?.alias} /> -->
-
-				<PressToContinue onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())} />
+				<!-- ===============================
+				     USER SKIP / CONTINUE
+				=============================== -->
+				<PressToContinue
+					onpress={() => {
+						if (countUpCompleted) {
+							if (resolveWinUpdate) {
+								resolveWinUpdate();
+								resolveWinUpdate = null;
+							}
+						} else {
+							finishCountUp();
+						}
+					}}
+				/>
 			{/snippet}
 		</WinCountUpProvider>
 	{/if}
