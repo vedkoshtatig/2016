@@ -7,6 +7,7 @@
 	import { getContext } from '../game/context';
 	import { UI_BASE_SIZE } from '../game/constants';
 	import ButtonBetAutoSpinsCounter from './ButtonBetAutoSpinsCounter.svelte';
+	import ModalAutoSpin from 'components-ui-html/src/components/ModalAutoSpin.svelte';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const context = getContext();
@@ -20,7 +21,9 @@
 	});
 
 	const stopAutoSpin = () => (stateBet.autoSpinsCounter = 0);
-	const openModal = () => (stateModal.modal = { name: 'autoSpin' });
+	const openModal = () => {
+		stateModal.modal = { name: 'autoSpin' };
+	};
 	const onpress = () => {
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
 		stateBetDerived.hasAutoBetCounter() ? stopAutoSpin() : openModal();

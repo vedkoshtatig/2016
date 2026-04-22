@@ -22,18 +22,18 @@
 	const isCenter = props.align === 'center';
 
 	const labelStyle = {
-		fontFamily: 'proxima-nova',
+		fontFamily: 'Neuton',
 		fontSize: UI_BASE_FONT_SIZE / 1.6,
 		letterSpacing: 0.02,
 		fontWeight: '510',
-		fill: props.labelColor ?? '#5F5F68'
+		fill: props.labelColor ?? '#5F5F68',
 	} as const;
 
 	const valueStyle = {
-		fontFamily: 'proxima-nova',
+		fontFamily: 'Neuton',
 		fontSize: UI_BASE_FONT_SIZE,
 		fill: props.textColor ?? '#FFFFFF',
-		fontWeight: 600
+		fontWeight: 600,
 	} as const;
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Text, Rectangle,Sprite } from 'pixi-svelte';
+	import { Text, Rectangle, Sprite } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
 	import { DESKTOP_BASE_SIZE } from '../game/constants';
 	import { WHITE } from 'constants-shared/colors';
@@ -15,17 +15,12 @@
 </script>
 
 {#if stateBet.autoSpinsCounter > 0}
-<Sprite	
-		key="betControl"
-		anchor={0.5}
-	
-		scale={{ x: 1.1, y: 2.3 }}
-	/>
+	<Sprite key="betControl" anchor={0.5} scale={{ x: 1.1, y: 2.3 }} />
 	<Text
 		anchor={0.5}
 		text={stateBet.autoSpinsCounter === Infinity ? '∞' : stateBet.autoSpinsCounter}
 		style={{
-			fontFamily: 'proxima-nova',
+			fontFamily: 'Neuton',
 			fill: WHITE,
 			fontWeight: 'bold',
 			fontSize: fontSizeMultiplier * UI_BASE_SIZE * 0.2,
