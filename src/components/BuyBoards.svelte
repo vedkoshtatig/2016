@@ -78,7 +78,12 @@
 				anchor={0.5}
 				x={0}
 				y={-15}
-				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 10,
+					fontWeight: 'bold',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -87,7 +92,12 @@
 				anchor={0.5}
 				x={0}
 				y={-2}
-				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 10,
+					fontWeight: 'bold',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -96,7 +106,12 @@
 				anchor={0.5}
 				x={0}
 				y={15}
-				style={{ fill: '#7F5112', fontSize: 18, fontWeight: 'bolder' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 18,
+					fontWeight: 'bolder',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -121,7 +136,12 @@
 				anchor={0.5}
 				x={0}
 				y={-6}
-				style={{ fill: '#7F5112', fontSize: 15, fontWeight: 'bolder' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 15,
+					fontWeight: 'bolder',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -130,7 +150,7 @@
 				anchor={0.5}
 				x={0}
 				y={6}
-				style={{ fill: '#7F5112', fontSize: 11 }}
+				style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 11 }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -139,7 +159,7 @@
 				anchor={0.5}
 				x={0}
 				y={18}
-				style={{ fill: '#7F5112', fontSize: 15, fontWeight: '900' }}
+				style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 15, fontWeight: '900' }}
 				interactive={false}
 				eventMode="none"
 			/>

@@ -45,6 +45,7 @@
 		"utils-bet": "workspace:*",
 		"utils-book": "workspace:*",
 		"utils-event-emitter": "workspace:*",
+		"utils-resize-observer": "workspace:*",
 		"utils-layout": "workspace:*",
 		"utils-shared": "workspace:*",
 		"utils-slots": "workspace:*",

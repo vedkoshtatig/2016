@@ -22,14 +22,22 @@ export type Position = {
 	reel: number;
 	row: number;
 };
+export type EmitterEventModal =
+	| { type: 'soundPressGeneral' }
+	| { type: 'buyBonusConfirm' }
+	| { type: 'bet' }
+	| { type: 'autoBet' };
+
 export type ButtonIcon =
 	| 'decrease'
 	| 'increase'
 	| 'menu'
 	| 'turbo'
 	| 'autoSpin'
+	| 'autoSpinPortrait'
 	| 'payTable'
 	| 'info'
+	| 'infoPortrait'
 	| 'settings'
 	| 'soundOn'
 	| 'soundOff'

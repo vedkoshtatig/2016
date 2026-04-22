@@ -54,7 +54,7 @@
 		key="desktopBg"
 		anchor={0.5}
 		y={DESKTOP_BASE_SIZE/3} x={DESKTOP_BASE_SIZE * 6.5}
-		scale={{ x:2, y: 1.2}}
+		scale={{ x:2.2, y: 1.2}}
 	/>
 <Sprite	
 		key="betControl"

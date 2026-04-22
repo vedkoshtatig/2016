@@ -29,17 +29,12 @@
 </script>
 
 {#if stateBet.autoSpinsCounter > 0}
-<Sprite	
-		key="betControl"
-		anchor={0.5}
-	
-		scale={{ x: 1.1, y: 2.3 }}
-	/>
+	<Sprite key="betControl" anchor={0.5} scale={{ x: 1.1, y: 2.3 }} />
 	<Text
 		anchor={0.5}
 		text={stateBet.autoSpinsCounter === Infinity ? '∞' : stateBet.autoSpinsCounter}
 		style={{
-			fontFamily: 'proxima-nova',
+			fontFamily: 'Neuton',
 			fill: WHITE,
 			fontWeight: 'bold',
 			fontSize: fontSizeMultiplier * UI_BASE_SIZE * 0.2,
