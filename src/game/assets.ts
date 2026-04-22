@@ -1,3 +1,5 @@
+import type { SpriteSheet } from "pixi-svelte";
+
 export default {
 	loader: {
 		type: 'spine',
@@ -916,6 +918,11 @@ export default {
 	symbolsStatic: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
+		preload: true,
+	},
+	spritesheet: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/symbolsStatic/spritesheet.json', import.meta.url).href,
 		preload: true,
 	},
 	coins: {
