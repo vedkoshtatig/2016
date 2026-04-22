@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, Sprite, Text, Rectangle ,BitmapText} from 'pixi-svelte';
+	import { Container, Sprite, Text, Rectangle, BitmapText } from 'pixi-svelte';
 	import { getContext } from '../game/context';
 	import ButtonBuyBonus from './ButtonBuyBonus.svelte';
 	import { stateBet } from 'state-shared';
@@ -92,7 +92,7 @@
 				eventMode="none"
 			/>
 			<BitmapText
-				text={`$${stateBet.betAmount *100}`}
+				text={`$${stateBet.betAmount * 100}`}
 				anchor={0.5}
 				x={0}
 				y={15}
@@ -109,7 +109,13 @@
 			onclick={() => (stateBet.activeBetModeKey = 'superBonus')}
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
-			<BitmapText text={'BUY'} anchor={0.5} x={0} y={-17} style={{ fill: '#7F5112', fontSize: 10 }} />
+			<BitmapText
+				text={'BUY'}
+				anchor={0.5}
+				x={0}
+				y={-17}
+				style={{ fill: '#7F5112', fontSize: 10 }}
+			/>
 			<BitmapText
 				text={'SUPER'}
 				anchor={0.5}
@@ -129,7 +135,7 @@
 				eventMode="none"
 			/>
 			<BitmapText
-				text={`$${stateBet.betAmount *1000}`}
+				text={`$${stateBet.betAmount * 1000}`}
 				anchor={0.5}
 				x={0}
 				y={18}
@@ -141,7 +147,7 @@
 	</Container>
 
 	<!-- ===== DOUBLE ===== -->
-	<Container onclick={() => (stateBet.activeBetModeKey = 'double')}>
+	<Container>
 		<Sprite
 			key="doubleBetbg"
 			anchor={0.5}
@@ -151,13 +157,27 @@
 			height={layout.height * 1.1}
 			scale={{ x: 0.7, y: 0.7 }}
 			zIndex={-10}
-			
 		/>
-		<Container x={0} y={148} >
+		<Container
+			x={0}
+			y={148}
+			interactive={true}
+			onclick={() => {
+				console.log('done')
+				stateBet.activeBetModeKey = 'anteBet';
+				console.log('done')
+			}}
+		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.73 }} anchor={0.5} />
-			<BitmapText text={'BET'} anchor={0.5} x={0} y={-17} style={{ fill: '#7F5112', fontSize: 10 }} />
 			<BitmapText
-				text={`$${stateBet.betAmount *2.5}`}
+				text={'BET'}
+				anchor={0.5}
+				x={0}
+				y={-17}
+				style={{ fill: '#7F5112', fontSize: 10 }}
+			/>
+			<BitmapText
+				text={`$${stateBet.betAmount * 2.5}`}
 				anchor={0.5}
 				x={0}
 				y={-6}

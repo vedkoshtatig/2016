@@ -21,7 +21,7 @@
 		visible = false;
 		show = false;
 	};
-	
+
 	const confirm = () => {
 		eventEmitter.broadcast({ type: 'bet' });
 		visible = false;
@@ -119,12 +119,42 @@
 							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
 						/>
 					</Container>
-				{:else if stateBet.activeBetModeKey === 'double'}
+				{:else if stateBet.activeBetModeKey === 'anteBet'}
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
-						text=" HAVE "
-						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
-					/>{/if}
+						y={-160}
+						text="ARE YOU SURE "
+						style={{ fontFamily: 'gold', fontSize: 44 }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-100}
+						text="YOU WANT TO DOUBLE BET"
+						style={{ fontFamily: 'gold', fontSize: 44 }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-30}
+						text="CHANCE TO WIN FEATURE"
+						style={{ fontFamily: 'gold', fontSize: 50 }}
+					/>
+
+					<Container x={0} y={40}>
+						<BitmapText
+							anchor={{ x: 1, y: 0.5 }}
+							x={-10}
+							text="AT COST OF"
+							style={{ fontFamily: 'gold', fontSize: 44 }}
+						/>
+
+						<BitmapText
+							anchor={{ x: 0, y: 0.5 }}
+							x={10}
+							text={`$${stateBet.betAmount * 2.5}`}
+							style={{ fontFamily: 'gold', fontSize: 64 }}
+						/>
+					</Container>
+				{/if}
 
 				<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
 					<Sprite anchor={0.5} scale={0.65} key="noButton" />
