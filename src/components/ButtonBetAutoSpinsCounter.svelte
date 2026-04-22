@@ -1,16 +1,30 @@
 <script lang="ts">
-	import { Text, Rectangle, Sprite } from 'pixi-svelte';
+	import { Text, Sprite } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
-	import { DESKTOP_BASE_SIZE } from '../game/constants';
 	import { WHITE } from 'constants-shared/colors';
-
 	import { UI_BASE_SIZE } from '../game/constants';
+	import { getContext } from '../game/context';
+
+	const context = getContext();
+
+	let prevCounter = stateBet.autoSpinsCounter;
 
 	const fontSizeMultiplier = $derived.by(() => {
 		if (stateBet.autoSpinsCounter === Infinity) return 3;
 		if (stateBet.autoSpinsCounter > 99) return 1.5;
 		if (stateBet.autoSpinsCounter > 9) return 2;
 		return 2.5;
+	});
+
+	// ✅ runes-safe reactive effect
+	$effect(() => {
+		const current = stateBet.autoSpinsCounter;
+
+		if (current > 0 && current < prevCounter) {
+			context.eventEmitter.broadcast({ type: 'clearLeaderboard' });
+		}
+
+		prevCounter = current;
 	});
 </script>
 

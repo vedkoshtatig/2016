@@ -13,6 +13,9 @@ import type { EmitterEventWin } from '../components/Win.svelte';
 import type { EmitterEventSound } from '../components/Sound.svelte';
 import type { EmitterEventTransition } from '../components/Transition.svelte';
 
+export type EmitterEventCustom =
+	| { type: 'clearLeaderboard' };
+
 export type EmitterEventGame =
 	| EmitterEventBoard
 	| EmitterEventBoardFrame
@@ -27,4 +30,5 @@ export type EmitterEventGame =
 	| EmitterEventFreeSpinCounter
 	| EmitterEventFreeSpinOutro
 	| EmitterEventSound
-	| EmitterEventTransition;
+	| EmitterEventTransition
+	| EmitterEventCustom;
