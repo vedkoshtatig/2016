@@ -72,7 +72,12 @@
 				anchor={0.5}
 				x={0}
 				y={-15}
-				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 10,
+					fontWeight: 'bold',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -81,7 +86,12 @@
 				anchor={0.5}
 				x={0}
 				y={-2}
-				style={{ fill: '#7F5112', fontSize: 10, fontWeight: 'bold' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 10,
+					fontWeight: 'bold',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -90,7 +100,12 @@
 				anchor={0.5}
 				x={0}
 				y={15}
-				style={{ fill: '#7F5112', fontSize: 18, fontWeight: 'bolder' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 18,
+					fontWeight: 'bolder',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -103,13 +118,24 @@
 			onclick={() => (stateBet.activeBetModeKey = 'superBonus')}
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
-			<Text text={'BUY'} anchor={0.5} x={0} y={-17} style={{ fill: '#7F5112', fontSize: 10 }} />
+			<Text
+				text={'BUY'}
+				anchor={0.5}
+				x={0}
+				y={-17}
+				style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 10 }}
+			/>
 			<Text
 				text={'SUPER'}
 				anchor={0.5}
 				x={0}
 				y={-6}
-				style={{ fill: '#7F5112', fontSize: 15, fontWeight: 'bolder' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 15,
+					fontWeight: 'bolder',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -118,7 +144,7 @@
 				anchor={0.5}
 				x={0}
 				y={6}
-				style={{ fill: '#7F5112', fontSize: 11 }}
+				style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 11 }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -127,7 +153,7 @@
 				anchor={0.5}
 				x={0}
 				y={18}
-				style={{ fill: '#7F5112', fontSize: 15, fontWeight: '900' }}
+				style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 15, fontWeight: '900' }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -153,7 +179,12 @@
 				anchor={0.5}
 				x={0}
 				y={0}
-				style={{ fill: '#7F5112', fontSize: 25, fontWeight: 'bold' }}
+				style={{
+					fontFamily: 'Neuton',
+					fill: '#7F5112',
+					fontSize: 25,
+					fontWeight: 'bold',
+				}}
 				interactive={false}
 				eventMode="none"
 			/>

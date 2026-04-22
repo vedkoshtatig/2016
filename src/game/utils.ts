@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { stateBet } from 'state-shared';
+import { stateBet, stateModal } from 'state-shared';
 import { createPlayBookUtils } from 'utils-book';
 import { createGetEmptyPaddedBoard } from 'utils-slots';
 
@@ -133,7 +133,7 @@ export const getSymbolBackgroundInfo = ({
 	return null;
 };
 
-
+ 
 // export const getSymbolInfo = ({
 // 	rawSymbol,
 // 	state,

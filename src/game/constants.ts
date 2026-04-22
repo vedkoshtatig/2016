@@ -51,12 +51,12 @@ export const DESKTOP_BACKGROUND_WIDTH_LIST = [
 // initial board (padded top and bottom)
 export const INITIAL_BOARD: RawSymbol[][] = [
 	[
-		{ name: 'M', multiplier: 10 },
 		{ name: 'L4' },
+		{ name: 'M', multiplier: 10 },
 		{ name: 'M', multiplier: 2 },
 		{ name: 'L1' },
 		{ name: 'H1' },
-		{ name: 'H4' },
+		{ name: 'H1' },
 		{ name: 'H1' },
 	],
 	[
@@ -185,10 +185,7 @@ const explosion = {
 	sizeRatios: { width: 1, height: 1 },
 };
 
-const createAnimatedSymbol = (
-	assetKey: string,
-	size: number
-) => ({
+const createAnimatedSymbol = (assetKey: string, size: number) => ({
 	explosion,
 	postWinStatic: {
 		type: 'spine',
@@ -222,42 +219,34 @@ const createAnimatedSymbol = (
 	},
 });
 
-const h1Static = { type: 'sprite', assetKey: 'h1', sizeRatios: { width: 1, height: 1 } };
-const h2Static = { type: 'sprite', assetKey: 'h2', sizeRatios: { width: 1, height: 1 } };
-const h3Static = { type: 'sprite', assetKey: 'h3', sizeRatios: { width: 1, height: 1 } };
-const h4Static = { type: 'sprite', assetKey: 'h4', sizeRatios: { width: 1, height: 1 } };
+const h1Static = { type: 'sprite', assetKey: 'h1.webp', sizeRatios: { width: 1, height: 1 } };
+const h2Static = { type: 'sprite', assetKey: 'h2.webp', sizeRatios: { width: 1, height: 1 } };
+const h3Static = { type: 'sprite', assetKey: 'h3.webp', sizeRatios: { width: 1, height: 1 } };
+const h4Static = { type: 'sprite', assetKey: 'h4.webp', sizeRatios: { width: 1, height: 1 } };
 
-const l1Static = { type: 'sprite', assetKey: 'l1', sizeRatios: { width: 1, height: 1 } };
-const l2Static = { type: 'sprite', assetKey: 'l2', sizeRatios: { width: 1, height: 1 } };
-const l3Static = { type: 'sprite', assetKey: 'l3', sizeRatios: { width: 1, height: 1 } };
-const l4Static = { type: 'sprite', assetKey: 'l4', sizeRatios: { width: 1, height: 1 } };
-const l5Static = { type: 'sprite', assetKey: 'l5', sizeRatios: { width: 1, height: 1 } };
-const l6Static = { type: 'sprite', assetKey: 'l6', sizeRatios: { width: 1, height: 1 } };
+const l1Static = { type: 'sprite', assetKey: 'l1.webp', sizeRatios: { width: 1, height: 1 } };
+const l2Static = { type: 'sprite', assetKey: 'l2.webp', sizeRatios: { width: 1, height: 1 } };
+const l3Static = { type: 'sprite', assetKey: 'l3.webp', sizeRatios: { width: 1, height: 1 } };
+const l4Static = { type: 'sprite', assetKey: 'l4.webp', sizeRatios: { width: 1, height: 1 } };
+const l5Static = { type: 'sprite', assetKey: 'l5.webp', sizeRatios: { width: 1, height: 1 } };
+const l6Static = { type: 'sprite', assetKey: 'l6.webp', sizeRatios: { width: 1, height: 1 } };
 
-const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1, height: 1 } };
+const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1.243, height: 1.243 } };
 const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1.12, height: 1.12 } };
-
-
 
 const m2Static = {
 	type: 'sprite',
-	assetKey: 'w',
+	assetKey: 'm1_2x.png',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
-const m6Static = {
+const m4Static = {
 	type: 'sprite',
-	assetKey: 'w',
+	assetKey: 'm1_4x.png',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
-const m8Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m10Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-
-const m12Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m20Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m25Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m50Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m100Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
-const m1000Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
+const m5Static = { type: 'sprite', assetKey: 'm2_5x.png', sizeRatios: { width: 1, height: 1 } };
+const m7Static = { type: 'sprite', assetKey: 'm2_7x.png', sizeRatios: { width: 1, height: 1 } };
+const m10Static = { type: 'sprite', assetKey: 'm3_10x.png', sizeRatios: { width: 1, height: 1 } };
 
 const wSizeRatios = { width: 1.5 * 0.9, height: SPECIAL_SYMBOL_SIZE * 1.15 };
 const sSizeRatios = { width: 2.5, height: SPECIAL_SYMBOL_SIZE * 2.3 };
@@ -265,7 +254,7 @@ const sSizeRatios = { width: 2.5, height: SPECIAL_SYMBOL_SIZE * 2.3 };
 const backgroundLowStatic = {
 	type: 'spine',
 	assetKey: 'M',
-	animationName: 'low_multiplier_static',
+	animationName: 'win',
 	sizeRatios: { width: M_SIZE, height: M_SIZE },
 };
 const backgroundMidStatic = {
@@ -362,15 +351,15 @@ const backgroundHigh = {
 
 export const SYMBOL_INFO_MAP = {
 	H1: createAnimatedSymbol('H1', HIGH_SYMBOL_SIZE),
-H2: createAnimatedSymbol('H2', HIGH_SYMBOL_SIZE),
-H3: createAnimatedSymbol('H3', HIGH_SYMBOL_SIZE),
-H4: createAnimatedSymbol('H4', HIGH_SYMBOL_SIZE),
-L1: createAnimatedSymbol('L1', LOW_SYMBOL_SIZE),
-L2: createAnimatedSymbol('L2', LOW_SYMBOL_SIZE),
-L3: createAnimatedSymbol('L3', LOW_SYMBOL_SIZE),
-L4: createAnimatedSymbol('L4', LOW_SYMBOL_SIZE),
-L5: createAnimatedSymbol('L5', LOW_SYMBOL_SIZE),
-L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
+	H2: createAnimatedSymbol('H2', HIGH_SYMBOL_SIZE),
+	H3: createAnimatedSymbol('H3', HIGH_SYMBOL_SIZE),
+	H4: createAnimatedSymbol('H4', HIGH_SYMBOL_SIZE),
+	L1: createAnimatedSymbol('L1', LOW_SYMBOL_SIZE),
+	L2: createAnimatedSymbol('L2', LOW_SYMBOL_SIZE),
+	L3: createAnimatedSymbol('L3', LOW_SYMBOL_SIZE),
+	L4: createAnimatedSymbol('L4', LOW_SYMBOL_SIZE),
+	L5: createAnimatedSymbol('L5', LOW_SYMBOL_SIZE),
+	L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	W: {
 		explosion,
 		postWinStatic: {
@@ -480,9 +469,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_6: {
 		explosion,
-		postWinStatic: m6Static,
-		static: m6Static,
-		spin: m6Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -498,9 +487,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_8: {
 		explosion,
-		postWinStatic: m8Static,
-		static: m8Static,
-		spin: m8Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -534,9 +523,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_12: {
 		explosion,
-		postWinStatic: m12Static,
-		static: m12Static,
-		spin: m12Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -552,9 +541,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_20: {
 		explosion,
-		postWinStatic: m20Static,
-		static: m20Static,
-		spin: m20Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -570,9 +559,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_25: {
 		explosion,
-		postWinStatic: m25Static,
-		static: m25Static,
-		spin: m25Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -588,9 +577,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_50: {
 		explosion,
-		postWinStatic: m50Static,
-		static: m50Static,
-		spin: m50Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -606,9 +595,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_100: {
 		explosion,
-		postWinStatic: m100Static,
-		static: m100Static,
-		spin: m100Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
@@ -624,9 +613,9 @@ L6: createAnimatedSymbol('L6', LOW_SYMBOL_SIZE),
 	},
 	M_1000: {
 		explosion,
-		postWinStatic: m1000Static,
-		static: m1000Static,
-		spin: m1000Static,
+		postWinStatic: m7Static,
+		static: m7Static,
+		spin: m7Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',

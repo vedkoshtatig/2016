@@ -13,17 +13,17 @@
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 	const disabled = $derived(!stateXstateDerived.isIdle());
 	const active = $derived(stateBetDerived.activeBetMode()?.type === 'activate');
-	
+
 	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
-		
+
 		if (active) {
 			disableActiveBetMode();
 		} else {
 			//openModal()
-			eventEmitter.broadcast({type:'openPopUp'} as any)
+			eventEmitter.broadcast({ type: 'openPopUp' } as any);
 		}
 	};
 	// onclick={() => {
@@ -57,11 +57,7 @@
 		})}
 
 		<UiSprite
-			assetKey={
-				state === 'default'
-					? 'buyFreeSpinButton'
-					: `buyFreeSpinButton_${state}`
-			}
+			assetKey={state === 'default' ? 'buyFreeSpinButton' : `buyFreeSpinButton_${state}`}
 			{...center}
 			anchor={0.5}
 			width={sizes.width}
@@ -95,7 +91,7 @@
 				align: 'center',
 				wordWrap: true,
 				wordWrapWidth: 200,
-				fontFamily: 'proxima-nova',
+				fontFamily: 'Neuton',
 				fontWeight: '600',
 				fontSize: UI_BASE_FONT_SIZE * 0.9,
 				fill: 0xffffff,
