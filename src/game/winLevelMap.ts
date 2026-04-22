@@ -1,6 +1,15 @@
 import { SECOND } from 'constants-shared/time';
 
 export const winLevelMap = {
+		0: {
+		level: 1,
+		alias: 'zero',
+		type: 'small',
+		text: null,
+		presentDuration: 0,
+		sound: { sfx: undefined, bgm: undefined },
+		animation: undefined,
+	},
 	1: {
 		level: 1,
 		alias: 'zero',

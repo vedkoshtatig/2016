@@ -36,16 +36,19 @@
 		countUpResolved = false;
 
 		return new Promise<void>((resolve) => {
+			console.warn(resolve,"  -> ")
 			resolveWinUpdate = resolve;
+			console.warn(resolveWinUpdate,"  -> ")
+			
 
 			// 🔥 SAFETY NET: prevents freeze forever
-			setTimeout(() => {
-				if (resolveWinUpdate) {
-					console.warn('⚠️ winUpdate auto-resolved (timeout fallback)');
-					resolveWinUpdate();
-					resolveWinUpdate = null;
-				}
-			}, 8000);
+			// setTimeout(() => {
+			// 	if (resolveWinUpdate) {
+			// 		console.warn('⚠️ winUpdate auto-resolved (timeout fallback)');
+			// 		resolveWinUpdate();
+			// 		resolveWinUpdate = null;
+			// 	}
+			// }, 8000);
 		});
 	};
 
@@ -120,7 +123,6 @@
 						{:else}
 							<ResponsiveBitmapText
 								anchor={0.5}
-								y={SYMBOL_SIZE * 1.2}
 								maxWidth={context.stateLayoutDerived.canvasSizes().width /
 									context.stateLayoutDerived.mainLayout().scale}
 								text={bookEventAmountToCurrencyString(countUpAmount)}

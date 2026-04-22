@@ -11,7 +11,10 @@ export const rawAssets = {
 	autospin_active_hover,
 	turbo_active,
 	turbo_active_hover,
-	balance,
-};
+	balance
+} as const;
 
-export default getLoadableAssets(rawAssets);
+const assets = getLoadableAssets(rawAssets);
+
+export default assets;
+export type AssetKey = keyof typeof rawAssets;
