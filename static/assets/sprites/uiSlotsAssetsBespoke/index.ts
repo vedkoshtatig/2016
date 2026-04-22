@@ -4,12 +4,14 @@ import autospin_active from './autospin_active.webp';
 import autospin_active_hover from './autospin_active_hover.webp';
 import turbo_active from './turbo_active.webp';
 import turbo_active_hover from './turbo_active_hover.webp';
+import balance from './Balance.png';
 
 export const rawAssets = {
 	autospin_active,
 	autospin_active_hover,
 	turbo_active,
 	turbo_active_hover,
+	balance,
 };
 
 export default getLoadableAssets(rawAssets);

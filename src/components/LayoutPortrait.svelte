@@ -140,8 +140,8 @@
 			/>
 			<Container
 				y={-DESKTOP_BASE_SIZE * 3.65}
-				x={-DESKTOP_BASE_SIZE * 1.5}
-				scale={{ x: 1.6, y: 0.6 }}
+				x={-DESKTOP_BASE_SIZE * 1.1}
+				scale={{ x: 1.8, y: 0.35 }}
 			>
 				{@render props.buttonTurbo({ anchor: 0.5 })}
 			</Container>
@@ -153,7 +153,7 @@
 				x={-DESKTOP_BASE_SIZE * 1.5}
 				scale={{ x: 2.5, y: 2.2 }}
 			/>
-			<Container y={-DESKTOP_BASE_SIZE * 4.8} x={-DESKTOP_BASE_SIZE * 2} scale={0.3}>
+			<Container y={-DESKTOP_BASE_SIZE * 4.8} x={-DESKTOP_BASE_SIZE *0.9} scale={{ x: 1.6, y: 0.22}}>
 				{@render props.buttonGameRules({ anchor: 0.5 })}
 			</Container>
 			<Sprite
@@ -179,8 +179,8 @@
 			/>
 			<Container
 				y={-DESKTOP_BASE_SIZE * 3.65}
-				x={DESKTOP_BASE_SIZE * 1.5}
-				scale={{ x: 1.6, y: 0.6 }}
+				x={DESKTOP_BASE_SIZE * 1.8}
+				scale={{ x: 1.8, y: 0.35 }}
 			>
 				{@render props.buttonTurbo({ anchor: 0.5 })}
 			</Container>
@@ -192,7 +192,7 @@
 				scale={{ x: 2.5, y: 2.2 }}
 			/>
 			<Container
-				y={-DESKTOP_BASE_SIZE * 4.8}
+				y={-DESKTOP_BASE_SIZE * 4.75}
 				x={DESKTOP_BASE_SIZE * 1.5}
 				scale={{ x: 1.6, y: 0.6 }}
 			>

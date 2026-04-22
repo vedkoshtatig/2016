@@ -172,6 +172,32 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url).href,
 		preload: true,
 	},
+	/////
+	autoSpinPortraitButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait.png', import.meta.url).href,
+		preload: true,
+	},
 
 	menuButton :{
 		type: 'sprite',
@@ -236,6 +262,31 @@ export default {
 	infoButton_disabled: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button.png', import.meta.url).href,
+		preload: true,
+	},
+	infoPortraitButton :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/infoButton.png', import.meta.url).href,
+		preload: true,
+	},
+	infoPortraitButton_normal :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/infoButton.png', import.meta.url).href,
+		preload: true,
+	},
+	infoPortraitButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/infoButton.png', import.meta.url).href,
+		preload: true,
+	},
+	infoPortraitButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/infoButton.png', import.meta.url).href,
+		preload: true,
+	},
+	infoPortraitButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/infoButton.png', import.meta.url).href,
 		preload: true,
 	},
 
@@ -320,6 +371,47 @@ export default {
 	turboButton_disabled :{
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url).href,
+		preload: true,
+	},
+///////
+	turboButtonPortrait_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_active :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_active_down :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_active_hover :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	turboButtonPortrait_disabled :{
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboPortrait.png', import.meta.url).href,
 		preload: true,
 	},
 	

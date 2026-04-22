@@ -9,6 +9,7 @@
 
 	import { UI, UiGameName } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
+	import MyModals from './Modals/MyModals.svelte';
 
 	import { getContext } from '../game/context';
 	import EnableSound from './EnableSound.svelte';
@@ -131,8 +132,8 @@
 	{/if}
 </App>
 
-<Modals>
+<MyModals>
 	{#snippet version()}
 		<GameVersion version="0.0.0" />
 	{/snippet}
-</Modals>
+</MyModals>
