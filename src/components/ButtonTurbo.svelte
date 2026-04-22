@@ -2,6 +2,7 @@
 	import { Container } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { stateBet, stateBetDerived } from 'state-shared';
+	import { getContextLayout } from 'utils-layout';
 
 	import UiSprite from './UiSprite.svelte';
 	import { UI_BASE_SIZE } from '../game/constants';
@@ -10,11 +11,18 @@
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 
 	const context = getContext();
+	const { stateLayoutDerived } = getContextLayout();
 
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 
 	const active = $derived(stateBet.isTurbo);
 	const disabled = $derived(stateBet.isSpaceHold);
+
+	const isPortrait = $derived(stateLayoutDerived.layoutType() === 'portrait');
+
+	const assetPrefix = $derived.by(() => {
+		return isPortrait ? 'turboButtonPortrait' : 'turboButton';
+	});
 
 	const onpress = () => {
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
@@ -33,18 +41,18 @@
 			<UiSprite
 				assetKey={
 					disabled
-						? 'turboButton_disabled'
+						? `${assetPrefix}_disabled`
 						: active
 						? pressed
-							? 'turboButton_active_down'
+							? `${assetPrefix}_active_down`
 							: hovered
-							? 'turboButton_active_hover'
-							: 'turboButton_active'
+							? `${assetPrefix}_active_hover`
+							: `${assetPrefix}_active`
 						: pressed
-						? 'turboButton_down'
+						? `${assetPrefix}_down`
 						: hovered
-						? 'turboButton_hover'
-						: 'turboButton'
+						? `${assetPrefix}_hover`
+						: assetPrefix
 				}
 				width={sizes.width}
 				height={sizes.height}

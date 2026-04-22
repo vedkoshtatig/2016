@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getContext } from '../game/context';
 	import { MainContainer } from 'components-layout';
-		import { FadeContainer } from 'components-pixi';
-	import { Container, Rectangle, Sprite } from 'pixi-svelte';
+	import { FadeContainer } from 'components-pixi';
+	import { Container, Rectangle, Sprite, BitmapText } from 'pixi-svelte';
+	import { stateBet } from 'state-shared';
 	const context = getContext();
 	const { eventEmitter } = context;
 
@@ -12,13 +13,13 @@
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
 			visible = true;
-			show=true;
+			show = true;
 		},
 	});
 
 	const close = () => {
 		visible = false;
-		show=false;
+		show = false;
 	};
 
 	const confirm = () => {
@@ -28,7 +29,6 @@
 </script>
 
 {#if visible}
-
 	<Container zIndex={9999}>
 		<Rectangle
 			eventMode="static"
@@ -45,13 +45,116 @@
 
 		<FadeContainer {show}>
 			<Container
-				x={context.stateLayoutDerived.mainLayout().width * 0.5	}
+				x={context.stateLayoutDerived.mainLayout().width * 0.5}
 				y={context.stateLayoutDerived.mainLayout().height * 0.48}
 				scale={0.8}
 			>
 				<Sprite key="board_popup" anchor={0.5} scale={0.55} />
 
-				<Sprite key="popupText" anchor={0.5} x={0} y={-70} scale={0.55} />
+				{#if stateBet.activeBetModeKey === 'BONUS'}
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-160}
+						text="ARE YOU SURE "
+						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-100}
+						text="YOU WANT TO PURCHASE"
+						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-30}
+						text="10 FREE SPINS "
+						style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+					/>
+					<Container x={0} y={40}>
+						<BitmapText
+							anchor={{ x: 1, y: 0.5 }}
+							x={-10}
+							text="AT COST OF"
+							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						/>
+
+						<BitmapText
+							anchor={{ x: 0, y: 0.5 }}
+							x={10}
+							text={`$${stateBet.betAmount * 100}`}
+							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+						/>
+					</Container>
+				{:else if stateBet.activeBetModeKey === 'superBonus'}
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-160}
+						text="ARE YOU SURE "
+						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-100}
+						text="YOU WANT TO PURCHASE"
+						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-30}
+						text="10 FREE SPINS "
+						style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+					/>
+					<Container x={0} y={40}>
+						<BitmapText
+							anchor={{ x: 1, y: 0.5 }}
+							x={-10}
+							text="AT COST OF"
+							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						/>
+
+						<BitmapText
+							anchor={{ x: 0, y: 0.5 }}
+							x={10}
+							text={`$${stateBet.betAmount * 1000}`}
+							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+						/>
+					</Container>
+				{:else if stateBet.activeBetModeKey === 'anteBet'}
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-160}
+						text="ARE YOU SURE "
+						style={{ fontFamily: 'gold', fontSize: 44 }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-100}
+						text="YOU WANT TO DOUBLE BET"
+						style={{ fontFamily: 'gold', fontSize: 44 }}
+					/>
+					<BitmapText
+						anchor={{ x: 0.5, y: 0.5 }}
+						y={-30}
+						text="CHANCE TO WIN FEATURE"
+						style={{ fontFamily: 'gold', fontSize: 50 }}
+					/>
+
+					<Container x={0} y={40}>
+						<BitmapText
+							anchor={{ x: 1, y: 0.5 }}
+							x={-10}
+							text="AT COST OF"
+							style={{ fontFamily: 'gold', fontSize: 44 }}
+						/>
+
+						<BitmapText
+							anchor={{ x: 0, y: 0.5 }}
+							x={10}
+							text={`$${stateBet.betAmount * 2.5}`}
+							style={{ fontFamily: 'gold', fontSize: 64 }}
+						/>
+					</Container>
+				{/if}
 
 				<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
 					<Sprite anchor={0.5} scale={0.65} key="noButton" />
@@ -65,5 +168,4 @@
 			</Container>
 		</FadeContainer>
 	</Container>
-
 {/if}

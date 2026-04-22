@@ -2,6 +2,7 @@
 	import { Container } from 'pixi-svelte';
 	import type { ButtonProps } from 'components-pixi';
 	import { stateBet, stateBetDerived, stateModal } from 'state-shared';
+	import { getContextLayout } from 'utils-layout';
 
 	import UiButton from './UiButton.svelte';
 	import { getContext } from '../game/context';
@@ -10,9 +11,14 @@
 	import ModalAutoSpin from 'components-ui-html/src/components/ModalAutoSpin.svelte';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
+
 	const context = getContext();
+	const { stateLayoutDerived } = getContextLayout();
+
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
+
 	const active = $derived(stateBetDerived.hasAutoBetCounter());
+
 	const disabled = $derived.by(() => {
 		if (stateBet.isSpaceHold) return true;
 		if (!context.stateXstateDerived.isIdle() && !stateBetDerived.hasAutoBetCounter()) return true;
@@ -20,10 +26,22 @@
 		return false;
 	});
 
+	const icon = $derived.by(() => {
+		if (stateBetDerived.hasAutoBetCounter()) return undefined;
+
+		const layout = stateLayoutDerived.layoutType();
+
+		if (layout === 'portrait') return 'autoSpinPortrait';
+		if (layout === 'landscape') return 'autoSpin'; // optional if you have one
+		if (layout === 'tablet') return 'autoSpin'; // optional if you have one
+
+		return 'autoSpin';
+	});
+
 	const stopAutoSpin = () => (stateBet.autoSpinsCounter = 0);
-	const openModal = () => {
-		stateModal.modal = { name: 'autoSpin' };
-	};
+
+	const openModal = () => (stateModal.modal = { name: 'autoSpin' });
+
 	const onpress = () => {
 		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
 		stateBetDerived.hasAutoBetCounter() ? stopAutoSpin() : openModal();
@@ -36,7 +54,7 @@
 	{active}
 	{onpress}
 	{disabled}
-	icon={stateBetDerived.hasAutoBetCounter() ? undefined : 'autoSpin'}
+	{icon}
 >
 	{#if stateBetDerived.hasAutoBetCounter()}
 		<Container x={sizes.width * 0.5} y={sizes.height * 0.5}>
