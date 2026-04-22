@@ -8,6 +8,7 @@
 	import { getContext } from '../game/context';
 	import { UI_BASE_SIZE } from '../game/constants';
 	import ButtonBetAutoSpinsCounter from './ButtonBetAutoSpinsCounter.svelte';
+	import ModalAutoSpin from 'components-ui-html/src/components/ModalAutoSpin.svelte';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 

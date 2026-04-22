@@ -39,6 +39,7 @@
 	import BonusPopup from './BonusPopup.svelte';
 	import { stateMeta } from 'state-shared';
 	import { EXTENDED_BET_MODE_META } from '../game/betMode';
+	import ModalAutoSpin from './ModalAutoSpin.svelte';
 
 	stateMeta.betModeMeta = {
 		...stateMeta.betModeMeta,
@@ -110,7 +111,7 @@
 					anchor={{ x: 1, y: 0 }}
 					text="ADD YOUR LOGO"
 					style={{
-						fontFamily: 'proxima-nova',
+						fontFamily: 'Neuton',
 						fontSize: REM * 1.5,
 						fontWeight: '600',
 						lineHeight: REM * 2,
