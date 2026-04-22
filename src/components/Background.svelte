@@ -25,7 +25,7 @@
 	</SpineProvider>
 </FadeContainer>
 
-<FadeContainer show={showFeatureBackground} duration={SECOND} zIndex={-1}>
+<FadeContainer show={showFeatureBackground} duration={0} zIndex={-1}>
 	<!-- <SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'idle'} loop />
 	</SpineProvider>
