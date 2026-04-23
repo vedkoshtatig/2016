@@ -14,25 +14,37 @@
 
 	const sizes = { width: UI_BASE_SIZE * 1.3, height: UI_BASE_SIZE * 1.3 };
 
+	// ✅ ACTIVE STATE
+	const active = $derived(stateModal.modal?.name === 'gameRules');
+
+	// ✅ ICON CONTROL (YOU control suffix here)
 	const icon = $derived.by(() => {
 		const layout = stateLayoutDerived.layoutType();
 
-		if (layout === 'portrait') return 'infoPortrait';
-		if (layout === 'landscape') return 'info'; // optional if you have one
-		if (layout === 'tablet') return 'info'; // optional if you have one
+		if (layout === 'portrait') {
+			return active ? 'infoPortrait_active' : 'infoPortrait';
+		}
 
-		return 'info';
+		return active ? 'info_active' : 'info';
 	});
 
+	// ✅ TOGGLE MODAL
 	const onpress = () => {
-	context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
+		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
 
-	if (stateModal.modal?.name === 'gameRules') {
-		stateModal.modal = null;        // close
-	} else {
-		stateModal.modal = { name: 'gameRules' }; // open
-	}
-};
+		if (stateModal.modal?.name === 'gameRules') {
+			stateModal.modal = null;
+		} else {
+			stateModal.modal = { name: 'gameRules' };
+		}
+	};
 </script>
 
-<UiButton {...props} {sizes} {onpress} {icon} variant="light" />
+<UiButton
+	{...props}
+	{sizes}
+	{onpress}
+	{icon}
+	{active}
+	variant="light"
+/>

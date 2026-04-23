@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { Container } from 'pixi-svelte';
 	import type { ButtonProps } from 'components-pixi';
-	import { stateBet, stateBetDerived, stateModal } from 'state-shared';
+	import { stateBet, stateBetDerived, stateModal, stateUi } from 'state-shared';
 	import { getContextLayout } from 'utils-layout';
 
 	import UiButton from './UiButton.svelte';
 	import { getContext } from '../game/context';
 	import { UI_BASE_SIZE } from '../game/constants';
 	import ButtonBetAutoSpinsCounter from './ButtonBetAutoSpinsCounter.svelte';
-	import ModalAutoSpin from 'components-ui-html/src/components/ModalAutoSpin.svelte';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 
@@ -17,8 +16,13 @@
 
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
 
-	const active = $derived(stateBetDerived.hasAutoBetCounter());
+	// ✅ Active ONLY when modal is open (not when spins running)
+const active = $derived(
+	stateModal.modal?.name === 'autoSpin' &&
+	!stateBetDerived.hasAutoBetCounter()
+);
 
+	// ✅ Disabled logic (unchanged)
 	const disabled = $derived.by(() => {
 		if (stateBet.isSpaceHold) return true;
 		if (!context.stateXstateDerived.isIdle() && !stateBetDerived.hasAutoBetCounter()) return true;
@@ -26,26 +30,33 @@
 		return false;
 	});
 
+	// ✅ Icon logic (3 states)
 	const icon = $derived.by(() => {
-		if (stateBetDerived.hasAutoBetCounter()) return undefined;
+	if (stateBetDerived.hasAutoBetCounter()) return undefined;
 
-		const layout = stateLayoutDerived.layoutType();
+	if (stateModal.modal?.name === 'autoSpin') return 'autoSpinActive';
 
-		if (layout === 'portrait') return 'autoSpinPortrait';
-		if (layout === 'landscape') return 'autoSpin'; // optional if you have one
-		if (layout === 'tablet') return 'autoSpin'; // optional if you have one
-
-		return 'autoSpin';
-	});
-
-	const stopAutoSpin = () => (stateBet.autoSpinsCounter = 0);
-
-	const openModal = () => (stateModal.modal = { name: 'autoSpin' });
+	const layout = stateLayoutDerived.layoutType();
+	if (layout === 'portrait') return 'autoSpinPortrait';
+	return 'autoSpin';
+});
 
 	const onpress = () => {
-		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
-		stateBetDerived.hasAutoBetCounter() ? stopAutoSpin() : openModal();
-	};
+	context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
+
+	// If spins running → stop
+	if (stateBetDerived.hasAutoBetCounter()) {
+		stateBet.autoSpinsCounter = 0;
+		return;
+	}
+
+	// Toggle modal directly
+	if (stateModal.modal?.name === 'autoSpin') {
+		stateModal.modal = null;
+	} else {
+		stateModal.modal = { name: 'autoSpin' };
+	}
+};
 </script>
 
 <UiButton
