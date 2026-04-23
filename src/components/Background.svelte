@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Rectangle, SpineProvider, SpineTrack ,Sprite} from 'pixi-svelte';
+	import { Rectangle, SpineProvider, SpineTrack, Sprite } from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { SECOND } from 'constants-shared/time';
 
@@ -12,6 +12,7 @@
 	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame');
 	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame');
 
+	console.log('loadedAssets', context.stateApp.loadedAssets);
 </script>
 
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
@@ -33,13 +34,12 @@
 		<SpineTrack trackIndex={0} animationName={'dust'} loop />
 	</SpineProvider> -->
 	<Sprite
-	key="freeSpinBg"
-	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x+150}
-	y={context.stateGameDerived.boardLayout().y - 45}
-	width={context.stateGameDerived.boardLayout().width * 1.12}
-	height={context.stateGameDerived.boardLayout().height * 1.12}
-	scale={{ x: 1, y: 1 }}
-	
-/>
+		key="freeSpinBg"
+		anchor={0.5}
+		x={context.stateGameDerived.boardLayout().x + 150}
+		y={context.stateGameDerived.boardLayout().y - 45}
+		width={context.stateGameDerived.boardLayout().width * 1.12}
+		height={context.stateGameDerived.boardLayout().height * 1.12}
+		scale={{ x: 1, y: 1 }}
+	/>
 </FadeContainer>

@@ -1,70 +1,70 @@
 {
 	"frames": {
-		"explodedW.png": {
-			"frame": { "x": 1, "y": 390, "w": 188, "h": 159 },
-			"rotated": false,
-			"trimmed": true,
-			"spriteSourceSize": { "x": 9, "y": 22, "w": 188, "h": 159 },
-			"sourceSize": { "w": 200, "h": 200 }
-		},
 		"H1.webp": {
-			"frame": { "x": 1, "y": 551, "w": 146, "h": 128 },
+			"frame": { "x": 1, "y": 515, "w": 146, "h": 128 },
 			"rotated": false,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 4, "y": 18, "w": 146, "h": 128 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
 		"H2.webp": {
-			"frame": { "x": 1, "y": 681, "w": 142, "h": 120 },
-			"rotated": false,
+			"frame": { "x": 387, "y": 577, "w": 142, "h": 120 },
+			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 2, "y": 18, "w": 142, "h": 120 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
 		"H3.webp": {
-			"frame": { "x": 145, "y": 689, "w": 127, "h": 124 },
-			"rotated": false,
+			"frame": { "x": 137, "y": 645, "w": 127, "h": 124 },
+			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 18, "y": 26, "w": 127, "h": 124 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
 		"H4.webp": {
-			"frame": { "x": 149, "y": 564, "w": 123, "h": 148 },
+			"frame": { "x": 1, "y": 390, "w": 123, "h": 148 },
 			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 4, "y": 2, "w": 123, "h": 148 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
 		"L1.webp": {
-			"frame": { "x": 405, "y": 125, "w": 112, "h": 96 },
-			"rotated": true,
+			"frame": { "x": 395, "y": 219, "w": 112, "h": 96 },
+			"rotated": false,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 21, "y": 22, "w": 112, "h": 96 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
 		"L2.webp": {
-			"frame": { "x": 395, "y": 515, "w": 108, "h": 96 },
-			"rotated": false,
+			"frame": { "x": 263, "y": 664, "w": 108, "h": 96 },
+			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 21, "y": 27, "w": 108, "h": 96 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
-		"l4.webp": {
-			"frame": { "x": 405, "y": 1, "w": 98, "h": 122 },
-			"rotated": false,
+		"L3.webp": {
+			"frame": { "x": 395, "y": 317, "w": 108, "h": 110 },
+			"rotated": true,
+			"trimmed": true,
+			"spriteSourceSize": { "x": 21, "y": 18, "w": 108, "h": 110 },
+			"sourceSize": { "w": 150, "h": 150 }
+		},
+		"L4.webp": {
+			"frame": { "x": 263, "y": 564, "w": 98, "h": 122 },
+			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 25, "y": 14, "w": 98, "h": 122 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
-		"l5.webp": {
-			"frame": { "x": 299, "y": 564, "w": 102, "h": 90 },
-			"rotated": true,
+		"L5.webp": {
+			"frame": { "x": 405, "y": 1, "w": 102, "h": 90 },
+			"rotated": false,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 24, "y": 29, "w": 102, "h": 90 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
-		"l6.webp": {
-			"frame": { "x": 395, "y": 389, "w": 124, "h": 100 },
+		"L6.webp": {
+			"frame": { "x": 405, "y": 93, "w": 124, "h": 100 },
 			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 9, "y": 25, "w": 124, "h": 100 },
@@ -105,29 +105,32 @@
 			"spriteSourceSize": { "x": 0, "y": 8, "w": 200, "h": 192 },
 			"sourceSize": { "w": 200, "h": 200 }
 		},
-		"s": {
-			"frame": { "x": 395, "y": 239, "w": 148, "h": 109 },
+		"s.png": {
+			"frame": { "x": 395, "y": 427, "w": 148, "h": 109 },
 			"rotated": true,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 1, "y": 23, "w": 148, "h": 109 },
 			"sourceSize": { "w": 150, "h": 150 }
 		},
-		"w": {
-			"frame": { "x": 299, "y": 668, "w": 134, "h": 134 },
+		"w.png": {
+			"frame": { "x": 1, "y": 645, "w": 134, "h": 134 },
 			"rotated": false,
 			"trimmed": true,
 			"spriteSourceSize": { "x": 7, "y": 9, "w": 134, "h": 134 },
 			"sourceSize": { "w": 150, "h": 150 }
 		}
 	},
-
+	"animations": {
+		"H": ["H1.png", "H2.png", "H3.png", "H4.png"],
+		"L": ["L1.png", "L2.png", "L3.png", "L4.png", "L5.png", "L6.png"]
+	},
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.1",
 		"image": "symbolsStatic.png",
 		"format": "RGBA8888",
-		"size": { "w": 505, "h": 814 },
+		"size": { "w": 508, "h": 780 },
 		"scale": "1",
-		"smartupdate": "$TexturePacker:SmartUpdate:8328e31795eb7e34a04fdc1259d4d8bc:f9c858a09239a4a8aefb1c7d1a7dc899:5b1adc8c2d8a871be0a9cb8e798f4c7e$"
+		"smartupdate": "$TexturePacker:SmartUpdate:424bde396b11bec8906bd7fed65774fb:d8a0931402514288f99af0cd361f9727:054968cd9a8f077ecaf2c7787737e797$"
 	}
 }
