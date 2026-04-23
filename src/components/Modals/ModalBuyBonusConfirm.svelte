@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Button, Popup } from 'components-shared';
+	import { Button } from 'components-shared';
 	import { zIndex } from 'constants-shared/zIndex';
 	import { stateBet, stateModal, stateUi, INFINITY_MARK } from 'state-shared';
 	import { getContextEventEmitter } from 'utils-event-emitter';
-
+	import  Popup  from './Popup.svelte'
 	import BaseIcon from './BaseIcon.svelte';
 	import BaseTitle from './BaseTitle.svelte';
 	import BaseContent from './BaseContent.svelte';

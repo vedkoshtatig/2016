@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Popup } from 'components-shared';
+	import Popup  from './Popup.svelte';
 	import { zIndex } from 'constants-shared/zIndex';
 	import { stateModal } from 'state-shared';
 	import { scrollIntoView } from 'utils-shared/scroll';
@@ -42,13 +42,19 @@
 
 <style lang="scss">
 .autoplay-popup-bg {
-	position: relative;
+	position: fixed; 
+	top: 55%;
+	left: 73%;
+	transform: translateX(-50%);
+
 	z-index: 200;
-height:20%;
-	background-color: rgba(0, 0, 0, 0.9);  // 👈 black with transparency
-margin: 0;
+
+	background-color: rgba(0, 0, 0, 0.9);
 	padding: 2rem;
 	border-radius: 1rem;
+
+	width: 500px;
+	max-width: 90vw;
 }
 .subtitle {
 	font-family: 'Inter', sans-serif;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { zIndex } from 'constants-shared/zIndex';
-	import { Popup } from 'components-shared';
+	import  Popup  from './Popup.svelte'
 	import { stateModal, stateSound } from 'state-shared';
 
 	import BaseTitle from './BaseTitle.svelte';

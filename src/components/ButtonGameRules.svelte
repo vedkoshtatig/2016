@@ -25,9 +25,14 @@
 	});
 
 	const onpress = () => {
-		context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
-		stateModal.modal = { name: 'gameRules' };
-	};
+	context.eventEmitter.broadcast({ type: 'soundPressGeneral' });
+
+	if (stateModal.modal?.name === 'gameRules') {
+		stateModal.modal = null;        // close
+	} else {
+		stateModal.modal = { name: 'gameRules' }; // open
+	}
+};
 </script>
 
 <UiButton {...props} {sizes} {onpress} {icon} variant="light" />

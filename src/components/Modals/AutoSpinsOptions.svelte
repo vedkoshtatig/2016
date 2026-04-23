@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContextLayout } from 'utils-layout';
-	import { stateUi, AUTO_SPINS_TEXT_OPTIONS } from 'state-shared';
-	import { OptionsGrid } from 'components-shared';
+	import { stateUi, AUTO_SPINS_TEXT_OPTIONS } from '../../i18n/stateUi.svelte';
+	import  OptionsGrid  from './OptionsGrid.svelte';
 
 	import BaseIcon from './BaseIcon.svelte';
 	import BaseButtonContent from './BaseButtonContent.svelte';
@@ -22,6 +22,7 @@
 </script>
 
 <OptionsGrid
+	layout="row"
 	value={stateUi.autoSpinsText}
 	{options}
 	onchange={(value) => (stateUi.autoSpinsText = value)}

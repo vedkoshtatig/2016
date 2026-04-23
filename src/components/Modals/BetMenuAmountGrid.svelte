@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { OptionsGrid } from 'components-shared';
+	import OptionsGrid  from './OptionsGrid.svelte';
 	import { getContextLayout } from 'utils-layout';
 	import { stateBet, stateConfig } from 'state-shared';
 
@@ -25,6 +25,7 @@
 </script>
 
 <OptionsGrid
+layout="grid"
 	value={stateBet.betAmount}
 	{options}
 	onchange={(value) => (stateBet.betAmount = value)}
