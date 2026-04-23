@@ -53,7 +53,7 @@ export const INITIAL_BOARD: RawSymbol[][] = [
 	[
 		{ name: 'L4' },
 		{ name: 'M', multiplier: 10 },
-		{ name: 'M', multiplier: 2 },
+		{ name: 'M', multiplier: 2  },
 		{ name: 'L1' },
 		{ name: 'H1' },
 		{ name: 'H1' },

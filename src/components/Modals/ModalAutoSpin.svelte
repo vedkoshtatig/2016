@@ -16,26 +16,50 @@
 
 {#if stateModal.modal?.name === 'autoSpin'}
 	<Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
-		<BaseContent maxWidth="100%">
-			<BaseTitle>
-				{i18nDerived.autoSpins()}
-			</BaseTitle>
-			<BaseScrollable type="column">
-				{#snippet children({ element })}
-					<div class="subtitle" data-test="number-of-rounds">{i18nDerived.numberOfRounds()}</div>
-					<AutoSpinsOptions />
-					<!-- <AutoSpinsAdvanced
-						ontoggle={(duration) => {
-							if (element) {
-								scrollIntoView({ element, duration });
-							}
-						}}
-					/> -->
-				{/snippet}
-			</BaseScrollable>
-			<BaseButtonWrap type="full-width">
-				<AutoSpinsStartButton />
-			</BaseButtonWrap>
-		</BaseContent>
+		<div class="autoplay-popup-bg">
+			<BaseContent maxWidth="100%">
+				<BaseTitle>
+					{i18nDerived.autoSpins()}
+				</BaseTitle>
+
+				<BaseScrollable type="column">
+					{#snippet children({ element })}
+						<div class="subtitle" data-test="number-of-rounds">
+							{i18nDerived.numberOfRounds()}
+						</div>
+
+						<AutoSpinsOptions />
+					{/snippet}
+				</BaseScrollable>
+
+				<BaseButtonWrap type="max-width">
+					<AutoSpinsStartButton />
+				</BaseButtonWrap>
+			</BaseContent>
+		</div>
 	</Popup>
 {/if}
+
+<style lang="scss">
+.autoplay-popup-bg {
+	position: relative;
+	z-index: 200;
+height:20%;
+	background-color: rgba(0, 0, 0, 0.9);  // 👈 black with transparency
+margin: 0;
+	padding: 2rem;
+	border-radius: 1rem;
+}
+.subtitle {
+	font-family: 'Inter', sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 12px;
+	letter-spacing: 1px;
+
+	text-align: center;
+	text-transform: uppercase;
+
+	color: #858691;
+}
+</style>

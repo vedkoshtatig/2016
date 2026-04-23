@@ -193,7 +193,7 @@
 				text={'BET'}
 				anchor={0.5}
 				x={0}
-				y={-17}
+				y={-22}
 				style={{ fill: '#7F5112', fontSize: 10 }}
 			/>
 			<BitmapText
@@ -228,7 +228,7 @@
 				anchor={0.5}
 				x={0}
 				y={25}
-				style={{ fill: '#7F5112', fontSize: 10, fontWeight: '900' }}
+								style={{ fontFamily: 'Neuton', fill: '#7F5112', fontSize: 11 , fontWeight:"800" }}
 				interactive={false}
 				eventMode="none"
 			/>

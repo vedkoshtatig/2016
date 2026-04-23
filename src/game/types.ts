@@ -27,7 +27,7 @@ export type EmitterEventModal =
 	| { type: 'buyBonusConfirm' }
 	| { type: 'bet' }
 	| { type: 'autoBet' };
-
+export type EmitterEventHotKey = { type: 'hotKey'; key: string; action: 'keyUp' | 'keyDown' };
 export type ButtonIcon =
 	| 'decrease'
 	| 'increase'

@@ -7,15 +7,18 @@
 	import BaseButtonContent from './BaseButtonContent.svelte';
 
 	const { stateLayoutDerived } = getContextLayout();
+
 	const AUTO_SPINS_TEXT_OPTIONS_PORTRAIT = AUTO_SPINS_TEXT_OPTIONS.filter(
-		(value) => value !== '1000',
+		(value) => value !== '1000'
 	);
 
 	const options = $derived(
 		stateLayoutDerived.layoutType() === 'landscape'
 			? AUTO_SPINS_TEXT_OPTIONS_PORTRAIT
-			: AUTO_SPINS_TEXT_OPTIONS,
+			: AUTO_SPINS_TEXT_OPTIONS
 	);
+
+	let hoveredOption = $state<string | null>(null);
 </script>
 
 <OptionsGrid
@@ -24,16 +27,64 @@
 	onchange={(value) => (stateUi.autoSpinsText = value)}
 >
 	{#snippet option({ option })}
-		<BaseIcon
-			width="100%"
-			height="2rem"
-			border={option === stateUi.autoSpinsText ? '2px white solid' : '2px black solid'}
-		/>
-		<BaseButtonContent>
-			<span style="font-size: 1rem;" class:infinity={option === '∞'} data-test="round-options">
-				{option}
-			</span>
-		</BaseButtonContent>
+		<div
+			on:mouseenter={() => (hoveredOption = option)}
+			on:mouseleave={() => (hoveredOption = null)}
+			class="option-wrap"
+		>
+			<BaseIcon
+				width="3rem"
+				height="3rem"
+				normal="/assets/sprites/uiSlotsAssetsBespoke/baseIcon.png"
+				hover="/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
+				pressed="/assets/sprites/uiSlotsAssetsBespoke/baseIconActive.png"
+			/>
+    
+			<BaseButtonContent>
+				<span
+					class="option-text"
+					class:hovered={hoveredOption === option}
+					class:selected={stateUi.autoSpinsText === option}
+					class:infinity={option === '∞'}
+					data-test="round-options"
+				>
+					{option}
+				</span>
+			</BaseButtonContent>
+		</div>
 	{/snippet}
 </OptionsGrid>
 
+<style lang="scss">
+	.option-wrap {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 10px;
+	}
+.option-text {
+	font-family: 'Inter', sans-serif;
+	font-weight: 700;        // Bold
+	font-size: 18px;
+	line-height: 12px;
+	letter-spacing: 1px;
+
+	color: #ffffff;
+
+	text-align: center;
+	text-transform: uppercase;
+
+	transition: color 0.15s ease;
+}
+
+	.option-text.hovered,
+	.option-text.selected {
+		color: #ffd54a;
+	}
+
+	.option-text.infinity {
+		font-size: 1.2rem;
+	}
+	
+</style>
