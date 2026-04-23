@@ -17,14 +17,14 @@
 	const context = getContext();
 
 	const desktopPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width * 0.5,
-		y: -SYMBOL_SIZE * 0.8 * 0.58,
+		x: context.stateGameDerived.boardLayout().width * 2.8,
+		y: -SYMBOL_SIZE * 0.8 * -4.2,
 	});
 
 	const portraitPosition = $derived({
 		x:
 			context.stateGameDerived.boardLayout().width *
-			(context.stateGame.gameType === 'basegame' ? 0.5 : 0.37),
+			(context.stateGame.gameType === 'basegame' ? 0.37 : 0.37),
 		y: -SYMBOL_SIZE * 0.8 * 0.68,
 	});
 
@@ -36,9 +36,9 @@
 </script>
 
 <FadeContainer show={props.show}>
-	<BoardContainer>
+
 		<Container {...position} {scale}>
 			{@render props.children()}
 		</Container>
-	</BoardContainer>
+
 </FadeContainer>

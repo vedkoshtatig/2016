@@ -82,11 +82,12 @@
 				<BuyBoards />
 			{/if}
 		</MainContainer>
+		<TumbleWinAmount/>
 
 		<MainContainer>
 			<Board />
 			<Anticipations />
-			<TumbleWinAmount />
+			
 			<GlobalMultiplier />
 		</MainContainer>
 
