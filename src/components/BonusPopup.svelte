@@ -115,7 +115,7 @@
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
-							text={`$${stateBet.betAmount * 1000}`}
+							text={`$${stateBet.betAmount * 500}`}
 							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
 						/>
 					</Container>
@@ -150,7 +150,7 @@
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
-							text={`$${stateBet.betAmount * 2.5}`}
+							text={`$${stateBet.betAmount * 1.25}`}
 							style={{ fontFamily: 'gold', fontSize: 64 }}
 						/>
 					</Container>
