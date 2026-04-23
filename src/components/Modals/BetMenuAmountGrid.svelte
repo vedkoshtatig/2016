@@ -36,14 +36,17 @@ layout="grid"
 			on:mouseenter={() => (hoveredOption = option)}
 			on:mouseleave={() => (hoveredOption = null)}
 		>
-			<BaseIcon
-				width="5rem"
-				height="2.5rem"
-				normal="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBg.png"
-				hover="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
-				pressed="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
-			/>
-
+		<BaseIcon
+	width="5rem"
+	height="2.5rem"
+	normal={
+		hoveredOption === option || stateBet.betAmount === option
+			? "/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
+			: "/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBg.png"
+	}
+	hover="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
+	pressed="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
+/>
 			<BaseButtonContent>
 				<span
 					class="option-text"

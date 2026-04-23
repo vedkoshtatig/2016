@@ -33,13 +33,17 @@
 			on:mouseleave={() => (hoveredOption = null)}
 			class="option-wrap"
 		>
-			<BaseIcon
-				width="3rem"
-				height="3rem"
-				normal="/assets/sprites/uiSlotsAssetsBespoke/baseIcon.png"
-				hover="/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
-				pressed="/assets/sprites/uiSlotsAssetsBespoke/baseIconActive.png"
-			/>
+		<BaseIcon
+	width="3rem"
+	height="3rem"
+	normal={
+		hoveredOption === option || stateUi.autoSpinsText === option
+			? "/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
+			: "/assets/sprites/uiSlotsAssetsBespoke/baseIcon.png"
+	}
+	hover="/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
+	pressed="/assets/sprites/uiSlotsAssetsBespoke/baseIconActive.png"
+/>
     
 			<BaseButtonContent>
 				<span
