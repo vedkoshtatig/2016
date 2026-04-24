@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { stateUi, LOSS_LIMIT_TEXT_OPTIONS } from 'state-shared';
+	import { stateUi, LOSS_LIMIT_TEXT_OPTIONS } from '../../i18n/stateUi.svelte';
 	import { OptionsGrid } from 'components-shared';
 
 	import BaseIcon from './BaseIcon.svelte';

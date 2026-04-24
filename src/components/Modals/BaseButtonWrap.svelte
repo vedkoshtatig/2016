@@ -16,18 +16,26 @@
 </div>
 
 <style lang="scss">
-	.ui-modal-button-wrap {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
+.ui-modal-button-wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
 
-	.full-width {
-		width: 100%;
-	}
+	margin: 0;        // 🔥 remove any external spacing
+	padding: 0;
+}
 
-	.max-width {
-		width: 100%;
-		max-width: 250px;
-	}
+.full-width {
+	width: 100%;
+	display: flex;    // 🔥 important
+	justify-content: center;
+}
+
+.max-width {
+	width: 100%;
+	max-width: 350px;
+
+	display: flex;    // 🔥 keeps button centered
+	justify-content: center;
+}
 </style>
