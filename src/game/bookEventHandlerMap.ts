@@ -375,6 +375,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 
 	setWin: async (bookEvent: BookEventOfType<'setWin'>) => {
 		const winLevelData = winLevelMap[bookEvent.winLevel as WinLevel];
+		if(stateGame.gameType=='freeSpins')return
 
 		eventEmitter.broadcast({ type: 'winShow' });
 		winLevelSoundsPlay({ winLevelData });

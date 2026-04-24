@@ -155,7 +155,7 @@
 				eventMode="none"
 			/>
 			<BitmapText
-				text={`$${stateBet.betAmount * 1000}`}
+				text={`$${stateBet.betAmount * 500}`}
 				anchor={0.5}
 				x={0}
 				y={18}
@@ -197,7 +197,7 @@
 				style={{ fill: '#7F5112', fontSize: 10 }}
 			/>
 			<BitmapText
-				text={`$${stateBet.betAmount * 2.5}`}
+				text={`$${stateBet.betAmount * 1.25}`}
 				anchor={0.5}
 				x={0}
 				y={-6}
