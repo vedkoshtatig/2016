@@ -39,8 +39,9 @@
 
 		if (disabled) suffix = '_disabled';
 		else if (pressed) suffix = '_down';
-		else if (hovered) suffix = '_hover';
 		else if (active) suffix = '_normal';
+		else if (hovered) suffix = '_hover';
+		
 
 		return `${icon}Button${suffix}`;
 	};

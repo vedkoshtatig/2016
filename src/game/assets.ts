@@ -172,7 +172,7 @@ export default {
 	},
 	autoSpinButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -202,7 +202,7 @@ export default {
 	},
 	autoSpinActiveButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -277,12 +277,12 @@ export default {
 	},
 	menuButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button_down.png', import.meta.url).href,
 		preload: true,
 	},
 	menuButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button_hover.png', import.meta.url).href,
 		preload: true,
 	},
 	menuButton_disabled: {
@@ -327,7 +327,7 @@ export default {
 	},
 	infoButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button_hover.png', import.meta.url).href,
 		preload: true,
 	},
 	infoButton_disabled: {
