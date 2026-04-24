@@ -18,7 +18,7 @@
 	const context = getContext();
 	const symbolInfo = $derived(getSymbolInfo({ rawSymbol: props.rawSymbol, state: props.state }));
 	const isSprite = $derived(symbolInfo.type === 'sprite');
-	console.log(symbolInfo, 'INFO');
+	//console.log(symbolInfo, 'INFO');
 </script>
 
 {#if isSprite}

@@ -1,83 +1,75 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 
-	import { getContextEventEmitter } from 'utils-event-emitter';
-	import { Button } from 'components-shared';
-
-	import BaseIcon from './BaseIcon.svelte';
-	import BaseButtonContent from './BaseButtonContent.svelte';
-	import type { EmitterEventModal } from '../../game/types';
+	type IconSet = {
+		on: string;
+		off: string;
+		hover: string;
+		active: string;
+	};
 
 	type Props = {
 		value: number;
 		children: Snippet;
+		iconSet: IconSet;
 	};
 
-	let { value = $bindable(), children }: Props = $props();
-	const { eventEmitter } = getContextEventEmitter<EmitterEventModal>();
-	const ICONS = { on: 'volumeOn', off: 'volumeOff' } as const;
+	let { value = $bindable(), children, iconSet }: Props = $props();
+
+	let isHovered = $state(false);
+
+	const toggle = () => {
+		value = value === 0 ? 100 : 0;
+	};
 </script>
 
 <div class="col">
-	<span>{@render children()}</span>
-	<div class="row">
-		<!-- button -->
-		<div class="button-wrap">
-			<Button
-				onclick={() => {
-					eventEmitter.broadcast({ type: 'soundPressGeneral' });
-					if (value === 0) {
-						value = 50;
-					} else {
-						value = 0;
-					}
-				}}
-			>
-				<BaseIcon width="3rem" height="3rem" />
-				<BaseButtonContent>
-					<span>{value > 0 ? 'ON' : 'OFF'}</span>
-				</BaseButtonContent>
-			</Button>
+	
+	
+
+		<div
+			class="icon-wrap"
+			on:mouseenter={() => (isHovered = true)}
+			on:mouseleave={() => (isHovered = false)}
+			on:click={toggle}
+		>
+			<img
+				src={
+					value === 0
+						? iconSet.off
+						: isHovered
+						? iconSet.hover
+						: iconSet.on
+				}
+				alt="sound toggle"
+				class="icon"
+			/>
 		</div>
 
-		<!-- range -->
-		<input bind:value type="range" min="0" max="100" class="range" />
-
-		<!-- value -->
-		<div class="value">
-			<span>{value}</span>
-		</div>
-	</div>
+		
+	
 </div>
 
 <style lang="scss">
-	.col {
-		display: flex;
-		flex-direction: column;
-	}
+.col {
+display: inline-flex;  
+	flex-direction: column;
+	align-items: center;
+}
+.icon-wrap {
+	cursor: pointer;
+	transition: transform 0.2s ease;
+}
 
-	.row {
-		display: flex;
-		flex-direction: row;
-		gap: 0.5rem;
-	}
+.icon-wrap:hover {
+	transform: scale(1.1);
+}
 
-	.button-wrap {
-		width: 15%;
-		display: flex;
-		align-items: center;
-	}
+.icon {
+	width: 200px;
+	//height: 150px;
+	
+}
 
-	.range {
-		width: 70%;
-		display: flex;
-		align-items: center;
-	}
 
-	.value {
-		width: 15%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 </style>

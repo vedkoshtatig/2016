@@ -30,13 +30,7 @@
 					<BetMenuAmountToggle />
 					<BetMenuAmountGrid />
 				</BaseScrollable>
-				<BaseButtonWrap type="full-width">
-					<Button data-test="confirm-button" onclick={confirm}>
-						<span style="font-size: 1.5rem;color:white ;margin-top:10px;"
-							>{i18nDerived.confirm()}</span
-						>
-					</Button>
-				</BaseButtonWrap>
+			
 			</BaseContent>
 		</div>
 	</Popup>
@@ -47,9 +41,11 @@
 		position: relative;
 		z-index: 200;
 
-		background-color: rgba(0, 0, 0, 0.9);
+		background-color: rgba(0, 0, 0, 0.8);
 		margin: 0;
 		padding: 2rem;
 		border-radius: 1rem;
+		backdrop-filter: blur(8px);          
+	-webkit-backdrop-filter: blur(8px);  
 	}
 </style>

@@ -68,10 +68,10 @@
 	/* ✅ GRID MODE */
 	.gridLayout {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 	}
 
-	@media (max-height: 480px) {
+	@media (max-width: 480px) {
 		.gridLayout {
 			grid-template-columns: repeat(4, 1fr);
 		}

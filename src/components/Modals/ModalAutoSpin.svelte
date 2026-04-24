@@ -43,18 +43,21 @@
 <style lang="scss">
 .autoplay-popup-bg {
 	position: fixed; 
-	top: 55%;
-	left: 73%;
+	top: 60%;
+	left: 76%;
 	transform: translateX(-50%);
 
 	z-index: 200;
 
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: rgba(0, 0, 0, 0.8);
 	padding: 2rem;
 	border-radius: 1rem;
+	backdrop-filter: blur(8px);          
+	-webkit-backdrop-filter: blur(8px);  
 
-	width: 500px;
+	width: 450px;
 	max-width: 90vw;
+	height: 200px;
 }
 .subtitle {
 	font-family: 'Inter', sans-serif;

@@ -156,11 +156,11 @@
 	</Container>
 </MainContainer>
 
-{#if stateUi.menuOpen}
+<!-- {#if stateUi.menuOpen}
 	<MainContainer standard alignVertical="bottom">
 		<Container
-			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-			y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE}
+			x={context.stateLayoutDerived.mainLayoutStandard().width * 0.45}
+			y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE-30}
 		>
 			<Sprite key="menuBackground" anchor={0.5} y={-65} x={-475} scale={{ x: 1.7, y: 1.7 }} />
 			<Container scale={{ x: 1.1, y: 0.2 }} y={-65} x={-450}>
@@ -168,4 +168,4 @@
 			</Container>
 		</Container>
 	</MainContainer>
-{/if}
+{/if} -->
