@@ -998,6 +998,12 @@ export default {
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
 		preload: true,
 	},
+	spritesheet: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/symbolsStatic/spritesheet.json', import.meta.url).href,
+		preload: true,
+	},
+	
 	coins: {
 		type: 'spriteSheet',
 		src: new URL('../../assets/sprites/coin/SD2_Coin.json', import.meta.url).href,
