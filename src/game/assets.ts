@@ -461,22 +461,22 @@ export default {
 	},
 	turboButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbodown.png', import.meta.url).href,
 		preload: true,
 	},
 	turboButton_active: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbodown.png', import.meta.url).href,
 		preload: true,
 	},
 	turboButton_active_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbodown.png', import.meta.url).href,
 		preload: true,
 	},
 	turboButton_active_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Turbo_down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbodown.png', import.meta.url).href,
 		preload: true,
 	},
 	turboButton_disabled: {
@@ -695,7 +695,7 @@ export default {
 	},
 	betControl: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Balance.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/balance.png', import.meta.url).href,
 		preload: true,
 	},
 	betControl2: {
@@ -735,7 +735,7 @@ export default {
 	},
 	soundOnButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundHover.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundhover.png', import.meta.url).href,
 		preload: true,
 	},
 	soundOffButton: {

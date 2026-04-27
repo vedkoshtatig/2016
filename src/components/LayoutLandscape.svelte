@@ -54,7 +54,7 @@
 				anchor={0.5}
 				y={DESKTOP_BASE_SIZE / 3.1}
 				x={DESKTOP_BASE_SIZE * 6.5}
-				scale={{ x: 1.8, y: 1.2 }}
+				scale={{ x: 2, y: 1.3}}
 			/>
 			<Container y={-20}>
 				<Container>

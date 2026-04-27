@@ -44,17 +44,42 @@
 
 <style lang="scss">
 	.wrap {
-		position: relative;
-		z-index: 200;
-		right: 30%;
-		background-color: rgba(0, 0, 0, 0.8);
-		top: 27%;
+	position: relative;
+	z-index: 200;
+
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1.5rem;
+	border-radius: 1rem;
+
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	/* ✅ responsive sizing */
+	width: min(90vw, 400px);
+	max-height: 80vh;
+	overflow-y: auto;
+
+	/* optional scaling */
+	transform: scale(1);
+		width: clamp(280px, 40vw, 420px);
+}
+@media (max-width: 768px) {
+	.wrap {
+		width: 90vw;
 		padding: 1rem;
-		border-radius: 1rem;
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		display: flex;
-		flex-direction: column;
-		
+		transform: scale(0.95);
 	}
+}
+
+@media (max-width: 480px) {
+	.wrap {
+		width: 95vw;
+		padding: 0.8rem;
+		transform: scale(0.9);
+	}
+}
 </style>
