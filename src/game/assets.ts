@@ -604,6 +604,18 @@ export default {
 			.href,
 		preload: true,
 	},
+	onBar: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/On_Bar.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	onBarYes: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/On_Button.png', import.meta.url)
+			.href,
+		preload: true,
+	},
 	buyFreeSpinButton_normal: {
 		type: 'sprite',
 		src: new URL(

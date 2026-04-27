@@ -78,7 +78,7 @@
 
 		<MainContainer>
 			<BoardFrame />
-			{#if showBuyBoards}
+			{#if true}
 				<BuyBoards />
 			{/if}
 		</MainContainer>
