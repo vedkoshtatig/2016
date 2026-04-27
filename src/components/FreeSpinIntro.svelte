@@ -47,24 +47,24 @@
 	<FreeSpinAnimation>
 		{#snippet children({ sizes })}
 			<Sprite
-				anchor={{ x: 0.5, y: 1.2 }}
+				anchor={{ x: 0.5, y: 0.5 }}
 				key="board_popup"
-				scale={0.5}
+				scale={0.65}
 				x={boardPopupX}
-				y={boardPopupY}
+				y={-20}
 			/>
 <BitmapText
 	anchor={{ x: 0.5, y: 0.5 }}
 	x={boardPopupX}
-	y={-boardPopupY-30}
-	text="CONGRATULATION"
+	y={-boardPopupY + 40}
+	text="CONGRATULATIOS"
 	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
 />
 
 <BitmapText
 	anchor={{ x: 0.5, y: 0.5 }}
 	x={boardPopupX}
-	y={-boardPopupY + 50}
+	y={-boardPopupY + 120}
 	text="YOU HAVE WON"
 	style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
 />
@@ -72,7 +72,7 @@
 <BitmapText
 	anchor={{ x: 0.5, y: 0.5 }}
 	x={boardPopupX}
-	y={-boardPopupY+130}
+	y={10}
 	text={`${freeSpinsFromEvent}`}
 	style={{ fontFamily: 'gold', fontSize: 88, align: 'center' }}
 />
@@ -80,7 +80,7 @@
 <BitmapText
 	anchor={{ x: 0.5, y: 0.5 }}
 	x={boardPopupX}
-	y={-boardPopupY + 230}
+	y={120}
 	text="FREE SPINS"
 	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
 />

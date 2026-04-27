@@ -26,7 +26,7 @@
 </script>
 
 <img
-	src="/assets/sprites/uiSlotsAssetsBespoke/autoPlayStart.png"
+	src="assets/sprites/uiSlotsAssetsBespoke/autoPlayStart.png"
 	alt="Start Autoplay"
 	class="btn-image"
 	onclick={startAutoBet}

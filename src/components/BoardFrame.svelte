@@ -31,6 +31,7 @@ let show = $state(false);
 			if (animationName) animationName = 'reelhouse_glow_exit';
 		},
 	});
+	console.log("BoardFrame mounted");
 </script>
 
 {#if animationName}

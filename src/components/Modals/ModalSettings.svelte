@@ -8,6 +8,7 @@
 	import BaseScrollable from './BaseScrollable.svelte';
 	import ModalSettingsSound from './ModalSettingsSound.svelte';
 	import { i18nDerived } from '../../i18n/i18nDerived';
+
 </script>
 
 {#if stateModal.modal?.name === 'settings'}
@@ -18,10 +19,10 @@
 			<ModalSettingsSound
 				bind:value={stateSound.volumeValueSoundEffect}
 				iconSet={{
-					on: '/assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
-					off: '/assets/sprites/uiSlotsAssetsBespoke/sounddisable.png',
-					hover: '/assets/sprites/uiSlotsAssetsBespoke/soundhover.png',
-					active: '/assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
+					on: 'assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
+					off: 'assets/sprites/uiSlotsAssetsBespoke/sounddisable.png',
+					hover: 'assets/sprites/uiSlotsAssetsBespoke/soundhover.png',
+					active: 'assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
 				}}
 			>
 				{i18nDerived.soundEffectVolume()}
@@ -29,10 +30,10 @@
 			<ModalSettingsSound
 				bind:value={stateSound.volumeValueMusic}
 				iconSet={{
-					on: '/assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
-					off: '/assets/sprites/uiSlotsAssetsBespoke/musicdisable.png',
-					hover: '/assets/sprites/uiSlotsAssetsBespoke/musichover.png',
-					active: '/assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
+					on: 'assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
+					off: 'assets/sprites/uiSlotsAssetsBespoke/sounddisable.png',
+					hover: 'assets/sprites/uiSlotsAssetsBespoke/musichover.png',
+					active: 'assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
 				}}
 			>
 				{i18nDerived.musicVolume()}

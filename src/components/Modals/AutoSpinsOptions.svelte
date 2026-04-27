@@ -37,10 +37,10 @@
 				width="3rem"
 				height="3rem"
 				normal={hoveredOption === option || stateUi.autoSpinsText === option
-					? '/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png'
-					: '/assets/sprites/uiSlotsAssetsBespoke/baseIcon.png'}
-				hover="/assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
-				pressed="/assets/sprites/uiSlotsAssetsBespoke/baseIconActive.png"
+					? 'assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png'
+					: 'assets/sprites/uiSlotsAssetsBespoke/baseIcon.png'}
+				hover="assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png"
+				pressed="assets/sprites/uiSlotsAssetsBespoke/baseIconActive.png"
 			/>
 
 			<BaseButtonContent>

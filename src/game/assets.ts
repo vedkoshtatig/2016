@@ -26,6 +26,15 @@ export default {
 		},
 		preload: true,
 	},
+	trumpLogo: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/logo/TestFile.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/logo/TestFile.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	reel_top: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/reelsFrame/reel_top.png', import.meta.url).href,

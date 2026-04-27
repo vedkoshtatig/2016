@@ -49,10 +49,10 @@
 				width="5rem"
 				height="2.5rem"
 				normal={hoveredOption === option || stateBet.betAmount === option
-					? '/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png'
-					: '/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBg.png'}
-				hover="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
-				pressed="/assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
+					? 'assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png'
+					: 'assets/sprites/uiSlotsAssetsBespoke/betModalAmountBg.png'}
+				hover="assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
+				pressed="assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
 			/>
 			<BaseButtonContent>
 				<span

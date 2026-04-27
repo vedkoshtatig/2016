@@ -49,7 +49,7 @@
 				y={context.stateLayoutDerived.mainLayout().height * 0.48}
 				scale={0.8}
 			>
-				<Sprite key="board_popup" anchor={0.5} scale={0.55} />
+				<Sprite key="board_popup" anchor={0.5} scale={0.65} />
 
 				{#if stateBet.activeBetModeKey === 'BONUS'}
 					<BitmapText
