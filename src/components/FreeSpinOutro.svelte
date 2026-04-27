@@ -68,15 +68,15 @@
 						<Sprite
 							anchor={{ x: 0.5, y: 1.2 }}
 							key="board_popup"
-							scale={0.5}
+							scale={0.65}
 							x={boardPopupX}
-							y={boardPopupY}
+							y={boardPopupY*1.6}
 						/>
 
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							x={boardPopupX}
-							y={-boardPopupY - 30}
+							y={-boardPopupY +30}
 							text="CONGRATULATION"
 							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
 						/>
@@ -84,12 +84,12 @@
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							x={boardPopupX}
-							y={-boardPopupY + 50}
+							y={-boardPopupY + 110}
 							text="YOU HAVE WON"
 							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
 						/>
 
-						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.1} y={-90}>
+						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.1} y={-20}>
 							<SpineTrack
 								trackIndex={0}
 								{animationName}
@@ -115,7 +115,7 @@
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							x={boardPopupX}
-							y={-boardPopupY + 230}
+							y={boardPopupY/2}
 							text={`IN FREE SPINS`}
 							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
 						/>

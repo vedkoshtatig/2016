@@ -6,7 +6,7 @@
 	import { MainContainer } from 'components-layout';
 	import { App, Text, REM } from 'pixi-svelte';
 	import { stateModal } from 'state-shared';
-
+	import { Container, Sprite, SpineProvider, SpineTrack } from 'pixi-svelte';
 	import { UI, UiGameName } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
 	import MyModals from './Modals/MyModals.svelte';
@@ -78,16 +78,18 @@
 
 		<MainContainer>
 			<BoardFrame />
-			{#if showBuyBoards}
+			{#if true}
 				<BuyBoards />
 			{/if}
 		</MainContainer>
+		<TumbleWinAmount />
 
 		<MainContainer>
 			<Board />
 			<Anticipations />
-			<TumbleWinAmount />
+
 			<GlobalMultiplier />
+			
 		</MainContainer>
 
 		<MainContainer>
@@ -100,6 +102,15 @@
 		<MainContainer>
 			<MultiplierBoard />
 			<MultiplierTotal />
+			<SpineProvider
+				key="trumpLogo"
+				x={context.stateGameDerived.boardLayout().x * 1.75}
+				y={context.stateGameDerived.boardLayout().y * 1.3}
+				scale={{ x: 0.3, y: 0.3 }}
+				zIndex={20}
+			>
+				<SpineTrack trackIndex={0} animationName={'animation'} loop timeScale={1} />
+			</SpineProvider>
 		</MainContainer>
 
 		<UIDefault>

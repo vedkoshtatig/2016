@@ -10,7 +10,7 @@
 		context.stateLayoutDerived.normalBackgroundLayout({ scale: 0.5 }),
 	);
 	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame');
-	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame');
+	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame'||context.stateGame.gameType === 'freeSpins');
 
 </script>
 

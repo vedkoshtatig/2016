@@ -6,7 +6,7 @@ export const EXTENDED_BET_MODE_META = {
 
 	SUPERBONUS: {
 		mode: 'SUPERBONUS',
-		costMultiplier: 200,
+		costMultiplier: 500,
 		type: 'buy',
 		parent: '',
 		children: '',
@@ -30,7 +30,7 @@ export const EXTENDED_BET_MODE_META = {
 	},
 	ANTEBET: {
 		mode: 'ANTEBET',
-		costMultiplier: 2.5,
+		costMultiplier: 1.25,
 		type: 'buy',
 		parent: '',
 		children: '',

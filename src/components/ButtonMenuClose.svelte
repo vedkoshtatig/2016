@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import type { ButtonProps } from 'components-pixi';
 	import { stateUi } from 'state-shared';
 
@@ -16,4 +16,4 @@
 	};
 </script>
 
-<UiButton {...props} {sizes} {onpress} icon="menuExit" />
+<UiButton {...props} {sizes} {onpress} icon="menuExit" /> -->

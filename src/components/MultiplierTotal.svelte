@@ -29,7 +29,7 @@
 		multiplierTotalHide: () => (show = false),
 		multiplierTotalUpdate: (emitterEvent) => (totalMultiplier = emitterEvent.totalMultiplier),
 		multiplierTotalAnimate: async () => {
-			animationName = 'explosion';
+			animationName = 'static';
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});

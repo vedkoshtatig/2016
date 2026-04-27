@@ -26,6 +26,15 @@ export default {
 		},
 		preload: true,
 	},
+	trumpLogo: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/logo/TestFile.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/logo/TestFile.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	reel_top: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/reelsFrame/reel_top.png', import.meta.url).href,
@@ -172,7 +181,7 @@ export default {
 	},
 	autoSpinButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -185,6 +194,36 @@ export default {
 	autoSpinButton_disabled: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	autoSpinActiveButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	autoSpinActiveButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	autoSpinActiveButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	autoSpinActiveButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	autoSpinActiveButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -214,20 +253,50 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait.png', import.meta.url).href,
 		preload: true,
 	},
+	autoSpinPortraitActiveButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitActiveButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitActiveButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitActiveButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
+	autoSpinPortraitActiveButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlayPortrait_down.png', import.meta.url).href,
+		preload: true,
+	},
 
 	menuButton: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button.png', import.meta.url).href,
 		preload: true,
 	},
+	menuButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button.png', import.meta.url).href,
+		preload: true,
+	},
 	menuButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button_down.png', import.meta.url).href,
 		preload: true,
 	},
 	menuButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Menu button_hover.png', import.meta.url).href,
 		preload: true,
 	},
 	menuButton_disabled: {
@@ -272,12 +341,37 @@ export default {
 	},
 	infoButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button_hover.png', import.meta.url).href,
 		preload: true,
 	},
 	infoButton_disabled: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Info button.png', import.meta.url).href,
+		preload: true,
+	},
+	info_activeButton: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	info_activeButton_normal: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	info_activeButton_down: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	info_activeButton_hover: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
+		preload: true,
+	},
+	info_activeButton_disabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/down.png', import.meta.url).href,
 		preload: true,
 	},
 	infoPortraitButton :{
@@ -507,6 +601,18 @@ export default {
 	buyFreeSpinBg: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/buy_button_back.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	onBar: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/On_Bar.png', import.meta.url)
+			.href,
+		preload: true,
+	},
+	onBarYes: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/On_Button.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -918,6 +1024,12 @@ export default {
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
 		preload: true,
 	},
+	spritesheet: {
+		type: 'sprites',
+		src: new URL('../../assets/sprites/symbolsStatic/spritesheet.json', import.meta.url).href,
+		preload: true,
+	},
+	
 	coins: {
 		type: 'spriteSheet',
 		src: new URL('../../assets/sprites/coin/SD2_Coin.json', import.meta.url).href,

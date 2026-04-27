@@ -27,16 +27,19 @@ export type EmitterEventModal =
 	| { type: 'buyBonusConfirm' }
 	| { type: 'bet' }
 	| { type: 'autoBet' };
-
+export type EmitterEventHotKey = { type: 'hotKey'; key: string; action: 'keyUp' | 'keyDown' };
 export type ButtonIcon =
 	| 'decrease'
 	| 'increase'
 	| 'menu'
 	| 'turbo'
 	| 'autoSpin'
+	| 'autoSpin_active'
 	| 'autoSpinPortrait'
+	| 'autoSpinPortrait_active'
 	| 'payTable'
 	| 'info'
+	| 'infoActive'
 	| 'infoPortrait'
 	| 'settings'
 	| 'soundOn'

@@ -49,7 +49,7 @@
 				y={context.stateLayoutDerived.mainLayout().height * 0.48}
 				scale={0.8}
 			>
-				<Sprite key="board_popup" anchor={0.5} scale={0.55} />
+				<Sprite key="board_popup" anchor={0.5} scale={0.65} />
 
 				{#if stateBet.activeBetModeKey === 'BONUS'}
 					<BitmapText
@@ -115,7 +115,7 @@
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
-							text={`$${stateBet.betAmount * 1000}`}
+							text={`$${stateBet.betAmount * 500}`}
 							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
 						/>
 					</Container>
@@ -150,7 +150,7 @@
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
-							text={`$${stateBet.betAmount * 2.5}`}
+							text={`$${stateBet.betAmount * 1.25}`}
 							style={{ fontFamily: 'gold', fontSize: 64 }}
 						/>
 					</Container>

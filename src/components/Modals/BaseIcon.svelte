@@ -2,23 +2,50 @@
 	type Props = {
 		width: string;
 		height: string;
-		background?: string;
+		normal: string;
+		hover?: string;
+		pressed?: string;
 		border?: string;
+		disabled?: boolean;
 	};
 
-	const { width, height, background = 'black', border = 'none' }: Props = $props();
+	const {
+		width,
+		height,
+		normal,
+		hover,
+		pressed,
+		border = 'none',
+		disabled = false,
+	}: Props = $props();
+
+	let isHovered = $state(false);
+	let isPressed = $state(false);
+
+	const currentImage = $derived.by(() => {
+		if (disabled) return normal;
+		if (isPressed && pressed) return pressed;
+		if (isHovered && hover) return hover;
+		return normal;
+	});
 </script>
 
 <div
 	class="rectangle"
-	style="
-	--width-value: {width};
-	--height-value: {height};
-	--background-value: {background};
-	--border-value: {border};
-"
+	style={`
+		--width-value: ${width};
+		--height-value: ${height};
+		--background-image-value: url(${currentImage});
+		--border-value: ${border};
+	`}
+	on:mouseenter={() => (isHovered = true)}
+	on:mouseleave={() => {
+		isHovered = false;
+		isPressed = false;
+	}}
+	on:pointerdown={() => (isPressed = true)}
+	on:pointerup={() => (isPressed = false)}
 ></div>
-
 <!-- ADD YOUR DESIGN -->
 
 <!-- <script lang="ts">
@@ -63,12 +90,29 @@
 	<img {src} style="width: 100%; object-fit: cover;" alt={icon} />
 </div> -->
 
-<style lang="scss">
+<!-- <style lang="scss">
 	.rectangle {
 		width: var(--width-value);
 		height: var(--height-value);
 		background: var(--background-value);
 		border: var(--border-value);
 		border-radius: 10px;
+	}
+</style> -->
+
+<style lang="scss">
+	.rectangle {
+		width: var(--width-value);
+		height: var(--height-value);
+		border: var(--border-value);
+		border-radius: 10px;
+
+		background-image: var(--background-image-value);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+
+		user-select: none;
+		cursor: pointer;
 	}
 </style>
