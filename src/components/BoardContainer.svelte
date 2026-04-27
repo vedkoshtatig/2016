@@ -48,12 +48,3 @@ const reelTopY = layout.y - 45;
 >
 	<SpineTrack trackIndex={0} animationName={'2016_logo'} loop timeScale={3} />
 </SpineProvider>
-<SpineProvider
-	key="trumpLogo"
-	x={context.stateGameDerived.boardLayout().x*1.75	}
-	y={context.stateGameDerived.boardLayout().y*1.3}
-	scale={{ x:0.3 , y: 0.3 }}
-	zIndex={20}
->
-	<SpineTrack trackIndex={0} animationName={'animation'} loop timeScale={1} />
-</SpineProvider>
