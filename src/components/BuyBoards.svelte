@@ -47,10 +47,10 @@
 
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
-	x={layout.x / 1.4 - 20}
+	x={layout.x / 1.4 - 30}
 	y={layout.y * 1.05}
 	height={layout.height}
-	scale={scaleFactor}
+	scale={scaleFactor*0.95}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
