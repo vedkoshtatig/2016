@@ -83,6 +83,11 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/board_popup.png', import.meta.url).href,
 		preload: true,
 	},
+	bonus_popup: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bonus_popup.png', import.meta.url).href,
+		preload: true,
+	},
 	freeSpinCounter: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/freespin_meter.png', import.meta.url)
@@ -165,6 +170,11 @@ export default {
 	freeSpinBg: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/feature_bg.jpg', import.meta.url).href,
+		preload: true,
+	},
+	loadingBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/loading_bg.png', import.meta.url).href,
 		preload: true,
 	},
 	autoSpinButton: {
