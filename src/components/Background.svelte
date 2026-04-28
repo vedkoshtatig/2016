@@ -39,7 +39,7 @@ const showLoadingBackground = $derived(isLoading);
 	
 </FadeContainer>
 
-<FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
+<FadeContainer show={showFeatureBackground} duration={SECOND} zIndex={-2}>
 	<!-- <SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'idle'} loop />
 	</SpineProvider>
