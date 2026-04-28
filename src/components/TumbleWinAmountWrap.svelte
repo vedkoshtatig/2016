@@ -17,8 +17,8 @@
 	const context = getContext();
 
 	const desktopPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width * 2.8,
-		y: -SYMBOL_SIZE * 0.8 * -4.2,
+		x: context.stateGameDerived.boardLayout().width *2.1,
+		y: -SYMBOL_SIZE * 0.8 * -2.0,
 	});
 
 	const portraitPosition = $derived({
@@ -36,7 +36,7 @@
 </script>
 
 <FadeContainer show={props.show}>
-
+	
 		<Container {...position} {scale}>
 			{@render props.children()}
 		</Container>
