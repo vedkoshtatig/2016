@@ -1,21 +1,21 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+    import type { Snippet } from 'svelte';
 
-	import ModalError from './ModalError.svelte';
-	import ModalBetMenu from './ModalBetMenu.svelte';
-	import ModalBuyBonus from './ModalBuyBonus.svelte';
-	import ModalBuyBonusConfirm from './ModalBuyBonusConfirm.svelte';
-	import ModalAutoSpin from './ModalAutoSpin.svelte';
-	import ModalAutoSpinMessage from './ModalAutoSpinMessage.svelte';
-	import ModalPayTable from './ModalPayTable.svelte';
-	import ModalGameRules from './ModalGameRules.svelte';
-	import ModalSettings from './ModalSettings.svelte';
+    import ModalError from './ModalError.svelte';
+    import ModalBetMenu from './ModalBetMenu.svelte';
+    import ModalBuyBonus from './ModalBuyBonus.svelte';
+    import ModalBuyBonusConfirm from './ModalBuyBonusConfirm.svelte';
+    import ModalAutoSpin from './ModalAutoSpin.svelte';
+    import ModalAutoSpinMessage from './ModalAutoSpinMessage.svelte';
+    import ModalPayTable from './ModalPayTable.svelte';
+    import ModalGameRules from './ModalGameRules.svelte';
+    import ModalSettings from './ModalSettings.svelte';
 
-	type Props = {
-		version: Snippet;
-	};
+    type Props = {
+        version: Snippet;
+    };
 
-	const props: Props = $props();
+    const props: Props = $props();
 </script>
 
 <ModalError />
@@ -25,18 +25,18 @@
 <ModalAutoSpin />
 <ModalAutoSpinMessage />
 <ModalPayTable>
-	{@render props.version()}
+    {@render props.version()}
 </ModalPayTable>
 <ModalGameRules>
-	{@render props.version()}
+    {@render props.version()}
 </ModalGameRules>
 <ModalSettings />
 
 <style lang="scss">
-	:global(html) {
-		font-size: 16px; /* you can chose any size here 16 is default */
-		@media screen and (max-width: 500px) {
-			font-size: 50%;
-		}
-	}
+    :global(html) {
+        font-size: 16px; /* you can chose any size here 16 is default */
+        @media screen and (max-width: 500px) {
+            font-size: 50%;
+        }
+    }
 </style>
