@@ -17,6 +17,9 @@
 
 	let loadingType = $state<'start'>('start'); // ✅ only start
 	let isHover = $state(false);
+	const spinButtonLoaded = $derived.by(
+		() => !!$state.snapshot(context.stateApp.loadedAssets['spinButton']),
+	);
 
 	const stopPulse = () => {
 		pulseTween?.kill();
@@ -38,7 +41,7 @@
 	};
 
 	$effect(() => {
-		const shouldPulse = loadingType === 'start' && context.stateApp.loaded;
+		const shouldPulse = loadingType === 'start' && spinButtonLoaded;
 		if (!shouldPulse) return stopPulse();
 		startPulse();
 	});
@@ -84,7 +87,7 @@
 
 <!-- press to continue -->
 <!-- spin button instead of press anywhere -->
-<FadeContainer show={loadingType === 'start' && context.stateApp.loaded}>
+<FadeContainer show={loadingType === 'start' && spinButtonLoaded}>
 	<MainContainer>
 		<Container
 			x={context.stateLayoutDerived.mainLayout().width / 1.2}
@@ -92,18 +95,19 @@
 			scale={1.5}
 		>
 			<Sprite
-				key={isHover ? 'spinButton_hover' : 'spinButton'}
+				key="spinButton"
 				anchor={0.5}
 				scale={{
-					x: spinPulse.scale,
-					y: spinPulse.scale,
+					x: spinPulse.scale * (isHover ? 1.04 : 1),
+					y: spinPulse.scale * (isHover ? 1.04 : 1),
 				}}
-				alpha={spinPulse.alpha}
-				eventMode="static"
-				cursor="pointer"
+				alpha={spinPulse.alpha * (context.stateApp.loaded ? 1 : 0.75)}
+				eventMode={context.stateApp.loaded ? 'static' : 'none'}
+				cursor={context.stateApp.loaded ? 'pointer' : 'default'}
 				onpointerenter={() => (isHover = true)}
 				onpointerleave={() => (isHover = false)}
 				onpointertap={() => {
+					if (!context.stateApp.loaded) return;
 					props.onloaded();
 				}}
 			/>
