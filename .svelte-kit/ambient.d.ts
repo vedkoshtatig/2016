@@ -26,7 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const GJS_DEBUG_TOPICS: string;
 	export const LESSOPEN: string;
 	export const USER: string;
 	export const npm_config_user_agent: string;
@@ -46,8 +45,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const MANAGERPID: string;
-	export const npm_config_userconfig: string;
-	export const npm_config_local_prefix: string;
+	export const DBUS_STARTER_BUS_TYPE: string;
 	export const SYSTEMD_EXEC_PID: string;
 	export const IM_CONFIG_CHECK_ENV: string;
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
@@ -61,7 +59,6 @@ declare module '$env/static/private' {
 	export const IM_CONFIG_PHASE: string;
 	export const WAYLAND_DISPLAY: string;
 	export const LOGNAME: string;
-	export const JOURNAL_STREAM: string;
 	export const _: string;
 	export const npm_config_prefix: string;
 	export const MEMORY_PRESSURE_WATCH: string;
@@ -73,8 +70,7 @@ declare module '$env/static/private' {
 	export const FC_FONTATIONS: string;
 	export const npm_config_node_gyp: string;
 	export const PATH: string;
-	export const ANTHROPIC_API_KEY: string;
-	export const INVOCATION_ID: string;
+	export const npm_package_name: string;
 	export const NODE: string;
 	export const npm_package_name: string;
 	export const XDG_MENU_PREFIX: string;
@@ -100,7 +96,6 @@ declare module '$env/static/private' {
 	export const GDMSESSION: string;
 	export const LESSCLOSE: string;
 	export const GPG_AGENT_INFO: string;
-	export const GJS_DEBUG_OUTPUT: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const QT_IM_MODULE: string;
 	export const npm_config_globalconfig: string;
@@ -110,6 +105,7 @@ declare module '$env/static/private' {
 	export const npm_execpath: string;
 	export const XDG_CONFIG_DIRS: string;
 	export const NVM_CD_FLAGS: string;
+	export const DBUS_STARTER_ADDRESS: string;
 	export const XDG_DATA_DIRS: string;
 	export const npm_config_global_prefix: string;
 	export const npm_command: string;
@@ -149,7 +145,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		GJS_DEBUG_TOPICS: string;
 		LESSOPEN: string;
 		USER: string;
 		npm_config_user_agent: string;
@@ -169,8 +164,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		MANAGERPID: string;
-		npm_config_userconfig: string;
-		npm_config_local_prefix: string;
+		DBUS_STARTER_BUS_TYPE: string;
 		SYSTEMD_EXEC_PID: string;
 		IM_CONFIG_CHECK_ENV: string;
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
@@ -184,7 +178,6 @@ declare module '$env/dynamic/private' {
 		IM_CONFIG_PHASE: string;
 		WAYLAND_DISPLAY: string;
 		LOGNAME: string;
-		JOURNAL_STREAM: string;
 		_: string;
 		npm_config_prefix: string;
 		MEMORY_PRESSURE_WATCH: string;
@@ -196,8 +189,7 @@ declare module '$env/dynamic/private' {
 		FC_FONTATIONS: string;
 		npm_config_node_gyp: string;
 		PATH: string;
-		ANTHROPIC_API_KEY: string;
-		INVOCATION_ID: string;
+		npm_package_name: string;
 		NODE: string;
 		npm_package_name: string;
 		XDG_MENU_PREFIX: string;
@@ -223,7 +215,6 @@ declare module '$env/dynamic/private' {
 		GDMSESSION: string;
 		LESSCLOSE: string;
 		GPG_AGENT_INFO: string;
-		GJS_DEBUG_OUTPUT: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		QT_IM_MODULE: string;
 		npm_config_globalconfig: string;
@@ -233,6 +224,7 @@ declare module '$env/dynamic/private' {
 		npm_execpath: string;
 		XDG_CONFIG_DIRS: string;
 		NVM_CD_FLAGS: string;
+		DBUS_STARTER_ADDRESS: string;
 		XDG_DATA_DIRS: string;
 		npm_config_global_prefix: string;
 		npm_command: string;

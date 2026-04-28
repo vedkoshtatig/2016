@@ -25,9 +25,12 @@ const showLoadingBackground = $derived(isLoading);
 </script>
 
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
+
 <FadeContainer show={showLoadingBackground} duration={SECOND} zIndex={-2}>
 	<Sprite key="loadingBg" anchor={0.5} {...loadingBgProps} scale={{x:1.22,y:1.1}}/>
 </FadeContainer>
+
+
 <FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
 	 <SpineProvider key="loader" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'bg'} loop />
@@ -36,7 +39,7 @@ const showLoadingBackground = $derived(isLoading);
 	
 </FadeContainer>
 
-<FadeContainer show={showFeatureBackground} duration={SECOND} zIndex={-2}>
+<FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
 	<!-- <SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'idle'} loop />
 	</SpineProvider>
