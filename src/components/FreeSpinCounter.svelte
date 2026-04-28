@@ -62,8 +62,9 @@ const showBuyBoards = $derived(
 </script>
 	{#if showBuyBoards}
 	<MainContainer>
-	<FadeContainer {show} {...position} {scale}>
-		<Sprite key="freeSpinCounter" {...panelSizes} />
+	<Container y={170} scale={{x:0.9,y:0.9}} >
+		<FadeContainer {show} {...position} {scale}>
+		<Sprite key="freeSpinCounter" {...panelSizes}  />
 		<Container
 			x={panelSizes.width * 0.5}
 			y={panelSizes.height * 0.44}
@@ -95,6 +96,7 @@ const showBuyBoards = $derived(
 			/>
 		</Container>
 	</FadeContainer>
+	</Container>
 </MainContainer>
 
 {/if}

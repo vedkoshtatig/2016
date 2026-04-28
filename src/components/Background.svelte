@@ -9,20 +9,31 @@
 	const backgroundProps = $derived(
 		context.stateLayoutDerived.normalBackgroundLayout({ scale: 0.5 }),
 	);
-	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame');
+	const loadingBgProps = $derived(
+	context.stateLayoutDerived.normalBackgroundLayout({ scale: 1 })
+);
+
+const featureBgProps = $derived(
+	context.stateLayoutDerived.normalBackgroundLayout({ scale:1 })
+);
+	const isLoading = $derived(context.stateLayout.showLoadingScreen);
+
+const showLoadingBackground = $derived(isLoading);
+	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame' && !isLoading	);
 	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame'||context.stateGame.gameType === 'freeSpins');
 
 </script>
 
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
-
+<FadeContainer show={showLoadingBackground} duration={SECOND} zIndex={-2}>
+	<Sprite key="loadingBg" anchor={0.5} {...loadingBgProps} scale={{x:1.22,y:1.1}}/>
+</FadeContainer>
 <FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
-	<SpineProvider key="loader" {...backgroundProps}>
+	 <SpineProvider key="loader" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'bg'} loop />
 	</SpineProvider>
-	<SpineProvider key="loader" {...backgroundProps}>
-		<SpineTrack trackIndex={0} animationName={'bg'} loop />
-	</SpineProvider>
+
+	
 </FadeContainer>
 
 <FadeContainer show={showFeatureBackground} duration={SECOND} zIndex={-2}>
@@ -35,11 +46,10 @@
 	<Sprite
 	key="freeSpinBg"
 	anchor={0.5}
-	x={context.stateGameDerived.boardLayout().x+150}
-	y={context.stateGameDerived.boardLayout().y - 45}
-	width={context.stateGameDerived.boardLayout().width * 1.12}
-	height={context.stateGameDerived.boardLayout().height * 1.12}
-	scale={{ x: 1, y: 1 }}
+	x={context.stateLayoutDerived.mainLayout().x}
+	y={context.stateLayoutDerived.mainLayout().y }
+
+	scale={{ x: 1, y: 1}}
 	
 />
 </FadeContainer>

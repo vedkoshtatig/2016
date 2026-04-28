@@ -55,28 +55,57 @@
 			x={context.stateLayoutDerived.mainLayout().width * 0.5}
 			y={context.stateLayoutDerived.mainLayout().height * 0.5}
 		>
+		<Sprite
+		anchor={0.5}
+				key="intro_reel"
+				x={-context.stateGameDerived.boardLayout().x/3.5}
+				y={-65}
+				
+				scale={0.73}
+			/>
+		
 			<SpineProvider
-				key="intro"
-				x={-context.stateGameDerived.boardLayout().x / 4}
-				y={-context.stateGameDerived.boardLayout().y / 10}
-				scale={{ x: 0.37, y: 0.37 }}
+				key="logo"
+				x={context.stateGameDerived.boardLayout().x / 1.52}
+				y={-context.stateGameDerived.boardLayout().y / 1.8}
+				scale={{ x: 0.065, y: 0.07 }}
 			>
-				<SpineTrack trackIndex={0} animationName={'reel'} loop timeScale={3} />
-			</SpineProvider>
-			<SpineProvider
-				key="intro"
-				x={context.stateGameDerived.boardLayout().x / 1.48}
-				y={-context.stateGameDerived.boardLayout().y / 2}
-				scale={{ x: 0.34, y: 0.34 }}
-			>
-				<SpineTrack trackIndex={0} animationName={'pay_anywhere'} loop timeScale={3} />
+				<SpineTrack trackIndex={0} animationName={'animation'} loop timeScale={3} />
 			</SpineProvider>
 			<Sprite
 				key="volatility"
 				x={475}
-				y={238}
+				y={190}
 				anchor={0.5}
-				scale={0.8}
+				scale={0.75}
+			/>
+			<Sprite
+				key="checkbox"
+				x={475}
+				y={context.stateGameDerived.boardLayout().y/1.2}
+				anchor={0.5}
+				scale={0.75}
+			/>
+			<Sprite
+				key="introtext"
+				x={-context.stateGameDerived.boardLayout().x/4}
+				y={context.stateGameDerived.boardLayout().y/1.2}
+				anchor={0.5}
+				scale={0.75}
+			/>
+			<Sprite
+				key="introStateActive"
+				x={-context.stateGameDerived.boardLayout().x/3.65}
+				y={context.stateGameDerived.boardLayout().y/1.45}
+				anchor={0.5}
+				scale={0.75}
+			/>
+			<Sprite
+				key="introStateDisabled"
+				x={-context.stateGameDerived.boardLayout().x/4.35}
+				y={context.stateGameDerived.boardLayout().y/1.45}
+				anchor={0.5}
+				scale={0.75}
 			/>
 		</Container>
 	</MainContainer>

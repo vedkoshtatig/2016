@@ -110,6 +110,26 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/volatility.png', import.meta.url).href,
 		preload: true,
 	},
+	checkbox: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/checkbox.png', import.meta.url).href,
+		preload: true,
+	},
+	introtext: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_text.png', import.meta.url).href,
+		preload: true,
+	},
+	introStateDisabled: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_disable.png', import.meta.url).href,
+		preload: true,
+	},
+	introStateActive: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_enable.png', import.meta.url).href,
+		preload: true,
+	},
 	spinButton_hover: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
@@ -169,7 +189,7 @@ export default {
 
 	freeSpinBg: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/feature_bg.jpg', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/feature_bg.png', import.meta.url).href,
 		preload: true,
 	},
 	loadingBg: {
@@ -726,6 +746,11 @@ export default {
 	menuBackground: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/MenuBg.png', import.meta.url).href,
+		preload: true,
+	},
+	intro_reel: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_reel.png', import.meta.url).href,
 		preload: true,
 	},
 	soundOnButton: {
