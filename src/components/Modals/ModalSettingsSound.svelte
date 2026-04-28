@@ -24,51 +24,44 @@
 </script>
 
 <div class="col">
-	
-	
-
-		<div
-			class="icon-wrap"
-			on:mouseenter={() => (isHovered = true)}
-			on:mouseleave={() => (isHovered = false)}
-			on:click={toggle}
-		>
-			<img
-				src={
-					value === 0
-						? iconSet.off
-						: isHovered
-						? iconSet.hover
-						: iconSet.on
-				}
-				alt="sound toggle"
-				class="icon"
-			/>
-		</div>
-
-		
-	
+	<div
+		class="icon-wrap"
+		on:mouseenter={() => (isHovered = true)}
+		on:mouseleave={() => (isHovered = false)}
+		on:click={toggle}
+	>
+		<img
+			src={value === 0 ? iconSet.off : isHovered ? iconSet.hover : iconSet.on}
+			alt="sound toggle"
+			class="icon"
+		/>
+	</div>
 </div>
 
 <style lang="scss">
 .col {
-display: inline-flex;  
+	width: fit-content;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 .icon-wrap {
+	width: fit-content;
+	display: flex;
+	justify-content: center;
 	cursor: pointer;
 	transition: transform 0.2s ease;
+	transform-origin: center;
 }
 
 .icon-wrap:hover {
-	transform: scale(1.1);
+	transform: scale(1.03);
 }
 
 .icon {
-	width: 200px;
-	//height: 150px;
-	
+	display: block;
+	width: clamp(120px, 40vw, 220px);
+	height: auto;
 }
 
 

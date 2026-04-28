@@ -4,6 +4,7 @@
 	import Popup from './Popup.svelte';
 	import { zIndex } from 'constants-shared/zIndex';
 	import { stateModal } from 'state-shared';
+	import { getContextLayout } from 'utils-layout';
 
 	type Props = {
 		children: Snippet;
@@ -11,12 +12,15 @@
 
 	const props: Props = $props();
 
+	const { stateLayoutDerived } = getContextLayout();
+	const isMobileMenu = $derived(['portrait', 'tablet'].includes(stateLayoutDerived.layoutType()));
+
 	const close = () => (stateModal.modal = null);
 </script>
 
 {#if stateModal.modal?.name === 'gameRules'}
 	<Popup zIndex={zIndex.modal} onclose={close}>
-		<div class="popup-bg">
+		<div class="popup-bg" class:mobile-menu={isMobileMenu}>
 			<!-- HEADER -->
 			<div class="header">
 				<h2>GAME INFO</h2>
@@ -72,7 +76,7 @@
 		border-radius: 12px;
 		padding: 1.5rem;
 
-		width: 600px;
+		width: min(600px, 92vw);
 		
 
 		height: 60%; /* 🔥 FIXED HEIGHT */
@@ -81,6 +85,10 @@
 
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.popup-bg.mobile-menu {
+		transform: translateY(clamp(40px, 8vh, 140px));
 	}
 
 	.header {

@@ -3,6 +3,7 @@
 	import { zIndex } from 'constants-shared/zIndex';
 	import { stateModal } from 'state-shared';
 	import { scrollIntoView } from 'utils-shared/scroll';
+	import { getContextLayout } from 'utils-layout';
 
 	import BaseContent from './BaseContent.svelte';
 	import BaseTitle from './BaseTitle.svelte';
@@ -12,11 +13,14 @@
 	import AutoSpinsAdvanced from './AutoSpinsAdvanced.svelte';
 	import AutoSpinsStartButton from './AutoSpinsStartButton.svelte';
 	import { i18nDerived } from '../../i18n/i18nDerived';
+
+	const { stateLayoutDerived } = getContextLayout();
+	const isMobileMenu = $derived(['portrait', 'tablet'].includes(stateLayoutDerived.layoutType()));
 </script>
 
 {#if stateModal.modal?.name === 'autoSpin'}
 	<Popup zIndex={zIndex.modal} onclose={() => (stateModal.modal = null)}>
-		<div class="autoplay-popup-bg">
+		<div class="autoplay-popup-bg" class:mobile-menu={isMobileMenu}>
 			<BaseContent maxWidth="100%">
 				<BaseTitle>
 					{i18nDerived.autoSpins()}
@@ -42,11 +46,6 @@
 
 <style lang="scss">
 .autoplay-popup-bg {
-	position: fixed; 
-	top: 60%;
-	left: 76%;
-	transform: translateX(-50%);
-
 	z-index: 200;
 
 	background-color: rgba(0, 0, 0, 0.8);
@@ -58,6 +57,10 @@
 	width: 450px;
 	max-width: 90vw;
 	height: 200px;
+}
+
+.autoplay-popup-bg.mobile-menu {
+	transform: translateY(clamp(40px, 8vh, 140px));
 }
 .subtitle {
 	font-family: 'Inter', sans-serif;
