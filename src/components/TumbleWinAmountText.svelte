@@ -50,7 +50,7 @@
 			anchor={0.5}
 			style={{
 				fontFamily: 'gold',
-				fontSize: 0.65 * SYMBOL_SIZE,
+				fontSize: 0.4 * SYMBOL_SIZE,
 			}}
 			text={bookEventAmountToCurrencyString(amount.current)}
 			maxWidth={props.width}

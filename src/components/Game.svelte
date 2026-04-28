@@ -82,12 +82,12 @@
 				<BuyBoards />
 			{/if}
 		</MainContainer>
-		<TumbleWinAmount />
+		
 
 		<MainContainer>
 			<Board />
 			<Anticipations />
-
+			<TumbleWinAmount />
 			<GlobalMultiplier />
 			
 		</MainContainer>
@@ -96,6 +96,7 @@
 			<TumbleBoard />
 			<!-- <TumbleAnticipations /> -->
 			<ClusterWinAmounts />
+			
 			<BonusPopup />
 		</MainContainer>
 

@@ -15,6 +15,7 @@
 		SpineProvider,
 		SpineSlot,
 		SpineTrack,
+		Sprite
 	} from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { stateBetDerived } from 'state-shared';
@@ -31,7 +32,7 @@
 	const scale = $derived(context.stateLayoutDerived.isStacked() ? 1.28 : 1);
 	const desktopPosition = $derived({
 		x: context.stateGameDerived.boardLayout().width*1.4,
-		y: -SYMBOL_SIZE * -2,
+		y: -SYMBOL_SIZE * -1.2,
 	});
 	const portraitPosition = $derived({
 		x: context.stateGameDerived.boardLayout().width - PANEL_WIDTH * 1.5,
@@ -41,7 +42,7 @@
 		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
 	);
 
-	let show = $state(false);
+	let show = true;
 	let animationName = $state<AnimationName>('static');
 	let multiplier = $state(1);
 	let previousMultiplier = new Tween(1);
@@ -76,40 +77,30 @@
 <FadeContainer {show}>
 	<BoardContainer>
 		<Container {...position} {scale}>
-			<SpineProvider key="globalMultiplier" width={PANEL_WIDTH}>
-				<SpineTrack
-					trackIndex={0}
-					{animationName}
-					timeScale={stateBetDerived.timeScale()}
-					listener={{
-						complete: () => {
-							oncomplete();
-						},
-					}}
-				/>
-				<SpineEventEmitterProvider>
-					<SpineSlot slotName="slot_multi">
+		 
+		 <Sprite key="globalMultiplier1" width={PANEL_WIDTH*1.8} height={PANEL_WIDTH*1} anchor={0.5}/>
+			
+				
 						<BitmapText
 							anchor={0.5}
 							text={`${Math.round(previousMultiplier.current)}×`}
 							style={{
 								fontFamily: 'gold',
-								fontSize: SYMBOL_SIZE * 5.2,
+								fontSize: SYMBOL_SIZE * 0.3,
 							}}
 						/>
-					</SpineSlot>
-					<SpineSlot slotName="slot_multi_next">
+				
 						<BitmapText
 							anchor={0.5}
 							text={`${multiplier}×`}
 							style={{
 								fontFamily: 'gold',
-								fontSize: SYMBOL_SIZE * 5.2,
+								fontSize: SYMBOL_SIZE * 0.3,
 							}}
 						/>
-					</SpineSlot>
-				</SpineEventEmitterProvider>
-			</SpineProvider>
+				
+			
+			
 		</Container>
 	</BoardContainer>
 </FadeContainer>

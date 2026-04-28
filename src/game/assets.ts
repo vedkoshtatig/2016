@@ -961,6 +961,7 @@ export default {
 			scale: 2,
 		},
 	},
+	
 	fsOutroNumber: {
 		type: 'spine',
 		src: {
@@ -1063,6 +1064,12 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/spritesheet.json', import.meta.url).href,
 		preload: true,
+	},
+	globalMultiplier1: {
+		type: 'sprite',
+		src: new URL('../../assets/spines/globalMultiplier/TumbleWin_Meter.png', import.meta.url).href,
+		preload: true,
+		
 	},
 	
 	coins: {
