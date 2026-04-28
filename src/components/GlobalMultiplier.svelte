@@ -36,13 +36,13 @@
 	});
 	const portraitPosition = $derived({
 		x: context.stateGameDerived.boardLayout().width - PANEL_WIDTH * 1.5,
-		y: -SYMBOL_SIZE * 0.55,
+		y: -SYMBOL_SIZE * -1.2,
 	});
 	const position = $derived(
 		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
 	);
 
-	let show = true;
+	let show = $state(false);
 	let animationName = $state<AnimationName>('static');
 	let multiplier = $state(1);
 	let previousMultiplier = new Tween(1);
