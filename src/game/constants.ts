@@ -231,7 +231,7 @@ const l4Static = { type: 'sprite', assetKey: 'l4.webp', sizeRatios: { width: 1, 
 const l5Static = { type: 'sprite', assetKey: 'l5.webp', sizeRatios: { width: 1, height: 1 } };
 const l6Static = { type: 'sprite', assetKey: 'l6.webp', sizeRatios: { width: 1, height: 1 } };
 
-const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1.243, height: 1.243 } };
+const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1, height: 1 } };
 const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1.12, height: 1.12 } };
 
 const m2Static = {

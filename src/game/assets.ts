@@ -893,7 +893,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols2/scatter.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols2/scatter.json', import.meta.url).href,
-			scale: 0.4,
+			scale: 0.45,
 		},
 	},
 	explosion: {
