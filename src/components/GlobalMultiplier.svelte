@@ -35,7 +35,7 @@
 		y: -SYMBOL_SIZE * -1.2,
 	});
 	const portraitPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width - PANEL_WIDTH * 1.5,
+		x: context.stateGameDerived.boardLayout().width * 1.4,
 		y: -SYMBOL_SIZE * -1.2,
 	});
 	const position = $derived(
