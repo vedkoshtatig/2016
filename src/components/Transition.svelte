@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { waitForResolve } from 'utils-shared/wait';
-
+	import { eventEmitter } from '../game/eventEmitter';
 	import TransitionAnimation from './TransitionAnimation.svelte';
 	import { getContext } from '../game/context';
 
@@ -16,6 +16,7 @@
 	context.eventEmitter.subscribeOnMount({
 		transition: async () => {
 			transitioning = true;
+			eventEmitter.broadcast({ type: 'soundOnce', name: 'Transition_Sound' });
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});

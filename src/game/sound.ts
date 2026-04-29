@@ -53,7 +53,9 @@ export type SoundEffectName =
 	| 'tumble_win_1'
 	| 'tumble_win_2'
 	| 'tumble_win_3'
-	| 'tumble_win_4';
+	| 'tumble_win_4'
+	| 'Transition_Sound'
+	|'Pop_up_Sound';
 
 export type SoundName = MusicName | SoundEffectName;
 

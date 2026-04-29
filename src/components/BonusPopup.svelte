@@ -12,17 +12,20 @@
 
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
+			eventEmitter.broadcast({ type: 'soundOnce', name: 'Pop_up_Sound' });
 			visible = true;
 			show = true;
 		},
 	});
 
 	const close = () => {
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_btn_general' });
 		visible = false;
 		show = false;
 	};
 
 	const confirm = () => {
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_btn_general' });
 		eventEmitter.broadcast({ type: 'bet' });
 		visible = false;
 	};

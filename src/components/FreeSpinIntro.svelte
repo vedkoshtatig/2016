@@ -15,7 +15,7 @@
 	import { getContext } from '../game/context';
 	import PressToContinue from './PressToContinue.svelte';
 	import FreeSpinAnimation from './FreeSpinAnimation.svelte';
-
+	
 	type AnimationName = 'intro' | 'idle';
 
 	const context = getContext();
@@ -28,7 +28,7 @@
 	let oncomplete = $state(() => {});
 
 	context.eventEmitter.subscribeOnMount({
-		freeSpinIntroShow: () => (show = true),
+		freeSpinIntroShow: () => {(show = true)},
 		freeSpinIntroHide: () => (show = false),
 		freeSpinIntroUpdate: async (emitterEvent) => {
 			// if (emitterEvent.extraSpins) {
