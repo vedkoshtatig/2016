@@ -9,6 +9,8 @@
 		options: Readonly<TValue[]>;
 		miniSize?: boolean;
 		layout?: LayoutType; // 👈 NEW PROP
+		rowGap?: string;
+		rowPaddingX?: string;
 		onchange: (value: TValue) => void;
 		option: Snippet<[{ option: TValue; index: number }]>;
 	};
@@ -23,6 +25,7 @@
 			class:miniSize={props.miniSize}
 			class:gridLayout={props.layout === 'grid'}
 			class:rowLayout={props.layout !== 'grid'}
+			style={`--rowGap: ${props.rowGap ?? '1.25rem'}; --rowPaddingX: ${props.rowPaddingX ?? '0.5rem'};`}
 		>
 			{#each props.options as option, index (option)}
 				<Button onclick={() => props.onchange(option)}>
@@ -84,6 +87,8 @@
 		justify-content: center;
 		align-items: center;
 		flex-wrap: nowrap;
+		gap: var(--rowGap);
+		padding-inline: var(--rowPaddingX);
 		overflow-x: auto;      // scroll if overflow
 		white-space: nowrap;
 	}

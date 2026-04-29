@@ -7,22 +7,37 @@
 	import BaseButtonContent from './BaseButtonContent.svelte';
 
 	const { stateLayoutDerived } = getContextLayout();
+	const layoutType = $derived(stateLayoutDerived.layoutType());
+	const isCompact = $derived(['portrait', 'tablet'].includes(layoutType));
 
 	const AUTO_SPINS_TEXT_OPTIONS_PORTRAIT = AUTO_SPINS_TEXT_OPTIONS.filter(
 		(value) => value !== '1000',
 	);
 
 	const options = $derived(
-		stateLayoutDerived.layoutType() === 'landscape'
+		layoutType === 'landscape'
 			? AUTO_SPINS_TEXT_OPTIONS_PORTRAIT
 			: AUTO_SPINS_TEXT_OPTIONS,
 	);
 
 	let hoveredOption = $state<string | null>(null);
+
+	const getOptionSize = (option: string) => {
+		if (isCompact) {
+			if (option === '∞') return '2.4rem';
+			if (option.length >= 3) return '2.8rem';
+			return '2.4rem';
+		}
+		if (option === '∞') return '3rem';
+		if (option.length >= 3) return '3.5rem';
+		return '3rem';
+	};
 </script>
 
 <OptionsGrid
 	layout="row"
+	rowGap={isCompact ? '0.6rem' : '1.25rem'}
+	rowPaddingX={isCompact ? '0.25rem' : '0.5rem'}
 	value={stateUi.autoSpinsText}
 	{options}
 	onchange={(value) => (stateUi.autoSpinsText = value)}
@@ -32,10 +47,11 @@
 			on:mouseenter={() => (hoveredOption = option)}
 			on:mouseleave={() => (hoveredOption = null)}
 			class="option-wrap"
+			style={`--option-size: ${getOptionSize(option)}; --option-font-size: ${isCompact ? '14px' : '18px'};`}
 		>
 			<BaseIcon
-				width="3rem"
-				height="3rem"
+				width={getOptionSize(option)}
+				height={getOptionSize(option)}
 				normal={hoveredOption === option || stateUi.autoSpinsText === option
 					? 'assets/sprites/uiSlotsAssetsBespoke/baseIconHover.png'
 					: 'assets/sprites/uiSlotsAssetsBespoke/baseIcon.png'}
@@ -64,6 +80,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: var(--option-size);
+	height: var(--option-size);
+	flex: 0 0 auto;
 	margin-top: 10px;
 
 	
@@ -79,7 +98,7 @@
 	.option-text {
 		font-family: 'Inter', sans-serif;
 		font-weight: 700; // Bold
-		font-size: 18px;
+		font-size: var(--option-font-size);
 		line-height: 12px;
 		letter-spacing: 1px;
 
