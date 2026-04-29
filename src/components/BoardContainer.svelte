@@ -46,5 +46,5 @@ const reelTopY = layout.y - 45;
 	height={context.stateGameDerived.boardLayout().height / 9}
 	zIndex={20}
 >
-	<SpineTrack trackIndex={0} animationName={'2016_logo'} loop timeScale={3} />
+	<SpineTrack trackIndex={0} animationName={'animation'} timeScale={3} />
 </SpineProvider>

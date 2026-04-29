@@ -73,11 +73,7 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/no_button.png', import.meta.url).href,
 		preload: true,
 	},
-	popupText: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/free_spins.png', import.meta.url).href,
-		preload: true,
-	},
+
 	board_popup: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/board_popup.png', import.meta.url).href,
@@ -718,11 +714,7 @@ export default {
 		).href,
 		preload: true,
 	},
-	lane: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/lane_1.png', import.meta.url).href,
-		preload: true,
-	},
+	
 	betControl: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/balance.png', import.meta.url).href,
