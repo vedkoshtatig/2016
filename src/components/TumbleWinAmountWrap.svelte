@@ -17,7 +17,7 @@
 	const context = getContext();
 
 	const desktopPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width *2.1,
+		x: context.stateGameDerived.boardLayout().width *(context.stateGame.gameType === 'basegame' ? 2.15 : 0.25),
 		y: -SYMBOL_SIZE * 0.8 * -2.0,
 	});
 

@@ -31,7 +31,7 @@ const showBuyBoards = $derived(
 			context.stateGameDerived.boardLayout().x -
 			context.stateGameDerived.boardLayout().width * 0.5 -
 			panelSizes.width -
-			SYMBOL_SIZE * 1.6,
+			SYMBOL_SIZE * 1.4,
 		y:
 			context.stateGameDerived.boardLayout().y -
 			context.stateGameDerived.boardLayout().height * 0.5,

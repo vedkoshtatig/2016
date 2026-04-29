@@ -83,13 +83,13 @@
 				anchor={0.5}
 				scale={0.75}
 			/>
-			<Sprite
+			<!-- <Sprite
 				key="checkbox"
 				x={475}
 				y={context.stateGameDerived.boardLayout().y/1.2}
 				anchor={0.5}
 				scale={0.75}
-			/>
+			/> -->
 			<Sprite
 				key="introtext"
 				x={-context.stateGameDerived.boardLayout().x/4}
