@@ -13,9 +13,20 @@
 	context.stateLayoutDerived.normalBackgroundLayout({ scale: 1 })
 );
 
-const featureBgProps = $derived(
-	context.stateLayoutDerived.normalBackgroundLayout({ scale:1 })
-);
+	const FREE_SPIN_BG_BASE_SIZE = { width: 2000, height: 2000 };
+	const freeSpinBgProps = $derived.by(() => {
+		const canvas = context.stateLayoutDerived.canvasSizes();
+		const scale = Math.max(
+			canvas.width / FREE_SPIN_BG_BASE_SIZE.width,
+			canvas.height / FREE_SPIN_BG_BASE_SIZE.height,
+		);
+
+		return {
+			x: canvas.width * 0.5,
+			y: canvas.height * 0.5,
+			scale: { x: scale, y: scale },
+		};
+	});
 	const isLoading = $derived(context.stateLayout.showLoadingScreen);
 
 const showLoadingBackground = $derived(isLoading);
@@ -49,10 +60,6 @@ const showLoadingBackground = $derived(isLoading);
 	<Sprite
 	key="freeSpinBg"
 	anchor={0.5}
-	x={context.stateLayoutDerived.mainLayout().x}
-	y={context.stateLayoutDerived.mainLayout().y }
-
-	scale={{ x: 1, y: 1}}
-	
+	{...freeSpinBgProps}
 />
 </FadeContainer>
