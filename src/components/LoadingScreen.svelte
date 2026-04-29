@@ -17,6 +17,8 @@
 
 	let loadingType = $state<'start'>('start'); // ✅ only start
 	let isHover = $state(false);
+	let selectedIntro = $state<'left' | 'right'>('left');
+	
 	const spinButtonLoaded = $derived.by(
 		() => !!$state.snapshot(context.stateApp.loadedAssets['spinButton']),
 	);
@@ -59,13 +61,12 @@
 			y={context.stateLayoutDerived.mainLayout().height * 0.5}
 		>
 		<Sprite
-		anchor={0.5}
-				key="intro_reel"
-				x={-context.stateGameDerived.boardLayout().x/3.5}
-				y={-65}
-				
-				scale={0.73}
-			/>
+	anchor={0.5}
+	key={selectedIntro === 'left' ? "intro_reel" : "intro_reel"} 
+	x={-context.stateGameDerived.boardLayout().x / 3.5}
+	y={-65}
+	scale={0.73}
+/>
 		
 			<SpineProvider
 				key="logo"
@@ -96,20 +97,33 @@
 				anchor={0.5}
 				scale={0.75}
 			/>
-			<Sprite
-				key="introStateActive"
-				x={-context.stateGameDerived.boardLayout().x/3.65}
-				y={context.stateGameDerived.boardLayout().y/1.45}
-				anchor={0.5}
-				scale={0.75}
-			/>
-			<Sprite
-				key="introStateDisabled"
-				x={-context.stateGameDerived.boardLayout().x/4.35}
-				y={context.stateGameDerived.boardLayout().y/1.45}
-				anchor={0.5}
-				scale={0.75}
-			/>
+		<!-- LEFT BUTTON -->
+<Sprite
+	key={selectedIntro === 'left' ? "introStateActive" : "introStateDisabled"}
+	x={-context.stateGameDerived.boardLayout().x / 3.65}
+	y={context.stateGameDerived.boardLayout().y / 1.45}
+	anchor={0.5}
+	scale={0.75}
+	eventMode="static"
+	cursor="pointer"
+	onpointertap={() => {
+		selectedIntro = 'left';
+	}}
+/>
+
+<!-- RIGHT BUTTON -->
+<Sprite
+	key={selectedIntro === 'right' ? "introStateActive" : "introStateDisabled"}
+	x={-context.stateGameDerived.boardLayout().x / 4.35}
+	y={context.stateGameDerived.boardLayout().y / 1.45}
+	anchor={0.5}
+	scale={0.75}
+	eventMode="static"
+	cursor="pointer"
+	onpointertap={() => {
+		selectedIntro = 'right';
+	}}
+/>
 		</Container>
 	</MainContainer>
 </FadeContainer>
