@@ -77,12 +77,11 @@
 				text={'BUY'}
 				anchor={0.5}
 				x={0}
-				y={-20}
+				y={-16}
 				style={{
-					fontFamily: 'Neuton',
-					fill: '#ffc825',
-					fontSize: 17,
-					fontWeight: 'bolder',
+					fontFamily: 'sans-serif',
+					fontSize: 20,
+					letterSpacing:1.2
 				}}
 				interactive={false}
 				eventMode="none"
@@ -91,12 +90,12 @@
 				text={'FREE SPINS'}
 				anchor={0.5}
 				x={0}
-				y={-3}
+				y={0}
 				style={{
-					fontFamily: 'Neuton',
-					fill: '#ffc825',
-					fontSize: 17,
-					fontWeight: 'bolder',
+					fontFamily: 'sans-serif',
+					letterSpacing:1.2,
+					fontSize: 20,
+					
 				}}
 				interactive={false}
 				eventMode="none"
@@ -107,10 +106,10 @@
 				x={0}
 				y={15}
 				style={{
-					fontFamily: 'Neuton',
-					fill: '#ffc825',
-					fontSize: 17,
-					fontWeight: 'bolder',
+					fontFamily: 'sans-serif',
+					fontSize: 20,
+					letterSpacing:1.2,
+					
 				}}
 				interactive={false}
 				eventMode="none"
@@ -125,22 +124,22 @@
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 			<BitmapText
-				text={'BUY'}
+				text={'	BUY'}
 				anchor={0.5}
 				x={0}
-				y={-22}
-				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
+				y={-20}
+				style={{ fontFamily: 'sans-serif', fontSize: 20, letterSpacing: 1.2 }}
 			/>
 			<BitmapText
 				text={'SUPER'}
 				anchor={0.5}
 				x={0}
-				y={-8}
+				y={-6}
 				style={{
-					fontFamily: 'Neuton',
-					fill: '#ffc825',
-					fontSize: 14,
-					fontWeight: 'bolder',
+					fontFamily: 'sans-serif',
+					letterSpacing:1.2,
+					fontSize: 20,
+				
 				}}
 				interactive={false}
 				eventMode="none"
@@ -149,8 +148,8 @@
 				text={'FREE SPINS'}
 				anchor={0.5}
 				x={0}
-				y={6}
-				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
+				y={8}
+				style={{ fontFamily: 'sans-serif',fontSize: 20, letterSpacing: 1.2 }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -158,8 +157,8 @@
 				text={`$${stateBet.betAmount * 500}`}
 				anchor={0.5}
 				x={0}
-				y={20}
-				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
+				y={22}
+				style={{ fontFamily: 'sans-serif',  fontSize: 20, letterSpacing: 1.2 }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -193,14 +192,14 @@
 					anchor={0.5}
 					x={0}
 					y={-22}
-					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
 				/>
 				<BitmapText
 					text={`${stateBet.betAmount * 1.25}`}
 					anchor={0.5}
 					x={0}
-					y={-6}
-					style={{ fontFamily: 'Neuton', fill: '#ffd34f', fontSize: 20, fontWeight: 'bolder',stroke: '#8d3b15',
+					y={-8}
+					style={{ fontFamily: 'sans-serif', fill: '#ffd34f', fontSize: 20, fontWeight: 'bolder',stroke: '#8d3b15',
 						strokeThickness: 2, }}
 					interactive={false}
 					eventMode="none"
@@ -211,7 +210,7 @@
 					x={0}
 					y={9}
 					style={{
-						fontFamily: 'Neuton',
+						fontFamily: 'sans-serif',
 						fill: '#8d3b15',
 						fontSize: 18,
 						fontWeight: 'bolder',
@@ -225,16 +224,16 @@
 					anchor={0.5}
 					x={0}
 					y={20}
-					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 10, fontWeight: 'bolder' }}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 16, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
-				<Text
+				<BitmapText
 					text={`WIN FEATURE`}
 					anchor={0.5}
 					x={0}
 					y={30}
-					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 11, fontWeight: 'bolder' }}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 16, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>

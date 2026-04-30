@@ -39,6 +39,14 @@
 			await waitForResolve((resolve) => (oncomplete = resolve));
 		},
 	});
+	const fstyle={
+		fontFamily: 'sans-serif',
+		 fontSize: 72, align: 'center' 
+	}
+	const fstyle2={
+		fontFamily: 'sans-serif',
+		 fontSize: 88, align: 'center' 
+	}
 </script>
 
 <FadeContainer {show}>
@@ -58,7 +66,7 @@
 	x={boardPopupX}
 	y={-boardPopupY + 40}
 	text="CONGRATULATIOS"
-	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+	style={fstyle}
 />
 
 <BitmapText
@@ -66,7 +74,7 @@
 	x={boardPopupX}
 	y={-boardPopupY + 120}
 	text="YOU HAVE WON"
-	style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+	style={fstyle}
 />
 
 <BitmapText
@@ -74,7 +82,7 @@
 	x={boardPopupX}
 	y={10}
 	text={`${freeSpinsFromEvent}`}
-	style={{ fontFamily: 'gold', fontSize: 88, align: 'center' }}
+	style={fstyle2}
 />
 
 <BitmapText
@@ -82,7 +90,7 @@
 	x={boardPopupX}
 	y={120}
 	text="FREE SPINS"
-	style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+	style={fstyle}
 />
 
 <!-- <BitmapText

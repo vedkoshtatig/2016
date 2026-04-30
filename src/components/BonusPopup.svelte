@@ -29,6 +29,19 @@
 		eventEmitter.broadcast({ type: 'bet' });
 		visible = false;
 	};
+	const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 54,
+		letterSpacing:3,
+		align: 'center',
+	};
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 </script>
 
 {#if visible}
@@ -59,33 +72,28 @@
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-160}
 						text="ARE YOU SURE "
-						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						style={fstyle}
 					/>
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-100}
-						text="YOU WANT TO PURCHASE"
-						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
-					/>
+					<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-100} text="YOU WANT TO PURCHASE" style={fstyle} />
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-30}
 						text="10 FREE SPINS "
-						style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+						style={fstyle2}
 					/>
 					<Container x={0} y={40}>
 						<BitmapText
 							anchor={{ x: 1, y: 0.5 }}
 							x={-10}
 							text="AT COST OF"
-							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+							style={fstyle}
 						/>
 
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
 							text={`$${stateBet.betAmount * 100}`}
-							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+							style={fstyle2}
 						/>
 					</Container>
 				{:else if stateBet.activeBetModeKey === 'superBonus'}
@@ -93,33 +101,33 @@
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-160}
 						text="ARE YOU SURE "
-						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						style={fstyle}
 					/>
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-100}
 						text="YOU WANT TO PURCHASE"
-						style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+						style={fstyle}
 					/>
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-30}
 						text="10 FREE SPINS "
-						style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+						style={fstyle2}
 					/>
 					<Container x={0} y={40}>
 						<BitmapText
 							anchor={{ x: 1, y: 0.5 }}
 							x={-10}
 							text="AT COST OF"
-							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+							style={fstyle}
 						/>
 
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
 							text={`$${stateBet.betAmount * 500}`}
-							style={{ fontFamily: 'gold', fontSize: 64, align: 'center' }}
+							style={fstyle2}
 						/>
 					</Container>
 				{:else if stateBet.activeBetModeKey === 'anteBet'}
@@ -127,19 +135,19 @@
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-160}
 						text="ARE YOU SURE "
-						style={{ fontFamily: 'gold', fontSize: 44 }}
+						style={fstyle}
 					/>
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-100}
 						text="YOU WANT TO DOUBLE BET"
-						style={{ fontFamily: 'gold', fontSize: 44 }}
+						style={fstyle}
 					/>
 					<BitmapText
 						anchor={{ x: 0.5, y: 0.5 }}
 						y={-30}
 						text="CHANCE TO WIN FEATURE"
-						style={{ fontFamily: 'gold', fontSize: 50 }}
+						style={fstyle2}
 					/>
 
 					<Container x={0} y={40}>
@@ -147,14 +155,14 @@
 							anchor={{ x: 1, y: 0.5 }}
 							x={-10}
 							text="AT COST OF"
-							style={{ fontFamily: 'gold', fontSize: 44 }}
+							style={fstyle}
 						/>
 
 						<BitmapText
 							anchor={{ x: 0, y: 0.5 }}
 							x={10}
 							text={`$${stateBet.betAmount * 1.25}`}
-							style={{ fontFamily: 'gold', fontSize: 64 }}
+							style={fstyle2}
 						/>
 					</Container>
 				{/if}
