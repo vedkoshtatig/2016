@@ -60,13 +60,19 @@
 			x={context.stateLayoutDerived.mainLayout().width * 0.5}
 			y={context.stateLayoutDerived.mainLayout().height * 0.5}
 		>
-		<Sprite
+	<SpineProvider
+	key={selectedIntro === 'left' ? "introReel1" : "introReel2"}
 	anchor={0.5}
-	key={selectedIntro === 'left' ? "intro_reel" : "intro_reel"} 
-	x={-context.stateGameDerived.boardLayout().x / 3.5}
-	y={-65}
-	scale={0.73}
-/>
+	x={25}
+	y={95}
+	scale={{ x: 0.35, y: 0.35 }}
+>
+	<SpineTrack
+		trackIndex={0}
+		animationName={'animation'}
+		loop
+	/>
+</SpineProvider>
 		
 			<SpineProvider
 				key="logo"
@@ -81,7 +87,7 @@
 				x={475}
 				y={190}
 				anchor={0.5}
-				scale={0.75}
+				scale={0.9}
 			/>
 			<!-- <Sprite
 				key="checkbox"

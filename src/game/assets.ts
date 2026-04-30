@@ -17,6 +17,24 @@ export default {
 		},
 		preload: true,
 	},
+	introReel1: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/reelhouse/Intro-reel_logo.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/reelhouse/Intro-reel_logo.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	introReel2: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/reelhouse/Intro-reel_logo2.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/reelhouse/Intro-reel_logo2.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	logo: {
 		type: 'spine',
 		src: {

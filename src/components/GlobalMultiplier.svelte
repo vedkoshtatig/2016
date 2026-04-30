@@ -31,8 +31,8 @@
 	const context = getContext();
 	const scale = $derived(context.stateLayoutDerived.isStacked() ? 1.28 : 1);
 	const desktopPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width*-0.25,
-		y: -SYMBOL_SIZE * -1.2,
+		x: context.stateGameDerived.boardLayout().width*-0.248,
+		y: -SYMBOL_SIZE * -1.7,
 	});
 	const portraitPosition = $derived({
 		x: context.stateGameDerived.boardLayout().width * 1.4,

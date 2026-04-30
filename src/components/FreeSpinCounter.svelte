@@ -62,7 +62,7 @@ const showBuyBoards = $derived(
 </script>
 	{#if showBuyBoards}
 	<MainContainer>
-	<Container y={170} scale={{x:0.9,y:0.9}} >
+	<Container y={context.stateGameDerived.boardLayout().y/1.3} x={context.stateGameDerived.boardLayout().x*0.02} scale={{x:0.83,y:0.83}} >
 		<FadeContainer {show} {...position} {scale}>
 		<Sprite key="freeSpinCounter" {...panelSizes}  />
 		<Container

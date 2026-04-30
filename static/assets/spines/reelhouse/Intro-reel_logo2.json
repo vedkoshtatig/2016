@@ -1,0 +1,302 @@
+{
+	"skeleton": {
+		"hash": "iEVWXZX52Bk",
+		"spine": "4.2.43",
+		"x": -651,
+		"y": -476,
+		"width": 1314,
+		"height": 946,
+		"images": "../symbolsStatic/Intro-Reel-01/",
+		"audio": "./audio"
+	},
+	"bones": [
+		{ "name": "root" },
+		{
+			"name": "water_bottle5",
+			"parent": "root",
+			"x": -79.88,
+			"y": -42.88,
+			"color": "f90909ff",
+			"icon": "arrows"
+		},
+		{
+			"name": "scatter2",
+			"parent": "root",
+			"x": -86.85,
+			"y": -188.5,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter3",
+			"parent": "root",
+			"x": 261.1,
+			"y": -188.5,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter4",
+			"parent": "root",
+			"x": 443.22,
+			"y": -188.5,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter5",
+			"parent": "root",
+			"x": 268.5,
+			"y": -336.56,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter6",
+			"parent": "root",
+			"x": 96.75,
+			"y": -336.56,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter7",
+			"parent": "root",
+			"x": -261.57,
+			"y": -336.56,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		},
+		{
+			"name": "scatter8",
+			"parent": "root",
+			"x": -436.29,
+			"y": -336.56,
+			"color": "4bf317ff",
+			"icon": "arrowsB"
+		}
+	],
+	"slots": [
+		{ "name": "BG", "bone": "root", "attachment": "BG" },
+		{ "name": "drake", "bone": "root", "attachment": "drake" },
+		{ "name": "earbuds", "bone": "root", "attachment": "earbuds" },
+		{ "name": "earbuds2", "bone": "root", "attachment": "earbuds" },
+		{ "name": "earbuds3", "bone": "root", "attachment": "earbuds" },
+		{ "name": "fidget_spinner", "bone": "root" },
+		{ "name": "fidget_spinner copy", "bone": "root", "attachment": "fidget_spinner copy" },
+		{ "name": "fidget_spinner copy 2", "bone": "root", "attachment": "fidget_spinner copy 2" },
+		{ "name": "poke_ball", "bone": "root", "attachment": "poke_ball" },
+		{ "name": "poke_ball2", "bone": "root", "attachment": "poke_ball" },
+		{ "name": "ronaldo", "bone": "root", "attachment": "ronaldo" },
+		{ "name": "scatter", "bone": "root" },
+		{ "name": "scatter7", "bone": "root" },
+		{ "name": "scatter2", "bone": "scatter2", "attachment": "scatter" },
+		{ "name": "scatter8", "bone": "scatter3", "attachment": "scatter" },
+		{ "name": "scatter9", "bone": "scatter4", "attachment": "scatter" },
+		{ "name": "scatter10", "bone": "scatter5", "attachment": "scatter" },
+		{ "name": "scatter11", "bone": "scatter6", "attachment": "scatter" },
+		{ "name": "scatter12", "bone": "scatter7", "attachment": "scatter" },
+		{ "name": "scatter13", "bone": "scatter8", "attachment": "scatter" },
+		{ "name": "scatter4", "bone": "root" },
+		{ "name": "scatter5", "bone": "root" },
+		{ "name": "scatter3", "bone": "root" },
+		{ "name": "scatter6", "bone": "root" },
+		{ "name": "selfie", "bone": "root", "attachment": "selfie" },
+		{ "name": "selfie copy", "bone": "root", "attachment": "selfie copy" },
+		{ "name": "selfie copy 2", "bone": "root", "attachment": "selfie copy 2" },
+		{ "name": "selfie copy 4", "bone": "root" },
+		{ "name": "selfie copy 3", "bone": "root", "attachment": "selfie copy 3" },
+		{ "name": "voting_box", "bone": "root", "attachment": "voting_box" },
+		{ "name": "voting_box copy", "bone": "root" },
+		{ "name": "voting_box copy 2", "bone": "root", "attachment": "voting_box copy 2" },
+		{ "name": "voting_box copy 3", "bone": "root", "attachment": "voting_box copy 3" },
+		{ "name": "voting_box copy 4", "bone": "root", "attachment": "voting_box copy 4" },
+		{ "name": "vr_headset", "bone": "root", "attachment": "vr_headset" },
+		{ "name": "water_bottle5", "bone": "water_bottle5", "attachment": "water_bottle" },
+		{ "name": "clinton", "bone": "root", "attachment": "clinton" },
+		{ "name": "clinton copy", "bone": "root", "attachment": "clinton copy" },
+		{ "name": "donald_trump", "bone": "root", "attachment": "donald_trump" },
+		{ "name": "donald_trump copy", "bone": "root", "attachment": "donald_trump copy" }
+	],
+	"skins": [
+		{
+			"name": "default",
+			"attachments": {
+				"BG": { "BG": { "x": 6, "y": -3, "width": 1314, "height": 946 } },
+				"clinton": { "clinton": { "x": -440.5, "y": 102, "width": 147, "height": 128 } },
+				"clinton copy": {
+					"clinton copy": { "x": 443.44, "y": 107.51, "width": 147, "height": 128 }
+				},
+				"donald_trump": {
+					"donald_trump": { "x": -257.63, "y": 231.16, "width": 142, "height": 120 }
+				},
+				"donald_trump copy": {
+					"donald_trump copy": { "x": 441, "y": -39.94, "width": 142, "height": 120 }
+				},
+				"drake": { "drake": { "x": 438.49, "y": -334.71, "width": 127, "height": 125 } },
+				"earbuds": { "earbuds": { "x": 93, "y": -189.34, "width": 112, "height": 96 } },
+				"earbuds2": { "earbuds": { "x": -84.68, "y": 235.61, "width": 112, "height": 96 } },
+				"earbuds3": { "earbuds": { "x": 273.64, "y": 94.94, "width": 112, "height": 96 } },
+				"fidget_spinner copy": {
+					"fidget_spinner copy": { "x": -262, "y": -188, "width": 108, "height": 96 }
+				},
+				"fidget_spinner copy 2": {
+					"fidget_spinner copy 2": { "x": 94.53, "y": 104.55, "width": 108, "height": 96 }
+				},
+				"poke_ball": { "poke_ball": { "x": 88.56, "y": -45.86, "width": 134, "height": 134 } },
+				"poke_ball2": { "poke_ball": { "x": -271.24, "y": 100.73, "width": 134, "height": 134 } },
+				"ronaldo": { "ronaldo": { "x": -442.44, "y": -29.28, "width": 123, "height": 149 } },
+				"scatter2": { "scatter": { "width": 107, "height": 79 } },
+				"scatter8": { "scatter": { "width": 107, "height": 79 } },
+				"scatter9": { "scatter": { "width": 107, "height": 79 } },
+				"scatter10": { "scatter": { "width": 107, "height": 79 } },
+				"scatter11": { "scatter": { "width": 107, "height": 79 } },
+				"scatter12": { "scatter": { "width": 107, "height": 79 } },
+				"scatter13": { "scatter": { "width": 107, "height": 79 } },
+				"selfie": { "selfie": { "x": -440, "y": 234, "width": 98, "height": 122 } },
+				"selfie copy": { "selfie copy": { "x": 97.8, "y": 234, "width": 98, "height": 122 } },
+				"selfie copy 2": {
+					"selfie copy 2": { "x": 445.75, "y": 240.62, "width": 98, "height": 122 }
+				},
+				"selfie copy 3": { "selfie copy 3": { "x": -262, "y": -45, "width": 98, "height": 122 } },
+				"voting_box": { "voting_box": { "x": -440, "y": -188, "width": 102, "height": 90 } },
+				"voting_box copy 2": {
+					"voting_box copy 2": { "x": 271.83, "y": 244.35, "width": 102, "height": 90 }
+				},
+				"voting_box copy 3": {
+					"voting_box copy 3": { "x": -85, "y": 98.62, "width": 102, "height": 90 }
+				},
+				"voting_box copy 4": {
+					"voting_box copy 4": { "x": -85, "y": -330, "width": 102, "height": 90 }
+				},
+				"vr_headset": { "vr_headset": { "x": 268, "y": -45, "width": 124, "height": 100 } },
+				"water_bottle5": { "water_bottle": { "width": 108, "height": 110 } }
+			}
+		}
+	],
+	"animations": {
+		"animation": {
+			"bones": {
+				"scatter2": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter3": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter4": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter5": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter6": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter7": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				},
+				"scatter8": {
+					"rotate": [
+						{ "value": 25.52, "curve": [0.167, 25.52, 0.333, 9.24] },
+						{ "time": 0.5, "value": 9.24, "curve": [0.667, 9.24, 0.833, 25.52] },
+						{ "time": 1, "value": 25.52 }
+					],
+					"scale": [
+						{ "curve": [0.167, 1, 0.333, 1.744, 0.167, 1, 0.333, 1.744] },
+						{
+							"time": 0.5,
+							"x": 1.744,
+							"y": 1.744,
+							"curve": [0.667, 1.744, 0.833, 1, 0.667, 1.744, 0.833, 1]
+						},
+						{ "time": 1 }
+					]
+				}
+			}
+		}
+	}
+}

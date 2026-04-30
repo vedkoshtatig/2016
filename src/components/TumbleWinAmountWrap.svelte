@@ -17,8 +17,8 @@
 	const context = getContext();
 
 	const desktopPosition = $derived({
-		x: context.stateGameDerived.boardLayout().width *(context.stateGame.gameType === 'basegame' ? 2.15 : 0.25),
-		y: -SYMBOL_SIZE * 0.8 * -2.0,
+		x: context.stateGameDerived.boardLayout().width *(context.stateGame.gameType === 'basegame' ? 2.15 : 0.26),
+		y: -SYMBOL_SIZE * 0.8 *(context.stateGame.gameType === 'basegame' ? -2.0 : -4.8)
 	});
 
 	const portraitPosition = $derived({
@@ -32,7 +32,7 @@
 		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
 	);
 
-	const scale = $derived(context.stateLayoutDerived.isStacked() ? 1.28 : 1);
+	const scale = $derived(context.stateLayoutDerived.isStacked() ? 1.28 : 0.9);
 </script>
 
 <FadeContainer show={props.show}>

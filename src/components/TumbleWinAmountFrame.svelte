@@ -22,7 +22,7 @@
 	const PANEL_RATIO = 1442 / 374;
 	const PANEL_HEIGHT = SYMBOL_SIZE * 0.8;
 	const PANEL_SIZES = {
-		width: PANEL_HEIGHT * PANEL_RATIO,
+		width: PANEL_HEIGHT * PANEL_RATIO/1.2,
 		height: PANEL_HEIGHT,
 	};
 </script>
@@ -30,15 +30,6 @@
 <Container scale={0.7}>
 	<Sprite anchor={0.5} key={PANEL_KEY} {...PANEL_SIZES}  />
 
-<Container y={-TITLE_HEIGHT * 1.2}>
-	<Sprite anchor={0.5} key={TITLE_KEY} {...TITLE_SIZES} />
-	<BitmapText
-		anchor={0.5}
-		y={-TITLE_HEIGHT * 0.025}
-		text="TUMBLE WIN"
-		style={{ fontFamily: 'gold', fontSize: TITLE_HEIGHT * 0.45 }}
-	/>
-</Container>
 </Container>
 
 {@render props.children({ frameSizes: PANEL_SIZES })}
