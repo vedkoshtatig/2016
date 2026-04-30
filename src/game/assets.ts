@@ -942,6 +942,10 @@ export default {
 		type: 'font',
 		src: new URL('../../assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
 	},
+	font2016: {
+		type: 'font',
+		src: new URL('../../assets/fonts/2016FONT/font1.json', import.meta.url).href,
+	},
 	goldBlur: {
 		type: 'font',
 		src: new URL('../../assets/fonts/goldBlur/miningfont_gold_blur.xml', import.meta.url).href,
