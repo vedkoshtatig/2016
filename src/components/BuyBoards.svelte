@@ -50,7 +50,7 @@
 	x={layout.x / 1.4 - 30}
 	y={layout.y * 1.05}
 	height={layout.height}
-	scale={scaleFactor*0.95}
+	scale={scaleFactor * 0.95}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
@@ -77,26 +77,26 @@
 				text={'BUY'}
 				anchor={0.5}
 				x={0}
-				y={-15}
+				y={-20}
 				style={{
 					fontFamily: 'Neuton',
-					fill: '#ede18c',
-					fontSize: 10,
-					fontWeight: 'bold',
+					fill: '#ffc825',
+					fontSize: 17,
+					fontWeight: 'bolder',
 				}}
 				interactive={false}
 				eventMode="none"
 			/>
 			<BitmapText
-				text={'FREE SPIN'}
+				text={'FREE SPINS'}
 				anchor={0.5}
 				x={0}
-				y={-2}
+				y={-3}
 				style={{
 					fontFamily: 'Neuton',
-					fill: '#ede18c',
-					fontSize: 10,
-					fontWeight: 'bold',
+					fill: '#ffc825',
+					fontSize: 17,
+					fontWeight: 'bolder',
 				}}
 				interactive={false}
 				eventMode="none"
@@ -108,8 +108,8 @@
 				y={15}
 				style={{
 					fontFamily: 'Neuton',
-					fill: '#ede18c',
-					fontSize: 18,
+					fill: '#ffc825',
+					fontSize: 17,
 					fontWeight: 'bolder',
 				}}
 				interactive={false}
@@ -128,29 +128,29 @@
 				text={'BUY'}
 				anchor={0.5}
 				x={0}
-				y={-17}
-				style={{ fill: '#ede18c', fontSize: 10 }}
+				y={-22}
+				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
 			/>
 			<BitmapText
 				text={'SUPER'}
 				anchor={0.5}
 				x={0}
-				y={-6}
+				y={-8}
 				style={{
 					fontFamily: 'Neuton',
-					fill: '#ede18c',
-					fontSize: 15,
+					fill: '#ffc825',
+					fontSize: 14,
 					fontWeight: 'bolder',
 				}}
 				interactive={false}
 				eventMode="none"
 			/>
 			<BitmapText
-				text={'FREE SPIN'}
+				text={'FREE SPINS'}
 				anchor={0.5}
 				x={0}
 				y={6}
-				style={{ fontFamily: 'Neuton', fill: '#ede18c', fontSize: 11 }}
+				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -158,8 +158,8 @@
 				text={`$${stateBet.betAmount * 500}`}
 				anchor={0.5}
 				x={0}
-				y={18}
-				style={{ fontFamily: 'Neuton', fill: '#ede18c', fontSize: 15, fontWeight: '900' }}
+				y={20}
+				style={{ fontFamily: 'Neuton', fill: '#ffc825', fontSize: 14, fontWeight: 'bolder' }}
 				interactive={false}
 				eventMode="none"
 			/>
@@ -183,11 +183,9 @@
 			y={148}
 			interactive={true}
 			onclick={() => {
-				
 				stateBet.activeBetModeKey = 'anteBet';
 			}}
 		>
-			
 			<!-- <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.73 }} anchor={0.5} /> -->
 			<Container y={-10}>
 				<BitmapText
@@ -195,14 +193,15 @@
 					anchor={0.5}
 					x={0}
 					y={-22}
-					style={{ fill: '#8d3b15', fontSize: 10 }}
+					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
 				/>
 				<BitmapText
-					text={`$${stateBet.betAmount * 1.25}`}
+					text={`${stateBet.betAmount * 1.25}`}
 					anchor={0.5}
 					x={0}
 					y={-6}
-					style={{ fill: '#fffc74', fontSize: 15, fontWeight: 'bolder' }}
+					style={{ fontFamily: 'Neuton', fill: '#ffd34f', fontSize: 20, fontWeight: 'bolder',stroke: '#8d3b15',
+						strokeThickness: 2, }}
 					interactive={false}
 					eventMode="none"
 				/>
@@ -210,8 +209,14 @@
 					text={'DOUBLE'}
 					anchor={0.5}
 					x={0}
-					y={6}
-					style={{ fill: '#8d3b15', fontSize: 11 }}
+					y={9}
+					style={{
+						fontFamily: 'Neuton',
+						fill: '#8d3b15',
+						fontSize: 18,
+						fontWeight: 'bolder',
+						
+					}}
 					interactive={false}
 					eventMode="none"
 				/>
@@ -219,8 +224,8 @@
 					text={`CHANCE TO`}
 					anchor={0.5}
 					x={0}
-					y={15}
-					style={{ fill: '#8d3b15', fontSize: 10, fontWeight: '900' }}
+					y={20}
+					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 10, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
@@ -228,28 +233,24 @@
 					text={`WIN FEATURE`}
 					anchor={0.5}
 					x={0}
-					y={25}
-					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 11, fontWeight: '800' }}
+					y={30}
+					style={{ fontFamily: 'Neuton', fill: '#8d3b15', fontSize: 11, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
 			</Container>
 
-
-			<Container y={30}>
+			<Container y={32}>
 				<Sprite
 					key="onBar"
 					anchor={0.5}
-				
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
-				
 				/>
 				<Sprite
 					key="onBarYes"
 					anchor={0.5}
-				
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
@@ -309,7 +310,7 @@
 						anchor={0.5}
 						x={20}
 						style={{
-							fill: '#ede18c',
+							fill: '#ffc825',
 							fontSize: 14,
 							fontWeight: 'bolder',
 						}}
