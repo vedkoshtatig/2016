@@ -47,7 +47,19 @@
 	let multiplier = $state(1);
 	let previousMultiplier = new Tween(1);
 	let oncomplete = $state(() => {});
-
+	const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 54,
+		letterSpacing:3,
+		align: 'center',
+	};
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 	context.eventEmitter.subscribeOnMount({
 		globalMultiplierShow: () => (show = true),
 		globalMultiplierHide: () => (show = false),
@@ -83,20 +95,18 @@
 				
 						<BitmapText
 							anchor={0.5}
-							text={`${Math.round(previousMultiplier.current)}×`}
-							style={{
-								fontFamily: 'gold',
-								fontSize: SYMBOL_SIZE * 0.3,
-							}}
+							text={`${Math.round(previousMultiplier.current)}X`}
+							style={fstyle2}
+							scale={0.5}
+							y={5}
 						/>
 				
 						<BitmapText
 							anchor={0.5}
-							text={`${multiplier}×`}
-							style={{
-								fontFamily: 'gold',
-								fontSize: SYMBOL_SIZE * 0.3,
-							}}
+							text={`${multiplier}X`}
+							style={fstyle2}
+							scale={0.5}
+							y={5}
 						/>
 				
 			

@@ -4,6 +4,9 @@
 	import { stateBet, stateBetDerived, stateConfig, stateModal, stateSound } from 'state-shared';
 	import { getContextLayout } from 'utils-layout';
 	import ModalSettingsSound from './ModalSettingsSound.svelte';
+	import ModalSettingsAutosPlay from './ModalSettingsAutosPlay.svelte';
+	import ModalSettingsGameRules from './ModalSettingsGameRules.svelte';
+	import ModalSettingsTurbo from './ModalSettingsTurbo.svelte';
 	import { i18nDerived } from '../../i18n/i18nDerived';
 
 	import { stateGame } from '../../game/stateGame.svelte';
@@ -77,70 +80,72 @@
 			
 			{#if isMobileMenu}
 				<div class="menu-grid">
-					<button
-						class="tile"
-						onclick={() => (stateModal.modal = { name: 'gameRules' })}
-					>
-						<span class="tile-icon" aria-hidden="true">i</span>
-						<span class="tile-label">INFO</span>
-					</button>
-
-					<button
-						type="button"
-						class="tile"
-						class:disabled={stateConfig.jurisdiction.disabledAutoplay}
-						disabled={stateConfig.jurisdiction.disabledAutoplay}
-						onclick={() => (stateModal.modal = { name: 'autoSpin' })}
-					>
-						<span class="tile-icon" aria-hidden="true">↻</span>
-						<span class="tile-label">AUTOPLAY</span>
-					</button>
-
-					<button type="button" class="tile" class:active={quickEnabled} onclick={toggleQuick}>
-						<span class="tile-icon" aria-hidden="true">⚡</span>
-						<span class="tile-label">QUICK</span>
-					</button>
-
-					<button
-						type="button"
-						class="tile"
-						class:active={stateBet.isTurbo}
-						class:disabled={stateConfig.jurisdiction.disabledTurbo}
-						disabled={stateConfig.jurisdiction.disabledTurbo}
-						onclick={toggleTurbo}
-					>
-						<span class="tile-icon" aria-hidden="true">⚡⚡</span>
-						<span class="tile-label">TURBO</span>
-					</button>
-
-					<button
-						type="button"
-						class="tile"
-						class:active={stateSound.volumeValueSoundEffect !== 0}
-						onclick={toggleSounds}
-					>
-						<span class="tile-icon" aria-hidden="true">🔇</span>
-						<span class="tile-label">SOUNDS</span>
-					</button>
-
-					<button
-						type="button"
-						class="tile"
-						class:active={stateSound.volumeValueMusic !== 0}
-						onclick={toggleMusic}
-					>
-						<span class="tile-icon" aria-hidden="true">♪</span>
-						<span class="tile-label">MUSIC</span>
-					</button>
-				</div>
+	<ModalSettingsGameRules
+	iconSet={{
+		normal: 'assets/sprites/uiSlotsAssetsBespoke/infoNormal.png',
+		hover: 'assets/sprites/uiSlotsAssetsBespoke/infoHover.png',
+		down: 'assets/sprites/uiSlotsAssetsBespoke/infoNormal.png',
+		disabled: 'assets/sprites/uiSlotsAssetsBespoke/infoNormal.png'
+	}}
+/>
+				<ModalSettingsAutosPlay
+	iconSet={{
+		normal: 'assets/sprites/uiSlotsAssetsBespoke/autoPlayNormal.png',
+		hover: 'assets/sprites/uiSlotsAssetsBespoke/autoPlayHover.png',
+		down: 'assets/sprites/uiSlotsAssetsBespoke/autoPlayNormal.png',
+		disabled: 'assets/sprites/uiSlotsAssetsBespoke/autoPlayNormal.png'
+	}}
+/>
+				<ModalSettingsTurbo
+	iconSet={{
+		normal: 'assets/sprites/uiSlotsAssetsBespoke/turbonormal.png',
+		hover: 'assets/sprites/uiSlotsAssetsBespoke/turbohover.png',
+		down: 'assets/sprites/uiSlotsAssetsBespoke/turboDown.png',
+		active: 'assets/sprites/uiSlotsAssetsBespoke/turboDown.png',
+		disabled: 'assets/sprites/uiSlotsAssetsBespoke/turboNormal.png',
+	}}
+/>
+						<ModalSettingsTurbo
+	iconSet={{
+		normal: 'assets/sprites/uiSlotsAssetsBespoke/turbonormal.png',
+		hover: 'assets/sprites/uiSlotsAssetsBespoke/turbohover.png',
+		down: 'assets/sprites/uiSlotsAssetsBespoke/turboDown.png',
+		active: 'assets/sprites/uiSlotsAssetsBespoke/turboDown.png',
+		disabled: 'assets/sprites/uiSlotsAssetsBespoke/turboNormal.png',
+	}}
+/>
+				<ModalSettingsSound
+					bind:value={stateSound.volumeValueSoundEffect}
+					iconSet={{
+						on: 'assets/sprites/uiSlotsAssetsBespoke/soundPortraitOn.png',
+						off: 'assets/sprites/uiSlotsAssetsBespoke/soundPortraitOff.png',
+						hover: 'assets/sprites/uiSlotsAssetsBespoke/soundPortraitHover.png',
+						active: 'assets/sprites/uiSlotsAssetsBespoke/soundPortraitOn.png',
+					}}
+				>
+					{i18nDerived.soundEffectVolume()}
+				</ModalSettingsSound>
+			<ModalSettingsSound
+					bind:value={stateSound.volumeValueMusic}
+					iconSet={{
+					on: 'assets/sprites/uiSlotsAssetsBespoke/musicPortraitOn.png',
+						off: 'assets/sprites/uiSlotsAssetsBespoke/musicPortraitOn.png',
+						hover: 'assets/sprites/uiSlotsAssetsBespoke/musicPortraitHover.png',
+						active: 'assets/sprites/uiSlotsAssetsBespoke/musicPortraitOn.png',
+					}}
+				>
+					{i18nDerived.musicVolume()}
+				</ModalSettingsSound>
+	
+</div>
 			{:else}
 				<ModalSettingsSound
 					bind:value={stateSound.volumeValueSoundEffect}
 					iconSet={{
-						on: 'assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
-						off: 'assets/sprites/uiSlotsAssetsBespoke/sounddisable.png',
+						on: 'assets/sprites/uiSlotsAssetsBespoke/soundOn.png',
+						off: 'assets/sprites/uiSlotsAssetsBespoke/soundOff.png',
 						hover: 'assets/sprites/uiSlotsAssetsBespoke/soundhover.png',
-						active: 'assets/sprites/uiSlotsAssetsBespoke/soundnormal.png',
+						active: 'assets/sprites/uiSlotsAssetsBespoke/soundOn.png',
 					}}
 				>
 					{i18nDerived.soundEffectVolume()}
@@ -148,10 +153,10 @@
 				<ModalSettingsSound
 					bind:value={stateSound.volumeValueMusic}
 					iconSet={{
-						on: 'assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
-						off: 'assets/sprites/uiSlotsAssetsBespoke/sounddisable.png',
-						hover: 'assets/sprites/uiSlotsAssetsBespoke/musichover.png',
-						active: 'assets/sprites/uiSlotsAssetsBespoke/musicnormal.png',
+						on: 'assets/sprites/uiSlotsAssetsBespoke/musicOn.png',
+						off: 'assets/sprites/uiSlotsAssetsBespoke/musicOn.png',
+						hover: 'assets/sprites/uiSlotsAssetsBespoke/musicHover.png',
+						active: 'assets/sprites/uiSlotsAssetsBespoke/musicHover.png',
 					}}
 				>
 					{i18nDerived.musicVolume()}
@@ -173,10 +178,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: clamp(0.3rem, 1vw, 0.5rem);
+		gap: clamp(0.5rem, 1vw, 1.5rem);
 
 		width: fit-content;
-		padding: clamp(0.5rem, 1.5vw, 1rem) clamp(1rem, 3vw, 2rem);
+		
+	padding: clamp(1rem, 2vw, 2rem) clamp(1.5rem, 4vw, 2.5rem); // ↑ increased
+
 		border-radius: clamp(0.5rem, 1.5vw, 0.9rem);
 
 		max-height: min(70vh, 560px);
@@ -200,36 +207,43 @@
 		overflow: visible;
 	}
 
-	.menu-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: clamp(0.55rem, 2.2vw, 0.95rem);
-		width: clamp(280px, 84vw, 600px);
-	}
+.menu-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: clamp(20px, 20px, 100px);     // vertical spacing (keep nice)
+	column-gap: clamp(20px, 20px, 100px);
+
+	width: min(90vw, 420px);
+	padding: clamp(10px, 3vw, 20px);
+
+	border: 2px solid #7c3aed; // purple border like your UI
+	border-radius: 16px;
+
+	background: rgba(10, 10, 20, 0.85);
+	backdrop-filter: blur(12px);
+}
 
 	.wrap.mobile-menu .menu-grid {
 		transform: translateY(clamp(40px, 8vh, 140px)) scale(clamp(0.72, 0.82, 0.9));
 		transform-origin: center;
 	}
 
-	.tile {
-		appearance: none;
-		border: 0;
-		padding: 0;
-		background: rgba(255, 255, 255, 0.06);
-		border-radius: clamp(0.85rem, 4vw, 1.25rem);
-		min-height: clamp(78px, 16vw, 116px);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-		color: rgba(255, 255, 255, 0.95);
-		font-family: 'Inter', sans-serif;
-		font-weight: 700;
-		letter-spacing: 0.08em;
-		cursor: pointer;
-		transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-	}
+.tile {
+	background: linear-gradient(145deg, #0f172a, #020617);
+	border-radius: 16px;
+
+	min-height: 80px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	font-weight: 600;
+	letter-spacing: 0.08em;
+
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+}
 
 	.wrap.mobile-menu .tile {
 		background-color: transparent;
@@ -273,16 +287,24 @@
 	}
 
 	.tile-icon {
-		width: 2.1rem;
-		height: 2.1rem;
+		width: 1rem;
+	height: 1rem;
+	font-size: 1.25rem;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 1.45rem;
+		
 		line-height: 1;
 	}
 
 	.tile-label {
 		font-size: clamp(0.9rem, 3.3vw, 1.05rem);
 	}
+.wrap.mobile-menu .menu-grid {
+	background: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	border: none; // optional if you don’t want the purple border
+	
+}
 </style>

@@ -18,7 +18,19 @@
 	type Animation = 'explosion' | 'static';
 
 	const context = getContext();
-
+	const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 54,
+		letterSpacing:3,
+		align: 'center',
+	};
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 	let show = $state(false);
 	let animationName = $state<Animation>('static');
 	let totalMultiplier = $state(0);
@@ -40,11 +52,7 @@
 		scale={3}
 		anchor={0.5}
 		text={`${totalMultiplier} X`}
-		style={{
-			fontFamily: 'gold',
-			fontSize: SYMBOL_SIZE,
-			letterSpacing: -5,
-		}}
+		style={fstyle2}
 	/>
 {/snippet}
 

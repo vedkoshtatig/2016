@@ -30,7 +30,10 @@
 	const y = new Tween(0);
 	const scale = new Tween(1);
 	let show = $state(true);
-
+	const fstyle={
+		fontFamily: 'sans-serif',
+		 fontSize: 72, align: 'center' 
+	}
 	let showMultiplier = $state(props.win.mult > 1);
 
 	// update showMultiplier
@@ -70,9 +73,6 @@
 			? `${bookEventAmountToCurrencyString(props.win.win)} X ${props.win.mult}`
 			: bookEventAmountToCurrencyString(props.win.result)}
 		anchor={0.5}
-		style={{
-			fontFamily: 'gold',
-			fontSize: SYMBOL_SIZE * 0.5,
-		}}
+		style={fstyle}
 	/>
 </FadeContainer>

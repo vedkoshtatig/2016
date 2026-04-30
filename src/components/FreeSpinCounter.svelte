@@ -44,7 +44,19 @@ const showBuyBoards = $derived(
 	let total = $state(0);
 	let titleSizes: Sizes = $state({ width: 0, height: 0 });
 	let counterSizes: Sizes = $state({ width: 0, height: 0 });
-
+	const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 54,
+		letterSpacing:3,
+		align: 'center',
+	};
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 	const textContainerSizes = $derived({
 		width: titleSizes.width,
 		height: titleSizes.height + counterSizes.height,
@@ -67,19 +79,16 @@ const showBuyBoards = $derived(
 		<Sprite key="freeSpinCounter" {...panelSizes}  />
 		<Container
 			x={panelSizes.width * 0.5}
-			y={panelSizes.height * 0.44}
+			y={panelSizes.height * 0.5}
 			pivot={anchorToPivot({
 				sizes: textContainerSizes,
 				anchor: { x: 0.5, y: 0.5 },
 			})}
+			scale={0.6}
 		>
 			<BitmapText
 				text={'FREE SPIN'}
-				style={{
-					fontFamily: 'gold',
-					fontSize,
-					wordWrap: false,
-				}}
+				style={fstyle}
 				onresize={(sizes) => (titleSizes = sizes)}
 			/>
 			<BitmapText
@@ -87,10 +96,8 @@ const showBuyBoards = $derived(
 			
 				{...counterPosition}
 				anchor={{ x: 0.5, y: 0 }}
-				style={{
-					fontFamily: 'gold',
-					fontSize,
-				}}
+				style={fstyle2}
+				
 					y={40}
 				onresize={(sizes) => (counterSizes = sizes)}
 			/>

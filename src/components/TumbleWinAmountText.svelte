@@ -19,7 +19,19 @@
 	const props: Props = $props();
 	const amount = new Tween(0);
 	const animationName = $derived<AnimationName>(props.animate ? 'explosion' : 'idle');
-
+	const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 54,
+		letterSpacing:3,
+		align: 'center',
+	};
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 	const normalUpdate = async () => {
 		await amount.set(props.amount);
 		props.oncomplete();
@@ -48,10 +60,7 @@
 	<SpineSlot slotName="slot_win">
 		<ResponsiveBitmapText
 			anchor={0.5}
-			style={{
-				fontFamily: 'gold',
-				fontSize: 0.4 * SYMBOL_SIZE,
-			}}
+			style={fstyle}
 			text={bookEventAmountToCurrencyString(amount.current)}
 			maxWidth={props.width}
 		/>

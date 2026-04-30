@@ -38,7 +38,10 @@
 	let winLevelData = $state<WinLevelData>();
 	let oncomplete = $state(() => {});
 	let onCountUpComplete = $state(() => {});
-
+	const fstyle={
+		fontFamily: 'sans-serif',
+		 fontSize: 72, align: 'center' 
+	}
 	context.eventEmitter.subscribeOnMount({
 		freeSpinOutroShow: () => (show = true),
 		freeSpinOutroHide: async () => (show = false),
@@ -78,7 +81,7 @@
 							x={boardPopupX}
 							y={-boardPopupY +30}
 							text="CONGRATULATION"
-							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+							style={fstyle}
 						/>
 
 						<BitmapText
@@ -86,10 +89,10 @@
 							x={boardPopupX}
 							y={-boardPopupY + 110}
 							text="YOU HAVE WON"
-							style={{ fontFamily: 'gold', fontSize: 44, align: 'center' }}
+							style={fstyle}
 						/>
 
-						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.1} y={-20}>
+						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.2} y={-20}>
 							<SpineTrack
 								trackIndex={0}
 								{animationName}
@@ -102,10 +105,7 @@
 							<SpineSlot slotName="slot_number">
 								<ResponsiveBitmapText
 									anchor={0.5}
-									style={{
-										fontFamily: 'gold',
-										fontSize: sizes.width * 0.15,
-									}}
+									style={fstyle}
 									text={bookEventAmountToCurrencyString(countUpAmount)}
 									maxWidth={sizes.width}
 								/>
@@ -117,7 +117,7 @@
 							x={boardPopupX}
 							y={boardPopupY/2}
 							text={`IN FREE SPINS`}
-							style={{ fontFamily: 'gold', fontSize: 72, align: 'center' }}
+							style={fstyle}
 						/>
 					{/snippet}
 				</FreeSpinAnimation>
