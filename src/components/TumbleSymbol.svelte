@@ -22,7 +22,8 @@
 		Math.abs(props.tumbleSymbol.symbolY.current - lastVisibleRowY) < 1,
 	);
 	const h1YOffset = $derived(props.tumbleSymbol.rawSymbol.name === 'H1' ? 6 : 0);
-	const yOffset = $derived((isLastVisibleRow ? 8 : 0) + h1YOffset);
+	const sYOffset = $derived(props.tumbleSymbol.rawSymbol.name === 'S' ? -8 : 0);
+	const yOffset = $derived((isLastVisibleRow ? 8 : 0) + h1YOffset + sYOffset);
 </script>
 
 <SymbolWrap
