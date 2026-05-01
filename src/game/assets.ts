@@ -102,6 +102,15 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bonus_popup.png', import.meta.url).href,
 		preload: true,
 	},
+	'Bonus-Open': {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/popups/Bonus-Open.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/popups/Bonus-Open.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	freeSpinCounter: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/freespin_meter.png', import.meta.url)

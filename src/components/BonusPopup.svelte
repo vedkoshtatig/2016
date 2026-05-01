@@ -2,7 +2,7 @@
 	import { getContext } from '../game/context';
 	import { MainContainer } from 'components-layout';
 	import { FadeContainer } from 'components-pixi';
-	import { Container, Rectangle, Sprite, BitmapText } from 'pixi-svelte';
+	import { Container, Rectangle, Sprite, BitmapText, SpineProvider, SpineTrack } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
 	const context = getContext();
 	const { eventEmitter } = context;
@@ -42,6 +42,12 @@
 	
 		align: 'center',
 	};
+
+	const bonusPopupOffsetX = 200;
+	const bonusPopupOffsetY = 90;
+	const bonusPopupContentOffsetX = -180;
+	const bonusPopupContentOffsetY = -130;
+	const bonusPopupAnimationSpeed = 2.5;
 </script>
 
 {#if visible}
@@ -61,120 +67,129 @@
 
 		<FadeContainer {show}>
 			<Container
-				x={context.stateLayoutDerived.mainLayout().width * 0.5}
-				y={context.stateLayoutDerived.mainLayout().height * 0.48}
+				x={context.stateLayoutDerived.mainLayout().width * 0.5 + bonusPopupOffsetX}
+				y={context.stateLayoutDerived.mainLayout().height * 0.48 + bonusPopupOffsetY}
 				scale={0.8}
 			>
-				<Sprite key="bonus_popup" anchor={0.5} scale={0.65} />
+				<SpineProvider key="Bonus-Open" anchor={0.5} scale={0.35}>
+					<SpineTrack
+						trackIndex={0}
+						animationName={'animation'}
+						loop={false}
+						timeScale={bonusPopupAnimationSpeed}
+					/>
+				</SpineProvider>
 
-				{#if stateBet.activeBetModeKey === 'BONUS'}
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-160}
-						text="ARE YOU SURE "
-						style={fstyle}
-					/>
-					<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-100} text="YOU WANT TO PURCHASE" style={fstyle} />
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-30}
-						text="10 FREE SPINS "
-						style={fstyle2}
-					/>
-					<Container x={0} y={40}>
+				<Container x={bonusPopupContentOffsetX} y={bonusPopupContentOffsetY}>
+					{#if stateBet.activeBetModeKey === 'BONUS'}
 						<BitmapText
-							anchor={{ x: 1, y: 0.5 }}
-							x={-10}
-							text="AT COST OF"
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-160}
+							text="ARE YOU SURE "
 							style={fstyle}
 						/>
-
+						<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-100} text="YOU WANT TO PURCHASE" style={fstyle} />
 						<BitmapText
-							anchor={{ x: 0, y: 0.5 }}
-							x={10}
-							text={`$${stateBet.betAmount * 100}`}
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-30}
+							text="10 FREE SPINS "
 							style={fstyle2}
 						/>
-					</Container>
-				{:else if stateBet.activeBetModeKey === 'superBonus'}
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-160}
-						text="ARE YOU SURE "
-						style={fstyle}
-					/>
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-100}
-						text="YOU WANT TO PURCHASE"
-						style={fstyle}
-					/>
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-30}
-						text="10 FREE SPINS "
-						style={fstyle2}
-					/>
-					<Container x={0} y={40}>
+						<Container x={0} y={40}>
+							<BitmapText
+								anchor={{ x: 1, y: 0.5 }}
+								x={-10}
+								text="AT COST OF"
+								style={fstyle}
+							/>
+
+							<BitmapText
+								anchor={{ x: 0, y: 0.5 }}
+								x={10}
+								text={`$${stateBet.betAmount * 100}`}
+								style={fstyle2}
+							/>
+						</Container>
+					{:else if stateBet.activeBetModeKey === 'superBonus'}
 						<BitmapText
-							anchor={{ x: 1, y: 0.5 }}
-							x={-10}
-							text="AT COST OF"
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-160}
+							text="ARE YOU SURE "
 							style={fstyle}
 						/>
-
 						<BitmapText
-							anchor={{ x: 0, y: 0.5 }}
-							x={10}
-							text={`$${stateBet.betAmount * 500}`}
-							style={fstyle2}
-						/>
-					</Container>
-				{:else if stateBet.activeBetModeKey === 'anteBet'}
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-160}
-						text="ARE YOU SURE "
-						style={fstyle}
-					/>
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-100}
-						text="YOU WANT TO DOUBLE BET"
-						style={fstyle}
-					/>
-					<BitmapText
-						anchor={{ x: 0.5, y: 0.5 }}
-						y={-30}
-						text="CHANCE TO WIN FEATURE"
-						style={fstyle2}
-					/>
-
-					<Container x={0} y={40}>
-						<BitmapText
-							anchor={{ x: 1, y: 0.5 }}
-							x={-10}
-							text="AT COST OF"
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-100}
+							text="YOU WANT TO PURCHASE"
 							style={fstyle}
 						/>
-
 						<BitmapText
-							anchor={{ x: 0, y: 0.5 }}
-							x={10}
-							text={`$${stateBet.betAmount * 1.25}`}
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-30}
+							text="10 FREE SPINS "
 							style={fstyle2}
 						/>
+						<Container x={0} y={40}>
+							<BitmapText
+								anchor={{ x: 1, y: 0.5 }}
+								x={-10}
+								text="AT COST OF"
+								style={fstyle}
+							/>
+
+							<BitmapText
+								anchor={{ x: 0, y: 0.5 }}
+								x={10}
+								text={`$${stateBet.betAmount * 500}`}
+								style={fstyle2}
+							/>
+						</Container>
+					{:else if stateBet.activeBetModeKey === 'anteBet'}
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-160}
+							text="ARE YOU SURE "
+							style={fstyle}
+						/>
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-100}
+							text="YOU WANT TO DOUBLE BET"
+							style={fstyle}
+						/>
+						<BitmapText
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-30}
+							text="CHANCE TO WIN FEATURE"
+							style={fstyle2}
+						/>
+
+						<Container x={0} y={40}>
+							<BitmapText
+								anchor={{ x: 1, y: 0.5 }}
+								x={-10}
+								text="AT COST OF"
+								style={fstyle}
+							/>
+
+							<BitmapText
+								anchor={{ x: 0, y: 0.5 }}
+								x={10}
+								text={`$${stateBet.betAmount * 1.25}`}
+								style={fstyle2}
+							/>
+						</Container>
+					{/if}
+
+					<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
+						<Sprite anchor={0.5} scale={0.65} key="noButton" />
+						<Sprite anchor={0.5} scale={0.8} key="noText" />
 					</Container>
-				{/if}
 
-				<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
-					<Sprite anchor={0.5} scale={0.65} key="noButton" />
-					<Sprite anchor={0.5} scale={0.8} key="noText" />
-				</Container>
-
-				<Container eventMode="static" cursor="pointer" onpointertap={confirm} x={190} y={145}>
-					<Sprite anchor={0.5} scale={0.65} key="yesButton" />
-					<Sprite anchor={0.5} scale={0.8} key="yesText" />
+					<Container eventMode="static" cursor="pointer" onpointertap={confirm} x={190} y={145}>
+						<Sprite anchor={0.5} scale={0.65} key="yesButton" />
+						<Sprite anchor={0.5} scale={0.8} key="yesText" />
+					</Container>
 				</Container>
 			</Container>
 		</FadeContainer>
