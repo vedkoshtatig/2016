@@ -1,0 +1,489 @@
+
+poke ball.png
+size: 288, 288
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+1000X
+  rotate: false
+  xy: 135, 91
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+100X
+  rotate: false
+  xy: 135, 74
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+10X
+  rotate: false
+  xy: 135, 57
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+12X
+  rotate: false
+  xy: 163, 120
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+20X
+  rotate: false
+  xy: 163, 103
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+25X
+  rotate: true
+  xy: 190, 110
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+2x
+  rotate: false
+  xy: 162, 86
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+50X
+  rotate: false
+  xy: 162, 69
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+6x
+  rotate: false
+  xy: 207, 110
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+8x
+  rotate: false
+  xy: 162, 52
+  size: 25, 15
+  orig: 25, 15
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_00
+  rotate: false
+  xy: 125, 35
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_01
+  rotate: false
+  xy: 125, 19
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_02
+  rotate: false
+  xy: 125, 3
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_03
+  rotate: false
+  xy: 141, 41
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_04
+  rotate: false
+  xy: 141, 25
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_05
+  rotate: false
+  xy: 141, 9
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_06
+  rotate: false
+  xy: 157, 36
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_07
+  rotate: false
+  xy: 157, 20
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_08
+  rotate: false
+  xy: 173, 36
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_09
+  rotate: false
+  xy: 173, 20
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_10
+  rotate: false
+  xy: 157, 4
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_11
+  rotate: false
+  xy: 173, 4
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_12
+  rotate: false
+  xy: 251, 119
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_13
+  rotate: false
+  xy: 251, 103
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_14
+  rotate: false
+  xy: 267, 114
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_15
+  rotate: false
+  xy: 267, 98
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_16
+  rotate: false
+  xy: 190, 94
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_17
+  rotate: false
+  xy: 206, 94
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_18
+  rotate: false
+  xy: 222, 94
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_19
+  rotate: false
+  xy: 189, 78
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_20
+  rotate: false
+  xy: 189, 62
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_21
+  rotate: false
+  xy: 205, 78
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_22
+  rotate: false
+  xy: 189, 46
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_23
+  rotate: false
+  xy: 205, 62
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_24
+  rotate: false
+  xy: 221, 78
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_25
+  rotate: false
+  xy: 189, 30
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_26
+  rotate: false
+  xy: 205, 46
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_27
+  rotate: false
+  xy: 221, 62
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_28
+  rotate: false
+  xy: 221, 62
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+explosion/po_explosion_29
+  rotate: false
+  xy: 221, 62
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00000
+  rotate: false
+  xy: 189, 15
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00030
+  rotate: false
+  xy: 189, 15
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00002
+  rotate: false
+  xy: 205, 31
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00004
+  rotate: false
+  xy: 221, 47
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00006
+  rotate: false
+  xy: 237, 79
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00008
+  rotate: false
+  xy: 237, 64
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00010
+  rotate: false
+  xy: 252, 88
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00012
+  rotate: false
+  xy: 252, 73
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00014
+  rotate: false
+  xy: 267, 83
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00016
+  rotate: false
+  xy: 267, 68
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00018
+  rotate: false
+  xy: 252, 58
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00020
+  rotate: false
+  xy: 267, 53
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00022
+  rotate: false
+  xy: 237, 49
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00024
+  rotate: false
+  xy: 252, 43
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00026
+  rotate: false
+  xy: 267, 38
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+fx_03/Fx_00028
+  rotate: false
+  xy: 204, 15
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+pb_7bg_01
+  rotate: false
+  xy: 154, 137
+  size: 55, 24
+  orig: 55, 24
+  offset: 0, 0
+  index: -1
+pb_effect_03_a
+  rotate: false
+  xy: 248, 135
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+pb_lever_ball
+  rotate: false
+  xy: 234, 110
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+pb_lever_handle
+  rotate: false
+  xy: 276, 130
+  size: 10, 31
+  orig: 10, 31
+  offset: 0, 0
+  index: -1
+pb_lower_ball
+  rotate: false
+  xy: 2, 51
+  size: 131, 83
+  orig: 131, 83
+  offset: 0, 0
+  index: -1
+pb_rim
+  rotate: false
+  xy: 154, 175
+  size: 130, 49
+  orig: 130, 49
+  offset: 0, 0
+  index: -1
+pb_slide
+  rotate: true
+  xy: 154, 163
+  size: 10, 127
+  orig: 10, 127
+  offset: 0, 0
+  index: -1
+pb_spin_meter
+  rotate: false
+  xy: 2, 2
+  size: 80, 47
+  orig: 80, 47
+  offset: 0, 0
+  index: -1
+pb_star
+  rotate: true
+  xy: 211, 127
+  size: 34, 35
+  orig: 34, 35
+  offset: 0, 0
+  index: -1
+pb_star_08_a
+  rotate: false
+  xy: 135, 108
+  size: 26, 26
+  orig: 26, 26
+  offset: 0, 0
+  index: -1
+pb_star_shadow
+  rotate: false
+  xy: 84, 8
+  size: 39, 41
+  orig: 39, 41
+  offset: 0, 0
+  index: -1
+pb_upper_ball
+  rotate: false
+  xy: 154, 226
+  size: 130, 60
+  orig: 130, 60
+  offset: 0, 0
+  index: -1
+poke_ball
+  rotate: false
+  xy: 2, 136
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1

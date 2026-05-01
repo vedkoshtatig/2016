@@ -236,17 +236,17 @@ const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1.12, heig
 
 const m2Static = {
 	type: 'sprite',
-	assetKey: 'm1_2x.png',
+	assetKey: 'w',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
 const m4Static = {
 	type: 'sprite',
-	assetKey: 'm1_4x.png',
+	assetKey: 'w',
 	sizeRatios: { width: 0.88, height: 0.88 },
 };
-const m5Static = { type: 'sprite', assetKey: 'm2_5x.png', sizeRatios: { width: 1, height: 1 } };
-const m7Static = { type: 'sprite', assetKey: 'm2_7x.png', sizeRatios: { width: 1, height: 1 } };
-const m10Static = { type: 'sprite', assetKey: 'm3_10x.png', sizeRatios: { width: 1, height: 1 } };
+const m5Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
+const m7Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
+const m10Static = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1, height: 1 } };
 
 const wSizeRatios = { width: 1.5 * 0.9, height: SPECIAL_SYMBOL_SIZE * 1.15 };
 const sSizeRatios = { width: 2.5, height: SPECIAL_SYMBOL_SIZE * 2.3 };
@@ -403,16 +403,17 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '2x',
+			animationName: 'win2X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '2x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land:m2Static
 	},
+	//  {
+	// 		type: 'spine',
+	// 		assetKey: 'M',
+	// 		animationName: '2x_land',
+	// 		sizeRatios: { width: M_SIZE, height: M_SIZE },
+	// 	},
 	M_4: {
 		explosion,
 		postWinStatic: m2Static,
@@ -421,15 +422,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '2x',
+			animationName: 'win4X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '2x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static,
 	},
 	M_5: {
 		explosion,
@@ -439,15 +435,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '2x',
+			animationName: 'win5X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '2x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_7: {
 		explosion,
@@ -457,15 +448,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '2x',
+			animationName: 'win7X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '2x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_6: {
 		explosion,
@@ -475,15 +461,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '4x',
+			animationName: 'win6X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '4x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_8: {
 		explosion,
@@ -493,15 +474,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '5x',
+			animationName: 'win8X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '5x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_10: {
 		explosion,
@@ -511,15 +487,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '7x',
+			animationName: 'win10X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '7x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_12: {
 		explosion,
@@ -529,15 +500,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win12X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_20: {
 		explosion,
@@ -547,15 +513,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win20X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_25: {
 		explosion,
@@ -565,15 +526,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win25X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_50: {
 		explosion,
@@ -583,15 +539,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win50X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_100: {
 		explosion,
@@ -601,15 +552,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win100X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_1000: {
 		explosion,
@@ -619,15 +565,10 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: '10x',
+			animationName: 'win1000X',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
-		land: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: '10x_land',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
+		land: m2Static
 	},
 	M_TAKEN_2: backgroundLow,
 	M_TAKEN_6: backgroundLow,
