@@ -893,8 +893,8 @@ export default {
 	M: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols2/M.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/symbols2/poke ball.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/symbols2/poke ball.json', import.meta.url).href,
 			scale: 2,
 		},
 	},
