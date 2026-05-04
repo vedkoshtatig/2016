@@ -3,6 +3,7 @@
 	import { getContext } from '../game/context';
 	import ButtonBuyBonus from './ButtonBuyBonus.svelte';
 	import { stateBet } from 'state-shared';
+	import { eventEmitter } from '../game/eventEmitter';
 
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
@@ -10,6 +11,7 @@
 
 	// ✅ STACK STATE
 	let explosionStack: { symbol: string; value: number }[] = [];
+	let clickedDouble = false;
 
 	// ✅ NEW: offset for scrolling effect
 	let stackOffsetY = 0;
@@ -176,14 +178,18 @@
 			height={layout.height * 1.1}
 			scale={{ x: 0.33, y: 0.3 }}
 			zIndex={-10}
+			interactive={true}
+			onclick={() => {
+				eventEmitter.broadcast({ type: 'setDoubleBet' });
+				clickedDouble=!clickedDouble;
+				
+			}}
 		/>
 		<Container
 			x={0}
 			y={148}
-			interactive={true}
-			onclick={() => {
-				stateBet.activeBetModeKey = 'anteBet';
-			}}
+			eventMode="none"
+			
 		>
 			<!-- <ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.73 }} anchor={0.5} /> -->
 			<Container y={-10}>
@@ -246,14 +252,29 @@
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
+					eventMode="none"
 				/>
+				{#if clickedDouble}
 				<Sprite
 					key="onBarYes"
 					anchor={0.5}
+					x={15}
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
+					eventMode="none"
 				/>
+				{:else}
+				<Sprite
+					key="onBarNo"
+					anchor={0.5}
+					x={-15}
+					width={layout.width * 1.1}
+					height={layout.height * 1.1}
+					scale={{ x: 0.33, y: 0.3 }}
+					eventMode="none"
+				/>
+				{/if}
 			</Container>
 		</Container>
 	</Container>

@@ -47,8 +47,8 @@ export default {
 	trumpLogo: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/logo/Ideal-Pose-01.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/logo/Ideal-Pose-01.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/logo/IdealPose.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/logo/IdealPose.json', import.meta.url).href,
 			scale: 2,
 		},
 		preload: true,
@@ -669,6 +669,12 @@ export default {
 			.href,
 		preload: true,
 	},
+	onBarNo: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Off_Button.png', import.meta.url)
+			.href,
+		preload: true,
+	},
 	buyFreeSpinButton_normal: {
 		type: 'sprite',
 		src: new URL(
@@ -856,7 +862,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/lsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/l1.json', import.meta.url).href,
-			scale: 2,
+			scale: 1.5,
 		},
 	},
 	L2: {
@@ -872,7 +878,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/lsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/l3.json', import.meta.url).href,
-			scale: 2,
+			scale: 1.5,
 		},
 	},
 	L4: {
@@ -904,7 +910,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols2/poke ball.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols2/poke ball.json', import.meta.url).href,
-			scale: 2,
+			scale: 2.5,
 		},
 	},
 	S: {

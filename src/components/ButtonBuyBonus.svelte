@@ -23,7 +23,7 @@
 			disableActiveBetMode();
 		} else {
 			//openModal()
-			eventEmitter.broadcast({ type: 'openPopUp' } as any);
+			eventEmitter.broadcast({ type: 'openPopUp' });
 		}
 	};
 	// onclick={() => {

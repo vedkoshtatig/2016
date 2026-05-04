@@ -23,14 +23,14 @@
 	const yOffset = $derived((isLastVisibleRow ? 8 : 0) + h1YOffset + sYOffset);
 	const animating = $derived(
 		symbolInfo.type === 'spine' &&
-			(isL4 || props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win'),
+			(props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win'),
 	);
 </script>
 
 <SymbolWrap
 	x={getSymbolX(props.reelIndex)}
 	y={props.reelSymbol.symbolY.current + yOffset}
-	{animating}
+	animating={animating}
 >
 	<Symbol
 		y={l4SymbolYOffset + l2SymbolYOffset}

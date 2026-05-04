@@ -64,6 +64,7 @@
 	oncomplete={() => {
 		if (!show) props.win.oncomplete();
 	}}
+	zIndex={1000}
 >
 	<BitmapText
 		x={SYMBOL_SIZE * (props.win.reel + 0.5)}

@@ -232,7 +232,7 @@ const l5Static = { type: 'sprite', assetKey: 'l5.webp', sizeRatios: { width: 1, 
 const l6Static = { type: 'sprite', assetKey: 'l6.webp', sizeRatios: { width: 1, height: 1 } };
 
 const sStatic = { type: 'sprite', assetKey: 's', sizeRatios: { width: 1, height: 1 } };
-const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 1.12, height: 1.12 } };
+const wStatic = { type: 'sprite', assetKey: 'w', sizeRatios: { width: 0.9, height: 0.9 } };
 
 const m2Static = {
 	type: 'sprite',
@@ -403,7 +403,7 @@ export const SYMBOL_INFO_MAP = {
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win2X',
+			animationName: '2x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land:m2Static
@@ -414,158 +414,120 @@ export const SYMBOL_INFO_MAP = {
 	// 		animationName: '2x_land',
 	// 		sizeRatios: { width: M_SIZE, height: M_SIZE },
 	// 	},
-	M_4: {
-		explosion,
-		postWinStatic: m2Static,
-		static: m2Static,
-		spin: m2Static,
-		win: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: 'win4X',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
-		land: m2Static,
-	},
-	M_5: {
-		explosion,
-		postWinStatic: m2Static,
-		static: m2Static,
-		spin: m2Static,
-		win: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: 'win5X',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
-		land: m2Static
-	},
-	M_7: {
-		explosion,
-		postWinStatic: m2Static,
-		static: m2Static,
-		spin: m2Static,
-		win: {
-			type: 'spine',
-			assetKey: 'M',
-			animationName: 'win7X',
-			sizeRatios: { width: M_SIZE, height: M_SIZE },
-		},
-		land: m2Static
-	},
+
 	M_6: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win6X',
+			animationName: '6x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_8: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win8X',
+			animationName: '8x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_10: {
 		explosion,
-		postWinStatic: m10Static,
-		static: m10Static,
-		spin: m10Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win10X',
+			animationName: '10x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_12: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win12X',
+			animationName: '12x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_20: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win20X',
+			animationName: '20x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_25: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win25X',
+			animationName: '25x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_50: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win50X',
+			animationName: '50x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_100: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win100X',
+			animationName: '100x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
 	},
 	M_1000: {
 		explosion,
-		postWinStatic: m7Static,
-		static: m7Static,
-		spin: m7Static,
+		postWinStatic: m2Static,
+		static: m2Static,
+		spin: m2Static,
 		win: {
 			type: 'spine',
 			assetKey: 'M',
-			animationName: 'win1000X',
+			animationName: '1000x',
 			sizeRatios: { width: M_SIZE, height: M_SIZE },
 		},
 		land: m2Static
