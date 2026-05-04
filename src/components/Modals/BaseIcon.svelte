@@ -115,4 +115,11 @@
 		user-select: none;
 		cursor: pointer;
 	}
+	@media (max-width: 500px) {
+		.rectangle{
+			width:10vw;
+			height: 4vh;
+		}
+	
+}
 </style>

@@ -89,7 +89,7 @@
 		flex-wrap: nowrap;
 		gap: var(--rowGap);
 		padding-inline: var(--rowPaddingX);
-		overflow-x: auto;      // scroll if overflow
+		// overflow-x: auto;      // scroll if overflow
 		white-space: nowrap;
 	}
 
