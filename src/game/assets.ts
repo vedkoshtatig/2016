@@ -47,8 +47,8 @@ export default {
 	trumpLogo: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/logo/TestFile.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/logo/TestFile.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/logo/Ideal-Pose-01.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/logo/Ideal-Pose-01.json', import.meta.url).href,
 			scale: 2,
 		},
 		preload: true,
@@ -824,7 +824,7 @@ export default {
 		src: {
 			atlas: new URL('../../assets/spines/symbols/hsymbols.atlas', import.meta.url).href,
 			skeleton: new URL('../../assets/spines/symbols/h1.json', import.meta.url).href,
-			scale: 2,
+			scale: 2.2,
 		},
 	},
 	H2: {

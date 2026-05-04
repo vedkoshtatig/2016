@@ -1,0 +1,44 @@
+{
+	"skeleton": {
+		"hash": "92pOiIIzJRo",
+		"spine": "4.2.43",
+		"x": -474.5,
+		"y": -540,
+		"width": 949,
+		"height": 1080,
+		"images": "../PNG-SeQUENCE/New-Pose-01/Posee/",
+		"audio": "./audio"
+	},
+	"bones": [{ "name": "root" }],
+	"slots": [{ "name": "Posee_24", "bone": "root", "attachment": "Posee_" }],
+	"skins": [
+		{
+			"name": "default",
+			"attachments": {
+				"Posee_24": {
+					"Posee_": {
+						"width": 745,
+						"height": 747,
+						"sequence": { "count": 168, "start": 24, "digits": 2 }
+					}
+				}
+			}
+		}
+	],
+	"animations": {
+		"Pose-01": {
+			"attachments": {
+				"default": {
+					"Posee_24": {
+						"Posee_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 5.5667, "mode": "loop", "index": 167 }
+							]
+						}
+					}
+				}
+			}
+		}
+	}
+}

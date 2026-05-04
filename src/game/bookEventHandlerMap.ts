@@ -279,11 +279,11 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		stateGame.gameType = 'freeSpins';
 		eventEmitter.broadcast({ type: 'freeSpinIntroHide' });
 		eventEmitter.broadcast({ type: 'boardFrameGlowShow' });
-		eventEmitter.broadcast({ type: 'globalMultiplierShow' });
-		await eventEmitter.broadcastAsync({
-			type: 'globalMultiplierUpdate',
-			multiplier: 1, // resets when multiplier === 1
-		});
+		//eventEmitter.broadcast({ type: 'globalMultiplierShow' });
+		// await eventEmitter.broadcastAsync({
+		// 	type: 'globalMultiplierUpdate',
+		// 	multiplier: 1, // resets when multiplier === 1
+		// });
 		eventEmitter.broadcast({ type: 'freeSpinCounterShow' });
 		eventEmitter.broadcast({
 			type: 'freeSpinCounterUpdate',
@@ -303,14 +303,14 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		});
 	},
 	updateGlobalMult: async (bookEvent: BookEventOfType<'updateGlobalMult'>) => {
-		eventEmitter.broadcast({ type: 'globalMultiplierShow' });
-		if (bookEvent.globalMult === 1) {
-			eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
-		}
-		await eventEmitter.broadcastAsync({
-			type: 'globalMultiplierUpdate',
-			multiplier: bookEvent.globalMult, // resets when multiplier === 1
-		});
+		//eventEmitter.broadcast({ type: 'globalMultiplierShow' });
+		// if (bookEvent.globalMult === 1) {
+		// 	eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
+		// }
+		// await eventEmitter.broadcastAsync({
+		// 	type: 'globalMultiplierUpdate',
+		// 	multiplier: bookEvent.globalMult, // resets when multiplier === 1
+		// });
 	},
 	freeSpinEnd: async (bookEvent: BookEventOfType<'freeSpinEnd'>) => {
 		if(bookEvent.winLevel==0){

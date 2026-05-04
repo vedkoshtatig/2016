@@ -110,7 +110,7 @@
 				scale={{ x: 0.3, y: 0.3 }}
 				zIndex={20}
 			>
-				<SpineTrack trackIndex={0} animationName={'animation'} loop timeScale={1} />
+				<SpineTrack trackIndex={0} animationName={'Pose-01'} loop timeScale={1} />
 			</SpineProvider>
 		</MainContainer>
 
