@@ -45,87 +45,18 @@ const animateSymbols = async ({ positions }: { positions: Position[] }) => {
 
 export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContext> = {
 	reveal: async (bookEvent: BookEventOfType<'reveal'>, { bookEvents }: BookEventContext) => {
-		const USE_MOCK = false; // 🔥 toggle ON/OFF anytime
+        eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
+        const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
+        if (isBonusGame) {
+            eventEmitter.broadcast({ type: 'stopButtonEnable' });
+            recordBookEvent({ bookEvent });
+        }
 
-		if (USE_MOCK) {
-			const MOCK_SPIN_BOARD = [
-				[
-					{ name: 'L1' },
-					{ name: 'H2' },
-					{ name: 'M', multiplier: 5 },
-					{ name: 'W' },
-					{ name: 'H1' },
-					{ name: 'H1' },
-					{ name: 'H4' },
-				],
-				[
-					{ name: 'L2' },
-					{ name: 'S', scatter: true },
-					{ name: 'L4' },
-					{ name: 'M', multiplier: 2 },
-					{ name: 'L3' },
-					{ name: 'H1' },
-					{ name: 'L1' },
-				],
-				[
-					{ name: 'H3' },
-					{ name: 'L2' },
-					{ name: 'W' },
-					{ name: 'L4' },
-					{ name: 'M', multiplier: 10 },
-					{ name: 'H1' },
-					{ name: 'H1' },
-				],
-				[
-					{ name: 'L3' },
-					{ name: 'H4' },
-					{ name: 'M', multiplier: 7 },
-					{ name: 'L2' },
-					{ name: 'W' },
-					{ name: 'H1' },
-					{ name: 'L4' },
-				],
-				[
-					{ name: 'H1' },
-					{ name: 'L1' },
-					{ name: 'S', scatter: true },
-					{ name: 'M', multiplier: 4 },
-					{ name: 'L2' },
-					{ name: 'H1' },
-					{ name: 'L3' },
-				],
-				[
-					{ name: 'L4' },
-					{ name: 'H3' },
-					{ name: 'L2' },
-					{ name: 'W' },
-					{ name: 'M', multiplier: 5 },
-					{ name: 'S', scatter: true },
-					{ name: 'H1' },
-				],
-			];
-
-			// 🔥 override backend event
-			bookEvent = {
-				...bookEvent,
-				board: MOCK_SPIN_BOARD, // ⚠️ if not working → change to revealSymbols
-			} as any;
-		}
-
-		eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
-
-		const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
-		if (isBonusGame) {
-			eventEmitter.broadcast({ type: 'stopButtonEnable' });
-			recordBookEvent({ bookEvent });
-		}
-
-		stateGame.gameType = bookEvent.gameType;
-
-		await stateGameDerived.enhancedBoard.spin({ revealEvent: bookEvent });
-
-		eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
-	},
+        stateGame.gameType = bookEvent.gameType;
+        await stateGameDerived.enhancedBoard.spin({ revealEvent: bookEvent });
+        eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
+			
+    },
 	winInfo: async (bookEvent) => {
 		lastWinInfo = bookEvent; // ✅ STORE for tumble stage
 
