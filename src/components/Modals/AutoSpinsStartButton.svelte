@@ -43,11 +43,9 @@
 		position: relative;
 		top: -20px;
 
-	
 		transition: transform 0.2s ease;
 	}
 
-	
 	.btn-image:hover {
 		transform: scale(1.1);
 	}
