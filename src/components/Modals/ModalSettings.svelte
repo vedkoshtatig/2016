@@ -375,7 +375,7 @@
 
 
 		max-height: min(70vh, 560px);
-		// overflow: auto;
+		overflow: hidden;
 	}
 
 
@@ -408,7 +408,7 @@
 
 		max-height: none;
 
-		overflow: visible;
+		overflow: hidden;
 
 	}
 

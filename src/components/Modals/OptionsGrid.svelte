@@ -90,6 +90,7 @@
 		gap: var(--rowGap);
 		padding-inline: var(--rowPaddingX);
 		// overflow-x: auto;      // scroll if overflow
+		overflow: hidden;
 		white-space: nowrap;
 	}
 
