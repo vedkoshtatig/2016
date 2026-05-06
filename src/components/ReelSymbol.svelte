@@ -34,7 +34,7 @@
 >
 	<Symbol
 		y={l4SymbolYOffset + l2SymbolYOffset}
-		state={props.reelSymbol.symbolState}
+		state={"props.reelSymbol.symbolState"}
 		rawSymbol={props.reelSymbol.rawSymbol}
 		oncomplete={() => {
 			if (props.reelSymbol.symbolState === 'win') props.reelSymbol.oncomplete();
