@@ -25,7 +25,7 @@
     "lineHeight": 72,
     "base": 59,
     "scaleW": 300,
-    "scaleH": 296,
+    "scaleH": 281,
     "pages": 1,
     "packed": 0,
     "alphaChnl": 0,
@@ -34,7 +34,7 @@
     "blueChnl": 4
   },
   "pages": [
-    "font1.png"
+    "Font1.png"
   ],
   "chars": [
     {
@@ -58,6 +58,30 @@
       "xoffset": -1,
       "yoffset": -1,
       "xadvance": 24,
+      "page": 0,
+      "chnl": 15
+    },
+    {
+      "id": 44,
+      "x": 276,
+      "y": 87,
+      "width": 14,
+      "height": 47,
+      "xoffset": -1,
+      "yoffset": -1,
+      "xadvance": 12,
+      "page": 0,
+      "chnl": 15
+    },
+    {
+      "id": 46,
+      "x": 276,
+      "y": 135,
+      "width": 12,
+      "height": 44,
+      "xoffset": -1,
+      "yoffset": -1,
+      "xadvance": 10,
       "page": 0,
       "chnl": 15
     },
@@ -490,30 +514,6 @@
       "xoffset": -1,
       "yoffset": -1,
       "xadvance": 36,
-      "page": 0,
-      "chnl": 15
-    },
-    {
-      "id": 97,
-      "x": 0,
-      "y": 273,
-      "width": 14,
-      "height": 23,
-      "xoffset": -1,
-      "yoffset": -1,
-      "xadvance": 12,
-      "page": 0,
-      "chnl": 15
-    },
-    {
-      "id": 116,
-      "x": 15,
-      "y": 273,
-      "width": 12,
-      "height": 14,
-      "xoffset": -1,
-      "yoffset": -1,
-      "xadvance": 10,
       "page": 0,
       "chnl": 15
     },

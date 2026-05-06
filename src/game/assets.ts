@@ -959,7 +959,7 @@ export default {
 	},
 	font2016: {
 		type: 'font',
-		src: new URL('../../assets/fonts/font2016/font1.xml', import.meta.url).href,
+		src: new URL('../../assets/fonts/font2016/Font1.xml', import.meta.url).href,
 	},
 	goldBlur: {
 		type: 'font',
