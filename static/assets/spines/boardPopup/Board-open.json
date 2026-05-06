@@ -1,0 +1,33 @@
+{
+	"skeleton": {
+		"hash": "/ynsyz4RuLw",
+		"spine": "4.2.43",
+		"x": -574,
+		"y": -375.5,
+		"width": 1148,
+		"height": 751,
+		"images": "./Board_open.png",
+		"audio": "./audio"
+	},
+	"bones": [{ "name": "root" }],
+	"slots": [{ "name": "board_popup", "bone": "root", "attachment": "board_popup" }],
+	"skins": [
+		{
+			"name": "default",
+			"attachments": { "board_popup": { "board_popup": { "width": 1148, "height": 751 } } }
+		}
+	],
+	"animations": {
+		"animation": {
+			"bones": {
+				"root": {
+					"scale": [
+						{ "x": 0, "curve": [0.333, 0, 0.667, 1, 0.333, 1, 0.667, 1] },
+						{ "time": 1, "curve": "stepped" },
+						{ "time": 2 }
+					]
+				}
+			}
+		}
+	}
+}

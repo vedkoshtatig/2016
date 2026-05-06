@@ -54,13 +54,22 @@
 
 	<FreeSpinAnimation>
 		{#snippet children({ sizes })}
-			<Sprite
+			<!-- <Sprite
 				anchor={{ x: 0.5, y: 0.5 }}
 				key="board_popup"
 				scale={0.65}
 				x={boardPopupX}
 				y={-20}
-			/>
+			/> -->
+			<SpineProvider key="Board-Open" anchor={0.5} scale={0.35} x={200}
+				y={90}>
+					<SpineTrack
+						trackIndex={0}
+						animationName={'animation'}
+						loop={false}
+						timeScale={2.5}
+					/>
+				</SpineProvider>
 <BitmapText
 	anchor={{ x: 0.5, y: 0.5 }}
 	x={boardPopupX}
