@@ -8,15 +8,7 @@ export default {
 		},
 		preload: true,
 	},
-	intro: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/loader/intro_page.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/loader/intro_page.json', import.meta.url).href,
-			scale: 2,
-		},
-		preload: true,
-	},
+
 	introReel1: {
 		type: 'spine',
 		src: {
@@ -610,46 +602,7 @@ export default {
 			.href,
 		preload: true,
 	},
-	betDoubleButton_normal: {
-		type: 'sprite',
-		src: new URL(
-			'../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_normal.png',
-			import.meta.url,
-		).href,
-		preload: true,
-	},
-	betDoubleButton: {
-		type: 'sprite',
-		src: new URL(
-			'../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_normal.png',
-			import.meta.url,
-		).href,
-		preload: true,
-	},
-	betDoubleButton_hover: {
-		type: 'sprite',
-		src: new URL(
-			'../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_hover.png',
-			import.meta.url,
-		).href,
-		preload: true,
-	},
-	betDoubleButton_down: {
-		type: 'sprite',
-		src: new URL(
-			'../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_down.png',
-			import.meta.url,
-		).href,
-		preload: true,
-	},
-	betDoubleButton_disabled: {
-		type: 'sprite',
-		src: new URL(
-			'../../assets/sprites/uiSlotsAssetsBespoke/bet_double_button_disable.png',
-			import.meta.url,
-		).href,
-		preload: true,
-	},
+
 
 	buyFreeSpinBg: {
 		type: 'sprite',
@@ -778,46 +731,6 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_reel.png', import.meta.url).href,
 		preload: true,
 	},
-	soundOnButton: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOnButton_down: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOnButton_disabled: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOn.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOnButton_hover: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/soundhover.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOffButton: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOffButton_down: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOffButton_disabled: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
-		preload: true,
-	},
-	soundOffButton_hover: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/SoundOff.png', import.meta.url).href,
-		preload: true,
-	},
 	vantaLogo: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Circle.png', import.meta.url).href,
@@ -937,42 +850,18 @@ export default {
 			scale: 2,
 		},
 	},
-	reelsFrame: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/reelsFrame/reels_frame.json', import.meta.url).href,
-	},
-	payFrame: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/payFrame/payFrame.png', import.meta.url).href,
-	},
-	anticipation: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/anticipation/anticipation.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/anticipation/anticipation.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-	goldFont: {
-		type: 'font',
-		src: new URL('../../assets/fonts/goldFont/mm_gold.xml', import.meta.url).href,
-	},
+	
+
 	font2016: {
 		type: 'font',
 		src: new URL('../../assets/fonts/font2016/Font1.xml', import.meta.url).href,
 	},
-	goldBlur: {
+	font2: {
 		type: 'font',
-		src: new URL('../../assets/fonts/goldBlur/miningfont_gold_blur.xml', import.meta.url).href,
+		src: new URL('../../assets/fonts/font2/Font2.xml', import.meta.url).href,
 	},
-	silverFont: {
-		type: 'font',
-		src: new URL('../../assets/fonts/silverFont/mm_silver.xml', import.meta.url).href,
-	},
-	purpleFont: {
-		type: 'font',
-		src: new URL('../../assets/fonts/purpleFont/mm_purple.xml', import.meta.url).href,
-	},
+
+
 	bigwin: {
 		type: 'spine',
 		src: {
@@ -981,15 +870,7 @@ export default {
 			scale: 2,
 		},
 	},
-	globalMultiplier: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/globalMultiplier/multiframe.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/globalMultiplier/multiframe.json', import.meta.url)
-				.href,
-			scale: 2,
-		},
-	},
+
 	
 	fsOutroNumber: {
 		type: 'spine',
@@ -999,30 +880,7 @@ export default {
 			scale: 2,
 		},
 	},
-	foregroundAnimation: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/foregroundAnimation/mm_bg.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/foregroundAnimation/mm_bg.json', import.meta.url).href,
-			scale: 2,
-		},
-		preload: true,
-	},
-	foregroundFeatureAnimation: {
-		type: 'spine',
-		src: {
-			atlas: new URL(
-				'../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.atlas',
-				import.meta.url,
-			).href,
-			skeleton: new URL(
-				'../../assets/spines/foregroundFeatureAnimation/mm_bg_feature.json',
-				import.meta.url,
-			).href,
-			scale: 2,
-		},
-		preload: true,
-	},
+
 	tumble_multiplier: {
 		type: 'spine',
 		src: {
@@ -1048,20 +906,7 @@ export default {
 			scale: 2,
 		},
 	},
-	progressBar: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/progressBar/progressBar.json', import.meta.url).href,
-		preload: true,
-	},
-	freeSpins: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/freeSpins/freeSpins.json', import.meta.url).href,
-	},
-	winSmall: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/winSmall/MM_Localisation_winsmall.json', import.meta.url)
-			.href,
-	},
+
 	clusterWin: {
 		type: 'spine',
 		src: {
@@ -1101,10 +946,7 @@ export default {
 		
 	},
 	
-	coins: {
-		type: 'spriteSheet',
-		src: new URL('../../assets/sprites/coin/SD2_Coin.json', import.meta.url).href,
-	},
+
 	sound: {
 		type: 'audio',
 		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,

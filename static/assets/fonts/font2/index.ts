@@ -1,6 +1,6 @@
 import { createAsset } from 'pixi-svelte';
 
-import img from './mm_gold.webp';
-import font from './mm_gold.json?raw';
+import img from './Font2.png';
+import font from './Font2.json?raw';
 
 export default createAsset({ img, font });

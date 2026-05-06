@@ -17,6 +17,12 @@
 	let stackOffsetY = 0;
 	const ITEM_HEIGHT = 40;
 	const MASK_HEIGHT = layout.height * 0.55;
+		const fstyle = {
+		fontFamily: 'sans-serif',
+		fontSize: 14,
+
+		align: 'center',
+	};
 
 	context.eventEmitter.subscribeOnMount({
 		symbolExplode: ({ data }) => {
@@ -204,9 +210,8 @@
 					text={`${stateBet.betAmount * 1.25}`}
 					anchor={0.5}
 					x={0}
-					y={-8}
-					style={{ fontFamily: 'sans-serif', fill: '#ffd34f', fontSize: 20, fontWeight: 'bolder',stroke: '#8d3b15',
-						strokeThickness: 2, }}
+					y={-11}
+					style={{ fontFamily: 'sans', fontSize: 14, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
@@ -325,15 +330,11 @@
 						scale={{ x: 0.16, y: 0.15 }}
 					/>
 
-					<Text
+					<BitmapText
 						text={`+${item.value / 100}`}
 						anchor={0.5}
 						x={20}
-						style={{
-							fill: '#ffc825',
-							fontSize: 14,
-							fontWeight: 'bolder',
-						}}
+						style={fstyle}
 					/>
 				</Container>
 			{/each}

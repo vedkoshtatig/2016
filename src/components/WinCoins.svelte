@@ -20,7 +20,7 @@
 	const config = $derived({ ...baseConfig, ...extraConfig });
 </script>
 
-{#if config}
+<!-- {#if config}
 	<MainContainer>
 		<Container
 			x={context.stateGameDerived.boardLayout().x}
@@ -29,4 +29,4 @@
 			<ParticleEmitter {config} key="coins" emit={props.emit} />
 		</Container>
 	</MainContainer>
-{/if}
+{/if} -->

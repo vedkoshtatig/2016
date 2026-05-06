@@ -25,7 +25,7 @@
 	});
 </script>
 
-<SpineProvider
+<!-- <SpineProvider
 	key="anticipation"
 	width={SYMBOL_SIZE * 0.63}
 	x={context.stateGameDerived.boardLayout().x -
@@ -50,4 +50,4 @@
 			},
 		}}
 	/>
-</SpineProvider>
+</SpineProvider> -->
