@@ -4,14 +4,15 @@
 	import ButtonBuyBonus from './ButtonBuyBonus.svelte';
 	import { stateBet } from 'state-shared';
 	import { eventEmitter } from '../game/eventEmitter';
-	import { stateBetDerived, stateModal } from 'state-shared';
+	import { doubleBetState } from '../doubleBetState.svelte';
+
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
 	const scaleFactor = 1.2;
 
 	// ✅ STACK STATE
 	let explosionStack: { symbol: string; value: number }[] = [];
-	let clickedDouble = false;
+
 
 	// ✅ NEW: offset for scrolling effect
 	let stackOffsetY = 0;
@@ -51,7 +52,6 @@
 			stackOffsetY = 0;
 		},
 	});
-
 </script>
 
 <!-- ================= MAIN CONTAINER ================= -->
@@ -187,10 +187,9 @@
 			zIndex={-10}
 			interactive={true}
 			onclick={() => {
-				eventEmitter.broadcast({ type: 'setDoubleBet' });
-				stateBet.isDoubleBet = !stateBet.isDoubleBet;
-				
-			}}
+	eventEmitter.broadcast({ type: 'setDoubleBet' });
+	doubleBetState.isDouble = !doubleBetState.isDouble;
+}}
 		/>
 		<Container
 			x={0}
@@ -260,10 +259,7 @@
 					scale={{ x: 0.33, y: 0.3 }}
 					eventMode="none"
 				/>
-				{#if stateBet.isDoubleBet}
-			
-				   {@const _ = console.log(stateBetDerived.betCost())}
-
+			{#if doubleBetState.isDouble}
 				<Sprite
 					key="onBarYes"
 					anchor={0.5}

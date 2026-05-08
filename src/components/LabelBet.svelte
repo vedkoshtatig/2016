@@ -2,7 +2,7 @@
 	import { Container } from 'pixi-svelte';
 	import { stateBetDerived, stateModal } from 'state-shared';
 	import { numberToCurrencyString } from 'utils-shared/amount';
-
+import { doubleBetState } from '../doubleBetState.svelte';
 	import UiLabel from './UiLabel.svelte';
 	import { getContext } from '../game/context';
 	import { i18nDerived } from '../i18n/i18nDerived';
@@ -20,7 +20,13 @@
 		stateBetDerived.activeBetMode()?.text.betAmountLabel || i18nDerived.bet()
 	);
 
-	const value = $derived(numberToCurrencyString(stateBetDerived.betCost()));
+	const value = $derived(
+	numberToCurrencyString(
+		doubleBetState.isDouble
+			? stateBetDerived.betCost() * 1.25
+			: stateBetDerived.betCost()
+	)
+);
 
 	const disabled = $derived(!context.stateXstateDerived.isIdle());
 
