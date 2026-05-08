@@ -55,6 +55,30 @@
 			stateModal.modal = { name: 'buyBonusConfirm' };
 		},
 	});
+	type TrumpState =
+		| 'welcome'
+		| 'idle'
+		| 'angry'
+		| 'celebrate'
+		| 'pointing';
+
+	let trumpState: TrumpState = 'welcome';
+const spineMap = {
+		welcome: 'trumpWelcome',
+		idle: 'trumpIdle',
+		angry: 'trumpAngry',
+		celebrate: 'trumpCelebrate',
+		pointing: 'trumpPointing',
+	};
+
+	const animationMap = {
+		welcome: 'animation',
+		idle: 'Simple-Ideal-Pose',
+		angry: 'Angry',
+		celebrate: 'Celebrate',
+		pointing: 'animation',
+	};
+
 </script>
 
 <App>

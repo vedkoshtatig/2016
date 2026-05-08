@@ -46,6 +46,52 @@ export default {
 		},
 		preload: true,
 	},
+	trumpAngry: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/Trump/Angry&Shouting.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Angry&Shouting.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	trumpCelebrate: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/Trump/Celebrate.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Celebrate.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	trumpPointing: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/Trump/Pointing.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Pointing.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	trumpIdle: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/Trump/Simple-IdealPose.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Simple-IdealPose.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	trumpWelcome: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/Trump/Welcome.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Welcome.json', import.meta.url).href,
+			scale: 2,
+		},
+		preload: true,
+	},
+	
 	reel_top: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/reelsFrame/reel_top.png', import.meta.url).href,

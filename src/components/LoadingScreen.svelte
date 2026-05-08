@@ -147,7 +147,7 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 	key={selectedIntro === 'right'
 		? 'introStateActive'
 		: 'introStateDisabled'}
-	x={-context.stateGameDerived.boardLayout().x / 4.2}
+	x={-context.stateGameDerived.boardLayout().x / 4.18}
 	y={context.stateGameDerived.boardLayout().y / 1.25}
 	anchor={0.5}
 	scale={0.75}
