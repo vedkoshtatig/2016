@@ -4,7 +4,8 @@
 	import { MainContainer } from 'components-layout';
 	import gsap from 'gsap';
 	import { getContext } from '../game/context';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
+	import { waitForResolve } from 'utils-shared/wait';
 
 	let pulseTween: gsap.core.Tween | undefined;
 	let spinPulse = $state({ scale: 1, alpha: 1 });
@@ -17,8 +18,65 @@
 
 	let loadingType = $state<'start'>('start'); // ✅ only start
 	let isHover = $state(false);
-let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
-	
+	type IntroSelection = 'left' | 'middle' | 'right';
+
+	let selectedIntro = $state<IntroSelection>('left');
+	let visibleIntro = $state<IntroSelection>('left');
+	let introShow = $state(true);
+	let introSwitching = $state(false);
+	let pendingIntro = $state<IntroSelection | null>(null);
+	let resolveIntroFade: (() => void) | null = null;
+	let autoIntroTimer: ReturnType<typeof setInterval> | null = null;
+	const INTRO_AUTO_MS = 3000;
+	const INTRO_CONTENT_Y_OFFSET = -35;
+	const INTRO_SELECTION_Y_OFFSET = -35;
+
+	const getNextIntro = (current: IntroSelection): IntroSelection =>
+		current === 'left' ? 'middle' : current === 'middle' ? 'right' : 'left';
+
+	const waitForIntroFade = () =>
+		waitForResolve((resolve) => {
+			resolveIntroFade = () => resolve();
+		});
+
+	const setIntroShow = async (nextShow: boolean) => {
+		if (introShow === nextShow) return;
+		const promise = waitForIntroFade();
+		introShow = nextShow;
+		await promise;
+	};
+
+	const switchIntro = async (next: IntroSelection) => {
+		if (next === selectedIntro) return;
+
+		selectedIntro = next;
+		if (introSwitching) {
+			pendingIntro = next;
+			return;
+		}
+
+		introSwitching = true;
+		await setIntroShow(false);
+		visibleIntro = next;
+		await setIntroShow(true);
+		introSwitching = false;
+
+		if (pendingIntro && pendingIntro !== visibleIntro) {
+			const queued = pendingIntro;
+			pendingIntro = null;
+			await switchIntro(queued);
+		} else {
+			pendingIntro = null;
+		}
+	};
+
+	const restartAutoIntro = () => {
+		if (autoIntroTimer) clearInterval(autoIntroTimer);
+		autoIntroTimer = setInterval(() => {
+			void switchIntro(getNextIntro(selectedIntro));
+		}, INTRO_AUTO_MS);
+	};
+
 	const spinButtonLoaded = $derived.by(
 		() => !!$state.snapshot(context.stateApp.loadedAssets['spinButton']),
 	);
@@ -50,6 +108,11 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 
 	onDestroy(() => {
 		stopPulse();
+		if (autoIntroTimer) clearInterval(autoIntroTimer);
+	});
+
+	onMount(() => {
+		restartAutoIntro();
 	});
 </script>
 
@@ -60,25 +123,45 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 			x={context.stateLayoutDerived.mainLayout().width * 0.5}
 			y={context.stateLayoutDerived.mainLayout().height * 0.5}
 		>
-	<SpineProvider
-	key={
-		selectedIntro === 'left'
-			? 'introReel1'
-			: selectedIntro === 'middle'
-				? 'introReel2'
-				: 'introReel3'
-	}
-	anchor={0.5}
-	x={25}
-	y={140}
-	scale={{ x: 0.35, y: 0.35 }}
->
-	<SpineTrack
-		trackIndex={0}
-		animationName={'animation'}
-		loop
-	/>
-</SpineProvider>
+			<FadeContainer
+				persistent
+				show={introShow}
+				duration={250}
+				oncomplete={() => {
+					resolveIntroFade?.();
+					resolveIntroFade = null;
+				}}
+			>
+				<SpineProvider
+					key={
+						visibleIntro === 'left'
+							? 'introReel1'
+							: visibleIntro === 'middle'
+								? 'introReel2'
+								: 'introReel3'
+					}
+					anchor={0.5}
+					x={25}
+					y={140 + INTRO_CONTENT_Y_OFFSET}
+					scale={{ x: 0.35, y: 0.35 }}
+				>
+					<SpineTrack trackIndex={0} animationName={'animation'} loop />
+				</SpineProvider>
+
+				<Sprite
+					key={
+						visibleIntro === 'left'
+							? 'introtext3'
+							: visibleIntro === 'middle'
+								? 'introtext2'
+								: 'introtext'
+					}
+					x={-context.stateGameDerived.boardLayout().x / 3.5}
+					y={context.stateGameDerived.boardLayout().y / 1.1 + INTRO_CONTENT_Y_OFFSET}
+					anchor={0.5}
+					scale={0.3}
+				/>
+			</FadeContainer>
 		
 			<SpineProvider
 				key="logo"
@@ -102,67 +185,50 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 				anchor={0.5}
 				scale={0.75}
 			/> -->
+			<!-- LEFT BUTTON -->
 			<Sprite
-	key={
-		selectedIntro === 'left'
-			? 'introtext3'
-			: selectedIntro === 'middle'
-				? 'introtext2'
-				: 'introtext'
-	}
-	x={-context.stateGameDerived.boardLayout().x / 3.5}
-	y={context.stateGameDerived.boardLayout().y / 1.1}
-	anchor={0.5}
-	scale={0.3}
-/>
-		<!-- LEFT BUTTON -->
-<!-- LEFT BUTTON -->
-<Sprite
-	key={selectedIntro === 'left'
-		? 'introStateActive'
-		: 'introStateDisabled'}
-	x={-context.stateGameDerived.boardLayout().x / 3}
-	y={context.stateGameDerived.boardLayout().y / 1.25}
-	anchor={0.5}
-	scale={0.75}
-	eventMode="static"
-	cursor="pointer"
-	onpointertap={() => {
-		selectedIntro = 'left';
-	}}
-/>
+				key={selectedIntro === 'left' ? 'introStateActive' : 'introStateDisabled'}
+				x={-context.stateGameDerived.boardLayout().x / 3}
+				y={context.stateGameDerived.boardLayout().y / 1.25 + INTRO_SELECTION_Y_OFFSET}
+				anchor={0.5}
+				scale={0.75}
+				eventMode="static"
+				cursor="pointer"
+				onpointertap={() => {
+					restartAutoIntro();
+					void switchIntro('left');
+				}}
+			/>
 
 <!-- MIDDLE BUTTON -->
-<Sprite
-	key={selectedIntro === 'middle'
-		? 'introStateActive'
-		: 'introStateDisabled'}
-	x={-context.stateGameDerived.boardLayout().x / 3.5}
-	y={context.stateGameDerived.boardLayout().y / 1.25}
-	anchor={0.5}
-	scale={0.75}
-	eventMode="static"
-	cursor="pointer"
-	onpointertap={() => {
-		selectedIntro = 'middle';
-	}}
-/>
+			<Sprite
+				key={selectedIntro === 'middle' ? 'introStateActive' : 'introStateDisabled'}
+				x={-context.stateGameDerived.boardLayout().x / 3.5}
+				y={context.stateGameDerived.boardLayout().y / 1.25 + INTRO_SELECTION_Y_OFFSET}
+				anchor={0.5}
+				scale={0.75}
+				eventMode="static"
+				cursor="pointer"
+				onpointertap={() => {
+					restartAutoIntro();
+					void switchIntro('middle');
+				}}
+			/>
 
 <!-- RIGHT BUTTON -->
-<Sprite
-	key={selectedIntro === 'right'
-		? 'introStateActive'
-		: 'introStateDisabled'}
-	x={-context.stateGameDerived.boardLayout().x / 4.18}
-	y={context.stateGameDerived.boardLayout().y / 1.25}
-	anchor={0.5}
-	scale={0.75}
-	eventMode="static"
-	cursor="pointer"
-	onpointertap={() => {
-		selectedIntro = 'right';
-	}}
-/>
+			<Sprite
+				key={selectedIntro === 'right' ? 'introStateActive' : 'introStateDisabled'}
+				x={-context.stateGameDerived.boardLayout().x / 4.18}
+				y={context.stateGameDerived.boardLayout().y / 1.25 + INTRO_SELECTION_Y_OFFSET}
+				anchor={0.5}
+				scale={0.75}
+				eventMode="static"
+				cursor="pointer"
+				onpointertap={() => {
+					restartAutoIntro();
+					void switchIntro('right');
+				}}
+			/>
 		</Container>
 	</MainContainer>
 </FadeContainer>

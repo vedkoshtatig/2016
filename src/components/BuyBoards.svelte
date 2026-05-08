@@ -5,19 +5,28 @@
 	import { stateBet } from 'state-shared';
 	import { eventEmitter } from '../game/eventEmitter';
 	import { doubleBetState } from '../doubleBetState.svelte';
+	import { Tween } from 'svelte/motion';
+	import { backOut, cubicOut } from 'svelte/easing';
 
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
 	const scaleFactor = 1.2;
 
 	// ✅ STACK STATE
-	let explosionStack: { symbol: string; value: number }[] = [];
+	type ExplosionStackItem = {
+		id: number;
+		symbol: string;
+		value: number;
+		y: Tween<number>;
+		scale: Tween<number>;
+		alpha: Tween<number>;
+	};
 
+	let nextExplosionStackId = 1;
+	let explosionStack: ExplosionStackItem[] = [];
 
-	// ✅ NEW: offset for scrolling effect
-	let stackOffsetY = 0;
-	const ITEM_HEIGHT = 40;
-	const MASK_HEIGHT = layout.height * 0.55;
+	const ITEM_SPACING = 20;
+	const STACK_BASE_Y = 60;
 		const fstyle = {
 		fontFamily: 'sans-serif',
 		fontSize: 14,
@@ -25,31 +34,156 @@
 		align: 'center',
 	};
 
+	let animateStackTick = 0;
+	let clearStackTimer: ReturnType<typeof setTimeout> | undefined;
+	let isClearingStack = false;
+	let pendingExplodes: { symbol: string; value: number }[] = [];
+
+	let toggleAnimTick = 0;
+	const toggleX = new Tween(0);
+	const togglePulse = new Tween(1);
+	const toggleAlpha = new Tween(1);
+	let toggleInitialized = false;
+
+	$: {
+		const targetX = doubleBetState.isDouble ? 15 : -15;
+		if (!toggleInitialized) {
+			void toggleX.set(targetX, { duration: 0 });
+			toggleInitialized = true;
+		} else {
+			void toggleX.set(targetX, { duration: 220, easing: backOut });
+		}
+	}
+
+	const pulseToggle = () => {
+		const tick = ++toggleAnimTick;
+		void togglePulse.set(0.94, { duration: 60, easing: cubicOut });
+		void toggleAlpha.set(0.86, { duration: 60, easing: cubicOut });
+		setTimeout(() => {
+			if (tick !== toggleAnimTick) return;
+			void togglePulse.set(1.18, { duration: 180, easing: backOut });
+			void toggleAlpha.set(1, { duration: 180, easing: cubicOut });
+		}, 60);
+		setTimeout(() => {
+			if (tick !== toggleAnimTick) return;
+			void togglePulse.set(1, { duration: 120, easing: cubicOut });
+		}, 240);
+	};
+
+	const onToggleDoubleBet = () => {
+		eventEmitter.broadcast({ type: 'setDoubleBet' });
+		doubleBetState.isDouble = !doubleBetState.isDouble;
+		pulseToggle();
+	};
+	const animateStack = (newItemId?: number) => {
+		const tick = ++animateStackTick;
+		const shiftDuration = 160;
+		const dropDuration = 300;
+		const dropDelayMs = 0;
+
+		explosionStack.forEach((item, index) => {
+			if (tick !== animateStackTick) return;
+			const targetY = STACK_BASE_Y - (explosionStack.length - 1 - index) * ITEM_SPACING;
+			if (newItemId !== undefined && item.id === newItemId) {
+				setTimeout(() => {
+					if (tick !== animateStackTick) return;
+					void item.y.set(targetY, { duration: dropDuration, easing: cubicOut });
+					void item.scale.set(1, { duration: dropDuration, easing: cubicOut });
+					void item.alpha.set(1, { duration: 180, easing: cubicOut });
+				}, dropDelayMs);
+				return;
+			}
+
+			void item.y.set(targetY, { duration: shiftDuration, easing: cubicOut });
+			void item.scale.set(1, { duration: shiftDuration, easing: cubicOut });
+			void item.alpha.set(1, { duration: 120, easing: cubicOut });
+		});
+	};
+
+	const flushPendingExplodes = () => {
+		if (isClearingStack) return;
+		if (!pendingExplodes.length) return;
+
+		const next = pendingExplodes.shift();
+		if (!next) return;
+
+		const nextStackLength = explosionStack.length + 1;
+		const newItemTargetY = STACK_BASE_Y - (nextStackLength - 1) * ITEM_SPACING;
+		const newItem: ExplosionStackItem = {
+			id: nextExplosionStackId++,
+			symbol: next.symbol,
+			value: next.value,
+			y: new Tween(newItemTargetY - ITEM_SPACING * 8),
+			scale: new Tween(0.9),
+			alpha: new Tween(0),
+		};
+
+		explosionStack = [newItem, ...explosionStack];
+		requestAnimationFrame(() => animateStack(newItem.id));
+
+		if (pendingExplodes.length) {
+			setTimeout(flushPendingExplodes, 60);
+		}
+	};
+
+	const clearStackAnimated = () => {
+		if (clearStackTimer) {
+			clearTimeout(clearStackTimer);
+			clearStackTimer = undefined;
+		}
+		if (!explosionStack.length) return;
+
+		const tick = ++animateStackTick;
+		const duration = 420;
+		const fallDistance = ITEM_SPACING * 4;
+		isClearingStack = true;
+
+		requestAnimationFrame(() => {
+			if (tick !== animateStackTick) return;
+			explosionStack.forEach((item) => {
+				void item.y.set(item.y.current + fallDistance, { duration, easing: cubicOut });
+				void item.alpha.set(0, { duration: duration - 120, easing: cubicOut });
+				void item.scale.set(0.96, { duration, easing: cubicOut });
+			});
+		});
+
+		clearStackTimer = setTimeout(() => {
+			if (tick !== animateStackTick) return;
+			explosionStack = [];
+			isClearingStack = false;
+			clearStackTimer = undefined;
+			flushPendingExplodes();
+		}, duration + 10);
+	};
+
 	context.eventEmitter.subscribeOnMount({
 		symbolExplode: ({ data }) => {
+			if (isClearingStack) {
+				pendingExplodes = [{ symbol: data.symbol, value: data.value }, ...pendingExplodes];
+				return;
+			}
+			const nextStackLength = explosionStack.length + 1;
+			const newItemTargetY = STACK_BASE_Y - (nextStackLength - 1) * ITEM_SPACING;
+			const newItem: ExplosionStackItem = {
+				id: nextExplosionStackId++,
+				symbol: data.symbol,
+				value: data.value,
+				y: new Tween(newItemTargetY - ITEM_SPACING * 8),
+				scale: new Tween(0.9),
+				alpha: new Tween(0),
+			};
+
 			explosionStack = [
-				{
-					symbol: data.symbol,
-					value: data.value,
-				},
+				newItem,
 				...explosionStack,
 			];
-
-			const totalHeight = explosionStack.length * ITEM_HEIGHT;
-
-			if (totalHeight > MASK_HEIGHT) {
-				stackOffsetY += 20;
-			} else {
-				stackOffsetY = 0;
-			}
+			requestAnimationFrame(() => animateStack(newItem.id));
 		},
 		bet: () => {
-			explosionStack = [];
-			stackOffsetY = 0;
+			clearStackAnimated();
 		},
 		clearLeaderboard: () => {
-			explosionStack = [];
-			stackOffsetY = 0;
+			clearStackAnimated();
 		},
 	});
 </script>
@@ -186,10 +320,7 @@
 			scale={{ x: 0.33, y: 0.3 }}
 			zIndex={-10}
 			interactive={true}
-			onclick={() => {
-	eventEmitter.broadcast({ type: 'setDoubleBet' });
-	doubleBetState.isDouble = !doubleBetState.isDouble;
-}}
+			onclick={onToggleDoubleBet}
 		/>
 		<Container
 			x={0}
@@ -257,29 +388,36 @@
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
-					eventMode="none"
+					interactive={true}
+					onclick={onToggleDoubleBet}
 				/>
-			{#if doubleBetState.isDouble}
-				<Sprite
-					key="onBarYes"
-					anchor={0.5}
-					x={15}
-					width={layout.width * 1.1}
-					height={layout.height * 1.1}
-					scale={{ x: 0.33, y: 0.3 }}
-					eventMode="none"
-				/>
-				{:else}
-				<Sprite
-					key="onBarNo"
-					anchor={0.5}
-					x={-15}
-					width={layout.width * 1.1}
-					height={layout.height * 1.1}
-					scale={{ x: 0.33, y: 0.3 }}
-					eventMode="none"
-				/>
-				{/if}
+				<Container
+					x={toggleX.current}
+					scale={togglePulse.current}
+					alpha={toggleAlpha.current}
+					interactive={true}
+					onclick={onToggleDoubleBet}
+				>
+					{#if doubleBetState.isDouble}
+						<Sprite
+							key="onBarYes"
+							anchor={0.5}
+							width={layout.width * 1.1}
+							height={layout.height * 1.1}
+							scale={{ x: 0.33, y: 0.3 }}
+							eventMode="none"
+						/>
+					{:else}
+						<Sprite
+							key="onBarNo"
+							anchor={0.5}
+							width={layout.width * 1.1}
+							height={layout.height * 1.1}
+							scale={{ x: 0.33, y: 0.3 }}
+							eventMode="none"
+						/>
+					{/if}
+				</Container>
 			</Container>
 		</Container>
 	</Container>
@@ -318,9 +456,9 @@
 
 		<!-- <Sprite key="Leaderboard" anchor={0.5} x={0} y={0} scale={{ x: 0.3, y: 0.33 }} zIndex={-10} /> -->
 
-		<Container y={stackOffsetY + 60}>
-			{#each explosionStack as item, i}
-				<Container x={0} y={-20 * (explosionStack.length - 1 - i)}>
+		<Container y={0}>
+			{#each explosionStack as item (item.id)}
+				<Container x={0} y={item.y.current} scale={item.scale.current} alpha={item.alpha.current}>
 					<Sprite key="buyBoardPlaceHolder" anchor={0.5} scale={{ x: 0.27, y: 0.3 }} />
 					<Sprite
 						key={`${item.symbol.toLowerCase()}`}
