@@ -62,7 +62,7 @@
 						key="balanceBg"
 						anchor={0.5}
 						y={67}
-						x={DESKTOP_BASE_SIZE * 2.7}
+						x={DESKTOP_BASE_SIZE * 3.1}
 						scale={{ x: 0.5, y: 0.43 }}
 					/>
 
@@ -70,53 +70,53 @@
 						key="winBg"
 						anchor={0.5}
 						y={67	}
-						x={DESKTOP_BASE_SIZE * 7.95}
+						x={DESKTOP_BASE_SIZE * 8.35}
 						scale={{ x: 0.5, y: 0.42 }}
 					/>
 					<Sprite
 						key="betControl2"
 						anchor={0.5}
 						y={DESKTOP_BASE_SIZE * 0.44	}
-						x={DESKTOP_BASE_SIZE * 5.4}
+						x={DESKTOP_BASE_SIZE * 5.8}
 						scale={{ x: 0.5, y: 0.47 }}
 					/>
 					<Sprite
 						key="betMultiplier"
 						anchor={0.5}
 						y={DESKTOP_BASE_SIZE * 0.95	}
-						x={DESKTOP_BASE_SIZE * 5.4}
+						x={DESKTOP_BASE_SIZE * 5.8}
 						scale={{ x: 0.5, y: 0.47 }}
 					/>
 					<Sprite
 						key="betBg"
 						anchor={0.5}
 						y={DESKTOP_BASE_SIZE * 0.44}
-						x={DESKTOP_BASE_SIZE * 5.4}
+						x={DESKTOP_BASE_SIZE * 5.8}
 						scale={{ x: 0.5, y: 0.47 }}
 					/>
 					<Sprite
 						key="spinBg"
 						anchor={0.5}
 						y={DESKTOP_BASE_SIZE * 0.48}
-						x={DESKTOP_BASE_SIZE * 9.9}
+						x={DESKTOP_BASE_SIZE * 10.3}
 						scale={{ x: 0.43, y: 0.39 }}
 					/>
 
 					<Container>
-						<Container y={17} x={DESKTOP_BASE_SIZE * 3.4} scale={0.85}>
+						<Container y={25} x={DESKTOP_BASE_SIZE * 3.1} scale={0.85}>
 							{@render props.amountBalance({ stacked: true })}
 						</Container>
-						<Container y={15} x={DESKTOP_BASE_SIZE * 8.85} scale={0.85}>
+						<Container y={25} x={DESKTOP_BASE_SIZE * 8.35} scale={0.85}>
 							{@render props.amountWin({ stacked: true })}
 						</Container>
-						<Container y={20} x={DESKTOP_BASE_SIZE * 6.3} scale={0.85}>
+						<Container y={25} x={DESKTOP_BASE_SIZE * 5.8} scale={0.85}>
 							{@render props.amountBet({ stacked: true })}
 						</Container>
 					</Container>
 					<Container>
 						<Container
 							y={DESKTOP_BASE_SIZE * 0.475}
-							x={DESKTOP_BASE_SIZE * 9.9}
+							x={DESKTOP_BASE_SIZE * 10.3}
 							scale={0.87}
 							width={DESKTOP_BASE_SIZE * 1.15}
 						>
@@ -126,7 +126,7 @@
 						<Container x={-12}>
 							<Container
 								y={DESKTOP_BASE_SIZE * 0.44}
-								x={DESKTOP_BASE_SIZE * 4.32}
+								x={DESKTOP_BASE_SIZE * 4.72}
 								scale={{ x: 0.55, y: 0.65 }}
 							>
 								{@render props.buttonDecrease({ anchor: 0.5 })}
@@ -134,7 +134,7 @@
 
 							<Container
 								y={DESKTOP_BASE_SIZE * 0.44}
-								x={DESKTOP_BASE_SIZE * 6.65}
+								x={DESKTOP_BASE_SIZE * 7.05}
 								scale={{ x: 0.55, y: 0.65 }}
 							>
 								{@render props.buttonIncrease({ anchor: 0.5 })}
@@ -148,29 +148,29 @@
 						key="vantaLogo"
 						anchor={0.5}
 						y={DESKTOP_BASE_SIZE * 0.5}
-						x={DESKTOP_BASE_SIZE * 1.1}
+						x={DESKTOP_BASE_SIZE * 0.95}
 						scale={0.4}
 					/>
-					<!-- 
-					<Container y={DESKTOP_BASE_SIZE * 0.7} x={DESKTOP_BASE_SIZE * 2.3} scale={0.3}>
+					
+					<Container y={DESKTOP_BASE_SIZE * 0.7} x={DESKTOP_BASE_SIZE * 1.85} scale={0.3}>
 						{@render props.buttonGameRules({ anchor: 0.5 })}
 					</Container>
-					<Container y={DESKTOP_BASE_SIZE * 0.25} x={DESKTOP_BASE_SIZE * 2.3} scale={0.4}>
+					<Container y={DESKTOP_BASE_SIZE * 0.25} x={DESKTOP_BASE_SIZE * 1.85} scale={0.4}>
 						{@render props.buttonMenu({ anchor: 0.5 })}
-					</Container> -->
+					</Container>
 				</Container>
 
 				<Container y={7} x={40}>
 					<Container
 						y={DESKTOP_BASE_SIZE * 0.68}
-						x={DESKTOP_BASE_SIZE * 11.4}
+						x={DESKTOP_BASE_SIZE * 11.8}
 						scale={{ x: 1.2, y: 0.42	 }}
 					>
 						{@render props.buttonAutoSpin({ anchor: 0.5 })}
 					</Container>
 					<Container
 						y={DESKTOP_BASE_SIZE * 0.21}
-						x={DESKTOP_BASE_SIZE * 11.4}
+						x={DESKTOP_BASE_SIZE * 11.8}
 						scale={{ x: 1.2	, y: 0.42 }}
 					>
 						{@render props.buttonTurbo({ anchor: 0.5 })}
