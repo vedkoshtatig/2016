@@ -111,26 +111,35 @@
 							/>
 						</Container>
 					{:else if stateBet.activeBetModeKey === 'superBonus'}
+						
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
-							y={-160}
-							text="ARE YOU SURE "
+							y={-190}
+							text="BUY"
+							scale={1.1}
 							style={fstyle}
 						/>
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
-							y={-100}
-							text="YOU WANT TO PURCHASE"
-							style={fstyle}
-						/>
-						<BitmapText
-							anchor={{ x: 0.5, y: 0.5 }}
-							y={-30}
+							y={-120}
 							text="10 FREE SPINS "
 							style={fstyle2}
 						/>
-						<Container x={0} y={40}>
-							<BitmapText
+						<BitmapText
+								anchor={{ x: 0.5, y: 0.5 }}
+								y={-60}
+								text="WITH ALL MULTIPLIERS"
+								style={fstyle}
+							/>
+						<BitmapText
+								anchor={{ x: 0.5, y: 0.5 }}
+								y={-10}
+								text="MINIMUM OF 20X"
+								style={fstyle}
+							/>
+						<Container x={0} y={55}>
+							
+<BitmapText
 								anchor={{ x: 1, y: 0.5 }}
 								x={-10}
 								text="AT COST OF"

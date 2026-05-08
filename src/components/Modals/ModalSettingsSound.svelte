@@ -111,7 +111,7 @@
 
 /* Desktop mode specific styling */
 :global(.wrap:not(.mobile-menu)) .icon-wrap {
-	width: 110px;
+	width: 120px;
 	justify-content: flex-start;
 }
 

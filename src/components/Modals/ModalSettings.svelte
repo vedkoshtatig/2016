@@ -243,7 +243,7 @@
 
 						on: 'assets/sprites/uiSlotsAssetsBespoke/musicOn.png',
 
-						off: 'assets/sprites/uiSlotsAssetsBespoke/musicOn.png',
+						off: 'assets/sprites/uiSlotsAssetsBespoke/musicOff.png',
 
 						hover: 'assets/sprites/uiSlotsAssetsBespoke/musicHover.png',
 
@@ -289,8 +289,8 @@
 
 .wrap.desktop-anchor {
     position: fixed;
-    left:18%;   // distance from right edge
-    top: 80%;
+    left:12%;   // distance from right edge
+    top: 75%;
     transform: translateY(-50%);
 }
     .wrap.mobile-menu {

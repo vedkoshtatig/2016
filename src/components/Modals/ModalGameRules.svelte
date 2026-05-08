@@ -32,38 +32,68 @@
 				<div class="section">
 					<h3>ABOUT THE GAME</h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, iusto dolorum
-						pariatur earum reprehenderit odio accusamus.
+						This is a fast-paced cluster-style slot game inspired by candy-themed arcade
+						gameplay. Wins are formed by landing matching symbols anywhere on the reels.
+						Matching symbols disappear after every win, allowing new symbols to fall into
+						place for additional combo wins within the same round.
 					</p>
 				</div>
 
 				<div class="section">
-					<h3>FEATURES</h3>
+					<h3>HOW TO PLAY</h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat expedita obcaecati exercitationem quod illo saepe molestias sunt, ipsam natus iure tempora at itaque repudiandae odio suscipit repellendus pariatur. Similique, natus?
-						Quis quas voluptate neque distinctio, natus repellendus itaque ducimus vel illum labore deleniti et quos iusto, quidem sunt sed cupiditate nisi eius quibusdam possimus harum praesentium aliquam molestias. Magnam, dicta.
-						Laborum dicta tempore at saepe, incidunt fuga vitae repellendus optio corporis unde modi, soluta qui. Dignissimos illo molestias eaque sequi, maiores rerum ex provident assumenda, neque nostrum reiciendis dolores vitae?
-						Asperiores qui officia neque cum vero! Similique vel fuga est? Necessitatibus corrupti dignissimos nesciunt facilis, delectus sed nisi veritatis, esse nam cum sapiente reiciendis vel aspernatur quae nobis amet reprehenderit?
-						Consectetur cupiditate sit aperiam. Obcaecati sapiente, perferendis fugit quam cum nisi porro magnam. Fugit consequatur quis, perspiciatis cupiditate quas illum quod. Necessitatibus modi libero, delectus eligendi quas accusamus facere quibusdam!
-						Quis molestiae odit porro magnam optio veritatis. Mollitia veritatis quod numquam atque quaerat, ea nihil autem commodi. Cupiditate perspiciatis, quia aperiam quos temporibus ducimus, reprehenderit praesentium qui ullam deleniti ipsum!
-						Libero distinctio quam voluptas, ea omnis esse alias aliquid assumenda illo. Error est molestias ad exercitationem quo aliquid. Ipsam officiis deserunt cupiditate error a blanditiis ducimus atque, harum rem quia.
-						Provident non aut eaque amet! Libero saepe accusantium quis consequatur repellendus quae fuga incidunt iusto, quia, doloribus harum officia! Eius itaque veniam minima reiciendis, earum totam quaerat hic quo blanditiis?
-						Atque aut corporis iure dolore! Nam iure quos totam est, voluptatem aspernatur ab rerum recusandae necessitatibus culpa quod distinctio! Officia est perspiciatis ipsam deserunt ab autem error alias molestias distinctio?
-						Voluptatibus, tenetur sed velit cum quis mollitia architecto excepturi cupiditate officiis perferendis at quae obcaecati possimus nisi blanditiis minima nam nihil odit nemo veritatis dolor ipsam. Molestias quisquam maiores sit?
-						Et, quidem recusandae explicabo sint iure magnam, ipsam ea facere corrupti sequi repellat fugit assumenda cum, numquam voluptate quam at excepturi voluptatibus est praesentium delectus vel doloremque. Natus, porro commodi!
-						Unde, quo. Harum, odio? Veniam ipsam illo magnam asperiores, ex suscipit aliquid sed necessitatibus laudantium tempora officiis obcaecati beatae reiciendis quas natus optio quae adipisci, modi consequuntur. Quisquam, impedit accusamus?
-						Earum rem dolor saepe quidem quis, nisi ratione odit ipsa. Facere sed quo rem consequatur ea esse, mollitia saepe voluptatum minus. Temporibus harum a cumque nostrum, cupiditate excepturi tenetur explicabo?
-						Repudiandae aliquam reiciendis perspiciatis minima, saepe, sit repellendus necessitatibus at nostrum quidem sapiente ullam a ipsa. Provident, hic, facilis sequi asperiores voluptate eius blanditiis corrupti impedit similique placeat voluptas amet?
-						Deleniti cupiditate saepe ex amet mollitia nihil provident facere ducimus aspernatur voluptates illo, incidunt, dolor nesciunt sed? Aut quasi, doloribus a illum distinctio corrupti vitae et aperiam optio error magnam?
-						Magni laudantium amet porro. Hic possimus nihil soluta expedita optio cum aliquid rerum sed molestias laudantium! Molestiae quia, reiciendis incidunt expedita magnam eligendi assumenda facilis exercitationem repudiandae iure cupiditate illo.
-						Deleniti quibusdam laboriosam tempora molestiae, iusto nulla, dolorum consequatur dolores totam qui reprehenderit provident sed excepturi. Doloremque est labore ut ab reiciendis assumenda impedit et? Consectetur ad illum nesciunt laboriosam.
-						Dicta accusamus doloremque animi ipsam neque sint nobis accusantium, fugiat est placeat optio modi illum facere omnis consequatur eos aspernatur? Provident maxime ducimus voluptatibus nisi temporibus dicta neque qui inventore!
-						Temporibus obcaecati numquam necessitatibus quae nostrum, ex nulla labore quisquam vitae deleniti omnis! Quidem soluta id, nisi ullam mollitia et porro consequatur debitis totam commodi itaque corporis sint perspiciatis ducimus?
-						At adipisci nemo tempore dolor aut. Voluptatem ipsam architecto sed aliquid fugit totam corrupti eligendi tenetur exercitationem reiciendis. Dignissimos, accusamus est. Aliquam cum iure quam praesentium, perferendis unde. Soluta, ducimus!
+						Press the SPIN button to start the game. Winning combinations are created when
+						8 or more matching symbols land anywhere on the screen. Larger combinations
+						award higher payouts based on the paytable.
 					</p>
-
-					{@render props.children()}
 				</div>
+
+				<div class="section">
+					<h3>TUMBLE FEATURE</h3>
+					<p>
+						After every winning combination, the winning symbols explode and disappear.
+						New symbols tumble down from above to fill the empty positions. Consecutive
+						wins can continue until no new winning combinations are formed.
+					</p>
+				</div>
+
+				<div class="section">
+					<h3>MULTIPLIERS</h3>
+					<p>
+						Special multiplier symbols may appear during gameplay. Multipliers can
+						increase total winnings by various amounts and are added together before
+						being applied to the final tumble win.
+					</p>
+				</div>
+
+				<div class="section">
+					<h3>FREE SPINS</h3>
+					<p>
+						Landing 4 or more scatter symbols triggers the Free Spins feature. During
+						Free Spins, additional multipliers can appear more frequently, giving players
+						the chance to achieve bigger combo wins.
+					</p>
+				</div>
+
+				<div class="section">
+					<h3>PAYOUTS</h3>
+					<p>
+						Payout values depend on the symbol type and the number of matching symbols
+						landed. Higher-value symbols award larger prizes. All winnings are multiplied
+						by the current bet amount.
+					</p>
+				</div>
+
+				<div class="section">
+					<h3>AUTO PLAY</h3>
+					<p>
+						The Auto Play feature allows the game to spin automatically for a selected
+						number of rounds. Auto Play may stop automatically if a bonus feature is
+						triggered or a win exceeds a predefined amount.
+					</p>
+				</div>
+
+				
 			</div>
 		</div>
 	</Popup>
@@ -77,9 +107,8 @@
 		padding: 1.5rem;
 
 		width: min(600px, 92vw);
-		
+		height: min(75vh, 700px);
 
-		height: 60%; /* 🔥 FIXED HEIGHT */
 		display: flex;
 		flex-direction: column;
 
@@ -95,7 +124,7 @@
 		position: relative;
 		text-align: center;
 		margin-bottom: 1rem;
-		flex-shrink: 0; 
+		flex-shrink: 0;
 	}
 
 	.header h2 {
@@ -120,18 +149,18 @@
 		color: white;
 		font-size: 1.5rem;
 		cursor: pointer;
+
+		transition: background 0.2s ease;
 	}
 
 	.close-btn:hover {
 		background: rgba(255, 255, 255, 0.2);
 	}
 
-	
+	/* CONTENT AREA */
 	.content {
-		flex: 1; 
-		overflow-y: auto; 
-		min-height: 0; 
-		height: 0;
+		flex: 1;
+		overflow-y: auto;
 		padding-right: 10px;
 	}
 
@@ -145,6 +174,10 @@
 		border-radius: 10px;
 	}
 
+	.content::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
 	/* SECTIONS */
 	.section {
 		margin-bottom: 1.5rem;
@@ -155,12 +188,28 @@
 		font-size: 0.9rem;
 		letter-spacing: 1px;
 		margin-bottom: 0.5rem;
+		font-weight: 700;
 	}
 
 	.section p {
 		color: #ffffff;
 		font-size: 0.9rem;
-		line-height: 1.4;
+		line-height: 1.5;
 		font-weight: 600;
+	}
+
+	@media (max-width: 768px) {
+		.popup-bg {
+			padding: 1rem;
+			height: 78vh;
+		}
+
+		.header h2 {
+			font-size: 1.4rem;
+		}
+
+		.section p {
+			font-size: 0.85rem;
+		}
 	}
 </style>

@@ -65,8 +65,9 @@
 /* 💻 UNDER 1400px (LAPTOP / SMALL DESKTOP) */
 @media (max-width: 1400px) {
 	.autoplay-popup-bg {
-		top:70%;
-		scale: 0.7;
+		top:50%;
+		left:60%;
+		scale: 0.6;
 	}
 }
 
