@@ -35,5 +35,5 @@
 	borderRadius={65}
 	labelColor="#FFFFFF"
 	fontSize={40}
-	align={props.center ? 'center' : 'left'}
+	align="center"
 />

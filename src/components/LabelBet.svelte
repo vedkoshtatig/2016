@@ -48,6 +48,6 @@ import { doubleBetState } from '../doubleBetState.svelte';
 		labelColor="#FFD103"
 		fontSize={45}
 		textColor="#db130c"
-		align={props.center ? 'center' : 'left'}
+		align="center"
 	/>
 </Container>

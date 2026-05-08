@@ -103,13 +103,13 @@
 					/>
 
 					<Container>
-						<Container y={30} x={DESKTOP_BASE_SIZE * 4.02} scale={0.85}>
+						<Container y={30} x={DESKTOP_BASE_SIZE * 3.1} scale={0.85}>
 							{@render props.amountBalance({ stacked: true })}
 						</Container>
-						<Container y={25} x={DESKTOP_BASE_SIZE * 9.45} scale={0.85}>
+						<Container y={25} x={DESKTOP_BASE_SIZE * 8.35} scale={0.85}>
 							{@render props.amountWin({ stacked: true })}
 						</Container>
-						<Container y={25} x={DESKTOP_BASE_SIZE * 6.85} scale={0.85}>
+						<Container y={25} x={DESKTOP_BASE_SIZE * 5.8} scale={0.85}>
 							{@render props.amountBet({ stacked: true })}
 						</Container>
 					</Container>

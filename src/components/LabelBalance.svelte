@@ -34,5 +34,5 @@
 	stacked={props.stacked}
 	fontSize={35}
 	borderRadius={65}
-	align={props.center ? 'center' : 'left'}
+	align="center"
 />
