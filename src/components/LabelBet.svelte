@@ -41,11 +41,13 @@ import { doubleBetState } from '../doubleBetState.svelte';
 <Container eventMode="static" cursor={disabled ? 'not-allowed' : 'pointer'} onpointerup={onpress}>
 	<UiLabel
 		tiled
-		{label}
+	
 		{value}
 		stacked={props.stacked}
 		borderRadius={65}
 		labelColor="#FFD103"
+		fontSize={45}
+		textColor="#db130c"
 		align={props.center ? 'center' : 'left'}
 	/>
 </Container>

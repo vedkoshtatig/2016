@@ -66,7 +66,7 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 			? 'introReel1'
 			: selectedIntro === 'middle'
 				? 'introReel2'
-				: 'introReel1'
+				: 'introReel3'
 	}
 	anchor={0.5}
 	x={25}
@@ -103,12 +103,18 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 				scale={0.75}
 			/> -->
 			<Sprite
-				key="introtext"
-				x={-context.stateGameDerived.boardLayout().x/4}
-				y={context.stateGameDerived.boardLayout().y/1.1}
-				anchor={0.5}
-				scale={0.75}
-			/>
+	key={
+		selectedIntro === 'left'
+			? 'introtext3'
+			: selectedIntro === 'middle'
+				? 'introtext2'
+				: 'introtext'
+	}
+	x={-context.stateGameDerived.boardLayout().x / 3.5}
+	y={context.stateGameDerived.boardLayout().y / 1.1}
+	anchor={0.5}
+	scale={0.3}
+/>
 		<!-- LEFT BUTTON -->
 <!-- LEFT BUTTON -->
 <Sprite
@@ -174,8 +180,8 @@ let selectedIntro = $state<'left' | 'middle' | 'right'>('left');
 				key="spinButton"
 				anchor={0.5}
 				scale={{
-					x: spinPulse.scale * (isHover ? 1.04 : 1),
-					y: spinPulse.scale * (isHover ? 1.04 : 1),
+					x: spinPulse.scale * (isHover ? 0.32 : 0.3),
+					y: spinPulse.scale * (isHover ? 0.32 : 0.3),
 				}}
 				alpha={spinPulse.alpha * (context.stateApp.loaded ? 1 : 0.75)}
 				eventMode={context.stateApp.loaded ? 'static' : 'none'}

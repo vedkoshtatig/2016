@@ -13,6 +13,7 @@
 		stacked?: boolean;
 		borderRadius?: number;
 		labelColor?: string;
+		fontSize?: number;
 		textColor?: string;
 		align?: 'left' | 'center';
 	};
@@ -30,9 +31,9 @@
 	} as const;
 
 	const valueStyle = {
-		fontFamily: 'Neuton',
-		fontSize: UI_BASE_FONT_SIZE,
-		fill: props.textColor ?? '#FFFFFF',
+		fontFamily: 'Times New Roman',
+		fontSize: props.fontSize ?? UI_BASE_FONT_SIZE*1.8,
+		fill: props.textColor ?? '#0c2049',
 		fontWeight: 600,
 	} as const;
 </script>

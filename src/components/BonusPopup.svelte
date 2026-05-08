@@ -182,12 +182,12 @@
 					{/if}
 
 					<Container eventMode="static" cursor="pointer" onpointertap={close} x={-190} y={145}>
-						<Sprite anchor={0.5} scale={0.65} key="noButton" />
+						<Sprite anchor={0.5} scale={1} key="noButton" />
 						<Sprite anchor={0.5} scale={0.8} key="noText" />
 					</Container>
 
-					<Container eventMode="static" cursor="pointer" onpointertap={confirm} x={190} y={145}>
-						<Sprite anchor={0.5} scale={0.65} key="yesButton" />
+					<Container eventMode="static" cursor="pointer" onpointertap={confirm} x={160} y={145}>
+						<Sprite anchor={0.5} scale={1} key="yesButton" />
 						<Sprite anchor={0.5} scale={0.8} key="yesText" />
 					</Container>
 				</Container>

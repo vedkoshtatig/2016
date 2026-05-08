@@ -28,6 +28,16 @@ export default {
 		},
 		preload: true,
 	},
+	introReel3: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/reelhouse/Intro-reel_logo3.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/reelhouse/Intro-reel_logo3.json', import.meta.url)
+				.href,
+			scale: 2,
+		},
+		preload: true,
+	},
 	logo: {
 		type: 'spine',
 		src: {
@@ -172,7 +182,7 @@ export default {
 	},
 	spinButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spin.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -188,7 +198,17 @@ export default {
 	},
 	introtext: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/intro_text.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/introtext.png', import.meta.url).href,
+		preload: true,
+	},
+	introtext2: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/introtext2.png', import.meta.url).href,
+		preload: true,
+	},
+	introtext3: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/introtext3.png', import.meta.url).href,
 		preload: true,
 	},
 	introStateDisabled: {
@@ -205,19 +225,19 @@ export default {
 	},
 	spinButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	spinButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinDown.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	spinButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinDisabled.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -272,61 +292,61 @@ export default {
 	},
 	autoSpinButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Autoplay.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinButton_normal: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Autoplay.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayDown.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button AUTOPLAY.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayDisable.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinActiveButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinActiveButton_normal: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayDown.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinActiveButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_hover.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinActiveButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayDown.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	autoSpinActiveButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/autoPlay_down.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/AutoplayDisable.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -530,60 +550,60 @@ export default {
 
 	decreaseButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 1.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minus.png', import.meta.url).href,
 		preload: true,
 	},
 	decreaseButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 1.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minus.png', import.meta.url).href,
 		preload: true,
 	},
 	decreaseButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 1.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusHover.png', import.meta.url).href,
 		preload: true,
 	},
 	decreaseButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 1.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/minusDisabled.png', import.meta.url).href,
 		preload: true,
 	},
 	increaseButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 3.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plus.png', import.meta.url).href,
 		preload: true,
 	},
 	increaseButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 3.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusHover.png', import.meta.url).href,
 		preload: true,
 	},
 	increaseButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 3.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plus.png', import.meta.url).href,
 		preload: true,
 	},
 	increaseButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Frame 3.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/plusDisabled.png', import.meta.url).href,
 		preload: true,
 	},
 
 	turboButton_normal: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbo.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	turboButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turbo.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	turboButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -609,7 +629,7 @@ export default {
 	},
 	turboButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button TURBO.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/turboDisable.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -673,25 +693,25 @@ export default {
 
 	stopButton: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spin.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	stopButton_down: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinDown.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	stopButton_hover: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinHover.png', import.meta.url)
 			.href,
 		preload: true,
 	},
 	stopButton_disabled: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Button - Spin.png', import.meta.url)
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinDisabled.png', import.meta.url)
 			.href,
 		preload: true,
 	},
@@ -796,9 +816,29 @@ export default {
 		preload: true,
 	},
 
-	betControl: {
+	betBg: {
 		type: 'sprite',
-		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/balance.png', import.meta.url).href,
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/betBg.png', import.meta.url).href,
+		preload: true,
+	},
+	balanceBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/balanceBg.png', import.meta.url).href,
+		preload: true,
+	},
+	winBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/WinBg.png', import.meta.url).href,
+		preload: true,
+	},
+	betMultiplier: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/BetMultiplier.png', import.meta.url).href,
+		preload: true,
+	},
+	spinBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/spinBg.png', import.meta.url).href,
 		preload: true,
 	},
 	betControl2: {

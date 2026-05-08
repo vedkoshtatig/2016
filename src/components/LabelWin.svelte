@@ -29,11 +29,11 @@
 
 <UiLabel
 	tiled
-	{label}
+	
 	{value}
 	stacked={props.stacked}
 	borderRadius={65}
 	labelColor="#FFFFFF"
-	textColor="#FFD103"
+	fontSize={40}
 	align={props.center ? 'center' : 'left'}
 />
