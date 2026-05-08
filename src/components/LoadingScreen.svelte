@@ -64,7 +64,7 @@
 	key={selectedIntro === 'left' ? "introReel1" : "introReel2"}
 	anchor={0.5}
 	x={25}
-	y={95}
+	y={140}
 	scale={{ x: 0.35, y: 0.35 }}
 >
 	<SpineTrack
@@ -99,7 +99,7 @@
 			<Sprite
 				key="introtext"
 				x={-context.stateGameDerived.boardLayout().x/4}
-				y={context.stateGameDerived.boardLayout().y/1.2}
+				y={context.stateGameDerived.boardLayout().y/1.1}
 				anchor={0.5}
 				scale={0.75}
 			/>
@@ -107,7 +107,7 @@
 <Sprite
 	key={selectedIntro === 'left' ? "introStateActive" : "introStateDisabled"}
 	x={-context.stateGameDerived.boardLayout().x / 3.65}
-	y={context.stateGameDerived.boardLayout().y / 1.45}
+	y={context.stateGameDerived.boardLayout().y / 1.25}
 	anchor={0.5}
 	scale={0.75}
 	eventMode="static"
@@ -121,7 +121,7 @@
 <Sprite
 	key={selectedIntro === 'right' ? "introStateActive" : "introStateDisabled"}
 	x={-context.stateGameDerived.boardLayout().x / 4.35}
-	y={context.stateGameDerived.boardLayout().y / 1.45}
+	y={context.stateGameDerived.boardLayout().y / 1.25}
 	anchor={0.5}
 	scale={0.75}
 	eventMode="static"

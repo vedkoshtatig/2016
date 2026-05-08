@@ -4,7 +4,7 @@
 	import ButtonBuyBonus from './ButtonBuyBonus.svelte';
 	import { stateBet } from 'state-shared';
 	import { eventEmitter } from '../game/eventEmitter';
-
+	import { stateBetDerived, stateModal } from 'state-shared';
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
 	const scaleFactor = 1.2;
@@ -51,6 +51,7 @@
 			stackOffsetY = 0;
 		},
 	});
+
 </script>
 
 <!-- ================= MAIN CONTAINER ================= -->
@@ -187,7 +188,7 @@
 			interactive={true}
 			onclick={() => {
 				eventEmitter.broadcast({ type: 'setDoubleBet' });
-				clickedDouble=!clickedDouble;
+				stateBet.isDoubleBet = !stateBet.isDoubleBet;
 				
 			}}
 		/>
@@ -207,7 +208,7 @@
 					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
 				/>
 				<BitmapText
-					text={`${stateBet.betAmount * 1.25}`}
+					text={`$${stateBet.betAmount * 1.25}`}
 					anchor={0.5}
 					x={0}
 					y={-11}
@@ -259,7 +260,10 @@
 					scale={{ x: 0.33, y: 0.3 }}
 					eventMode="none"
 				/>
-				{#if clickedDouble}
+				{#if stateBet.isDoubleBet}
+			
+				   {@const _ = console.log(stateBetDerived.betCost())}
+
 				<Sprite
 					key="onBarYes"
 					anchor={0.5}

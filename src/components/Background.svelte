@@ -38,7 +38,7 @@ const showLoadingBackground = $derived(isLoading);
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
 
 <FadeContainer show={showLoadingBackground} duration={SECOND} zIndex={-2}>
-	<Sprite key="loadingBg" anchor={0.5} {...loadingBgProps} scale={{x:1.22,y:0.75}}/>
+	<Sprite key="loadingBg" anchor={0.55} {...loadingBgProps} scale={{x:1.2,y:0.65}}/>
 </FadeContainer>
 
 

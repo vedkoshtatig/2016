@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from 'components-shared';
 	import { stateBet, stateModal, stateBetDerived } from 'state-shared';
+	
 	import { stateUi } from '../../i18n/stateUi.svelte';
 	import { AUTO_SPINS_TEXT_OPTION_MAP } from '../../i18n/stateUi.svelte';
 	import { AUTO_SPINS_LOSS_LIMIT_MULTIPLIER_MAP } from '../../i18n/stateUi.svelte';
