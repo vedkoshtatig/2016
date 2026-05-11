@@ -32,7 +32,7 @@
 		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
 	);
 
-	const scale = $derived(context.stateLayoutDerived.isStacked() ? 2.5 : 2.5);
+	const scale = $derived(context.stateLayoutDerived.isStacked() ? 2.5 : 0.9);
 </script>
 
 <FadeContainer show={props.show}>

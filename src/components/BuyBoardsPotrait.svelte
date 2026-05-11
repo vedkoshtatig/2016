@@ -223,7 +223,7 @@ const onDoubleHoverLeave = () => {
 	x={layout.x}
 	y={layout.y * 0.03}
 	height={layout.height}
-	scale={scaleFactor * 0.95}
+	scale={scaleFactor * 1.1}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->

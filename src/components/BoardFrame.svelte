@@ -24,7 +24,7 @@
 		<Sprite
 		key="reel_base_bonus"
 		anchor={0.5}
-		x={context.stateGameDerived.boardLayout().x+7}
+		x={context.stateGameDerived.boardLayout().x}
 		y={context.stateGameDerived.boardLayout().y-20}
 		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
 		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
@@ -35,7 +35,7 @@
 <Sprite
 		key="reel_base"
 		anchor={0.5}
-		x={context.stateGameDerived.boardLayout().x+7}
+		x={context.stateGameDerived.boardLayout().x}
 		y={context.stateGameDerived.boardLayout().y - 45}
 		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
 		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
