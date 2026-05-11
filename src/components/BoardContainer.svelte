@@ -4,7 +4,7 @@
 	import { Container, Sprite, SpineProvider, SpineTrack } from 'pixi-svelte';
 
 	import { getContext } from '../game/context';
-
+	import BoardFrame from './BoardFrame.svelte';
 	type Props = {
 		children: Snippet;
 	};
@@ -25,7 +25,9 @@
 	pivot={context.stateGameDerived.boardLayout().pivot}
 	sortableChildren={true}
 >
+
 	{@render props.children()}
+	
 	<Container x={context.stateGameDerived.boardLayout().x/2.05}
 			y={context.stateGameDerived.boardLayout().y/1.9}>
 		<Sprite

@@ -104,11 +104,11 @@
 			void item.alpha.set(1, { duration: 120, easing: cubicOut });
 		});
 	};
-const doubleHoverScale = new Tween(1);
+const doubleHoverScale = new Tween(1.2);
 const doubleHoverAlpha = new Tween(1);
 
 const onDoubleHoverEnter = () => {
-	void doubleHoverScale.set(1.04, {
+	void doubleHoverScale.set(1.24, {
 		duration: 180,
 		easing: cubicOut
 	});
@@ -120,7 +120,7 @@ const onDoubleHoverEnter = () => {
 };
 
 const onDoubleHoverLeave = () => {
-	void doubleHoverScale.set(1, {
+	void doubleHoverScale.set(1.2, {
 		duration: 180,
 		easing: cubicOut
 	});
@@ -220,30 +220,31 @@ const onDoubleHoverLeave = () => {
 
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
-	x={layout.x / 1.4 - 30}
-	y={layout.y * 1.05}
+	x={layout.x}
+	y={layout.y * 0.03}
 	height={layout.height}
 	scale={scaleFactor * 0.95}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
-	<Container>
+	<Container x={-70}>
 		<Sprite
 			key="buyFreeSpinBg"
 			anchor={0.5}
-			x={0}
+			x={95}
 			y={1}
 			width={layout.width * 1.1}
 			height={layout.height * 1.1}
-			scale={{ x: 0.33, y: 0.34 }}
+			scale={{ x: 0.98, y: 0.26 }}
 			zIndex={-10}
 		/>
 
 		<Container
 			x={0}
-			y={-40}
+			y={0}
 			interactive={true}
 			onclick={() => (stateBet.activeBetModeKey = 'BONUS')}
+			scale={1.5}
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 			<BitmapText
@@ -290,10 +291,12 @@ const onDoubleHoverLeave = () => {
 		</Container>
 
 		<Container
-			x={0}
-			y={40}
+			x={190}
+			y={0}
 			interactive={true}
 			onclick={() => (stateBet.activeBetModeKey = 'superBonus')}
+			scale={1.5}
+			
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 			<BitmapText
@@ -340,7 +343,8 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== DOUBLE ===== -->
 	<Container
-	y={25}
+	x={layout.x / 1.6}
+	y={-175}
 	scale={doubleHoverScale.current}
 	alpha={doubleHoverAlpha.current}
 	interactive={true}
@@ -462,8 +466,8 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== STATIC BG ===== -->
 	<Container
-		x={layout.x / 1.98}
-		y={layout.y * 1.63}
+		x={layout.x *1.5}
+		y={layout.y * 0.65}
 		height={layout.height}
 		scale={scaleFactor}
 		pivot={layout.pivot}
@@ -482,8 +486,8 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x / 1.98}
-		y={layout.y * 1.63}
+		x={layout.x *1.5}
+		y={layout.y * 0.65}
 		height={layout.height}
 		scale={scaleFactor}
 		pivot={layout.pivot}

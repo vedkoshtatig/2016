@@ -14,7 +14,7 @@
 	import { quartInOut } from 'svelte/easing';
 
 	import { waitForResolve } from 'utils-shared/wait';
-
+	import { Container } from 'pixi-svelte';
 	import MultiplierBoardBase from './MultiplierBoardBase.svelte';
 	import BoardContainer from './BoardContainer.svelte';
 	import { getContext } from '../game/context';
@@ -22,6 +22,17 @@
 	import { getSymbolX, getSymbolY } from '../game/utils';
 
 	const context = getContext();
+	    	type Props = {
+		scale?: number;
+        x?: number;
+        y?: number;
+	};
+
+	const {
+		scale = 1,
+        x=0,
+        y=0,
+	}: Props = $props();
 
 	let show = $state(false);
 
@@ -115,9 +126,10 @@
 		},
 	});
 </script>
-
+<Container scale={scale} x={x} y={y}>
 {#if show}
 	<BoardContainer>
 		<MultiplierBoardBase />
 	</BoardContainer>
 {/if}
+</Container>

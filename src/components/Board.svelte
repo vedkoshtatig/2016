@@ -14,13 +14,25 @@
 <script lang="ts">
     import { waitForResolve } from 'utils-shared/wait';
     import { BoardContext } from 'components-shared';
-
+    import BoardFrame from './BoardFrame.svelte';
     import { getContext } from '../game/context';
     import BoardContainer from './BoardContainer.svelte';
     import BoardMask from './BoardMask.svelte';
     import BoardBase from './BoardBase.svelte';
+	import { Container } from 'pixi-svelte';
 
     const context = getContext();
+    	type Props = {
+		scale?: number;
+        x?: number;
+        y?: number;
+	};
+
+	const {
+		scale = 1,
+        x=0,
+        y=1
+	}: Props = $props();
 
     let show = $state(true);
 
@@ -45,9 +57,13 @@
     context.stateGameDerived.enhancedBoard.readyToSpinEffect();
 </script>
 
+<Container scale={scale} x={x} y={y}>
+
+ <BoardFrame />
 {#if show}
-    <BoardContext animate={false}>
+    <BoardContext animate={false} >
         <BoardContainer>
+           
             <BoardMask />
             <BoardBase />
         </BoardContainer>
@@ -55,7 +71,9 @@
 
     <BoardContext animate={true}>
         <BoardContainer>
+        
             <BoardBase />
         </BoardContainer>
     </BoardContext>
 {/if}
+</Container>

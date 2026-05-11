@@ -40,6 +40,7 @@
 	import { stateMeta } from 'state-shared';
 	import { EXTENDED_BET_MODE_META } from '../game/betMode';
 	import ModalAutoSpin from './ModalAutoSpin.svelte';
+	import BuyBoardsPotrait from './BuyBoardsPotrait.svelte';
 
 	stateMeta.betModeMeta = {
 		...stateMeta.betModeMeta,
@@ -55,15 +56,10 @@
 			stateModal.modal = { name: 'buyBonusConfirm' };
 		},
 	});
-	type TrumpState =
-		| 'welcome'
-		| 'idle'
-		| 'angry'
-		| 'celebrate'
-		| 'pointing';
+	type TrumpState = 'welcome' | 'idle' | 'angry' | 'celebrate' | 'pointing';
 
 	let trumpState: TrumpState = 'welcome';
-const spineMap = {
+	const spineMap = {
 		welcome: 'trumpWelcome',
 		idle: 'trumpIdle',
 		angry: 'trumpAngry',
@@ -104,45 +100,45 @@ const spineMap = {
 		<Sound />
 
 		<MainContainer>
-			<BoardFrame />
 			{#if showBuyBoards}
-				<BuyBoards />
+				{#if isLandscape()}
+					<BuyBoards />
+				{:else}
+				<BuyBoardsPotrait />
+					
+				{/if}
 			{/if}
 		</MainContainer>
-		
 
 		<MainContainer>
-			<Board />
+			<Board scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
 			<Anticipations />
 			<TumbleWinAmount />
 			<GlobalMultiplier />
-			
 		</MainContainer>
 
 		<MainContainer>
-			<TumbleBoard />
+			<TumbleBoard scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
 			<!-- <TumbleAnticipations /> -->
-			<ClusterWinAmounts />
-			
+			<ClusterWinAmounts  scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
+
 			<BonusPopup />
 		</MainContainer>
 
 		<MainContainer>
-			<MultiplierBoard />
+			<MultiplierBoard scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
 			<MultiplierTotal />
-				{#if isLandscape()}
-		
-<SpineProvider
-				key="trumpIdle"
-				x={context.stateGameDerived.boardLayout().x * 1.8}
-				y={context.stateGameDerived.boardLayout().y * 1.3}
-				scale={{ x: 0.17, y: 0.17 }}
-				zIndex={20}
-			>
-				<SpineTrack trackIndex={0} animationName={'Simple-Ideal-Pose'} loop timeScale={1} />
-			</SpineProvider>
-	{/if}
-			
+			{#if isLandscape()}
+				<SpineProvider
+					key="trumpLogo"
+					x={context.stateGameDerived.boardLayout().x * 1.75}
+					y={context.stateGameDerived.boardLayout().y * 1.3}
+					scale={{ x: 0.3, y: 0.3 }}
+					zIndex={20}
+				>
+					<SpineTrack trackIndex={0} animationName={'Pose-01'} loop timeScale={1} />
+				</SpineProvider>
+			{/if}
 		</MainContainer>
 
 		<UIDefault>
@@ -166,7 +162,7 @@ const spineMap = {
 
 		<Win />
 		<FreeSpinIntro />
-		{#if ['desktop', 'landscape','portrait','tablet'].includes(context.stateLayoutDerived.layoutType())}
+		{#if ['desktop', 'landscape', 'portrait', 'tablet'].includes(context.stateLayoutDerived.layoutType())}
 			<FreeSpinCounter />
 		{/if}
 		<FreeSpinOutro />

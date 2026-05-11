@@ -11,11 +11,9 @@
 
 	import { getContext } from '../game/context';
 	import { SYMBOL_SIZE } from '../game/constants';
-const context = getContext();
+	const context = getContext();
 	import { anchorToPivot, BitmapText, Container, Sprite, type Sizes } from 'pixi-svelte';
-const showBuyBoards = $derived(
-	context.stateGame.gameType !== 'basegame'
-);
+	const showBuyBoards = $derived(context.stateGame.gameType !== 'basegame');
 
 	const PANEL_KEY_DESKTOP = 'Frame_FSCounter.png';
 	const PANEL_RATIO_DESKTOP = 824 / 622;
@@ -25,8 +23,10 @@ const showBuyBoards = $derived(
 		width: panelWidth,
 		height: panelWidth / PANEL_RATIO_DESKTOP,
 	});
-	const scale = 1;
-	const position = $derived({
+
+
+
+	const desktopPosition = $derived({
 		x:
 			context.stateGameDerived.boardLayout().x -
 			context.stateGameDerived.boardLayout().width * 0.5 -
@@ -36,6 +36,22 @@ const showBuyBoards = $derived(
 			context.stateGameDerived.boardLayout().y -
 			context.stateGameDerived.boardLayout().height * 0.5,
 	});
+
+	const portraitPosition = $derived({
+		x:
+			context.stateGameDerived.boardLayout().x -
+			context.stateGameDerived.boardLayout().width * 0.5 -
+			panelSizes.width -
+			SYMBOL_SIZE *-0.9,
+		y:
+			context.stateGameDerived.boardLayout().y -
+			context.stateGameDerived.boardLayout().height * -0.9,
+	});
+
+	const position = $derived(
+		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
+	);
+	const scale = $derived(context.stateLayoutDerived.isStacked() ? 2 : 1);
 
 	const fontSize = SYMBOL_SIZE * 0.275;
 
@@ -47,14 +63,14 @@ const showBuyBoards = $derived(
 	const fstyle = {
 		fontFamily: 'sans-serif',
 		fontSize: 54,
-		letterSpacing:3,
+		letterSpacing: 3,
 		align: 'center',
 	};
 	const fstyle2 = {
 		fontFamily: 'sans-serif',
 		fontSize: 84,
-		letterSpacing:3,
-	
+		letterSpacing: 3,
+
 		align: 'center',
 	};
 	const textContainerSizes = $derived({
@@ -72,38 +88,40 @@ const showBuyBoards = $derived(
 		},
 	});
 </script>
-	{#if showBuyBoards}
-	<MainContainer>
-	<Container y={context.stateGameDerived.boardLayout().y/1.3} x={context.stateGameDerived.boardLayout().x*0.02} scale={{x:0.83,y:0.83}} >
-		<FadeContainer {show} {...position} {scale}>
-		<Sprite key="freeSpinCounter" {...panelSizes}  />
-		<Container
-			x={panelSizes.width * 0.5}
-			y={panelSizes.height * 0.5}
-			pivot={anchorToPivot({
-				sizes: textContainerSizes,
-				anchor: { x: 0.5, y: 0.5 },
-			})}
-			scale={0.6}
-		>
-			<BitmapText
-				text={'FREE SPIN'}
-				style={fstyle}
-				onresize={(sizes) => (titleSizes = sizes)}
-			/>
-			<BitmapText
-				text={`${current} OF ${total}`}
-			
-				{...counterPosition}
-				anchor={{ x: 0.5, y: 0 }}
-				style={fstyle2}
-				
-					y={40}
-				onresize={(sizes) => (counterSizes = sizes)}
-			/>
-		</Container>
-	</FadeContainer>
-	</Container>
-</MainContainer>
 
+{#if showBuyBoards}
+	<MainContainer>
+		<Container
+			y={context.stateGameDerived.boardLayout().y / 1.3}
+			x={context.stateGameDerived.boardLayout().x * 0.02}
+			scale={{ x: 0.83, y: 0.83 }}
+		>
+			<FadeContainer {show} {...position} {scale}>
+				<Sprite key="freeSpinCounter" {...panelSizes} />
+				<Container
+					x={panelSizes.width * 0.5}
+					y={panelSizes.height * 0.5}
+					pivot={anchorToPivot({
+						sizes: textContainerSizes,
+						anchor: { x: 0.5, y: 0.5 },
+					})}
+					scale={0.6}
+				>
+					<BitmapText
+						text={'FREE SPIN'}
+						style={fstyle}
+						onresize={(sizes) => (titleSizes = sizes)}
+					/>
+					<BitmapText
+						text={`${current} OF ${total}`}
+						{...counterPosition}
+						anchor={{ x: 0.5, y: 0 }}
+						style={fstyle2}
+						y={40}
+						onresize={(sizes) => (counterSizes = sizes)}
+					/>
+				</Container>
+			</FadeContainer>
+		</Container>
+	</MainContainer>
 {/if}

@@ -18,7 +18,7 @@
 	import _ from 'lodash';
 	import { Tween } from 'svelte/motion';
 	import { backOut } from 'svelte/easing';
-
+	import { Container } from 'pixi-svelte';
 	import { BoardContext } from 'components-shared';
 	import { waitForResolve } from 'utils-shared/wait';
 
@@ -29,6 +29,18 @@
 	import { getContext } from '../game/context';
 
 	const context = getContext();
+	    
+    	type Props = {
+		scale?: number;
+        x?: number;
+        y?: number;
+	};
+
+	const {
+		scale = 1,
+        x=0,
+        y=0,
+	}: Props = $props();
 
 	let show = $state(false);
 
@@ -132,6 +144,7 @@
 	});
 </script>
 
+<Container scale={scale} x={x} y={y}>
 {#if show}
 	<BoardContext animate={false}>
 		<BoardContainer>
@@ -146,3 +159,4 @@
 		</BoardContainer>
 	</BoardContext>
 {/if}
+</Container>
