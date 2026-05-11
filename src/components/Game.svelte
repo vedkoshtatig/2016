@@ -78,7 +78,10 @@ const spineMap = {
 		celebrate: 'Celebrate',
 		pointing: 'animation',
 	};
-
+	const isLandscape = $derived(() => {
+		const { width, height } = context.stateLayoutDerived.canvasSizes();
+		return width > height;
+	});
 </script>
 
 <App>
@@ -127,7 +130,9 @@ const spineMap = {
 		<MainContainer>
 			<MultiplierBoard />
 			<MultiplierTotal />
-			<SpineProvider
+				{#if isLandscape()}
+		
+<SpineProvider
 				key="trumpLogo"
 				x={context.stateGameDerived.boardLayout().x * 1.75}
 				y={context.stateGameDerived.boardLayout().y * 1.3}
@@ -136,6 +141,8 @@ const spineMap = {
 			>
 				<SpineTrack trackIndex={0} animationName={'Pose-01'} loop timeScale={1} />
 			</SpineProvider>
+	{/if}
+			
 		</MainContainer>
 
 		<UIDefault>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Text } from 'pixi-svelte';
 	import { WHITE } from 'constants-shared/colors';
-
+    import { stateLayoutDerived } from '../game/stateLayout';
 	import UiSprite from './UiSprite.svelte';
 	import { UI_BASE_FONT_SIZE } from '../game/constants';
 	import { bookEventHandlerMap } from '../game/bookEventHandlerMap';
@@ -21,7 +21,8 @@
 	const props: Props = $props();
 
 	const isCenter = props.align === 'center';
-
+  const isPortrait = stateLayoutDerived.layoutType();
+  
 	const labelStyle = {
 		fontFamily: 'Neuton',
 		fontSize: UI_BASE_FONT_SIZE / 1.6,
@@ -36,6 +37,7 @@
 		fill: props.textColor ?? '#0c2049',
 		fontWeight: 600,
 	} as const;
+  
 </script>
 
 {#if props.stacked}
