@@ -466,10 +466,10 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== STATIC BG ===== -->
 	<Container
-		x={layout.x *1.5}
-		y={layout.y * 0.65}
+		x={layout.x * 1.5 }
+		y={layout.y * 0.85}
 		height={layout.height}
-		scale={scaleFactor}
+		scale={scaleFactor * 1.15}
 		pivot={layout.pivot}
 	>
 		<Sprite
@@ -486,10 +486,10 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x *1.5}
+		x={layout.x * 1.5 - 60}
 		y={layout.y * 0.65}
 		height={layout.height}
-		scale={scaleFactor}
+		scale={scaleFactor * 1.15}
 		pivot={layout.pivot}
 		sortableChildren={true}
 	>

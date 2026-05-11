@@ -29,23 +29,30 @@
 	});
 	const isLoading = $derived(context.stateLayout.showLoadingScreen);
 
-const showLoadingBackground = $derived(isLoading);
+	const showLoadingBackground = $derived(isLoading);
 	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame' && !isLoading	);
 	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame'||context.stateGame.gameType === 'freeSpins');
 
+	const loadingBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['loadingBg']));
+	const baseBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['loader']));
+	const freeSpinBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['freeSpinBg']));
 </script>
 
-<Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0x000000} zIndex={-3} />
+<Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0xc8b08a} zIndex={-3} />
 
-<FadeContainer show={showLoadingBackground} duration={SECOND} zIndex={-2}>
-	<Sprite key="loadingBg" anchor={0.55} {...loadingBgProps} scale={{x:1.2,y:0.65}}/>
+<FadeContainer show={showLoadingBackground} duration={0} zIndex={-2}>
+	{#if loadingBgLoaded}
+		<Sprite key="loadingBg" anchor={0.55} {...loadingBgProps} scale={{ x: 1.2, y: 0.65 }} />
+	{/if}
 </FadeContainer>
 
 
 <FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
-	 <SpineProvider key="loader" {...backgroundProps}>
-		<SpineTrack trackIndex={0} animationName={'bg'} loop />
-	</SpineProvider>
+	{#if baseBgLoaded}
+		<SpineProvider key="loader" {...backgroundProps}>
+			<SpineTrack trackIndex={0} animationName={'bg'} loop />
+		</SpineProvider>
+	{/if}
 
 	
 </FadeContainer>
@@ -57,9 +64,7 @@ const showLoadingBackground = $derived(isLoading);
 	<SpineProvider key="foregroundFeatureAnimation" {...backgroundProps}>
 		<SpineTrack trackIndex={0} animationName={'dust'} loop />
 	</SpineProvider> -->
-	<Sprite
-	key="freeSpinBg"
-	anchor={0.5}
-	{...freeSpinBgProps}
-/>
+	{#if freeSpinBgLoaded}
+		<Sprite key="freeSpinBg" anchor={0.5} {...freeSpinBgProps} />
+	{/if}
 </FadeContainer>

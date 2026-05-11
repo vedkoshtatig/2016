@@ -78,6 +78,10 @@
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
 	});
+
+	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.5));
+	const reelRootX = $derived(() => (isLandscape() ? 0 : -370));
+	const reelRootY = $derived(() => (isLandscape() ? 0 : -60));
 </script>
 
 <App>
@@ -111,22 +115,22 @@
 		</MainContainer>
 
 		<MainContainer>
-			<Board scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
+			<Board scale={reelRootScale()} x={reelRootX()} y={reelRootY()} />
 			<Anticipations />
 			<TumbleWinAmount />
 			<GlobalMultiplier />
 		</MainContainer>
 
 		<MainContainer>
-			<TumbleBoard scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
+			<TumbleBoard scale={reelRootScale()} x={reelRootX()} y={reelRootY()} />
 			<!-- <TumbleAnticipations /> -->
-			<ClusterWinAmounts  scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
+			<ClusterWinAmounts scale={reelRootScale()} x={reelRootX()} y={reelRootY()} />
 
 			<BonusPopup />
 		</MainContainer>
 
 		<MainContainer>
-			<MultiplierBoard scale={isLandscape() ? 1 : 1.5} x={isLandscape() ? 0 : -370} y={isLandscape() ? 0 : -150}/>
+			<MultiplierBoard scale={reelRootScale()} x={reelRootX()} y={reelRootY()} />
 			<MultiplierTotal />
 			{#if isLandscape()}
 				<SpineProvider
