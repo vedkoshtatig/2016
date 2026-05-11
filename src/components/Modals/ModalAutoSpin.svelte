@@ -94,12 +94,12 @@
 }
 @media (max-width: 465px) {
 	.autoplay-popup-bg {
-		top: 25%;
-		left: 25%;
+		top: 45%;
+		left: 28%;
 		right: auto; /* 🔥 important: remove right positioning */
 		transform: translate(-50%, -50%);
 
-		scale: 0.4;
+		scale: 0.5;
 	
 		padding: 1.5rem;
 	}

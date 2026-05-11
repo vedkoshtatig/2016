@@ -98,14 +98,14 @@
 						<Container x={0} y={40}>
 							<BitmapText
 								anchor={{ x: 1, y: 0.5 }}
-								x={-10}
+								x={60}
 								text="AT COST OF"
 								style={fstyle}
 							/>
 
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
-								x={10}
+								x={80}
 								text={`$${stateBet.betAmount * 100}`}
 								style={fstyle2}
 							/>
@@ -114,9 +114,10 @@
 						
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
-							y={-190}
+							y={-180}
+							x={-10}
 							text="BUY"
-							scale={1.1}
+							scale={1.3}
 							style={fstyle}
 						/>
 						<BitmapText
@@ -141,14 +142,14 @@
 							
 <BitmapText
 								anchor={{ x: 1, y: 0.5 }}
-								x={-10}
+								x={60}
 								text="AT COST OF"
 								style={fstyle}
 							/>
 
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
-								x={10}
+								x={80}
 								text={`$${stateBet.betAmount * 500}?`}
 								style={fstyle2}
 							/>

@@ -76,7 +76,13 @@
 			void switchIntro(getNextIntro(selectedIntro));
 		}, INTRO_AUTO_MS);
 	};
-
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing:3,
+	
+		align: 'center',
+	};
 	const spinButtonLoaded = $derived.by(
 		() => !!$state.snapshot(context.stateApp.loadedAssets['spinButton']),
 	);
