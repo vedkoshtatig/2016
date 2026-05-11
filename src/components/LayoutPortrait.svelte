@@ -84,7 +84,7 @@
 					/>
 
 					<Container y={-DESKTOP_BASE_SIZE*1.2 }>
-						{@render props.amountBalance({ stacked: true })}
+						
 						<Container y={0} x={DESKTOP_BASE_SIZE * 4} scale={0.85}>
 							{@render props.amountBalance({ stacked: true })}
 						</Container>

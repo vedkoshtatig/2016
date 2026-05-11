@@ -34,6 +34,6 @@
 	stacked={props.stacked}
 	borderRadius={65}
 	labelColor="#FFFFFF"
-	fontSize={40}
+	fontSize={45}
 	align="center"
 />

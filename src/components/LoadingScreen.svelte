@@ -182,7 +182,7 @@
 				x={475}
 				y={190}
 				anchor={0.5}
-				scale={0.9}
+				scale={0.2}
 			/>
 			<!-- <Sprite
 				key="checkbox"

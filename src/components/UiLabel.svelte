@@ -22,7 +22,11 @@
 
 	const isCenter = props.align === 'center';
   const isPortrait = stateLayoutDerived.layoutType();
-  
+  const baseFontSize = props.fontSize ?? UI_BASE_FONT_SIZE * 1.8;
+  const dynamicFontSize =
+	props.value.length > 8
+		? Math.max(baseFontSize - (props.value.length - 8) * 2, baseFontSize * 0.75)
+		: baseFontSize;
 	const labelStyle = {
 		fontFamily: 'Neuton',
 		fontSize: UI_BASE_FONT_SIZE / 1.6,
@@ -31,12 +35,12 @@
 		fill: props.labelColor ?? '#5F5F68',
 	} as const;
 
-	const valueStyle = {
-		fontFamily: 'Times New Roman',
-		fontSize: props.fontSize ?? UI_BASE_FONT_SIZE*1.8,
-		fill: props.textColor ?? '#0c2049',
-		fontWeight: 600,
-	} as const;
+const valueStyle = {
+	fontFamily: 'Times New Roman',
+	fontSize: dynamicFontSize,
+	fill: props.textColor ?? '#0c2049',
+	fontWeight: 600,
+} as const;
   
 </script>
 
