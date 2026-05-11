@@ -22,7 +22,7 @@
 		const layout = stateLayoutDerived.layoutType();
 
 		if (layout === 'portrait') {
-			return active ? 'infoPortrait_active' : 'infoPortrait';
+			return active ? 'info_active' : 'info';
 		}
 
 		return active ? 'info_active' : 'info';

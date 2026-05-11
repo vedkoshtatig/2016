@@ -106,8 +106,8 @@
 		border-radius: 12px;
 		padding: 1.5rem;
 
-		width: min(600px, 92vw);
-		height: min(75vh, 700px);
+		width: min(600px, 70vw);
+		height: min(55vh, 700px);
 
 		display: flex;
 		flex-direction: column;

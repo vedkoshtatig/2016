@@ -21,7 +21,7 @@
 	const isPortrait = $derived(stateLayoutDerived.layoutType() === 'portrait');
 
 	const assetPrefix = $derived.by(() => {
-		return isPortrait ? 'turboButtonPortrait' : 'turboButton';
+		return isPortrait ? 'turboButton' : 'turboButton';
 	});
 
 	const onpress = () => {

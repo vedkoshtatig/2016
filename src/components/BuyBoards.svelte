@@ -99,7 +99,32 @@
 			void item.alpha.set(1, { duration: 120, easing: cubicOut });
 		});
 	};
+const doubleHoverScale = new Tween(1);
+const doubleHoverAlpha = new Tween(1);
 
+const onDoubleHoverEnter = () => {
+	void doubleHoverScale.set(1.04, {
+		duration: 180,
+		easing: cubicOut
+	});
+
+	void doubleHoverAlpha.set(0.92, {
+		duration: 180,
+		easing: cubicOut
+	});
+};
+
+const onDoubleHoverLeave = () => {
+	void doubleHoverScale.set(1, {
+		duration: 180,
+		easing: cubicOut
+	});
+
+	void doubleHoverAlpha.set(1, {
+		duration: 180,
+		easing: cubicOut
+	});
+};
 	const flushPendingExplodes = () => {
 		if (isClearingStack) return;
 		if (!pendingExplodes.length) return;
@@ -309,7 +334,14 @@
 	</Container>
 
 	<!-- ===== DOUBLE ===== -->
-	<Container y={25}>
+	<Container
+	y={25}
+	scale={doubleHoverScale.current}
+	alpha={doubleHoverAlpha.current}
+	interactive={true}
+	onpointerenter={onDoubleHoverEnter}
+	onpointerleave={onDoubleHoverLeave}
+>
 		<Sprite
 			key="doubleBetbg"
 			anchor={0.5}
@@ -320,6 +352,7 @@
 			scale={{ x: 0.33, y: 0.3 }}
 			zIndex={-10}
 			interactive={true}
+			cursor=pointer
 			onclick={onToggleDoubleBet}
 		/>
 		<Container

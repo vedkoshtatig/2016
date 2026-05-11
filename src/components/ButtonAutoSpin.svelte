@@ -37,7 +37,7 @@ const active = $derived(
 	if (stateModal.modal?.name === 'autoSpin') return 'autoSpinActive';
 
 	const layout = stateLayoutDerived.layoutType();
-	if (layout === 'portrait') return 'autoSpinPortrait';
+	if (layout === 'portrait') return 'autoSpin';
 	return 'autoSpin';
 });
 

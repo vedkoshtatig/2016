@@ -149,7 +149,7 @@
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
 								x={10}
-								text={`$${stateBet.betAmount * 500}`}
+								text={`$${stateBet.betAmount * 500}?`}
 								style={fstyle2}
 							/>
 						</Container>

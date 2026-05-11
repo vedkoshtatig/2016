@@ -70,6 +70,13 @@
 		scale: 0.6;
 	}
 }
+@media (max-width: 1100px) {
+	.autoplay-popup-bg {
+		top:48%;
+		left:60%;
+		scale: 0.5;
+	}
+}
 
 /* 📱 UNDER 865px (TABLET / MOBILE) */
 /* 📱 UNDER 865px (PORTRAIT / MOBILE) */
@@ -81,6 +88,18 @@
 		transform: translate(-50%, -50%);
 
 		scale: 0.9;
+	
+		padding: 1.5rem;
+	}
+}
+@media (max-width: 465px) {
+	.autoplay-popup-bg {
+		top: 25%;
+		left: 25%;
+		right: auto; /* 🔥 important: remove right positioning */
+		transform: translate(-50%, -50%);
+
+		scale: 0.4;
 	
 		padding: 1.5rem;
 	}

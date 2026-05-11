@@ -247,7 +247,7 @@
 
 						hover: 'assets/sprites/uiSlotsAssetsBespoke/musicHover.png',
 
-						active: 'assets/sprites/uiSlotsAssetsBespoke/musicHover.png',
+						active: 'assets/sprites/uiSlotsAssetsBespoke/musicOn.png',
 
 					}}
 

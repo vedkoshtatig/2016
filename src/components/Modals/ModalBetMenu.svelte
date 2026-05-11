@@ -40,12 +40,13 @@
 	.autoplay-popup-bg {
 		position: relative;
 		z-index: 200;
-
+        scale: 0.7		;
 		background-color: rgba(0, 0, 0, 0.8);
 		margin: 0;
 		padding: 2rem;
 		border-radius: 1rem;
-		backdrop-filter: blur(8px);          
+		backdrop-filter: blur(8px); 
+		         
 	-webkit-backdrop-filter: blur(8px);  
 	}
 </style>

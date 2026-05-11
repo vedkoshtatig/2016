@@ -75,6 +75,7 @@
 	.option-text.selected + * {
 		transform: scale(1.1);
 	}
+	
 	.option-text {
 		font-family: 'Inter', sans-serif;
 		font-weight: 700; // Bold
