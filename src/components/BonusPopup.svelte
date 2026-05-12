@@ -6,9 +6,15 @@
 	import { stateBet } from 'state-shared';
 	const context = getContext();
 	const { eventEmitter } = context;
+	const isLandscape = $derived(() => {
+		const { width, height } = context.stateLayoutDerived.canvasSizes();
+		return width > height;
+	});
 
-	let visible = false;
-	let show = false;
+	let visible = $state(false);
+	let show = $state(false);
+
+	
 
 	eventEmitter.subscribeOnMount({
 		openPopUp: () => {
@@ -32,14 +38,14 @@
 	const fstyle = {
 		fontFamily: 'sans-serif',
 		fontSize: 54,
-		letterSpacing:3,
+		letterSpacing: 3,
 		align: 'center',
 	};
 	const fstyle2 = {
 		fontFamily: 'sans-serif',
 		fontSize: 84,
-		letterSpacing:3,
-	
+		letterSpacing: 3,
+
 		align: 'center',
 	};
 
@@ -51,7 +57,7 @@
 </script>
 
 {#if visible}
-	<Container zIndex={9999}>
+	<Container zIndex={9999} scale={isLandscape() ? 1 : 1.5} x={isLandscape()?0:-400}>
 		<Rectangle
 			eventMode="static"
 			cursor="pointer"
@@ -80,28 +86,18 @@
 					/>
 				</SpineProvider>
 
-				<Container x={bonusPopupContentOffsetX-20} y={bonusPopupContentOffsetY}>
+				<Container x={bonusPopupContentOffsetX - 20} y={bonusPopupContentOffsetY}>
 					{#if stateBet.activeBetModeKey === 'BONUS'}
+						<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-160} text="ARE YOU SURE " style={fstyle} />
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
-							y={-160}
-							text="ARE YOU SURE "
+							y={-100}
+							text="YOU WANT TO PURCHASE"
 							style={fstyle}
 						/>
-						<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-100} text="YOU WANT TO PURCHASE" style={fstyle} />
-						<BitmapText
-							anchor={{ x: 0.5, y: 0.5 }}
-							y={-30}
-							text="10 FREE SPINS "
-							style={fstyle2}
-						/>
+						<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-30} text="10 FREE SPINS " style={fstyle2} />
 						<Container x={0} y={40}>
-							<BitmapText
-								anchor={{ x: 1, y: 0.5 }}
-								x={60}
-								text="AT COST OF"
-								style={fstyle}
-							/>
+							<BitmapText anchor={{ x: 1, y: 0.5 }} x={60} text="AT COST OF" style={fstyle} />
 
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
@@ -111,7 +107,6 @@
 							/>
 						</Container>
 					{:else if stateBet.activeBetModeKey === 'superBonus'}
-						
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							y={-180}
@@ -127,25 +122,19 @@
 							style={fstyle2}
 						/>
 						<BitmapText
-								anchor={{ x: 0.5, y: 0.5 }}
-								y={-60}
-								text="WITH ALL MULTIPLIERS"
-								style={fstyle}
-							/>
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-60}
+							text="WITH ALL MULTIPLIERS"
+							style={fstyle}
+						/>
 						<BitmapText
-								anchor={{ x: 0.5, y: 0.5 }}
-								y={-10}
-								text="BOMBS MINIMUM OF 20X"
-								style={fstyle}
-							/>
+							anchor={{ x: 0.5, y: 0.5 }}
+							y={-10}
+							text="BOMBS MINIMUM OF 20X"
+							style={fstyle}
+						/>
 						<Container x={0} y={55}>
-							
-<BitmapText
-								anchor={{ x: 1, y: 0.5 }}
-								x={60}
-								text="AT COST OF"
-								style={fstyle}
-							/>
+							<BitmapText anchor={{ x: 1, y: 0.5 }} x={60} text="AT COST OF" style={fstyle} />
 
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
@@ -155,12 +144,7 @@
 							/>
 						</Container>
 					{:else if stateBet.activeBetModeKey === 'anteBet'}
-						<BitmapText
-							anchor={{ x: 0.5, y: 0.5 }}
-							y={-160}
-							text="ARE YOU SURE "
-							style={fstyle}
-						/>
+						<BitmapText anchor={{ x: 0.5, y: 0.5 }} y={-160} text="ARE YOU SURE " style={fstyle} />
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							y={-100}
@@ -175,12 +159,7 @@
 						/>
 
 						<Container x={0} y={40}>
-							<BitmapText
-								anchor={{ x: 1, y: 0.5 }}
-								x={-10}
-								text="AT COST OF"
-								style={fstyle}
-							/>
+							<BitmapText anchor={{ x: 1, y: 0.5 }} x={-10} text="AT COST OF" style={fstyle} />
 
 							<BitmapText
 								anchor={{ x: 0, y: 0.5 }}
