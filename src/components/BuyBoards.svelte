@@ -469,7 +469,7 @@ const onDoubleHoverLeave = () => {
 	<!-- ===== STATIC BG ===== -->
 	<Container
 		x={layout.x / 1.98}
-		y={layout.y * 1.63}
+		y={layout.y * 1.61}
 		height={layout.height}
 		scale={scaleFactor}
 		pivot={layout.pivot}
@@ -481,7 +481,7 @@ const onDoubleHoverLeave = () => {
 			y={10}
 			width={layout.width * 1.2}
 			height={layout.height * 1.1}
-			scale={{ x: 0.28, y: 0.3 }}
+			scale={{ x: 0.28, y: 0.315 }}
 			zIndex={-10}
 		/>
 	</Container>
@@ -489,7 +489,7 @@ const onDoubleHoverLeave = () => {
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
 		x={layout.x / 1.98}
-		y={layout.y * 1.63}
+		y={layout.y * 1.62}
 		height={layout.height}
 		scale={scaleFactor}
 		pivot={layout.pivot}
