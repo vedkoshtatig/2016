@@ -14,7 +14,7 @@
 	import { Tween } from 'svelte/motion';
 
 	import { BitmapText } from 'pixi-svelte';
-	import { stateBetDerived } from 'state-shared';
+	import { stateBet } from 'state-shared';
 	import { SECOND } from 'constants-shared/time';
 	import { FadeContainer } from 'components-pixi';
 	import { waitForTimeout } from 'utils-shared/wait';
@@ -30,6 +30,7 @@
 	const y = new Tween(0);
 	const scale = new Tween(1);
 	let show = $state(true);
+	const animationTimeScale = () => (stateBet.isTurbo ? 2.5 : 1.5);
 	const fstyle={
 		fontFamily: 'sans-serif',
 		 fontSize: 72, align: 'center' 
@@ -38,7 +39,7 @@
 
 	// update showMultiplier
 	onMount(async () => {
-		await waitForTimeout(SECOND / stateBetDerived.timeScale());
+		await waitForTimeout(SECOND / animationTimeScale());
 		showMultiplier = false;
 	});
 
@@ -47,14 +48,14 @@
 		if (showMultiplier) {
 			await waitForTimeout(SECOND);
 			context.eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_multiplier_combine_a' });
-			await scale.set(0.1, { duration: 200 / stateBetDerived.timeScale() });
-			await scale.set(1, { duration: 200 / stateBetDerived.timeScale() });
+			await scale.set(0.1, { duration: 200 / animationTimeScale() });
+			await scale.set(1, { duration: 200 / animationTimeScale() });
 		}
 	});
 
 	// update y
 	onMount(async () => {
-		await y.set(-SYMBOL_SIZE, { duration: (SECOND * 2) / stateBetDerived.timeScale() });
+		await y.set(-SYMBOL_SIZE, { duration: (SECOND * 2) / animationTimeScale() });
 		show = false;
 	});
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { SpineProvider, SpineTrack, type SpineTrackProps } from 'pixi-svelte';
-	import { stateBetDerived } from 'state-shared';
+	import { stateBet } from 'state-shared';
 
 	import { getSymbolInfo } from '../game/utils';
 	import { SYMBOL_SIZE } from '../game/constants';
@@ -14,6 +14,8 @@
 	};
 
 	const props: Props = $props();
+
+	const animationTimeScale = () => (stateBet.isTurbo ? 2.5 : 1.5);
 </script>
 
 <SpineProvider
@@ -26,7 +28,7 @@
 		loop={props.loop}
 		trackIndex={0}
 		animationName={props.symbolInfo.animationName}
-		timeScale={stateBetDerived.timeScale()}
+		timeScale={animationTimeScale()}
 		listener={props.listener}
 	/>
 </SpineProvider>

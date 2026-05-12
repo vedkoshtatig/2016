@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { BitmapText, SpineProvider, SpineSlot, SpineTrack } from 'pixi-svelte';
 	import { waitForResolve } from 'utils-shared/wait';
-	import { stateBetDerived } from 'state-shared';
+	import { stateBet } from 'state-shared';
 
 	import { getContext } from '../game/context';
 	import { SYMBOL_SIZE } from '../game/constants';
@@ -35,6 +35,7 @@
 	let animationName = $state<Animation>('static');
 	let totalMultiplier = $state(0);
 	let oncomplete = $state(() => {});
+	const animationTimeScale = () => (stateBet.isTurbo ? 2.5 : 1.5);
 
 	context.eventEmitter.subscribeOnMount({
 		multiplierTotalShow: () => (show = true),
@@ -67,7 +68,7 @@
 			<SpineTrack
 				trackIndex={0}
 				{animationName}
-				timeScale={stateBetDerived.timeScale()}
+				timeScale={animationTimeScale()}
 				listener={{
 					complete: oncomplete,
 				}}
