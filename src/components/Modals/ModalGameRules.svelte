@@ -200,8 +200,10 @@
 
 	@media (max-width: 768px) {
 		.popup-bg {
+			position: absolute;
+			top:10%;
 			padding: 1rem;
-			height: 78vh;
+			height: 68vh;
 		}
 
 		.header h2 {

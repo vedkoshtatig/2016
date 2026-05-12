@@ -35,6 +35,7 @@
 			class="option-wrap"
 		>
 			<BaseIcon
+			className="mobile-small"
 				width="3rem"
 				height="3rem"
 				normal={hoveredOption === option || stateUi.autoSpinsText === option
@@ -99,4 +100,14 @@
 	.option-text.infinity {
 		font-size: 1.2rem;
 	}
+	:global(.mobile-small) {
+	border-radius: 4px;
+}
+
+@media (max-width: 500px) {
+	:global(.mobile-small) {
+		width: 10vw !important;
+		height: 4vh !important;
+	}
+}
 </style>

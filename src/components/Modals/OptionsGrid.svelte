@@ -74,11 +74,11 @@
 		grid-template-columns: repeat(5, 1fr);
 	}
 
-	@media (max-width: 480px) {
-		.gridLayout {
-			grid-template-columns: repeat(4, 1fr);
-		}
-	}
+	// @media (max-width: 480px) {
+	// 	.gridLayout {
+	// 		grid-template-columns: repeat(4, 1fr);
+	// 	}
+	// }
 
 	/* ✅ ROW MODE */
 	.rowLayout {
@@ -95,12 +95,12 @@
 	}
 
 	/* ✅ MINI SIZE (only meaningful for grid) */
-	.miniSize {
-		@media (max-width: 500px) {
-			grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
-		}
-		@media (max-height: 500px) {
-			grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
-		}
-	}
+	// .miniSize {
+	// 	@media (max-width: 500px) {
+	// 		grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+	// 	}
+	// 	@media (max-height: 500px) {
+	// 		grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+	// 	}
+	// }
 </style>

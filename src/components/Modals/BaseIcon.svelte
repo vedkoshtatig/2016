@@ -7,6 +7,7 @@
 		pressed?: string;
 		border?: string;
 		disabled?: boolean;
+		className?: string; 
 	};
 
 	const {
@@ -17,6 +18,7 @@
 		pressed,
 		border = 'none',
 		disabled = false,
+		className = '',
 	}: Props = $props();
 
 	let isHovered = $state(false);
@@ -31,7 +33,7 @@
 </script>
 
 <div
-	class="rectangle"
+	class={`rectangle ${className}`}
 	style={`
 		--width-value: ${width};
 		--height-value: ${height};
@@ -115,11 +117,7 @@
 		user-select: none;
 		cursor: pointer;
 	}
-	@media (max-width: 500px) {
-		.rectangle{
-			width:10vw;
-			height: 4vh;
-		}
 	
-}
+	
+
 </style>

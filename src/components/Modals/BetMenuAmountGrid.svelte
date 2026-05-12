@@ -46,6 +46,7 @@
 			on:click={confirm}
 		>
 			<BaseIcon
+			className="bet-menu-icon"
 				width="clamp(3.8rem, 10vw, 5rem)"
 	height="clamp(2rem, 4vw, 2.5rem)"
 				normal={hoveredOption === option || stateBet.betAmount === option
@@ -154,4 +155,14 @@
 			font-size: 10px;
 		}
 	}
+	:global(.bet-menu-icon) {
+	border-radius: 4px;
+}
+
+@media (max-width: 500px) {
+	:global(.bet-menu-icon) {
+		width: 10vw !important;
+		height: 4vh !important;
+	}
+}
 </style>
