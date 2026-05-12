@@ -130,7 +130,7 @@
 		</MainContainer>
 
 		<MainContainer>
-			<MultiplierBoard scale={reelRootScale()} x={reelRootX()} y={reelRootY()} />
+			<MultiplierBoard scale={reelRootScale()} x={reelRootX()} y={reelRootY()}  isLandscape={isLandscape()} />
 			<MultiplierTotal />
 			{#if isLandscape()}
 				<SpineProvider

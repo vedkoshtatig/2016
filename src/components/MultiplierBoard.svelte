@@ -26,12 +26,14 @@
 		scale?: number;
         x?: number;
         y?: number;
+		isLandscape?: boolean;
 	};
 
 	const {
 		scale = 1,
         x=0,
         y=0,
+		isLandscape = false
 	}: Props = $props();
 
 	let show = $state(false);
@@ -111,8 +113,8 @@
 					context.stateGame.multiplierBoard.map((multiplierReel) => {
 						return multiplierReel.filter(Boolean).map(async (multiplierSymbol) => {
 							const target = {
-								x: context.stateGameDerived.boardLayout().width * 0.5,
-								y: context.stateGameDerived.boardLayout().height * 0.5,
+								x: context.stateGameDerived.boardLayout().width * (isLandscape ? -0.3 : 0.8),
+								y: context.stateGameDerived.boardLayout().height * (isLandscape ? 0.45 : 1.15),
 							};
 							const tweenOptions = { duration: 500, easing: quartInOut };
 							const moveX = () => multiplierSymbol!.symbolX.set(target.x, tweenOptions);
