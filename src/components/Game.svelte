@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
+	import { stateBet } from 'state-shared';
 	import { EnablePixiExtension } from 'components-pixi';
 	import { EnableHotkey } from 'components-shared';
 	import { MainContainer } from 'components-layout';
@@ -51,14 +51,9 @@
 	const showBuyBoards = $derived(context.stateGame.gameType === 'basegame');
 	onMount(() => (context.stateLayout.showLoadingScreen = true));
 
-	context.eventEmitter.subscribeOnMount({
-		buyBonusConfirm: () => {
-			stateModal.modal = { name: 'buyBonusConfirm' };
-		},
-	});
 	type TrumpState = 'welcome' | 'idle' | 'angry' | 'celebrate' | 'pointing';
 
-	let trumpState: TrumpState = 'welcome';
+	let trumpState: TrumpState = $state('welcome');
 	const spineMap = {
 		welcome: 'trumpWelcome',
 		idle: 'trumpIdle',
@@ -78,10 +73,36 @@
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
 	});
-
 	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.5));
 	const reelRootX = $derived(() => (isLandscape() ? 0 : -370));
 	const reelRootY = $derived(() => (isLandscape() ? 0 : -30));
+	let spin = false;
+	context.eventEmitter.subscribeOnMount({
+		buyBonusConfirm: () => {
+			stateModal.modal = { name: 'buyBonusConfirm' };
+		},
+		openPopUp: () => {
+			trumpState = 'pointing';
+			console.log(trumpState);
+		},
+		closePopUp: () => {
+			trumpState = 'idle';
+			console.log(trumpState);
+		},
+		bet: () => {
+			trumpState = 'idle';
+			spin = true;
+		},
+		playAnim: () => {
+			if (stateBet.winBookEventAmount >= stateBet.betAmount) {
+				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
+				trumpState = 'celebrate';
+			} else if (stateBet.winBookEventAmount < stateBet.betAmount ) {
+				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
+				trumpState = 'angry';
+			}
+		},
+	});
 </script>
 
 <App>
@@ -108,8 +129,7 @@
 				{#if isLandscape()}
 					<BuyBoards />
 				{:else}
-				<BuyBoardsPotrait />
-					
+					<BuyBoardsPotrait />
 				{/if}
 			{/if}
 		</MainContainer>
@@ -130,17 +150,34 @@
 		</MainContainer>
 
 		<MainContainer>
-			<MultiplierBoard scale={reelRootScale()} x={reelRootX()} y={reelRootY()}  isLandscape={isLandscape()} />
+			<MultiplierBoard
+				scale={reelRootScale()}
+				x={reelRootX()}
+				y={reelRootY()}
+				isLandscape={isLandscape()}
+			/>
 			<MultiplierTotal />
 			{#if isLandscape()}
 				<SpineProvider
-					key="trumpIdle"
+					key={spineMap[trumpState]}
 					x={context.stateGameDerived.boardLayout().x * 1.8}
-					y={context.stateGameDerived.boardLayout().y * 1.3}
-					scale={{ x: 0.15, y: 0.15 }}
+					y={context.stateGameDerived.boardLayout().y * 1.25}
+					scale={{ x: 0.17, y: 0.17 }}
 					zIndex={20}
 				>
-					<SpineTrack trackIndex={0} animationName={'Simple-Ideal-Pose'} loop timeScale={1} />
+					<SpineTrack
+						trackIndex={0}
+						animationName={animationMap[trumpState]}
+						loop
+						listener={{
+							complete: () => {
+								if (trumpState != 'idle') {
+									trumpState = 'idle';
+								}
+							},
+						}}
+						timeScale={1}
+					/>
 				</SpineProvider>
 			{/if}
 		</MainContainer>

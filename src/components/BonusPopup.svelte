@@ -4,6 +4,7 @@
 	import { FadeContainer } from 'components-pixi';
 	import { Container, Rectangle, Sprite, BitmapText, SpineProvider, SpineTrack } from 'pixi-svelte';
 	import { stateBet } from 'state-shared';
+	
 	const context = getContext();
 	const { eventEmitter } = context;
 	const isLandscape = $derived(() => {
@@ -28,6 +29,7 @@
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_btn_general' });
 		visible = false;
 		show = false;
+		eventEmitter.broadcast({ type: 'closePopUp' });
 	};
 
 	const confirm = () => {
@@ -35,19 +37,19 @@
 		eventEmitter.broadcast({ type: 'bet' });
 		visible = false;
 	};
-	const fstyle = {
-		fontFamily: 'sans-serif',
-		fontSize: 54,
-		letterSpacing: 3,
-		align: 'center',
-	};
-	const fstyle2 = {
-		fontFamily: 'sans-serif',
-		fontSize: 84,
-		letterSpacing: 3,
+const fstyle = {
+	fontFamily: 'sans-serif',
+	fontSize: 54,
+	letterSpacing: 3,
+	align: 'center' as const,
+};
 
-		align: 'center',
-	};
+const fstyle2 = {
+	fontFamily: 'sans-serif',
+	fontSize: 84,
+	letterSpacing: 3,
+	align: 'center' as const,
+};
 
 	const bonusPopupOffsetX = 200;
 	const bonusPopupOffsetY = 90;
@@ -56,17 +58,17 @@
 	const bonusPopupAnimationSpeed = 2.5;
 </script>
 
-{#if visible}
+{#if visible && stateBet.activeBetModeKey !='BASE'}
 	<Container zIndex={9999} scale={isLandscape() ? 1 : 1.5} x={isLandscape()?0:-400}>
 		<Rectangle
 			eventMode="static"
 			cursor="pointer"
-			alpha={0.001}
+			alpha={0}
 			backgroundColor={0x000000}
-			width={context.stateLayoutDerived.canvasSizes().width}
-			height={context.stateLayoutDerived.canvasSizes().height}
-			x={context.stateLayoutDerived.canvasSizes().width * 0.5}
-			y={context.stateLayoutDerived.canvasSizes().height * 0.5}
+			width={isLandscape()?context.stateLayoutDerived.canvasSizes().width:context.stateLayoutDerived.canvasSizes().width*4}
+			height={isLandscape()?context.stateLayoutDerived.canvasSizes().height:context.stateLayoutDerived.canvasSizes().height*3}
+			x={isLandscape()?context.stateLayoutDerived.canvasSizes().width * 0.5:context.stateLayoutDerived.canvasSizes().width*1 }
+			y={isLandscape()?context.stateLayoutDerived.canvasSizes().height * 0.5:context.stateLayoutDerived.canvasSizes().height *0.3}
 			anchor={0.5}
 			onpointertap={close}
 		/>

@@ -249,7 +249,8 @@ const onDoubleHoverLeave = () => {
 			x={0}
 			y={5}
 			interactive={true}
-			onclick={() => (stateBet.activeBetModeKey = 'BONUS')}
+			eventMode='static'
+			onpointertap={() => (stateBet.activeBetModeKey = 'BONUS')}
 			scale={1.5}
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
@@ -300,7 +301,8 @@ const onDoubleHoverLeave = () => {
 			x={180}
 			y={5}
 			interactive={true}
-			onclick={() => (stateBet.activeBetModeKey = 'superBonus')}
+			eventmode='static'
+			onpointertap={() => (stateBet.activeBetModeKey = 'superBonus')}
 			scale={1.5}
 			
 		>
