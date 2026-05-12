@@ -432,7 +432,7 @@
 				y={loadingBarPosition.y}
 				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
 			>
-				<SpineTrack trackIndex={0} animationName="animation" loop />
+				<SpineTrack trackIndex={0} animationName="animation" loop={false} />
 			</SpineProvider>
 		</MainContainer>
 	{/if}
