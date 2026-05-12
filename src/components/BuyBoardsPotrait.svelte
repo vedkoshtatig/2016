@@ -104,11 +104,11 @@
 			void item.alpha.set(1, { duration: 120, easing: cubicOut });
 		});
 	};
-const doubleHoverScale = new Tween(1.2);
+const doubleHoverScale = new Tween(1.1);
 const doubleHoverAlpha = new Tween(1);
 
 const onDoubleHoverEnter = () => {
-	void doubleHoverScale.set(1.24, {
+	void doubleHoverScale.set(1.2, {
 		duration: 180,
 		easing: cubicOut
 	});
@@ -120,7 +120,7 @@ const onDoubleHoverEnter = () => {
 };
 
 const onDoubleHoverLeave = () => {
-	void doubleHoverScale.set(1.2, {
+	void doubleHoverScale.set(1.1, {
 		duration: 180,
 		easing: cubicOut
 	});
@@ -220,28 +220,28 @@ const onDoubleHoverLeave = () => {
 
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
-	x={layout.x}
-	y={layout.y * 0.03}
+	x={layout.x-5}
+	y={layout.y * 0.3}
 	height={layout.height}
-	scale={scaleFactor * 1.1}
+	scale={{ x: scaleFactor * 1.4, y: scaleFactor * 1.4 }}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
-	<Container x={-70}>
+	<Container x={20} scale={{ x: 1, y: 1.4 }}>
 		<Sprite
 			key="buyFreeSpinBg"
 			anchor={0.5}
-			x={95}
-			y={1}
+			x={90}
+			y={5}
 			width={layout.width * 1.1}
 			height={layout.height * 1.1}
-			scale={{ x: 0.98, y: 0.26 }}
+			scale={{ x: 0.92, y: 0.25 }}
 			zIndex={-10}
 		/>
 
 		<Container
 			x={0}
-			y={0}
+			y={5}
 			interactive={true}
 			onclick={() => (stateBet.activeBetModeKey = 'BONUS')}
 			scale={1.5}
@@ -291,8 +291,8 @@ const onDoubleHoverLeave = () => {
 		</Container>
 
 		<Container
-			x={190}
-			y={0}
+			x={180}
+			y={5}
 			interactive={true}
 			onclick={() => (stateBet.activeBetModeKey = 'superBonus')}
 			scale={1.5}
@@ -343,15 +343,16 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== DOUBLE ===== -->
 	<Container
-	x={layout.x / 1.6}
-	y={-175}
+	x={layout.x / 1.64}
+	y={-220}
 	scale={doubleHoverScale.current}
 	alpha={doubleHoverAlpha.current}
 	interactive={true}
 	onpointerenter={onDoubleHoverEnter}
 	onpointerleave={onDoubleHoverLeave}
 >
-		<Sprite
+		<Container scale={{ x: 1, y: 1.4 }} >
+			<Sprite
 			key="doubleBetbg"
 			anchor={0.5}
 			x={0}
@@ -461,12 +462,13 @@ const onDoubleHoverLeave = () => {
 					{/if}
 				</Container>
 			</Container>
+		</Container> 
 		</Container>
 	</Container>
 
 	<!-- ===== STATIC BG ===== -->
 	<Container
-		x={layout.x * 1.5 }
+		x={layout.x * 1.45 }
 		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.15}
@@ -486,15 +488,15 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x * 1.5 - 60}
-		y={layout.y * 0.65}
+		x={layout.x * 1.5 }
+		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.15}
 		pivot={layout.pivot}
 		sortableChildren={true}
 	>
 		<!-- MASK -->
-		<Rectangle isMask x={-48} y={-65} width={layout.width * 0.16} height={layout.height * 0.27} />
+		<Rectangle isMask x={-48} y={-58} width={layout.width * 0.16} height={layout.height * 0.26} />
 
 		<!-- <Sprite key="Leaderboard" anchor={0.5} x={0} y={0} scale={{ x: 0.3, y: 0.33 }} zIndex={-10} /> -->
 

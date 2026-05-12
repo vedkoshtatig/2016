@@ -1,11 +1,11 @@
 <script lang="ts">
 	import OptionsGrid from './OptionsGrid.svelte';
 	import { getContextLayout } from 'utils-layout';
-	import { stateBet, stateConfig } from 'state-shared';
+	import { stateBet, stateConfig, stateModal } from 'state-shared';
 
 	import BaseIcon from './BaseIcon.svelte';
 	import BaseButtonContent from './BaseButtonContent.svelte';
-	import { stateModal } from 'state-shared';
+
 	const { stateLayoutDerived } = getContextLayout();
 
 	stateConfig.betMenuOptions = [
@@ -14,21 +14,21 @@
 		750, 800, 850, 900, 950, 1000,
 	];
 
-	const count = $derived(stateLayoutDerived.layoutType() === 'landscape' ? 15 : 18);
+	const isMobile = $derived(['portrait', 'mobile'].includes(stateLayoutDerived.layoutType()));
+
+	/* ✅ fewer rows on mobile */
+	const count = $derived(isMobile ? 9 : 15);
+
 	const confirm = () => {
 		stateModal.modal = null;
 	};
 
 	const options = $derived(
-		[
-			...stateConfig.betMenuOptions
-		].filter((value, index, array) => array.indexOf(value) === index),
+		[...stateConfig.betMenuOptions].filter((value, index, array) => array.indexOf(value) === index),
 	);
 
-	// ✅ hover state (same as toggle)
 	let hoveredOption = $state<number | null>(null);
 
-	// ✅ clean format (no K/M, no MAX)
 	const formatValue = (value: number) => value.toFixed(2);
 </script>
 
@@ -46,22 +46,25 @@
 			on:click={confirm}
 		>
 			<BaseIcon
-				width="5rem"
-				height="2.5rem"
+				width="clamp(3.8rem, 10vw, 5rem)"
+	height="clamp(2rem, 4vw, 2.5rem)"
 				normal={hoveredOption === option || stateBet.betAmount === option
 					? 'assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png'
 					: 'assets/sprites/uiSlotsAssetsBespoke/betModalAmountBg.png'}
 				hover="assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
 				pressed="assets/sprites/uiSlotsAssetsBespoke/betModalAmountBgDown.png"
 			/>
+
 			<BaseButtonContent>
-				<span
-					class="option-text"
-					class:hovered={hoveredOption === option}
-					class:selected={stateBet.betAmount === option}
-				>
-					{formatValue(option)}$
-				</span>
+				<div class="text-padding">
+					<span
+						class="option-text"
+						class:hovered={hoveredOption === option}
+						class:selected={stateBet.betAmount === option}
+					>
+						{formatValue(option)}$
+					</span>
+				</div>
 			</BaseButtonContent>
 		</div>
 	{/snippet}
@@ -70,33 +73,85 @@
 <style lang="scss">
 	.option-wrap {
 		position: relative;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: 6px;
+
+		margin-top: 4px;
+
+		min-width: 0;
+		min-height: 0;
+
+		transition: transform 0.15s ease;
 	}
 
-	/* TEXT STYLE */
-	.option-text {
-		font-family: 'Inter', sans-serif;
-		font-weight: 700;
-		font-size: 16px;
-		letter-spacing: 1px;
-
-		color: #ffffff;
-		text-align: center;
-
-		transition: color 0.15s ease;
+	.option-wrap:hover {
+		transform: translateY(-1px);
 	}
 
-	/* 🔥 hover + selected = yellow */
+	.text-padding {
+		padding-inline: 0.45rem;
+		padding-block: 0.15rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 100%;
+		height: 100%;
+
+		box-sizing: border-box;
+	}
+
+.option-text {
+	font-family: 'Inter', sans-serif;
+	font-weight: 700;
+
+	font-size: clamp(9px, 1.6vw, 16px);
+
+	line-height: 1;
+
+	letter-spacing: 0.3px;
+
+	color: #ffffff;
+
+	text-align: center;
+
+	transition: color 0.15s ease;
+
+	white-space: nowrap;
+}
+
 	.option-text.hovered,
 	.option-text.selected {
 		color: #ffd54a;
 	}
 
-	/* optional micro interaction */
-	.option-wrap:hover {
-		transform: translateY(-1px);
+	/* 📱 MOBILE */
+	@media (max-width: 768px) {
+		.option-wrap {
+			margin-top: 2px;
+		}
+
+		.text-padding {
+			padding-inline: 0.35rem;
+		}
+
+		.option-text {
+			font-size: 11px;
+			letter-spacing: 0;
+		}
+	}
+
+	/* 📱 VERY SMALL DEVICES */
+	@media (max-width: 480px) {
+		.text-padding {
+			padding-inline: 0.25rem;
+		}
+
+		.option-text {
+			font-size: 10px;
+		}
 	}
 </style>
