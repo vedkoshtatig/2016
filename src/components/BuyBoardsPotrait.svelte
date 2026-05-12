@@ -31,7 +31,13 @@
 
 	const ITEM_SPACING = 22;
 	const STACK_BASE_Y = 60;
-		const fstyle = {
+	
+	const getTargetY = (index: number, length: number) => {
+		const effectiveLength = Math.min(length, 6);
+		return STACK_BASE_Y - (effectiveLength - 1) * ITEM_SPACING + index * ITEM_SPACING;
+	};
+
+	const fstyle = {
 		fontFamily: 'sans-serif',
 		fontSize: 14,
 
@@ -88,7 +94,7 @@
 
 		explosionStack.forEach((item, index) => {
 			if (tick !== animateStackTick) return;
-			const targetY = STACK_BASE_Y - (explosionStack.length - 1 - index) * ITEM_SPACING;
+			const targetY = getTargetY(index, explosionStack.length);
 			if (newItemId !== undefined && item.id === newItemId) {
 				setTimeout(() => {
 					if (tick !== animateStackTick) return;
@@ -138,7 +144,7 @@ const onDoubleHoverLeave = () => {
 		if (!next) return;
 
 		const nextStackLength = explosionStack.length + 1;
-		const newItemTargetY = STACK_BASE_Y - (nextStackLength - 1) * ITEM_SPACING;
+		const newItemTargetY = getTargetY(0, nextStackLength);
 		const newItem: ExplosionStackItem = {
 			id: nextExplosionStackId++,
 			symbol: next.symbol,
@@ -193,7 +199,7 @@ const onDoubleHoverLeave = () => {
 				return;
 			}
 			const nextStackLength = explosionStack.length + 1;
-			const newItemTargetY = STACK_BASE_Y - (nextStackLength - 1) * ITEM_SPACING;
+			const newItemTargetY = getTargetY(0, nextStackLength);
 			const newItem: ExplosionStackItem = {
 				id: nextExplosionStackId++,
 				symbol: data.symbol,
