@@ -34,6 +34,17 @@
 		['portrait', 'tablet'].includes(context.stateLayoutDerived.layoutType()),
 	);
 	const mainLayout = $derived.by(() => context.stateLayoutDerived.mainLayout());
+	const canvasSizes = $derived.by(() => context.stateLayoutDerived.canvasSizes());
+	const allAssetsLoaded = $derived.by(() => context.stateApp.loaded);
+	const forceShowLoaderOverlay = $derived.by(() => {
+		if (typeof window === 'undefined') return false;
+		return new URLSearchParams(window.location.search).get('showLoader') === '1';
+	});
+	const loadingBarPosition = $derived.by(() => ({
+		x: Math.round(mainLayout.width * 0.5),
+		y: Math.round(mainLayout.height * 0.5),
+		scale: 0.51875,
+	}));
 
 	const MOBILE_ROOT = { x: 500, y: 400, scale: 2 };
 	const MOBILE_SPIN_ROOT = { x: 735, y: 634, scale: 2.4 };
@@ -68,6 +79,9 @@
 	const introStateDisabledLoaded = $derived.by(
 		() => !!$state.snapshot(context.stateApp.loadedAssets['introStateDisabled']),
 	);
+	const gameloaderBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['gameloaderBg']));
+	const bgLoadingMobileLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['bgLoadingMobile']));
+	const loadingBarLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['LoadingScreen']));
 
 	const introRootPosition = $derived.by(() =>
 		isPortraitLike
@@ -389,4 +403,37 @@
 			/>
 		</Container>
 	</MainContainer>
+</FadeContainer>
+
+<FadeContainer
+	show={loadingType === 'start' && (!allAssetsLoaded || forceShowLoaderOverlay)}
+	duration={0}
+	persistent
+	zIndex={999999}
+>
+	{#if isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded}
+		<Sprite
+			label="GameLoaderBackground"
+			key={isPortraitLike ? 'bgLoadingMobile' : 'gameloaderBg'}
+			anchor={0.5}
+			x={canvasSizes.width * 0.5}
+			y={canvasSizes.height * 0.5}
+			width={canvasSizes.width}
+			height={canvasSizes.height}
+		/>
+	{/if}
+	{#if loadingBarLoaded}
+		<MainContainer>
+			<SpineProvider
+				label="LoadingBar"
+				key="LoadingScreen"
+				anchor={0.5}
+				x={loadingBarPosition.x}
+				y={loadingBarPosition.y}
+				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
+			>
+				<SpineTrack trackIndex={0} animationName="animation" loop />
+			</SpineProvider>
+		</MainContainer>
+	{/if}
 </FadeContainer>

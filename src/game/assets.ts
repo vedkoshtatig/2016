@@ -290,6 +290,25 @@ export default {
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/loading_bg.png', import.meta.url).href,
 		preload: true,
 	},
+	gameloaderBg: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/gameloaderBg.png', import.meta.url).href,
+		preload: true,
+	},
+	bgLoadingMobile: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/bgLoadingMobile.png', import.meta.url).href,
+		preload: true,
+	},
+	LoadingScreen: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/loaderBar/LoadingScreen.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/loaderBar/LoadingScreen.json', import.meta.url).href,
+			scale: 1,
+		},
+		preload: true,
+	},
 	autoSpinButton: {
 		type: 'sprite',
 		src: new URL('../../assets/sprites/uiSlotsAssetsBespoke/Autoplay.png', import.meta.url)
