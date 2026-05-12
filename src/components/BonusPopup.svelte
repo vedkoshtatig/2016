@@ -80,7 +80,7 @@
 					/>
 				</SpineProvider>
 
-				<Container x={bonusPopupContentOffsetX} y={bonusPopupContentOffsetY}>
+				<Container x={bonusPopupContentOffsetX-20} y={bonusPopupContentOffsetY}>
 					{#if stateBet.activeBetModeKey === 'BONUS'}
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
@@ -135,7 +135,7 @@
 						<BitmapText
 								anchor={{ x: 0.5, y: 0.5 }}
 								y={-10}
-								text="MINIMUM OF 20X"
+								text="BOMBS MINIMUM OF 20X"
 								style={fstyle}
 							/>
 						<Container x={0} y={55}>

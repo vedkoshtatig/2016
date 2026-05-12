@@ -81,7 +81,7 @@
 
 	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.5));
 	const reelRootX = $derived(() => (isLandscape() ? 0 : -370));
-	const reelRootY = $derived(() => (isLandscape() ? 0 : 10));
+	const reelRootY = $derived(() => (isLandscape() ? 0 : -30));
 </script>
 
 <App>

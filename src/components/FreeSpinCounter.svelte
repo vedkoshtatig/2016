@@ -45,13 +45,13 @@
 			SYMBOL_SIZE *-0.9,
 		y:
 			context.stateGameDerived.boardLayout().y -
-			context.stateGameDerived.boardLayout().height * -0.9,
+			context.stateGameDerived.boardLayout().height * -1,
 	});
 
 	const position = $derived(
 		context.stateLayoutDerived.isStacked() ? portraitPosition : desktopPosition,
 	);
-	const scale = $derived(context.stateLayoutDerived.isStacked() ? 2 : 1);
+	const scale = $derived(context.stateLayoutDerived.isStacked() ? 1.4 : 1);
 
 	const fontSize = SYMBOL_SIZE * 0.275;
 

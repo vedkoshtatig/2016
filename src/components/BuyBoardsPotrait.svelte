@@ -494,7 +494,7 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x * 1.5 }
+		x={layout.x * 1.45 }
 		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.15}
