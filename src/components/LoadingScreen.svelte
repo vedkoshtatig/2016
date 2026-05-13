@@ -42,7 +42,7 @@
 	});
 	const loadingBarPosition = $derived.by(() => ({
 		x: Math.round(mainLayout.width * 0.5),
-		y: Math.round(mainLayout.height * 0.5),
+		y: Math.round(mainLayout.height * 0.5) + 170,
 		scale: 0.51875,
 	}));
 
@@ -427,7 +427,6 @@
 			<SpineProvider
 				label="LoadingBar"
 				key="LoadingScreen"
-				anchor={0.5}
 				x={loadingBarPosition.x}
 				y={loadingBarPosition.y}
 				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
