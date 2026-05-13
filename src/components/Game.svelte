@@ -49,7 +49,21 @@
 
 	const context = getContext();
 	const showBuyBoards = $derived(context.stateGame.gameType === 'basegame');
-	onMount(() => (context.stateLayout.showLoadingScreen = true));
+	onMount(() => {
+	context.stateLayout.showLoadingScreen = true;
+
+	// remove startup html loader once svelte app is ready
+	const loader = document.getElementById('startup-loader');
+
+	if (loader) {
+		loader.style.transition = 'opacity 0.4s ease';
+		loader.style.opacity = '0';
+
+		setTimeout(() => {
+			loader.remove();
+		}, 400);
+	}
+});
 
 	type TrumpState = 'welcome' | 'idle' | 'angry' | 'celebrate' | 'pointing';
 
@@ -98,15 +112,16 @@
 			if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount))>= stateBet.betAmount) {
 				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
 				trumpState = 'celebrate';
-			} else if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount)) < stateBet.betAmount ) {
-				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
-				trumpState = 'angry';
-			}
+			} 
+			// else if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount)) < stateBet.betAmount ) {
+			// 	console.log(stateBet.winBookEventAmount, stateBet.betAmount);
+			// 	trumpState = 'angry';
+			// }
 		},
 	});
 </script>
 
-<App>
+<App >
 	<EnableSound />
 	<EnableHotkey />
 	<EnableGameActor />

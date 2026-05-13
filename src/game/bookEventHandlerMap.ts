@@ -9,7 +9,9 @@ import { winLevelMap, type WinLevel, type WinLevelData } from './winLevelMap';
 import { stateGame, stateGameDerived } from './stateGame.svelte';
 import type { BookEvent, BookEventOfType, BookEventContext } from './typesBookEvent';
 import type { Position } from './types';
+import { bookEventAmountToNormalisedAmount } from 'utils-shared/amount';
 let lastWinInfo: BookEventOfType<'winInfo'> | null = null;
+let lastFreeSpinWinLevelData: WinLevelData | null = null;
 
 const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) => {
 	if (winLevelData?.alias === 'max') eventEmitter.broadcastAsync({ type: 'uiHide' });
@@ -249,22 +251,16 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 			console.warn('0 not acceptabele')
 			bookEvent.winLevel=1
 		}
-		const winLevelData = winLevelMap[bookEvent.winLevel as WinLevel];
 
+		const winLevelData = winLevelMap[(bookEvent.winLevel as WinLevel)];
+		if(bookEvent.winLevel>5){
+		lastFreeSpinWinLevelData=winLevelData}
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
 		stateGame.gameType = 'basegame';
 		eventEmitter.broadcast({ type: 'boardFrameGlowHide' });
 		eventEmitter.broadcast({ type: 'globalMultiplierHide' });
 		eventEmitter.broadcast({ type: 'freeSpinOutroShow' });
-		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_youwon_panel' });
-		winLevelSoundsPlay({ winLevelData });
-		await eventEmitter.broadcastAsync({
-			type: 'freeSpinOutroCountUp',
-			amount: bookEvent.amount,
-			winLevelData,
-		});
-		winLevelSoundsStop();
-		eventEmitter.broadcast({ type: 'freeSpinOutroHide' });
+	
 		eventEmitter.broadcast({ type: 'freeSpinCounterHide' });
 		eventEmitter.broadcast({ type: 'globalMultiplierHide' });
 		eventEmitter.broadcast({ type: 'tumbleWinAmountHide' });
@@ -307,7 +303,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 
 	setWin: async (bookEvent: BookEventOfType<'setWin'>) => {
 		
-		if(stateGame.gameType=='freeSpins'||'freegame')return
+		if(bookEvent.winLevel<6)return
 		const winLevelData = winLevelMap[bookEvent.winLevel as WinLevel];
 		console.log('hello',stateGame.gameType)
 
@@ -322,6 +318,50 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		eventEmitter.broadcast({ type: 'winHide' });
 	},
 	finalWin: async (bookEvent: BookEventOfType<'finalWin'>) => {
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_youwon_panel' });
+		
+		// let amount=bookEventAmountToNormalisedAmount(bookEvent.amount)
+	
+		// console.log(amount/stateBet.betAmount)
+			
+		// if(amount/stateBet.betAmount===2){
+		// 	lastFreeSpinWinLevelData=winLevelMap[6]
+		// }else if(amount/stateBet.betAmount>2&&amount/stateBet.betAmount<=5){
+		// 	lastFreeSpinWinLevelData=winLevelMap[7]
+		// }else if(amount/stateBet.betAmount>5&&amount/stateBet.betAmount<=10){
+		// 	lastFreeSpinWinLevelData=winLevelMap[8]
+		// }else if(amount/stateBet.betAmount>10&&amount/stateBet.betAmount<=15){
+		// 	lastFreeSpinWinLevelData=winLevelMap[9]
+		// }else if(amount/stateBet.betAmount>15){
+		// 	lastFreeSpinWinLevelData=winLevelMap[10]
+		// }
+		if (!lastFreeSpinWinLevelData) return;
+		
+		eventEmitter.broadcast({ type: 'winShow' });
+		winLevelSoundsPlay({ winLevelData:lastFreeSpinWinLevelData });
+		await eventEmitter.broadcastAsync({
+			type: 'winUpdate',
+			amount: bookEvent.amount,
+			winLevelData:lastFreeSpinWinLevelData,
+		});
+		winLevelSoundsStop();
+		eventEmitter.broadcast({ type: 'winHide' });
+
+
+
+		winLevelSoundsPlay({ winLevelData:lastFreeSpinWinLevelData });
+		await eventEmitter.broadcastAsync({
+			type: 'freeSpinOutroCountUp',
+			amount: bookEvent.amount,
+			winLevelData:lastFreeSpinWinLevelData,
+		});
+		winLevelSoundsStop();
+		lastFreeSpinWinLevelData=null
+
+
+		
+
+		eventEmitter.broadcast({ type: 'freeSpinOutroHide' });
 		eventEmitter.broadcast({ type: 'globalMultiplierHide' });
 		eventEmitter.broadcast({ type: 'tumbleWinAmountHide' });
 	},

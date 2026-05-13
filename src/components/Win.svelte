@@ -22,6 +22,19 @@
 
 	const context = getContext();
 
+	const fstyle = {
+		fontFamily: 'sans',
+		fontSize: 80,
+		
+	};
+
+	const fstyle2 = {
+		fontFamily: 'sans-serif',
+		fontSize: 84,
+		letterSpacing: 3,
+		align: 'center' as const,
+	};
+
 	let show = $state(false);
 	let amount = $state(0);
 	let winLevelData = $state<WinLevelData>();
@@ -36,10 +49,9 @@
 		countUpResolved = false;
 
 		return new Promise<void>((resolve) => {
-			console.warn(resolve,"  -> ")
+			console.warn(resolve, '  -> ');
 			resolveWinUpdate = resolve;
-			console.warn(resolveWinUpdate,"  -> ")
-			
+			console.warn(resolveWinUpdate, '  -> ');
 
 			// 🔥 SAFETY NET: prevents freeze forever
 			// setTimeout(() => {
@@ -73,7 +85,6 @@
 
 		<WinCountUpProvider {amount} {duration}>
 			{#snippet children({ countUpAmount, startCountUp, finishCountUp, countUpCompleted })}
-
 				{#if isBigWin}
 					<CanvasSizeRectangle backgroundColor={0x000000} backgroundAlpha={0.5} />
 				{/if}
@@ -109,15 +120,10 @@
 							<Container zIndex={1}>
 								<ResponsiveBitmapText
 									anchor={0.5}
-									y={SYMBOL_SIZE * 1.8}
+									y={SYMBOL_SIZE * 1.3}
 									maxWidth={2130}
 									text={bookEventAmountToCurrencyString(countUpAmount)}
-									style={{
-										fontFamily: 'gold',
-										fontSize: SYMBOL_SIZE * 1.2,
-										align: 'center',
-										fontWeight: 'bold',
-									}}
+									style={fstyle}
 								/>
 							</Container>
 						{:else}
@@ -126,12 +132,7 @@
 								maxWidth={context.stateLayoutDerived.canvasSizes().width /
 									context.stateLayoutDerived.mainLayout().scale}
 								text={bookEventAmountToCurrencyString(countUpAmount)}
-								style={{
-									fontFamily: 'gold',
-									fontSize: SYMBOL_SIZE,
-									align: 'center',
-									fontWeight: 'bold',
-								}}
+								style={fstyle}
 							/>
 						{/if}
 					</Container>

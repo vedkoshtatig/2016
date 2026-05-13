@@ -1,7 +1,7 @@
 import { SECOND } from 'constants-shared/time';
 
 export const winLevelMap = {
-		0: {
+	0: {
 		level: 1,
 		alias: 'zero',
 		type: 'small',
@@ -71,7 +71,7 @@ export const winLevelMap = {
 		text: 'SUPER WIN',
 		presentDuration: 18 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_superwin' },
-		animation: { intro: 'sensational_intro', idle: 'sensational_loop', outro: 'sensational_outro' },
+		animation: { intro: 'sensetional_intro', idle: 'sensetional_loop', outro: 'sensetional_outro' },
 	},
 	8: {
 		level: 8,

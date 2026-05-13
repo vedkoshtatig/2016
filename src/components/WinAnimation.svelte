@@ -11,12 +11,12 @@
 		animationMap: {
 			intro:
 				| 'nice_intro'
-				| 'sensational_intro'
+				| 'sensetional_intro'
 				| 'super_intro'
 				| 'congratulation_intro'
 				| 'congratulation_intro';
-			idle: 'nice_loop' | 'sensational_loop' | 'super_loop' | 'congratulation_loop' | 'congratulation_loop';
-			outro: 'nice_outro' | 'sensational_outro' | 'super_outro' | 'congratulation_outro' | 'congratulation_outro';
+			idle: 'nice_loop' | 'sensetional_loop' | 'super_loop' | 'congratulation_loop' | 'congratulation_loop';
+			outro: 'nice_outro' | 'sensetional_outro' | 'super_outro' | 'congratulation_outro' | 'congratulation_outro';
 		};
 		children?: Snippet;
 	};
