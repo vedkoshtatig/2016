@@ -10,7 +10,7 @@
 	import { UI, UiGameName } from 'components-ui-pixi';
 	import { GameVersion, Modals } from 'components-ui-html';
 	import MyModals from './Modals/MyModals.svelte';
-
+	import { bookEventAmountToNormalisedAmount } from 'utils-shared/amount';
 	import { getContext } from '../game/context';
 	import EnableSound from './EnableSound.svelte';
 	import EnableGameActor from './EnableGameActor.svelte';
@@ -94,10 +94,11 @@
 			spin = true;
 		},
 		playAnim: () => {
-			if (stateBet.winBookEventAmount >= stateBet.betAmount) {
+			console.log(bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount),stateBet.betAmount)
+			if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount))>= stateBet.betAmount) {
 				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
 				trumpState = 'celebrate';
-			} else if (stateBet.winBookEventAmount < stateBet.betAmount ) {
+			} else if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount)) < stateBet.betAmount ) {
 				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
 				trumpState = 'angry';
 			}
