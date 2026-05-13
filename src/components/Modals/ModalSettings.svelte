@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { assets } from '$app/paths';
     import { zIndex } from 'constants-shared/zIndex';
     import Popup from './Popup.svelte';
     import { stateBet, stateBetDerived, stateConfig, stateModal, stateSound } from 'state-shared';
@@ -18,6 +19,7 @@
     } from '../../game/constants';
 
     const { stateLayoutDerived } = getContextLayout();
+    const menuBgUrl = `${assets}/assets/sprites/uiSlotsAssetsBespoke/MenuBg.png`;
 
     const isMobileMenu = $derived(['portrait', 'tablet'].includes(stateLayoutDerived.layoutType()));
     const isDesktopMenu = $derived(stateLayoutDerived.layoutType() === 'desktop');
@@ -85,7 +87,7 @@
 
 			class:desktop-anchor={isDesktopMenu}
 
-			style={menuAnchor ? `--menu-anchor-x: ${menuAnchor.x}px; --menu-anchor-y: ${menuAnchor.y}px;` : undefined}
+			style={`--settings-menu-bg-url: url('${menuBgUrl}');${menuAnchor ? ` --menu-anchor-x: ${menuAnchor.x}px; --menu-anchor-y: ${menuAnchor.y}px;` : ''}`}
 
 		>
 
@@ -343,7 +345,7 @@
 
     .wrap.mobile-menu .tile {
         background-color: transparent;
-        background-image: url('/assets/sprites/uiSlotsAssetsBespoke/MenuBg.png');
+        background-image: var(--settings-menu-bg-url);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;

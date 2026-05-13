@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { assets } from '$app/paths';
 	import Popup from './Popup.svelte';
 	import { zIndex } from 'constants-shared/zIndex';
 	import { stateModal } from 'state-shared';
@@ -7,6 +8,7 @@
 
 	const { stateLayoutDerived } = getContextLayout();
 	const isMobileMenu = $derived(['portrait', 'tablet'].includes(stateLayoutDerived.layoutType()));
+	const symbolSpritesheetUrl = `${assets}/assets/sprites/symbolsStatic/spritesheet.png`;
 
 	const close = () => (stateModal.modal = null);
 
@@ -115,7 +117,11 @@
 
 {#if stateModal.modal?.name === 'gameRules'}
 	<Popup zIndex={zIndex.modal} onclose={close}>
-		<div class="popup-bg" class:mobile-menu={isMobileMenu}>
+		<div
+			class="popup-bg"
+			class:mobile-menu={isMobileMenu}
+			style={`--symbol-spritesheet-url: url('${symbolSpritesheetUrl}');`}
+		>
 			<!-- HEADER -->
 			<div class="header">
 				<h2>{activePage.title}</h2>
@@ -503,7 +509,7 @@
 		--scale: calc(var(--iconSize) / 150px);
 		width: var(--iconSize);
 		height: var(--iconSize);
-		background-image: url('/assets/sprites/symbolsStatic/spritesheet.png');
+		background-image: var(--symbol-spritesheet-url);
 		background-repeat: no-repeat;
 		background-size: calc(600px * var(--scale)) calc(450px * var(--scale));
 		background-position: calc(var(--sx) * var(--scale) * -1) calc(var(--sy) * var(--scale) * -1);
