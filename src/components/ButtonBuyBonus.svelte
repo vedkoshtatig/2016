@@ -9,29 +9,34 @@
 	import { i18nDerived } from '../i18n/i18nDerived';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
-	const { stateXstateDerived, eventEmitter } = getContext();
+
+	const { stateXstateDerived, eventEmitter, stateLayoutDerived } = getContext();
+
 	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
+
 	const disabled = $derived(!stateXstateDerived.isIdle());
+
 	const active = $derived(stateBetDerived.activeBetMode()?.type === 'activate');
 
+	/* PORTRAIT CHECK */
+	const isLandscape = $derived(() => {
+		const { width, height } = context.stateLayoutDerived.canvasSizes();
+		return width > height;
+	});
+	const context = getContext();
 	const openModal = () => (stateModal.modal = { name: 'buyBonus' });
+
 	const disableActiveBetMode = () => (stateBet.activeBetModeKey = 'BASE');
+
 	const onpress = () => {
 		eventEmitter.broadcast({ type: 'soundPressGeneral' });
 
 		if (active) {
 			disableActiveBetMode();
 		} else {
-			//openModal()
 			eventEmitter.broadcast({ type: 'openPopUp' });
 		}
 	};
-	// onclick={() => {
-	// 					stateBonus.selectedBetModeKey = betModeData.mode;
-	// 					console.log(betModeData.mode);
-	// 					eventEmitter.broadcast({ type: 'buyBonusConfirm' });
-	// 					eventEmitter.broadcast({ type: 'soundPressGeneral' });
-	// 				}}
 
 	const getState = (value: {
 		active: boolean;
@@ -45,6 +50,14 @@
 		if (value.active) return 'normal' as const;
 		return 'default' as const;
 	};
+
+	/* DIFFERENT ASSET KEYS */
+	const getAssetKey = (state: string) => {
+		if (isLandscape()) {
+			return state === 'default' ? 'buyFreeSpinButton' : `buyFreeSpinButton_${state}`;
+		}
+		return state === 'default' ? 'Box_01' : `Box_01`;
+	};
 </script>
 
 <Button {...props} {sizes} {disabled} {onpress}>
@@ -57,45 +70,11 @@
 		})}
 
 		<UiSprite
-			assetKey={state === 'default' ? 'buyFreeSpinButton' : `buyFreeSpinButton_${state}`}
+			assetKey={getAssetKey(state)}
 			{...center}
 			anchor={0.5}
 			width={sizes.width}
 			height={sizes.height}
 		/>
-
-		<!-- <UiSprite
-			key="buyBonus"
-			{...center}
-			anchor={0.5}
-			width={sizes.width}
-			height={sizes.height}
-			{...disabled
-				? {
-						backgroundColor: 0xaaaaaa,
-					}
-				: {}}
-			{...active
-				? {
-						borderWidth: 10,
-						borderColor: 0xffffff,
-					}
-				: {}}
-		/> -->
-
-		<!-- <Text
-			{...center}
-			anchor={0.5}
-			text={state === 'active' ? i18nDerived.disable() : i18nDerived.buyBonus()}
-			style={{
-				align: 'center',
-				wordWrap: true,
-				wordWrapWidth: 200,
-				fontFamily: 'Neuton',
-				fontWeight: '600',
-				fontSize: UI_BASE_FONT_SIZE * 0.9,
-				fill: 0xffffff,
-			}}
-		/> -->
 	{/snippet}
 </Button>

@@ -233,25 +233,16 @@ const onDoubleHoverLeave = () => {
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
-	<Container x={20} scale={{ x: 1, y: 1.4 }}>
-		<Sprite
-			key="buyFreeSpinBg"
-			anchor={0.5}
-			x={90}
-			y={5}
-			width={layout.width * 1.1}
-			height={layout.height * 1.1}
-			scale={{ x: 0.92, y: 0.25 }}
-			zIndex={-10}
-		/>
+	<Container x={12} scale={{ x: 1, y: 1.4 }}>
+	
 
 		<Container
-			x={0}
+			x={20}
 			y={5}
 			interactive={true}
 			eventMode='static'
 			onpointertap={() => (stateBet.activeBetModeKey = 'BONUS')}
-			scale={1.5}
+			scale={{x:1.5,y:1.75}}
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
 			<BitmapText
@@ -298,12 +289,12 @@ const onDoubleHoverLeave = () => {
 		</Container>
 
 		<Container
-			x={180}
+			x={220}
 			y={5}
 			interactive={true}
 			eventmode='static'
 			onpointertap={() => (stateBet.activeBetModeKey = 'superBonus')}
-			scale={1.5}
+			scale={{x:1.5,y:1.75}}
 			
 		>
 			<ButtonBuyBonus x={0} y={0} scale={{ x: 0.83, y: 0.52 }} anchor={0.5} />
@@ -351,7 +342,7 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== DOUBLE ===== -->
 	<Container
-	x={layout.x / 1.64}
+	x={layout.x / 1.7}
 	y={-220}
 	scale={doubleHoverScale.current}
 	alpha={doubleHoverAlpha.current}
@@ -361,13 +352,13 @@ const onDoubleHoverLeave = () => {
 >
 		<Container scale={{ x: 1, y: 1.4 }} >
 			<Sprite
-			key="doubleBetbg"
+			key="Box_04"
 			anchor={0.5}
 			x={0}
 			y={layout.y / 2.7}
 			width={layout.width * 1.1}
 			height={layout.height * 1.1}
-			scale={{ x: 0.33, y: 0.3 }}
+			scale={{ x: 0.2, y: 0.14 }}
 			zIndex={-10}
 			interactive={true}
 			cursor=pointer
@@ -385,14 +376,14 @@ const onDoubleHoverLeave = () => {
 					text={'BET'}
 					anchor={0.5}
 					x={0}
-					y={-22}
-					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
+					y={-25}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 22, fontWeight: 'bolder' }}
 				/>
 				<BitmapText
 					text={`$${stateBet.betAmount * 1.25}`}
 					anchor={0.5}
 					x={0}
-					y={-11}
+					y={-13}
 					style={{ fontFamily: 'sans', fontSize: 14, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
@@ -401,11 +392,11 @@ const onDoubleHoverLeave = () => {
 					text={'DOUBLE'}
 					anchor={0.5}
 					x={0}
-					y={9}
+					y={10}
 					style={{
 						fontFamily: 'sans-serif',
 						fill: '#8d3b15',
-						fontSize: 18,
+						fontSize: 22,
 						fontWeight: 'bolder',
 						
 					}}
@@ -416,8 +407,8 @@ const onDoubleHoverLeave = () => {
 					text={`CHANCE TO`}
 					anchor={0.5}
 					x={0}
-					y={20}
-					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 16, fontWeight: 'bolder' }}
+					y={24}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
@@ -425,14 +416,14 @@ const onDoubleHoverLeave = () => {
 					text={`WIN FEATURE`}
 					anchor={0.5}
 					x={0}
-					y={30}
-					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 16, fontWeight: 'bolder' }}
+					y={36}
+					style={{ fontFamily: 'sans-serif', fill: '#8d3b15', fontSize: 18, fontWeight: 'bolder' }}
 					interactive={false}
 					eventMode="none"
 				/>
 			</Container>
 
-			<Container y={32}>
+			<Container y={40}>
 				<Sprite
 					key="onBar"
 					anchor={0.5}
@@ -476,27 +467,27 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== STATIC BG ===== -->
 	<Container
-		x={layout.x * 1.45 }
+		x={layout.x * 1.41 }
 		y={layout.y * 0.85}
 		height={layout.height}
-		scale={scaleFactor * 1.15}
+		scale={scaleFactor * 1.14}
 		pivot={layout.pivot}
 	>
 		<Sprite
-			key="Leaderboard"
+			key="Box_03"
 			anchor={0.5}
 			x={0}
-			y={10}
+			y={8}
 			width={layout.width * 1.2}
 			height={layout.height * 1.1}
-			scale={{ x: 0.28, y: 0.3 }}
+			scale={{ x: 0.16, y: 0.16 }}
 			zIndex={-10}
 		/>
 	</Container>
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x * 1.45 }
+		x={layout.x * 1.46 }
 		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.15}
@@ -504,14 +495,14 @@ const onDoubleHoverLeave = () => {
 		sortableChildren={true}
 	>
 		<!-- MASK -->
-		<Rectangle isMask x={-48} y={-58} width={layout.width * 0.16} height={layout.height * 0.26} />
+		<Rectangle isMask x={-75	} y={-58} width={layout.width * 0.18} height={layout.height * 0.26} />
 
 		<!-- <Sprite key="Leaderboard" anchor={0.5} x={0} y={0} scale={{ x: 0.3, y: 0.33 }} zIndex={-10} /> -->
 
 		<Container y={0}>
 			{#each explosionStack as item (item.id)}
-				<Container x={0} y={item.y.current} scale={item.scale.current} alpha={item.alpha.current}>
-					<Sprite key="buyBoardPlaceHolder" anchor={0.5} scale={{ x: 0.27, y: 0.3 }} />
+				<Container x={-23} y={item.y.current-4} scale={item.scale.current} alpha={item.alpha.current}>
+					<Sprite key="buyBoardPlaceHolder" anchor={0.5} scale={{ x: 0.3, y: 0.3 }} />
 					<Sprite
 						key={`${item.symbol.toLowerCase()}`}
 						anchor={0.5}
