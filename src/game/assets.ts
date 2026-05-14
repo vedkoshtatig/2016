@@ -11,6 +11,7 @@ export default {
 		slotAssets1: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/ui-0.json', import.meta.url).href,
+		preload: true,
 	},
 		slotAssets2: {
 		type: 'sprites',

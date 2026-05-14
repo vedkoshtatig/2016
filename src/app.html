@@ -26,59 +26,46 @@
 				font-family: 'Neuton', serif;
 			}
 
-			/* HTML startup loader */
 			#startup-loader {
 				position: fixed;
 				inset: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background: radial-gradient(circle at center, #2b003d 0%, #14001f 70%);
+				background-color: #14001f;
 				z-index: 9999999;
 			}
 
-			.loader-wrap {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 24px;
+			.startup-bg {
+				position: absolute;
+				inset: 0;
+				overflow: hidden;
 			}
 
-			.startup-spinner {
-				width: 90px;
-				height: 90px;
-				border-radius: 50%;
-				border: 8px solid rgba(255, 255, 255, 0.12);
-				border-top: 8px solid #ffffff;
-				animation: startup-spin 0.9s linear infinite;
-				box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+			.startup-bg::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				--cover: calc(100vw / 960);
+				width: calc(540px * var(--cover));
+				height: calc(960px * var(--cover));
+				background-image: url('%sveltekit.assets%/assets/sprites/ui-0.png');
+				background-repeat: no-repeat;
+				background-size: calc(2033px * var(--cover)) calc(2039px * var(--cover));
+				background-position: calc(-1186px * var(--cover)) calc(-963px * var(--cover));
+				transform: translate(-50%, -50%) rotate(-90deg);
+				transform-origin: center;
 			}
 
-			.loading-text {
-				color: white;
-				font-size: 32px;
-				font-weight: 800;
-				letter-spacing: 6px;
-				animation: pulseText 1s ease-in-out infinite;
-			}
-
-			@keyframes startup-spin {
-				100% {
-					transform: rotate(360deg);
+			@supports (width: max(1px, 2px)) {
+				.startup-bg::before {
+					--cover: max(calc(100vw / 960), calc(100vh / 540));
 				}
 			}
 
-			@keyframes pulseText {
-				0%,
-				100% {
-					opacity: 0.4;
-					transform: scale(1);
-				}
-
-				50% {
-					opacity: 1;
-					transform: scale(1.05);
-				}
+			.startup-bg::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.15);
 			}
 		</style>
 
@@ -87,14 +74,9 @@
 	</head>
 
 	<body>
-		<!-- INITIAL HTML LOADER -->
 		<div id="startup-loader">
-			<div class="loader-wrap">
-				<div class="startup-spinner"></div>
-				<div class="loading-text">LOADING...</div>
-			</div>
+			<div class="startup-bg" aria-hidden="true"></div>
 		</div>
-
 		<div>%sveltekit.body%</div>
 	</body>
 </html>

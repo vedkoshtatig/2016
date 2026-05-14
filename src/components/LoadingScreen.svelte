@@ -35,11 +35,14 @@
 	);
 	const mainLayout = $derived.by(() => context.stateLayoutDerived.mainLayout());
 	const canvasSizes = $derived.by(() => context.stateLayoutDerived.canvasSizes());
+
+	type Phase = 'preload' | 'intro';
+	let phase = $state<Phase>('preload');
+	let loadingBarPlaying = $state(false);
 	const allAssetsLoaded = $derived.by(() => context.stateApp.loaded);
-	const forceShowLoaderOverlay = $derived.by(() => {
-		if (typeof window === 'undefined') return false;
-		return new URLSearchParams(window.location.search).get('showLoader') === '1';
-	});
+	const gameloaderBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['gameloaderBg']));
+	const bgLoadingMobileLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['bgLoadingMobile']));
+	const loadingBarLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['LoadingScreen']));
 	const loadingBarPosition = $derived.by(() => ({
 		x: Math.round(mainLayout.width * 0.5),
 		y: Math.round(mainLayout.height * 0.5) + 170,
@@ -79,9 +82,6 @@
 	const introStateDisabledLoaded = $derived.by(
 		() => !!$state.snapshot(context.stateApp.loadedAssets['introStateDisabled']),
 	);
-	const gameloaderBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['gameloaderBg']));
-	const bgLoadingMobileLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['bgLoadingMobile']));
-	const loadingBarLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['LoadingScreen']));
 
 	const introRootPosition = $derived.by(() =>
 		isPortraitLike
@@ -228,9 +228,15 @@
 	};
 
 	$effect(() => {
-		const shouldPulse = loadingType === 'start' && spinButtonLoaded;
+		const shouldPulse = loadingType === 'start' && phase === 'intro' && spinButtonLoaded;
 		if (!shouldPulse) return stopPulse();
 		startPulse();
+	});
+
+	$effect(() => {
+		if (phase !== 'preload') return;
+		if (!allAssetsLoaded) return;
+		loadingBarPlaying = true;
 	});
 
 	onDestroy(() => {
@@ -239,12 +245,74 @@
 	});
 
 	onMount(() => {
+		context.stateLayout.showGameLoaderBg = true;
+		if (typeof window === 'undefined') return;
+		setTimeout(() => {
+			const loader = document.getElementById('startup-loader');
+			if (!loader) return;
+			loader.style.transition = 'opacity 0.4s ease';
+			loader.style.opacity = '0';
+			setTimeout(() => {
+				loader.remove();
+			}, 400);
+		}, 8000);
+	});
+
+	let startupLoaderRemoved = $state(false);
+	const removeStartupLoader = () => {
+		if (startupLoaderRemoved) return;
+		startupLoaderRemoved = true;
+		const loader = document.getElementById('startup-loader');
+		if (!loader) return;
+		loader.style.transition = 'opacity 0.4s ease';
+		loader.style.opacity = '0';
+		setTimeout(() => {
+			loader.remove();
+		}, 400);
+	};
+
+	$effect(() => {
+		if (typeof window === 'undefined') return;
+		if (startupLoaderRemoved) return;
+		const bgReady = isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded;
+		if (!bgReady || !loadingBarLoaded) return;
+		removeStartupLoader();
+	});
+
+	$effect(() => {
+		if (phase !== 'intro') return;
 		restartAutoIntro();
 	});
 </script>
 
-<!-- logo and loading progress -->
-<FadeContainer show={loadingType === 'start'}>
+<FadeContainer show={loadingType === 'start' && phase === 'preload'} duration={0} persistent zIndex={999999}>
+	{#if loadingBarLoaded}
+		<MainContainer>
+			<SpineProvider
+				label="LoadingBar"
+				key="LoadingScreen"
+				x={loadingBarPosition.x}
+				y={loadingBarPosition.y}
+				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
+			>
+				<SpineTrack
+					trackIndex={0}
+					animationName="animation"
+					loop={false}
+					timeScale={loadingBarPlaying ? 1 : 0}
+					listener={{
+						complete: () => {
+							context.stateLayout.showGameLoaderBg = false;
+							phase = 'intro';
+						},
+					}}
+				/>
+			</SpineProvider>
+		</MainContainer>
+	{/if}
+</FadeContainer>
+
+<FadeContainer show={loadingType === 'start' && phase === 'intro'}>
 	<MainContainer>
 		<Container
 			label="IntroRoot"
@@ -371,9 +439,7 @@
 	</MainContainer>
 </FadeContainer>
 
-<!-- press to continue -->
-<!-- spin button instead of press anywhere -->
-<FadeContainer show={loadingType === 'start' && spinButtonLoaded}>
+<FadeContainer show={loadingType === 'start' && phase === 'intro' && spinButtonLoaded}>
 	<MainContainer>
 		<Container
 			label="SpinButtonRoot"
@@ -405,34 +471,3 @@
 	</MainContainer>
 </FadeContainer>
 
-<FadeContainer
-	show={loadingType === 'start' && (!allAssetsLoaded || forceShowLoaderOverlay)}
-	duration={0}
-	persistent
-	zIndex={999999}
->
-	{#if isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded}
-		<Sprite
-			label="GameLoaderBackground"
-			key={isPortraitLike ? 'bgLoadingMobile' : 'gameloaderBg'}
-			anchor={0.5}
-			x={canvasSizes.width * 0.5}
-			y={canvasSizes.height * 0.5}
-			width={canvasSizes.width}
-			height={canvasSizes.height}
-		/>
-	{/if}
-	{#if loadingBarLoaded}
-		<MainContainer>
-			<SpineProvider
-				label="LoadingBar"
-				key="LoadingScreen"
-				x={loadingBarPosition.x}
-				y={loadingBarPosition.y}
-				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
-			>
-				<SpineTrack trackIndex={0} animationName="animation" loop={false} />
-			</SpineProvider>
-		</MainContainer>
-	{/if}
-</FadeContainer>
