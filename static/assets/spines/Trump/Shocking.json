@@ -1,0 +1,50 @@
+{
+	"skeleton": {
+		"hash": "RsVXvsK8LNI",
+		"spine": "4.2.43",
+		"x": -557.5,
+		"y": -635.5,
+		"width": 1115,
+		"height": 1271,
+		"images": "../Converted/Character-Pose/",
+		"audio": ""
+	},
+	"bones": [{ "name": "root" }],
+	"slots": [
+		{
+			"name": "Upscaled-Pose-06_0",
+			"bone": "root",
+			"attachment": "Upscaled-Pose-06/Upscaled-Pose-06_"
+		}
+	],
+	"skins": [
+		{
+			"name": "default",
+			"attachments": {
+				"Upscaled-Pose-06_0": {
+					"Upscaled-Pose-06/Upscaled-Pose-06_": {
+						"width": 1115,
+						"height": 1271,
+						"sequence": { "count": 167, "start": 32 }
+					}
+				}
+			}
+		}
+	],
+	"animations": {
+		"Shocking": {
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-06_0": {
+						"Upscaled-Pose-06/Upscaled-Pose-06_": {
+							"sequence": [
+								{ "time": 1.0667, "mode": "loop", "delay": 0.0333 },
+								{ "time": 6.6, "mode": "loop", "index": 198 }
+							]
+						}
+					}
+				}
+			}
+		}
+	}
+}

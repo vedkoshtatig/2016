@@ -79,7 +79,7 @@
 	const animationMap = {
 		welcome: 'animation',
 		idle: 'Simple-Ideal-Pose',
-		angry: 'Angry',
+		angry: 'Shocking',
 		celebrate: 'Celebrate',
 		pointing: 'animation',
 	};
@@ -113,10 +113,10 @@
 				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
 				trumpState = 'celebrate';
 			} 
-			// else if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount)) < stateBet.betAmount ) {
-			// 	console.log(stateBet.winBookEventAmount, stateBet.betAmount);
-			// 	trumpState = 'angry';
-			// }
+			else if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount)) < stateBet.betAmount ) {
+				console.log(stateBet.winBookEventAmount, stateBet.betAmount);
+				trumpState = 'angry';
+			}
 		},
 	});
 </script>
