@@ -227,7 +227,7 @@ const onDoubleHoverLeave = () => {
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
 	x={layout.x-5}
-	y={layout.y * 0.3}
+	y={layout.y * 0.3 - 90}
 	height={layout.height}
 	scale={{ x: scaleFactor * 1.4, y: scaleFactor * 1.4 }}
 	pivot={layout.pivot}

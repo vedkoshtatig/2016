@@ -13,8 +13,6 @@
 	const BG_RATIO = 937 / 806;
 	const POSITION_ADJUSTMENT = 1.01;
 
-	
-
 	console.log("BoardFrame mounted");
 </script>
 
@@ -25,7 +23,7 @@
 		key="reel_base_bonus"
 		anchor={0.5}
 		x={context.stateGameDerived.boardLayout().x}
-		y={context.stateGameDerived.boardLayout().y-20}
+		y={context.stateGameDerived.boardLayout().y - 20}
 		width={context.stateGameDerived.boardLayout().width * SPINE_SCALE.width * 2}
 		height={context.stateGameDerived.boardLayout().height * SPINE_SCALE.height * 1.38}
 		scale={{ x: 0.73, y: 0.8 }}

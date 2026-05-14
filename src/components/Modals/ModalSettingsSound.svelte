@@ -1,6 +1,7 @@
 <script lang="ts">
 
 	import type { Snippet } from 'svelte';
+	import BaseIcon from './BaseIcon.svelte';
 
 
 
@@ -34,10 +35,6 @@
 
 
 
-	let isHovered = $state(false);
-
-
-
 	const toggle = () => {
 
 		value = value === 0 ? 100 : 0;
@@ -54,22 +51,17 @@
 
 		class="icon-wrap"
 
-		on:mouseenter={() => (isHovered = true)}
-
-		on:mouseleave={() => (isHovered = false)}
-
-		on:click={toggle}
-
 	>
 
-		<img
-
-			src={value === 0 ? iconSet.off : isHovered ? iconSet.hover : iconSet.on}
-
-			alt="sound toggle"
-
-			class="icon"
-
+		<BaseIcon
+			width="100%"
+			height="100%"
+			normal={value === 0 ? iconSet.off : iconSet.on}
+			hover={value === 0 ? undefined : iconSet.hover}
+			className="icon"
+			borderRadius="0"
+			fit="contain"
+			onclick={toggle}
 		/>
 
 	</div>
@@ -106,12 +98,15 @@
 	transition: transform 0.2s ease;
 
 	transform-origin: center;
+	width: var(--settings-menu-item-width, clamp(220px, 42vw, 320px));
+	height: var(--settings-menu-item-height, clamp(76px, 12vw, 96px));
 
 }
 
 /* Desktop mode specific styling */
 :global(.wrap:not(.mobile-menu)) .icon-wrap {
 	width: 120px;
+	height: auto;
 	justify-content: flex-start;
 }
 
@@ -129,10 +124,6 @@
 
 	display: block;
 
-	width: clamp(80px, 30vw, 160px);
-
-	height: auto;
-
 }
 
 /* Desktop mode specific styling */
@@ -142,7 +133,8 @@
 
 /* Mobile mode - keep original icon size */
 :global(.wrap.mobile-menu) .icon {
-	width: clamp(120px, 40vw, 220px);
+	width: 100%;
+	height: 100%;
 }
 
 
@@ -150,4 +142,3 @@
 
 
 </style>
-

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { stateBet, stateBetDerived, stateConfig } from 'state-shared';
+	import BaseIcon from './BaseIcon.svelte';
 
 	type IconSet = {
 		normal: string;    // turbo OFF
@@ -15,9 +16,6 @@
 
 	let { iconSet }: Props = $props();
 
-	let isHovered = $state(false);
-	let isPressed = $state(false);
-
 	const isDisabled = $derived(stateConfig.jurisdiction.disabledTurbo);
 	const isActive = $derived(stateBet.isTurbo);
 
@@ -25,30 +23,25 @@
 		if (isDisabled) return;
 		stateBetDerived.updateIsTurbo(!stateBet.isTurbo, { persistent: true });
 	};
-
-	const getIcon = () => {
-		if (isDisabled) return iconSet.disabled;
-		if (isPressed) return iconSet.down;
-		if (isHovered) return iconSet.hover;
-		if (isActive) return iconSet.active;
-		return iconSet.normal;
-	};
 </script>
 
 <div class="col">
 	<div
 		class="icon-wrap"
 		class:disabled={isDisabled}
-		on:mouseenter={() => (isHovered = true)}
-		on:mouseleave={() => {
-			isHovered = false;
-			isPressed = false;
-		}}
-		on:mousedown={() => (isPressed = true)}
-		on:mouseup={() => (isPressed = false)}
 		on:click={toggleTurbo}
 	>
-		<img src={getIcon()} alt="turbo mode" class="icon" />
+		<BaseIcon
+			width="100%"
+			height="100%"
+			normal={isDisabled ? iconSet.disabled : isActive ? iconSet.active : iconSet.normal}
+			hover={iconSet.hover}
+			pressed={iconSet.down}
+			disabled={isDisabled}
+			className="icon"
+			borderRadius="0"
+			fit="contain"
+		/>
 	</div>
 </div>
 
@@ -64,6 +57,8 @@
 	justify-content: center;
 	cursor: pointer;
 	transition: transform 0.15s ease, opacity 0.2s ease;
+	width: var(--settings-menu-item-width, clamp(220px, 42vw, 320px));
+	height: var(--settings-menu-item-height, clamp(76px, 12vw, 96px));
 }
 
 .icon-wrap:hover {
@@ -81,8 +76,6 @@
 }
 
 .icon {
-	width: clamp(120px, 40vw, 220px);
-	height: auto;
 	pointer-events: none;
 }
 </style>

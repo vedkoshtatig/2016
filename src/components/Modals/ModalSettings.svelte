@@ -19,7 +19,8 @@
     } from '../../game/constants';
 
     const { stateLayoutDerived } = getContextLayout();
-    const menuBgUrl = `${assets}/assets/sprites/uiSlotsAssetsBespoke/MenuBg.png`;
+    const menuBgUrl =
+        'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
     const isMobileMenu = $derived(['portrait', 'tablet'].includes(stateLayoutDerived.layoutType()));
     const isDesktopMenu = $derived(stateLayoutDerived.layoutType() === 'desktop');
@@ -303,16 +304,19 @@
         border-radius: 0;
         max-height: none;
         overflow: visible;
+		--settings-menu-item-width: clamp(140px, 40vw, 170px);
+		--settings-menu-item-height: clamp(56px, 14vw, 70px);
     }
 
     .menu-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        row-gap: clamp(20px, 20px, 100px); // vertical spacing (keep nice)
-        column-gap: clamp(20px, 20px, 100px);
+        row-gap: clamp(12px, 3vw, 20px);
+        column-gap: clamp(12px, 3vw, 20px);
+        place-items: center;
 
-        width: min(90vw, 420px);
-        padding: clamp(10px, 3vw, 20px);
+        width: min(92vw, 360px);
+        padding: clamp(8px, 2.5vw, 14px);
 
         border: 2px solid #7c3aed; // purple border like your UI
         border-radius: 16px;
@@ -322,7 +326,7 @@
     }
 
     .wrap.mobile-menu .menu-grid {
-        transform: translateY(clamp(40px, 8vh, 140px)) scale(clamp(0.72, 0.82, 0.9));
+        transform: translateY(0) scale(1);
         transform-origin: center;
     }
 

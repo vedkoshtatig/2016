@@ -28,8 +28,10 @@
 
 	{@render props.children()}
 	
-	<Container x={context.stateGameDerived.boardLayout().x/2.05}
-			y={context.stateGameDerived.boardLayout().y/1.9}>
+	<Container
+		x={context.stateGameDerived.boardLayout().x / 2.05}
+		y={context.stateGameDerived.boardLayout().y / 1.9}
+	>
 		<Sprite
 			key="reel_top"
 			anchor={0.5}

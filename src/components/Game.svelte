@@ -72,9 +72,9 @@
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
 	});
-	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.5));
-	const reelRootX = $derived(() => (isLandscape() ? 0 : -370));
-	const reelRootY = $derived(() => (isLandscape() ? 0 : -30));
+	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.6));
+	const reelRootX = $derived(() => (isLandscape() ? 0 : -440));
+	const reelRootY = $derived(() => (isLandscape() ? 0 : -145));
 	let spin = false;
 	context.eventEmitter.subscribeOnMount({
 		buyBonusConfirm: () => {

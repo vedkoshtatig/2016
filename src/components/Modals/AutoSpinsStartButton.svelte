@@ -10,6 +10,7 @@
 	import { getContextEventEmitter } from 'utils-event-emitter';
 	import { i18nDerived } from '../../i18n/i18nDerived';
 	import type { EmitterEventModal } from '../../game/types';
+	import BaseIcon from './BaseIcon.svelte';
 	const { eventEmitter } = getContextEventEmitter<EmitterEventModal>();
 	const startAutoBet = () => {
 		stateBet.autoSpinsCounter = AUTO_SPINS_TEXT_OPTION_MAP[stateUi.autoSpinsText];
@@ -26,17 +27,15 @@
 	};
 </script>
 
-<img
-	src="assets/sprites/uiSlotsAssetsBespoke/autoPlayStart.png"
-	alt="Start Autoplay"
-	class="btn-image"
+<BaseIcon
+	width="50%"
+	normal="assets/sprites/uiSlotsAssetsBespoke/autoPlayStart.png"
+	className="btn-image"
 	onclick={startAutoBet}
 />
 
 <style lang="scss">
 	.btn-image {
-		width: 50%;
-		height: auto;
 		display: block;
 		cursor: pointer;
 		margin: 0;
