@@ -20,6 +20,8 @@ import type { RawSymbol, SymbolState } from './types';
 export const { getEmptyBoard } = createGetEmptyPaddedBoard({ reelsDimensions: BOARD_DIMENSIONS });
 export const { playBookEvent, playBookEvents } = createPlayBookUtils({ bookEventHandlerMap });
 export const playBet = async (bet: Bet) => {
+	eventEmitter.broadcast({ type: 'tumbleWinAmountHide' });
+	eventEmitter.broadcast({ type: 'tumbleWinAmountReset' });
 	stateBet.winBookEventAmount = 0;
 	await playBookEvents(bet.state);
 	eventEmitter.broadcast({ type: 'stopButtonEnable' });
@@ -120,10 +122,12 @@ export const getSymbolBackgroundInfo = ({
 
 		let fallbackKey: keyof typeof MULTIPLIER_BACKGROUND_INFO_MAP = 'M_10';
 
-		if (multiplier <= 2) fallbackKey = 'M_2';
-		else if (multiplier <= 4) fallbackKey = 'M_4';
-		else if (multiplier <= 7) fallbackKey = 'M_7';
-		else fallbackKey = 'M_10';
+		if (typeof multiplier === 'number') {
+			if (multiplier <= 2) fallbackKey = 'M_2';
+			else if (multiplier <= 4) fallbackKey = 'M_4';
+			else if (multiplier <= 7) fallbackKey = 'M_7';
+			else fallbackKey = 'M_10';
+		}
 
 		const fallback = MULTIPLIER_BACKGROUND_INFO_MAP[fallbackKey];
 
