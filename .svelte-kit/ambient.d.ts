@@ -39,9 +39,7 @@ declare module '$env/static/private' {
 	export const CHROME_DESKTOP: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const DESKTOP_SESSION: string;
-	export const NVM_BIN: string;
 	export const npm_package_json: string;
-	export const NVM_INC: string;
 	export const GNOME_SHELL_SESSION_MODE: string;
 	export const GTK_MODULES: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
@@ -58,12 +56,12 @@ declare module '$env/static/private' {
 	export const COLOR: string;
 	export const NVM_DIR: string;
 	export const DEBUGINFOD_URLS: string;
+	export const npm_config_metrics_registry: string;
 	export const IM_CONFIG_PHASE: string;
 	export const WAYLAND_DISPLAY: string;
 	export const LOGNAME: string;
 	export const _: string;
 	export const npm_config_prefix: string;
-	export const npm_config_npm_version: string;
 	export const MEMORY_PRESSURE_WATCH: string;
 	export const XDG_SESSION_CLASS: string;
 	export const USERNAME: string;
@@ -107,6 +105,7 @@ declare module '$env/static/private' {
 	export const npm_config_globalconfig: string;
 	export const npm_config_init_module: string;
 	export const PWD: string;
+	export const npm_config_globalignorefile: string;
 	export const npm_execpath: string;
 	export const XDG_CONFIG_DIRS: string;
 	export const NVM_CD_FLAGS: string;
@@ -164,9 +163,7 @@ declare module '$env/dynamic/private' {
 		CHROME_DESKTOP: string;
 		TERM_PROGRAM_VERSION: string;
 		DESKTOP_SESSION: string;
-		NVM_BIN: string;
 		npm_package_json: string;
-		NVM_INC: string;
 		GNOME_SHELL_SESSION_MODE: string;
 		GTK_MODULES: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
@@ -183,12 +180,12 @@ declare module '$env/dynamic/private' {
 		COLOR: string;
 		NVM_DIR: string;
 		DEBUGINFOD_URLS: string;
+		npm_config_metrics_registry: string;
 		IM_CONFIG_PHASE: string;
 		WAYLAND_DISPLAY: string;
 		LOGNAME: string;
 		_: string;
 		npm_config_prefix: string;
-		npm_config_npm_version: string;
 		MEMORY_PRESSURE_WATCH: string;
 		XDG_SESSION_CLASS: string;
 		USERNAME: string;
@@ -232,6 +229,7 @@ declare module '$env/dynamic/private' {
 		npm_config_globalconfig: string;
 		npm_config_init_module: string;
 		PWD: string;
+		npm_config_globalignorefile: string;
 		npm_execpath: string;
 		XDG_CONFIG_DIRS: string;
 		NVM_CD_FLAGS: string;
