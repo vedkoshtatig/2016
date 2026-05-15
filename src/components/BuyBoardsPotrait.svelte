@@ -14,6 +14,8 @@
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
 	const scaleFactor = 1.2;
+	const isMobileMode = () =>
+		['portrait', 'tablet'].includes(context.stateLayoutDerived.layoutType());
 
 
 	// ✅ STACK STATE
@@ -227,9 +229,12 @@ const onDoubleHoverLeave = () => {
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
 	x={layout.x + 15}
-	y={layout.y * 0.3 - 90}
+	y={layout.y * 0.3 - (isMobileMode() ? 120 : 90)}
 	height={layout.height}
-	scale={{ x: scaleFactor * 1.55, y: scaleFactor * 1.55 }}
+	scale={{
+		x: scaleFactor * (isMobileMode() ? 1.7 : 1.55),
+		y: scaleFactor * (isMobileMode() ? 1.7 : 1.55),
+	}}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
