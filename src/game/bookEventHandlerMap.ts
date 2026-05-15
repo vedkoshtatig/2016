@@ -12,6 +12,7 @@ import type { Position } from './types';
 import { bookEventAmountToNormalisedAmount } from 'utils-shared/amount';
 let lastWinInfo: BookEventOfType<'winInfo'> | null = null;
 let lastFreeSpinWinLevelData: WinLevelData | null = null;
+let outroWinLevelData: WinLevelData | null = null;
 
 const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) => {
 	if (winLevelData?.alias === 'max') eventEmitter.broadcastAsync({ type: 'uiHide' });
@@ -253,8 +254,11 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		}
 
 		const winLevelData = winLevelMap[(bookEvent.winLevel as WinLevel)];
+		
 		if(bookEvent.winLevel>5){
 		lastFreeSpinWinLevelData=winLevelData}
+		else{	outroWinLevelData=winLevelData;}
+	
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
 		stateGame.gameType = 'basegame';
 		eventEmitter.broadcast({ type: 'boardFrameGlowHide' });
@@ -335,9 +339,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		// }else if(amount/stateBet.betAmount>15){
 		// 	lastFreeSpinWinLevelData=winLevelMap[10]
 		// }
-		if (!lastFreeSpinWinLevelData) return;
-		
-		eventEmitter.broadcast({ type: 'winShow' });
+		if (lastFreeSpinWinLevelData) {eventEmitter.broadcast({ type: 'winShow' });
 		winLevelSoundsPlay({ winLevelData:lastFreeSpinWinLevelData });
 		await eventEmitter.broadcastAsync({
 			type: 'winUpdate',
@@ -345,19 +347,26 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 			winLevelData:lastFreeSpinWinLevelData,
 		});
 		winLevelSoundsStop();
-		eventEmitter.broadcast({ type: 'winHide' });
+		eventEmitter.broadcast({ type: 'winHide' });};
+		
+		
 
 
-
-		winLevelSoundsPlay({ winLevelData:lastFreeSpinWinLevelData });
+if(outroWinLevelData && !lastFreeSpinWinLevelData){
+	winLevelSoundsPlay({ winLevelData:outroWinLevelData });
 		await eventEmitter.broadcastAsync({
 			type: 'freeSpinOutroCountUp',
 			amount: bookEvent.amount,
-			winLevelData:lastFreeSpinWinLevelData,
+			winLevelData:outroWinLevelData,
+		
 		});
 		winLevelSoundsStop();
+		
+		
+}
 		lastFreeSpinWinLevelData=null
-
+		outroWinLevelData=null
+         
 
 		
 

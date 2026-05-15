@@ -65,7 +65,7 @@
 		welcome: 'animation',
 		idle: 'Simple-Ideal-Pose',
 		angry: 'Shocking',
-		celebrate: 'Celebrate',
+		celebrate: 'animation',
 		pointing: 'animation',
 	};
 	const isLandscape = $derived(() => {

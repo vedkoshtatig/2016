@@ -24,8 +24,8 @@
 	const portraitPosition = $derived({
 		x:
 			context.stateGameDerived.boardLayout().width *
-			(context.stateGame.gameType === 'basegame' ? 1.5 : 1.5),
-		y: -SYMBOL_SIZE * 0.8 * -14.2,
+			(context.stateGame.gameType === 'basegame' ? 1.2 : 1.5),
+		y: -SYMBOL_SIZE * 0.8 * -14.6,
 	});
 
 	const position = $derived(

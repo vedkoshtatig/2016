@@ -86,8 +86,8 @@ export default {
 	trumpCelebrate: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/Trump/Celebrate.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Celebrate.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/Trump/Victory.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/Victory.json', import.meta.url).href,
 			scale: 2,
 		},
 		preload: true,
