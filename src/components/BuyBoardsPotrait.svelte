@@ -360,9 +360,9 @@ const onDoubleHoverLeave = () => {
 			height={layout.height * 1.1}
 			scale={{ x: 0.2, y: 0.14 }}
 			zIndex={-10}
-			interactive={true}
+			eventMode="static"
 			cursor=pointer
-			onclick={onToggleDoubleBet}
+			onpointertap={onToggleDoubleBet}
 		/>
 		<Container
 			x={0}
@@ -430,15 +430,15 @@ const onDoubleHoverLeave = () => {
 					width={layout.width * 1.1}
 					height={layout.height * 1.1}
 					scale={{ x: 0.33, y: 0.3 }}
-					interactive={true}
-					onclick={onToggleDoubleBet}
+					eventMode="static"
+					onpointertap={onToggleDoubleBet}
 				/>
 				<Container
 					x={toggleX.current}
 					scale={togglePulse.current}
 					alpha={toggleAlpha.current}
-					interactive={true}
-					onclick={onToggleDoubleBet}
+					eventMode="static"
+					onpointertap={onToggleDoubleBet}
 				>
 					{#if doubleBetState.isDouble}
 						<Sprite
