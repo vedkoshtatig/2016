@@ -127,6 +127,16 @@ export default {
 			.href,
 		preload: true,
 	},
+	loaderBgDESKTOP: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/symbolsStatic/gameloaderBg.png', import.meta.url).href,
+		preload: true,
+	},
+	loaderBgMOBILE: {
+		type: 'sprite',
+		src: new URL('../../assets/sprites/symbolsStatic/bgLoadingMobile.png', import.meta.url).href,
+		preload: true,
+	},
 
 	'Board-Open': {
 		type: 'spine',

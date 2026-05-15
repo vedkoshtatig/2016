@@ -48,7 +48,7 @@
 <FadeContainer show={showLoadingBackground} duration={0} zIndex={-2}>
 	{#if isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded}
 		<Sprite
-			key={isPortraitLike ? 'bgLoadingMobile' : 'gameloaderBg'}
+			key={isPortraitLike ? 'loaderBgMOBILE' : 'loaderBgDESKTOP'}
 			anchor={0.5}
 			x={context.stateLayoutDerived.canvasSizes().width * 0.5}
 			y={context.stateLayoutDerived.canvasSizes().height * 0.5}
