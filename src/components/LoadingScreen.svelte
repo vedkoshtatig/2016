@@ -246,16 +246,6 @@
 
 	onMount(() => {
 		context.stateLayout.showGameLoaderBg = true;
-		if (typeof window === 'undefined') return;
-		setTimeout(() => {
-			const loader = document.getElementById('startup-loader');
-			if (!loader) return;
-			loader.style.transition = 'opacity 0.4s ease';
-			loader.style.opacity = '0';
-			setTimeout(() => {
-				loader.remove();
-			}, 400);
-		}, 8000);
 	});
 
 	let startupLoaderRemoved = $state(false);

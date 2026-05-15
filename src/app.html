@@ -31,41 +31,25 @@
 				inset: 0;
 				background-color: #14001f;
 				z-index: 9999999;
+				display: grid;
+				place-items: center;
+				isolation: isolate;
 			}
 
 			.startup-bg {
 				position: absolute;
 				inset: 0;
-				overflow: hidden;
-			}
-
-			.startup-bg::before {
-				content: '';
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				--cover: calc(100vw / 960);
-				width: calc(540px * var(--cover));
-				height: calc(960px * var(--cover));
-				background-image: url('%sveltekit.assets%/assets/sprites/ui-0.png');
+				background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/gameloaderBg.png');
+				background-size: cover;
+				background-position: center;
 				background-repeat: no-repeat;
-				background-size: calc(2033px * var(--cover)) calc(2039px * var(--cover));
-				background-position: calc(-1186px * var(--cover)) calc(-963px * var(--cover));
-				transform: translate(-50%, -50%) rotate(-90deg);
-				transform-origin: center;
+				filter: saturate(1.05) contrast(1.05);
 			}
 
-			@supports (width: max(1px, 2px)) {
-				.startup-bg::before {
-					--cover: max(calc(100vw / 960), calc(100vh / 540));
+			@media (orientation: portrait) {
+				.startup-bg {
+					background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
 				}
-			}
-
-			.startup-bg::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-				background: rgba(0, 0, 0, 0.15);
 			}
 		</style>
 
