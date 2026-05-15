@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SpineProvider, SpineTrack, Container, Sprite } from 'pixi-svelte';
+	import { SpineProvider, SpineTrack, Container, Sprite, Rectangle, Text } from 'pixi-svelte';
 	import { FadeContainer } from 'components-pixi';
 	import { MainContainer } from 'components-layout';
 	import gsap from 'gsap';
@@ -38,16 +38,37 @@
 
 	type Phase = 'preload' | 'intro';
 	let phase = $state<Phase>('preload');
-	let loadingBarPlaying = $state(false);
 	const allAssetsLoaded = $derived.by(() => context.stateApp.loaded);
 	const gameloaderBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['gameloaderBg']));
 	const bgLoadingMobileLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['bgLoadingMobile']));
-	const loadingBarLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['LoadingScreen']));
 	const loadingBarPosition = $derived.by(() => ({
 		x: Math.round(mainLayout.width * 0.5),
 		y: Math.round(mainLayout.height * 0.5) + 170,
 		scale: 0.51875,
 	}));
+	const loadingPercent = $derived.by(() => {
+		const raw = context.stateApp.loaded ? 100 : context.stateApp.loadingProgress;
+		const numeric = Number(raw);
+		if (!Number.isFinite(numeric)) return 0;
+		return Math.max(0, Math.min(100, Math.round(numeric)));
+	});
+	const progressBar = $derived.by(() => {
+		const width = Math.min(640, Math.max(260, canvasSizes.width * 0.58));
+		const height = 16;
+		return {
+			x: Math.round(canvasSizes.width * 0.5),
+			y: Math.round(loadingBarPosition.y + (isPortraitLike ? 145 : 125)),
+			width: Math.round(width),
+			height,
+		};
+	});
+	const progressFillWidth = $derived.by(() =>
+		Math.max(0, Math.round((progressBar.width * loadingPercent) / 100)),
+	);
+	const progressFillX = $derived.by(() =>
+		Math.round(progressBar.x - progressBar.width / 2 + progressFillWidth / 2),
+	);
+	const progressTextY = $derived.by(() => Math.round(progressBar.y - 34));
 
 	const MOBILE_ROOT = { x: 500, y: 400, scale: 2 };
 	const MOBILE_SPIN_ROOT = { x: 735, y: 634, scale: 2.4 };
@@ -236,7 +257,15 @@
 	$effect(() => {
 		if (phase !== 'preload') return;
 		if (!allAssetsLoaded) return;
-		loadingBarPlaying = true;
+		context.stateLayout.showGameLoaderBg = false;
+		phase = 'intro';
+	});
+
+	$effect(() => {
+		if (typeof window === 'undefined') return;
+		const fn = (window as any).__setStartupLoaderProgress;
+		if (typeof fn !== 'function') return;
+		fn(loadingPercent);
 	});
 
 	onDestroy(() => {
@@ -265,7 +294,8 @@
 		if (typeof window === 'undefined') return;
 		if (startupLoaderRemoved) return;
 		const bgReady = isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded;
-		if (!bgReady || !loadingBarLoaded) return;
+		if (!bgReady) return;
+		if (!allAssetsLoaded) return;
 		removeStartupLoader();
 	});
 
@@ -276,30 +306,53 @@
 </script>
 
 <FadeContainer show={loadingType === 'start' && phase === 'preload'} duration={0} persistent zIndex={999999}>
-	{#if loadingBarLoaded}
-		<MainContainer>
-			<SpineProvider
-				label="LoadingBar"
-				key="LoadingScreen"
-				x={loadingBarPosition.x}
-				y={loadingBarPosition.y}
-				scale={{ x: loadingBarPosition.scale, y: loadingBarPosition.scale }}
-			>
-				<SpineTrack
-					trackIndex={0}
-					animationName="animation"
-					loop={false}
-					timeScale={loadingBarPlaying ? 1 : 0}
-					listener={{
-						complete: () => {
-							context.stateLayout.showGameLoaderBg = false;
-							phase = 'intro';
-						},
-					}}
-				/>
-			</SpineProvider>
-		</MainContainer>
-	{/if}
+	<MainContainer>
+		<Text
+			label="LoadingProgressText"
+			x={progressBar.x}
+			y={progressTextY}
+			anchor={{ x: 0.5, y: 0.5 }}
+			text={`Loading ${loadingPercent}%`}
+			style={{
+				fontFamily: 'Cinzel, serif',
+				fontSize: isPortraitLike ? 28 : 24,
+				fontWeight: '700',
+				letterSpacing: 4,
+				fill: 0xffffff,
+				dropShadow: true,
+				dropShadowAlpha: 0.65,
+				dropShadowBlur: 8,
+				dropShadowDistance: 2,
+			}}
+		/>
+		<Rectangle
+			label="LoadingProgressTrack"
+			x={progressBar.x}
+			y={progressBar.y}
+			anchor={{ x: 0.5, y: 0.5 }}
+			width={progressBar.width}
+			height={progressBar.height}
+			borderRadius={999}
+			backgroundColor={0x000000}
+			backgroundAlpha={0.35}
+			borderColor={0xffffff}
+			borderAlpha={0.25}
+			borderWidth={2}
+		/>
+		{#if progressFillWidth > 0}
+			<Rectangle
+				label="LoadingProgressFill"
+				x={progressFillX}
+				y={progressBar.y}
+				anchor={{ x: 0.5, y: 0.5 }}
+				width={progressFillWidth}
+				height={progressBar.height}
+				borderRadius={999}
+				backgroundColor={0xffd666}
+				backgroundAlpha={0.95}
+			/>
+		{/if}
+	</MainContainer>
 </FadeContainer>
 
 <FadeContainer show={loadingType === 'start' && phase === 'intro'}>
@@ -460,4 +513,3 @@
 		</Container>
 	</MainContainer>
 </FadeContainer>
-

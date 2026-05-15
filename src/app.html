@@ -46,6 +46,50 @@
 				filter: saturate(1.05) contrast(1.05);
 			}
 
+			.startup-ui {
+				position: relative;
+				z-index: 1;
+				width: min(560px, 84vw);
+				display: grid;
+				gap: 10px;
+				justify-items: center;
+				align-self: end;
+				margin-bottom: 9vh;
+				pointer-events: none;
+				--startup-progress: 0%;
+			}
+
+			.startup-progress-text {
+				color: rgba(255, 255, 255, 0.95);
+				font-family: 'Cinzel', serif;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				font-size: clamp(12px, 2.5vw, 16px);
+				text-transform: uppercase;
+				text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+			}
+
+			.startup-progress-track {
+				width: 100%;
+				height: 14px;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.35);
+				box-shadow:
+					0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+					0 10px 22px rgba(0, 0, 0, 0.35);
+				overflow: hidden;
+				backdrop-filter: blur(2px);
+			}
+
+			.startup-progress-fill {
+				height: 100%;
+				width: var(--startup-progress);
+				border-radius: 999px;
+				background: linear-gradient(90deg, rgba(255, 214, 102, 0.95), rgba(244, 155, 3, 0.95));
+				box-shadow: 0 0 18px rgba(255, 214, 102, 0.25);
+				transition: width 120ms linear;
+			}
+
 			@media (orientation: portrait) {
 				.startup-bg {
 					background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
@@ -60,7 +104,33 @@
 	<body>
 		<div id="startup-loader">
 			<div class="startup-bg" aria-hidden="true"></div>
+			<div class="startup-ui" aria-label="Loading">
+				<div class="startup-progress-text" data-startup-progress-text>Loading 0%</div>
+				<div class="startup-progress-track" aria-hidden="true">
+					<div class="startup-progress-fill"></div>
+				</div>
+			</div>
 		</div>
+		<script>
+			(() => {
+				const loader = document.getElementById('startup-loader');
+				if (!loader) return;
+				const ui = loader.querySelector('.startup-ui');
+				const fill = loader.querySelector('.startup-progress-fill');
+				const text = loader.querySelector('[data-startup-progress-text]');
+
+				const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+				const setProgress = (value) => {
+					const percent = clamp(Math.round(Number(value) || 0), 0, 100);
+					if (ui) ui.style.setProperty('--startup-progress', `${percent}%`);
+					if (fill) fill.style.width = `${percent}%`;
+					if (text) text.textContent = `Loading ${percent}%`;
+				};
+
+				window.__setStartupLoaderProgress = setProgress;
+				setProgress(0);
+			})();
+		</script>
 		<div>%sveltekit.body%</div>
 	</body>
 </html>
