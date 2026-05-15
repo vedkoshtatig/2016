@@ -58,8 +58,8 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
         await stateGameDerived.enhancedBoard.spin({ revealEvent: bookEvent });
         eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
 			
-    },
-	winInfo: async (bookEvent) => {
+    },	
+	winInfo: async (bookEvent: BookEventOfType<'winInfo'>) => {
 		lastWinInfo = bookEvent; // ✅ STORE for tumble stage
 
 		await Promise.all([
@@ -87,7 +87,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	},
 
 	// ================= TUMBLE BOARD =================
-	tumbleBoard: async (bookEvent) => {
+	tumbleBoard: async (bookEvent: BookEventOfType<'tumbleBoard'>) => {
 		eventEmitter.broadcast({ type: 'boardHide' });
 		eventEmitter.broadcast({ type: 'tumbleBoardShow' });
 		eventEmitter.broadcast({

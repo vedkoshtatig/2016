@@ -226,10 +226,10 @@ const onDoubleHoverLeave = () => {
 
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
-	x={layout.x-5}
+	x={layout.x + 15}
 	y={layout.y * 0.3 - 90}
 	height={layout.height}
-	scale={{ x: scaleFactor * 1.4, y: scaleFactor * 1.4 }}
+	scale={{ x: scaleFactor * 1.55, y: scaleFactor * 1.55 }}
 	pivot={layout.pivot}
 >
 	<!-- ===== BUY BUTTONS ===== -->
@@ -289,7 +289,7 @@ const onDoubleHoverLeave = () => {
 		</Container>
 
 		<Container
-			x={220}
+			x={205}
 			y={5}
 			interactive={true}
 			eventmode='static'
@@ -342,7 +342,7 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== DOUBLE ===== -->
 	<Container
-	x={layout.x / 1.7}
+	x={layout.x / 1.7 - 35}
 	y={-220}
 	scale={doubleHoverScale.current}
 	alpha={doubleHoverAlpha.current}
@@ -467,7 +467,7 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ===== STATIC BG ===== -->
 	<Container
-		x={layout.x * 1.41 }
+		x={layout.x * 1.41-48 }
 		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.14}
@@ -487,7 +487,7 @@ const onDoubleHoverLeave = () => {
 
 	<!-- ================= LEADERBOARD ================= -->
 	<Container
-		x={layout.x * 1.46 }
+		x={layout.x * 1.36 }
 		y={layout.y * 0.85}
 		height={layout.height}
 		scale={scaleFactor * 1.15}
@@ -495,13 +495,13 @@ const onDoubleHoverLeave = () => {
 		sortableChildren={true}
 	>
 		<!-- MASK -->
-		<Rectangle isMask x={-75	} y={-58} width={layout.width * 0.18} height={layout.height * 0.26} />
+		<Rectangle isMask x={-55	} y={-58} width={layout.width * 0.18} height={layout.height * 0.26} />
 
 		<!-- <Sprite key="Leaderboard" anchor={0.5} x={0} y={0} scale={{ x: 0.3, y: 0.33 }} zIndex={-10} /> -->
 
 		<Container y={0}>
 			{#each explosionStack as item (item.id)}
-				<Container x={-23} y={item.y.current-4} scale={item.scale.current} alpha={item.alpha.current}>
+				<Container x={-5} y={item.y.current-4} scale={item.scale.current} alpha={item.alpha.current}>
 					<Sprite key="buyBoardPlaceHolder" anchor={0.5} scale={{ x: 0.3, y: 0.3 }} />
 					<Sprite
 						key={`${item.symbol.toLowerCase()}`}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import OptionsGrid from './OptionsGrid.svelte';
 	import { getContextLayout } from 'utils-layout';
-	import { stateBet, stateConfig, stateModal } from 'state-shared';
+	import { stateBet, stateBetDerived, stateConfig, stateModal } from 'state-shared';
 
 	import BaseIcon from './BaseIcon.svelte';
 	import BaseButtonContent from './BaseButtonContent.svelte';
@@ -36,7 +36,7 @@
 	layout="grid"
 	value={stateBet.betAmount}
 	{options}
-	onchange={(value) => (stateBet.betAmount = value)}
+	onchange={(value) => stateBetDerived.setBetAmount(value)}
 >
 	{#snippet option({ option })}
 		<div
