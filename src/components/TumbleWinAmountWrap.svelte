@@ -25,7 +25,7 @@
 		x:
 			context.stateGameDerived.boardLayout().width *
 			(context.stateGame.gameType === 'basegame' ? 1.2 : 1.5),
-		y: -SYMBOL_SIZE * 0.8 * -14.6,
+		y: -SYMBOL_SIZE *3.7,
 	});
 
 	const position = $derived(

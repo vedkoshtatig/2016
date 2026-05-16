@@ -72,7 +72,7 @@
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
 	});
-	const reelRootScale = $derived(() => (isLandscape() ? 1 : 1.6));
+	const reelRootScale = $derived(() => (isLandscape() ? 1 : {x:1.6, y:2}));
 	const reelRootX = $derived(() => (isLandscape() ? 0 : -440));
 	const reelRootY = $derived(() => (isLandscape() ? 0 : -145));
 	let spin = false;

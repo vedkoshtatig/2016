@@ -113,8 +113,8 @@
 					context.stateGame.multiplierBoard.map((multiplierReel) => {
 						return multiplierReel.filter(Boolean).map(async (multiplierSymbol) => {
 							const target = {
-								x: context.stateGameDerived.boardLayout().width * (isLandscape ? -0.3 : 0.8),
-								y: context.stateGameDerived.boardLayout().height * (isLandscape ? 0.45 : 1.15),
+								x: context.stateGameDerived.boardLayout().width * (isLandscape ? -0.3 : 0.75),
+								y: context.stateGameDerived.boardLayout().height * (isLandscape ? 0.45 : -0.4),
 							};
 							const tweenOptions = { duration: 500, easing: quartInOut };
 							const moveX = () => multiplierSymbol!.symbolX.set(target.x, tweenOptions);

@@ -61,7 +61,7 @@
 
 <FadeContainer show={showBaseBackground} duration={isLoading ? 0 : SECOND} zIndex={-2}>
 	{#if baseBgLoaded}
-		<SpineProvider key="loader" {...backgroundProps}>
+		<SpineProvider key="loader" {...backgroundProps} >
 			<SpineTrack trackIndex={0} animationName={'bg'} loop />
 		</SpineProvider>
 	{/if}
@@ -77,6 +77,6 @@
 		<SpineTrack trackIndex={0} animationName={'dust'} loop />
 	</SpineProvider> -->
 	{#if freeSpinBgLoaded}
-		<Sprite key="freeSpinBg" anchor={0.5} {...freeSpinBgProps} />
+		<Sprite key="freeSpinBg" anchor={0.5} {...freeSpinBgProps}  />
 	{/if}
 </FadeContainer>

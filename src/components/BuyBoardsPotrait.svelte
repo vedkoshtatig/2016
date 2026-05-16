@@ -319,7 +319,7 @@
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
 	x={layout.x + 15}
-	y={layout.y * 0.3 - (isMobileMode() ? 250 : 90)}
+	y={layout.y * 0.3 - (isMobileMode() ? 200: 90)}
 	height={layout.height}
 	scale={{
 		x: scaleFactor * (isMobileMode() ? 1.7 : 1.55),
