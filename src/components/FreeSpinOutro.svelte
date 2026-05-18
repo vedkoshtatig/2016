@@ -1,5 +1,4 @@
 <script lang="ts" module>
-	
 	import type { WinLevelData } from '../game/winLevelMap';
 
 	export type EmitterEventFreeSpinOutro =
@@ -38,10 +37,11 @@
 	let winLevelData = $state<WinLevelData>();
 	let oncomplete = $state(() => {});
 	let onCountUpComplete = $state(() => {});
-	const fstyle={
+	const fstyle = {
 		fontFamily: 'sans-serif',
-		 fontSize: 72, align: 'center' 
-	}
+		fontSize: 72,
+		align: 'center',
+	};
 	context.eventEmitter.subscribeOnMount({
 		freeSpinOutroShow: () => (show = true),
 		freeSpinOutroHide: async () => (show = false),
@@ -73,13 +73,13 @@
 							key="board_popup"
 							scale={0.65}
 							x={boardPopupX}
-							y={boardPopupY*1.6}
+							y={boardPopupY * 1.6}
 						/>
 
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							x={boardPopupX}
-							y={-boardPopupY +30}
+							y={-boardPopupY + 30}
 							text="CONGRATULATION"
 							style={fstyle}
 						/>
@@ -92,39 +92,25 @@
 							style={fstyle}
 						/>
 
-						<SpineProvider key="fsOutroNumber" width={sizes.width * 0.2} y={-20}>
-							<SpineTrack
-								trackIndex={0}
-								{animationName}
-								loop={animationName === 'idle'}
-								listener={{
-									complete: () => (animationName = 'idle'),
-								}}
-							/>
-
-							<SpineSlot slotName="slot_number">
-								<ResponsiveBitmapText
-									anchor={0.5}
-									style={fstyle}
-									text={bookEventAmountToCurrencyString(countUpAmount)}
-									maxWidth={sizes.width}
-								/>
-							</SpineSlot>
-						</SpineProvider>
+						<ResponsiveBitmapText
+							anchor={0.5}
+							style={fstyle}
+							text={bookEventAmountToCurrencyString(countUpAmount)}
+							maxWidth={sizes.width}
+						
+						/>
 
 						<BitmapText
 							anchor={{ x: 0.5, y: 0.5 }}
 							x={boardPopupX}
-							y={boardPopupY/2}
+							y={boardPopupY / 2}
 							text={`IN FREE SPINS`}
 							style={fstyle}
 						/>
 					{/snippet}
 				</FreeSpinAnimation>
 
-				<PressToContinue
-					onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())}
-				/>
+				<PressToContinue onpress={() => (countUpCompleted ? oncomplete() : finishCountUp())} />
 			{/snippet}
 		</WinCountUpProvider>
 	{/if}

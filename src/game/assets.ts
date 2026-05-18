@@ -1,11 +1,7 @@
 export default {
 	loader: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/loader/loader.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/loader/loader.json', import.meta.url).href,
-			scale: 2,
-		},
+		type: 'sprite',
+		src: new URL('../../assets/spines/loader/loader.png', import.meta.url).href,
 		preload: true,
 	},
 		slotAssets1: {
@@ -299,14 +295,7 @@ export default {
 		},
 	},
 
-	fsOutroNumber: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/fsIntro/board_popup.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/fsIntro/fs_total_number.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
+
 
 	tumble_multiplier: {
 		type: 'spine',

@@ -360,7 +360,7 @@
 		<Container
 			label="IntroRoot"
 			x={introRootPosition.x}
-			y={introRootPosition.y}
+			y={introRootPosition.y+35}
 			scale={introRootScale}
 		>
 			<FadeContainer
@@ -487,7 +487,7 @@
 		<Container
 			label="SpinButtonRoot"
 			x={spinRootPosition.x}
-			y={spinRootPosition.y}
+			y={spinRootPosition.y+35}
 			scale={spinRootScale}
 		>
 			<Sprite

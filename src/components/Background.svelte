@@ -7,7 +7,7 @@
 
 	const context = getContext();
 	const backgroundProps = $derived(
-		context.stateLayoutDerived.normalBackgroundLayout({ scale: 0.5 }),
+		context.stateLayoutDerived.normalBackgroundLayout({ scale: 1 }),
 	);
 	const loadingBgProps = $derived(
 	context.stateLayoutDerived.normalBackgroundLayout({ scale: 1 })
@@ -28,17 +28,12 @@
 		};
 	});
 	const isLoading = $derived(context.stateLayout.showLoadingScreen);
-	const isPortraitLike = $derived.by(() =>
-		['portrait', 'tablet'].includes(context.stateLayoutDerived.layoutType()),
-	);
-	const showGameLoaderBg = $derived((context.stateLayout.showGameLoaderBg ?? true) && isLoading);
 
-	const showLoadingBackground = $derived(showGameLoaderBg);
-	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame' && (!isLoading || !showGameLoaderBg));
+	const showLoadingBackground = $derived(isLoading);
+	const showBaseBackground = $derived(context.stateGame.gameType === 'basegame' && !isLoading	);
 	const showFeatureBackground = $derived(context.stateGame.gameType === 'freegame'||context.stateGame.gameType === 'freeSpins');
 
-	const gameloaderBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['gameloaderBg']));
-	const bgLoadingMobileLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['bgLoadingMobile']));
+	const loadingBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['loadingBg']));
 	const baseBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['loader']));
 	const freeSpinBgLoaded = $derived.by(() => !!$state.snapshot(context.stateApp.loadedAssets['freeSpinBg']));
 </script>
@@ -46,24 +41,16 @@
 <Rectangle {...context.stateLayoutDerived.canvasSizes()} backgroundColor={0xc8b08a} zIndex={-3} />
 
 <FadeContainer show={showLoadingBackground} duration={0} zIndex={-2}>
-	{#if isPortraitLike ? bgLoadingMobileLoaded : gameloaderBgLoaded}
-		<Sprite
-			key={isPortraitLike ? 'loaderBgMOBILE' : 'loaderBgDESKTOP'}
-			anchor={0.5}
-			x={context.stateLayoutDerived.canvasSizes().width * 0.5}
-			y={context.stateLayoutDerived.canvasSizes().height * 0.5}
-			width={context.stateLayoutDerived.canvasSizes().width}
-			height={context.stateLayoutDerived.canvasSizes().height}
-		/>
+	{#if loadingBgLoaded}
+		<Sprite key="loadingBg" anchor={0.55} {...loadingBgProps} scale={{ x: 1.2, y: 0.65 }} />
 	{/if}
 </FadeContainer>
 
 
-<FadeContainer show={showBaseBackground} duration={isLoading ? 0 : SECOND} zIndex={-2}>
+<FadeContainer show={showBaseBackground} duration={SECOND} zIndex={-2}>
 	{#if baseBgLoaded}
-		<SpineProvider key="loader" {...backgroundProps} >
-			<SpineTrack trackIndex={0} animationName={'bg'} loop />
-		</SpineProvider>
+		<Sprite key="loader" anchor={0.5} {...backgroundProps} />
+		
 	{/if}
 
 	
@@ -77,6 +64,6 @@
 		<SpineTrack trackIndex={0} animationName={'dust'} loop />
 	</SpineProvider> -->
 	{#if freeSpinBgLoaded}
-		<Sprite key="freeSpinBg" anchor={0.5} {...freeSpinBgProps}  />
+		<Sprite key="freeSpinBg" anchor={0.5} {...freeSpinBgProps} />
 	{/if}
 </FadeContainer>
