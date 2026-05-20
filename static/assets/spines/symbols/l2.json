@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "b49X3AR8XFY",
+	"hash": "413dhIYA6P0",
 	"spine": "4.1.20",
 	"x": -10.65,
 	"y": -9,
@@ -238,68 +238,79 @@
 			"spinner_1": {
 				"attachment": [
 					{ "name": "spinner_1" },
-					{ "time": 0.1 },
-					{ "time": 0.2667, "name": "spinner_1" },
+					{ "time": 0.0667 },
+					{ "time": 0.1667, "name": "spinner_1" },
+					{ "time": 0.2 },
+					{ "time": 0.3, "name": "spinner_1" },
 					{ "time": 0.3667 },
 					{ "time": 0.4667, "name": "spinner_1" },
 					{ "time": 0.5 },
-					{ "time": 0.6333, "name": "spinner_1" },
+					{ "time": 0.6, "name": "spinner_1" },
 					{ "time": 0.6667 },
 					{ "time": 0.7667, "name": "spinner_1" },
 					{ "time": 0.8 },
-					{ "time": 0.9333, "name": "spinner_1" },
+					{ "time": 0.9, "name": "spinner_1" },
 					{ "time": 0.9667 },
 					{ "time": 1.0667, "name": "spinner_1" },
 					{ "time": 1.1 },
-					{ "time": 1.2333, "name": "spinner_1" },
-					{ "time": 1.3 },
-					{ "time": 1.4333, "name": "spinner_1" },
-					{ "time": 1.5 }
+					{ "time": 1.2, "name": "spinner_1" },
+					{ "time": 1.2667 },
+					{ "time": 1.3667, "name": "spinner_1" },
+					{ "time": 1.4 },
+					{ "time": 1.5, "name": "spinner_1" }
 				]
 			},
 			"spinner_2": {
 				"attachment": [
-					{ "time": 0.1, "name": "spinner_2" },
-					{ "time": 0.2 },
+					{ "time": 0.0667, "name": "spinner_2" },
+					{ "time": 0.1 },
+					{ "time": 0.2, "name": "spinner_2" },
+					{ "time": 0.2667 },
 					{ "time": 0.3667, "name": "spinner_2" },
-					{ "time": 0.4333 },
+					{ "time": 0.4 },
 					{ "time": 0.5, "name": "spinner_2" },
 					{ "time": 0.5667 },
 					{ "time": 0.6667, "name": "spinner_2" },
-					{ "time": 0.7333 },
+					{ "time": 0.7 },
 					{ "time": 0.8, "name": "spinner_2" },
-					{ "time": 0.9 },
+					{ "time": 0.8667 },
 					{ "time": 0.9667, "name": "spinner_2" },
-					{ "time": 1.0333 },
+					{ "time": 1 },
 					{ "time": 1.1, "name": "spinner_2" },
-					{ "time": 1.2 },
-					{ "time": 1.3, "name": "spinner_2" },
-					{ "time": 1.3667 }
+					{ "time": 1.1667 },
+					{ "time": 1.2667, "name": "spinner_2" },
+					{ "time": 1.3 },
+					{ "time": 1.4, "name": "spinner_2" },
+					{ "time": 1.4667 }
 				]
 			},
 			"spinner_3": {
 				"attachment": [
-					{ "time": 0.2, "name": "spinner_3" },
-					{ "time": 0.2667 },
-					{ "time": 0.4333, "name": "spinner_3" },
+					{ "time": 0.1, "name": "spinner_3" },
+					{ "time": 0.1667 },
+					{ "time": 0.2667, "name": "spinner_3" },
+					{ "time": 0.3 },
+					{ "time": 0.4, "name": "spinner_3" },
 					{ "time": 0.4667 },
 					{ "time": 0.5667, "name": "spinner_3" },
-					{ "time": 0.6333 },
-					{ "time": 0.7333, "name": "spinner_3" },
+					{ "time": 0.6 },
+					{ "time": 0.7, "name": "spinner_3" },
 					{ "time": 0.7667 },
-					{ "time": 0.9, "name": "spinner_3" },
-					{ "time": 0.9333 },
-					{ "time": 1.0333, "name": "spinner_3" },
+					{ "time": 0.8667, "name": "spinner_3" },
+					{ "time": 0.9 },
+					{ "time": 1, "name": "spinner_3" },
 					{ "time": 1.0667 },
-					{ "time": 1.2, "name": "spinner_3" },
-					{ "time": 1.2333 },
-					{ "time": 1.3667, "name": "spinner_3" },
-					{ "time": 1.4333 }
+					{ "time": 1.1667, "name": "spinner_3" },
+					{ "time": 1.2 },
+					{ "time": 1.3, "name": "spinner_3" },
+					{ "time": 1.3667 },
+					{ "time": 1.4667, "name": "spinner_3" },
+					{ "time": 1.5 }
 				]
 			},
 			"spinner_bg_glow_white": {
 				"attachment": [
-					{ "time": 0.0333, "name": "spinner_bg_glow_white" }
+					{ "name": "spinner_bg_glow_white" }
 				]
 			}
 		},
@@ -309,8 +320,7 @@
 					"spinner_bg_glow_white": {
 						"deform": [
 							{
-								"time": 0.0333,
-								"curve": [ 0.256, 0, 0.478, 1 ]
+								"curve": [ 0.233, 0, 0.467, 1 ]
 							},
 							{
 								"time": 0.7,

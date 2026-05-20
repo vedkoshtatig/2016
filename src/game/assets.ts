@@ -61,15 +61,6 @@ export default {
 		},
 		preload: true,
 	},
-	trumpLogo: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/logo/IdealPose.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/logo/IdealPose.json', import.meta.url).href,
-			scale: 2,
-		},
-		preload: true,
-	},
 	trumpAngry: {
 		type: 'spine',
 		src: {
@@ -77,7 +68,7 @@ export default {
 			skeleton: new URL('../../assets/spines/Trump/Shocking.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+	
 	},
 	trumpCelebrate: {
 		type: 'spine',
@@ -86,7 +77,7 @@ export default {
 			skeleton: new URL('../../assets/spines/Trump/Victory.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+	
 	},
 	trumpPointing: {
 		type: 'spine',
@@ -95,7 +86,7 @@ export default {
 			skeleton: new URL('../../assets/spines/Trump/Pointing.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+		
 	},
 	trumpIdle: {
 		type: 'spine',
@@ -104,7 +95,7 @@ export default {
 			skeleton: new URL('../../assets/spines/Trump/Simple-IdealPose.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+	
 	},
 	trumpWelcome: {
 		type: 'spine',
@@ -113,26 +104,10 @@ export default {
 			skeleton: new URL('../../assets/spines/Trump/Welcome.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+	
 	},
 	
 	
-	pressToContinueText: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url)
-			.href,
-		preload: true,
-	},
-	loaderBgDESKTOP: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/symbolsStatic/gameloaderBg.png', import.meta.url).href,
-		preload: true,
-	},
-	loaderBgMOBILE: {
-		type: 'sprite',
-		src: new URL('../../assets/sprites/symbolsStatic/bgLoadingMobile.png', import.meta.url).href,
-		preload: true,
-	},
 
 	'Board-Open': {
 		type: 'spine',
@@ -141,7 +116,7 @@ export default {
 			skeleton: new URL('../../assets/spines/boardPopup/Board-open.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+	
 	},
 	'Bonus-Open': {
 		type: 'spine',
@@ -150,18 +125,10 @@ export default {
 			skeleton: new URL('../../assets/spines/popups/Bonus-Open.json', import.meta.url).href,
 			scale: 2,
 		},
-		preload: true,
+		
 	},
 
-	LoadingScreen: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/loaderBar/LoadingScreen.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/loaderBar/LoadingScreen.json', import.meta.url).href,
-			scale: 1,
-		},
-		preload: true,
-	},
+
 
 	// HIGH SYMBOLS (use hsymbols.atlas)
 	H1: {
@@ -279,11 +246,11 @@ export default {
 
 	font2016: {
 		type: 'font',
-		src: new URL('../../assets/fonts/font2016/Font1.xml', import.meta.url).href,
+		src: new URL('../../assets/fonts/font2016/font1.xml', import.meta.url).href,
 	},
 	font2: {
 		type: 'font',
-		src: new URL('../../assets/fonts/font2/Font2.xml', import.meta.url).href,
+		src: new URL('../../assets/fonts/font2/font2.xml', import.meta.url).href,
 	},
 
 	bigwin: {
@@ -314,23 +281,6 @@ export default {
 			scale: 2,
 		},
 	},
-	reelhouse: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/reelhouse/reelhouse_glow.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/reelhouse/reelhouse_glow.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-
-	clusterWin: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/clusterWin/clusterpay.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/clusterWin/clusterpay.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
 	transition: {
 		type: 'spine',
 		src: {
@@ -343,12 +293,10 @@ export default {
 	symbolsStatic: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
-		preload: true,
 	},
 	spritesheet: {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/spritesheet.json', import.meta.url).href,
-		preload: true,
 	},
 
 
