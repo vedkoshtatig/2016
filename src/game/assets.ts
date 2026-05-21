@@ -253,7 +253,7 @@ export default {
 		src: new URL('../../assets/fonts/font2/font2.xml', import.meta.url).href,
 	},
 
-	bigwin: {
+	BigWin: {
 		type: 'spine',
 		src: {
 			atlas: new URL('../../assets/spines/bigwin/win_banners.atlas', import.meta.url).href,

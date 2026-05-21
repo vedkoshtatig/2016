@@ -62,7 +62,7 @@ export const winLevelMap = {
 		text: 'BIG WIN',
 		presentDuration: 6 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_big' },
-		animation: { intro: 'nice_intro', idle: 'nice_loop', outro: 'nice_outro' },
+		animation: { intro: 'big_intro', idle: 'big_loop', outro: 'big_outro' },
 	},
 	7: {
 		level: 7,
@@ -71,7 +71,7 @@ export const winLevelMap = {
 		text: 'SUPER WIN',
 		presentDuration: 18 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_superwin' },
-		animation: { intro: 'sensetional_intro', idle: 'sensetional_loop', outro: 'sensetional_outro' },
+		animation: { intro: 'mega_intro', idle: 'mega_loop', outro: 'mega_outro' },
 	},
 	8: {
 		level: 8,
@@ -80,7 +80,7 @@ export const winLevelMap = {
 		text: 'MEGA WIN',
 		presentDuration: 20 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_mega' },
-		animation: { intro: 'super_intro', idle: 'super_loop', outro: 'super_outro' },
+		animation: { intro: 'nice_intro', idle: 'nice_loop', outro: 'nice_outro' },
 	},
 	9: {
 		level: 9,
@@ -89,7 +89,7 @@ export const winLevelMap = {
 		text: 'EPIC WIN!',
 		presentDuration: 26 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_epic' },
-		animation: { intro: 'congratulation_intro', idle: 'congratulation_loop', outro: 'congratulation_outro' },
+		animation: { intro: 'super_intro', idle: 'super_loop', outro: 'super_outro' },
 	},
 	10: {
 		level: 10,
@@ -98,7 +98,7 @@ export const winLevelMap = {
 		text: 'MAX WIN',
 		presentDuration: 32 * SECOND,
 		sound: { sfx: undefined, bgm: 'bgm_winlevel_max' },
-		animation: { intro: 'congratulation_intro', idle: 'congratulation_loop', outro: 'congratulation_outro' },
+		animation: { intro: 'sensational_intro', idle: 'sensational_loop', outro: 'sensational_outro' },
 	},
 } as const;
 

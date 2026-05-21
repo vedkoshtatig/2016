@@ -10,13 +10,13 @@
 	type Props = {
 		animationMap: {
 			intro:
+				| 'big_intro'
+				| 'mega_intro'
 				| 'nice_intro'
-				| 'sensetional_intro'
-				| 'super_intro'
-				| 'congratulation_intro'
-				| 'congratulation_intro';
-			idle: 'nice_loop' | 'sensetional_loop' | 'super_loop' | 'congratulation_loop' | 'congratulation_loop';
-			outro: 'nice_outro' | 'sensetional_outro' | 'super_outro' | 'congratulation_outro' | 'congratulation_outro';
+				| 'sensational_intro'
+				| 'super_intro';
+			idle: 'big_loop' | 'mega_loop' | 'nice_loop' | 'sensational_loop' | 'super_loop';
+			outro: 'big_outro' | 'mega_outro' | 'nice_outro' | 'sensational_outro' | 'super_outro';
 		};
 		children?: Snippet;
 	};
@@ -28,7 +28,7 @@
 	let animationState = $state<AnimationState>('intro');
 </script>
 
-<SpineProvider width={context.stateGameDerived.boardLayout().width} key="bigwin">
+<SpineProvider width={context.stateGameDerived.boardLayout().width} key="BigWin">
 	<SpineTrack
 		trackIndex={0}
 		animationName={props.animationMap[animationState]}
