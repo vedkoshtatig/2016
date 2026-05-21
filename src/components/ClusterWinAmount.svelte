@@ -59,11 +59,9 @@
 	// update y
 	onMount(async () => {
 		await Promise.all([
-			y.set(-SYMBOL_SIZE+20, {
-				duration: (SECOND *1.5) / animationTimeScale(),
-			}),
+	
 			alpha.set(0, {
-				duration: 1000 / animationTimeScale(),
+				duration: (SECOND*2.5) / animationTimeScale(),
 			}),
 		]);
 
@@ -79,8 +77,8 @@
 	zIndex={1000}
 >
 	<BitmapText
-		x={SYMBOL_SIZE * (props.win.reel + 0.5)}
-		y={SYMBOL_SIZE * (props.win.row - 0.5) + y.current}
+		x={context.stateGameDerived.boardLayout().x/2}
+		y={context.stateGameDerived.boardLayout().y/2 }
 		alpha={alpha.current}
 		scale={scale.current}
 		text={showMultiplier

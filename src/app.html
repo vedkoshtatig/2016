@@ -14,262 +14,251 @@
 		/>
 
 		<style>
-			html,
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-				background-color: #14001f;
-				font-family: 'Neuton', serif;
-			}
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-color: #14001f;
+		font-family: 'Neuton', serif;
+	}
 
-			#startup-loader {
-				position: fixed;
-				inset: 0;
-				background-color: #14001f;
-				z-index: 9999999;
-				display: grid;
-				place-items: center;
-				isolation: isolate;
-			}
+	#startup-loader {
+		position: fixed;
+		inset: 0;
+		background-color: #14001f;
+		z-index: 9999999;
+		display: grid;
+		place-items: center;
+		isolation: isolate;
+	}
 
-			.startup-bg {
-				position: absolute;
-				inset: 0;
+	/* ========================= */
+	/* BACKGROUND */
+	/* ========================= */
 
-				background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/gameloaderBg.png');
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
+	.startup-bg {
+		position: absolute;
+		inset: 0;
 
-				filter: saturate(1.05) contrast(1.05);
-			}
+		background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/gameloaderBg.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 
-			/* ========================= */
-			/* MAIN LOADER UI */
-			/* ========================= */
+		filter: saturate(1.05) contrast(1.05);
+	}
 
-			.startup-ui {
-				position: relative;
-				z-index: 1;
+	/* ========================= */
+	/* MAIN UI */
+	/* ========================= */
 
-				width: min(620px, 84vw);
+	.startup-ui {
+		position: relative;
+		z-index: 1;
 
-				display: grid;
-				gap: 12px;
+		width: min(620px, 84vw);
 
-				justify-items: center;
-				align-self: end;
+		display: grid;
+		gap: 14px;
 
-				margin-bottom: 11vh;
+		justify-items: center;
+		align-self: end;
 
-				pointer-events: none;
+		margin-bottom: 11vh;
 
-				--startup-progress: 0%;
-			}
+		pointer-events: none;
 
-			/* ========================= */
-			/* LOADING TEXT */
-			/* ========================= */
+		--startup-progress: 0%;
+	}
 
-			.startup-progress-text {
-				color: #ffffff;
+	/* ========================= */
+	/* LOADING TEXT */
+	/* ========================= */
 
-				font-family: 'Cinzel', serif;
-				font-weight: 800;
+	.startup-progress-text {
+		color: #ffe7a3;
 
-				letter-spacing: 0.18em;
-				text-transform: uppercase;
+		font-family: 'Cinzel', serif;
+		font-weight: 800;
 
-				font-size: clamp(15px, 2.5vw, 20px);
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
 
-				text-shadow:
-					0 0 10px rgba(255, 215, 120, 0.45),
-					0 2px 12px rgba(0, 0, 0, 0.8);
+		font-size: clamp(15px, 2.5vw, 20px);
 
-				animation: textGlow 2s ease-in-out infinite;
-			}
+		text-shadow:
+			0 0 8px rgba(255,215,120,0.35),
+			0 2px 8px rgba(0,0,0,0.85);
 
-			/* ========================= */
-			/* TRACK */
-			/* ========================= */
+		animation: textGlow 2s ease-in-out infinite;
+	}
 
-			.startup-progress-track {
-				position: relative;
+	/* ========================= */
+	/* TRACK */
+	/* ========================= */
 
-				width: 100%;
-				height: 34px;
+	.startup-progress-track {
+		position: relative;
 
-				padding: 3px;
+		width: 100%;
+		height: 34px;
 
-				border-radius: 9px;
+		padding: 4px;
 
-				background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.35));
+		border-radius: 10px;
 
-				border: 1px solid rgba(255, 230, 160, 0.45);
+		background: linear-gradient(
+			180deg,
+			#2a1d0f 0%,
+			#3b2a17 100%
+		);
 
-				box-shadow:
-					0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-					0 8px 24px rgba(0, 0, 0, 0.45),
-					0 0 24px rgba(255, 196, 64, 0.18);
+		border: 3px solid #c89b3c;
 
-				backdrop-filter: blur(3px);
+		box-shadow:
+			0 0 0 1px rgba(255,255,255,0.06) inset,
+			0 8px 24px rgba(0,0,0,0.5),
+			0 0 18px rgba(255,196,64,0.22);
 
-				overflow: hidden;
-			}
+		overflow: hidden;
+	}
 
-			/* glowing pulse around track */
-			.startup-progress-track::after {
-				content: '';
+	/* soft outer glow */
 
-				position: absolute;
-				inset: -2px;
+	.startup-progress-track::after {
+		content: '';
 
-				border-radius: inherit;
+		position: absolute;
+		inset: -3px;
 
-				background: linear-gradient(
-					90deg,
-					rgba(255, 0, 0, 0.12),
-					rgba(255, 255, 255, 0.08),
-					rgba(0, 70, 255, 0.12)
-				);
+		border-radius: inherit;
 
-				filter: blur(10px);
+		background: rgba(255, 211, 77, 0.12);
 
-				opacity: 0.7;
+		filter: blur(12px);
 
-				animation: trackPulse 2.5s ease-in-out infinite;
-			}
+		opacity: 0.7;
 
-			/* ========================= */
-			/* FILL */
-			/* ========================= */
+		z-index: -1;
 
-			.startup-progress-fill {
-				position: relative;
+		animation: trackPulse 2.5s ease-in-out infinite;
+	}
 
-				height: 100%;
-				width: var(--startup-progress);
+	/* ========================= */
+	/* FILL */
+	/* ========================= */
 
-				border-radius: 9px;
-background: linear-gradient(
-    90deg,
-    #7a5214 0%,    /* Deep golden shadow */
-    #c69320 25%,   /* Rich mid-gold */
-    #fce38a 50%,   /* Bright center highlight (the "shine") */
-    #c69320 75%,   /* Return to mid-gold */
-    #9b6b16 100%   /* Dark edge */
-);
-				box-shadow:
-					0 0 14px rgba(255, 214, 102, 0.55),
-					0 0 28px rgba(255, 214, 102, 0.35);
-
-				transition: width 160ms linear;
-
-				overflow: hidden;
-			}
-
-			/* glossy highlight */
-			.startup-progress-fill::after {
-				content: '';
-
-				position: absolute;
-				inset: 0;
-
-				border-radius: inherit;
-
-				background: linear-gradient(
-					180deg,
-					rgba(255, 255, 255, 0.48),
-					rgba(255, 255, 255, 0.08) 45%,
-					transparent 100%
-				);
-			}
-
-			/* moving shine effect */
-			.startup-progress-fill::before {
-				content: '';
-
-				position: absolute;
-				top: 0;
-				left: -35%;
-
-				width: 35%;
-				height: 100%;
-
-				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
-
-				transform: skewX(-20deg);
-
-				animation: shine 1.8s linear infinite;
-			}
-
-			/* ========================= */
-			/* MOBILE */
-			/* ========================= */
-
-			@media (orientation: portrait) {
-				.startup-bg {
-					background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
-				}
-
-				.startup-ui {
-					width: 88vw;
-					margin-bottom: 10vh;
-				}
-
-				.startup-progress-track {
-					height: 16px;
-				}
-
-				.startup-progress-text {
-					font-size: 13px;
-				}
-			}
-
-			/* ========================= */
-			/* ANIMATIONS */
-			/* ========================= */
-
-			@keyframes shine {
-				0% {
-					left: -35%;
-				}
-
-				100% {
-					left: 135%;
-				}
-			}
-
-			@keyframes textGlow {
-				0%,
-				100% {
-					opacity: 0.9;
-				}
-
-				50% {
-					opacity: 1;
-				}
-			}
-
-			@keyframes trackPulse {
-				0%,
-				100% {
-					opacity: 0.45;
-				}
-
-				50% {
-					opacity: 0.85;
-				}
-			}
-			@media (orientation: portrait) {
-				.startup-bg {
-					background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
-				}
-			}
-		</style>
+	.startup-progress-fill {
+		position: relative;
+
+		height: 100%;
+		width: var(--startup-progress);
+
+		border-radius: 6px;
+
+		background: linear-gradient(
+			90deg,
+			#6e4b12 0%,
+			#b8860b 30%,
+			#ffd34d 60%,
+			#fff0b3 100%
+		);
+
+		box-shadow:
+			0 0 12px rgba(255, 211, 77, 0.45),
+			0 0 22px rgba(255, 211, 77, 0.25);
+
+		transition: width 160ms linear;
+
+		overflow: hidden;
+	}
+
+	/* moving shine */
+
+	.startup-progress-fill::before {
+		content: '';
+
+		position: absolute;
+		top: 0;
+		left: -35%;
+
+		width: 35%;
+		height: 100%;
+
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255,255,255,0.45),
+			transparent
+		);
+
+		transform: skewX(-20deg);
+
+		animation: shine 1.8s linear infinite;
+	}
+
+	/* ========================= */
+	/* MOBILE */
+	/* ========================= */
+
+	@media (orientation: portrait) {
+		.startup-bg {
+			background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
+		}
+
+		.startup-ui {
+			width: 88vw;
+			margin-bottom: 10vh;
+		}
+
+		.startup-progress-track {
+			height: 28px;
+		}
+
+		.startup-progress-text {
+			font-size: 13px;
+		}
+	}
+
+	/* ========================= */
+	/* ANIMATIONS */
+	/* ========================= */
+
+	@keyframes shine {
+		0% {
+			left: -35%;
+		}
+
+		100% {
+			left: 135%;
+		}
+	}
+
+	@keyframes textGlow {
+		0%,
+		100% {
+			opacity: 0.9;
+		}
+
+		50% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes trackPulse {
+		0%,
+		100% {
+			opacity: 0.45;
+		}
+
+		50% {
+			opacity: 0.85;
+		}
+	}
+</style>
 
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
