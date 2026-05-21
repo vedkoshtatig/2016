@@ -1,0 +1,199 @@
+{
+	"skeleton": {
+		"hash": "76GkKMwXOyM",
+		"spine": "4.2.43",
+		"x": -597.2,
+		"y": -718.5,
+		"width": 1154.7,
+		"height": 1437,
+		"images": "../Converted/Character-Pose/",
+		"audio": "./audio"
+	},
+	"bones": [
+		{ "name": "root" },
+		{ "name": "Upscaled-Pose-03_0", "parent": "root", "x": -30.63, "y": -128.01 },
+		{ "name": "Upscaled-Pose-03_1", "parent": "root", "x": -19.91, "y": -488.86 },
+		{ "name": "Upscaled-Pose-06_0", "parent": "root", "x": -22.71, "y": -436.13 },
+		{ "name": "Upscaled-Pose-07_0", "parent": "root", "x": -240.1, "y": -317.27 }
+	],
+	"slots": [
+		{
+			"name": "Upscaled-Pose-03_0",
+			"bone": "Upscaled-Pose-03_1",
+			"attachment": "Upscaled-Pose-03/Upscaled-Pose-03_"
+		},
+		{
+			"name": "Upscaled-Pose-04_0",
+			"bone": "Upscaled-Pose-03_0",
+			"attachment": "Upscaled-Pose-04/Upscaled-Pose-04_"
+		},
+		{
+			"name": "Upscaled-Pose-06_0",
+			"bone": "Upscaled-Pose-06_0",
+			"attachment": "Upscaled-Pose-06/Upscaled-Pose-06_"
+		},
+		{
+			"name": "Upscaled-Pose-07_0",
+			"bone": "Upscaled-Pose-07_0",
+			"attachment": "Upscaled-Pose-07/Upscaled-Pose-07_"
+		},
+		{
+			"name": "Upscaled-Pose-02_0",
+			"bone": "root",
+			"attachment": "Upscaled-Pose-02/Upscaled-Pose-02_"
+		}
+	],
+	"skins": [
+		{
+			"name": "default",
+			"attachments": {
+				"Upscaled-Pose-02_0": {
+					"Upscaled-Pose-02/Upscaled-Pose-02_": {
+						"x": -39.7,
+						"width": 1115,
+						"height": 1271,
+						"sequence": { "count": 63, "start": 0 }
+					}
+				},
+				"Upscaled-Pose-03_0": {
+					"Upscaled-Pose-03/Upscaled-Pose-03_": {
+						"x": 19.91,
+						"y": 488.86,
+						"width": 1115,
+						"height": 1271,
+						"sequence": { "count": 120, "start": 0, "digits": 1 }
+					}
+				},
+				"Upscaled-Pose-04_0": {
+					"Upscaled-Pose-04/Upscaled-Pose-04_": {
+						"x": 30.63,
+						"y": 128.01,
+						"width": 1115,
+						"height": 1271,
+						"sequence": { "count": 120, "start": 0, "digits": 1 }
+					}
+				},
+				"Upscaled-Pose-06_0": {
+					"Upscaled-Pose-06/Upscaled-Pose-06_": {
+						"x": 22.71,
+						"y": 436.13,
+						"width": 1115,
+						"height": 1271,
+						"sequence": { "count": 199, "start": 0, "digits": 1 }
+					}
+				},
+				"Upscaled-Pose-07_0": {
+					"Upscaled-Pose-07/Upscaled-Pose-07_": {
+						"x": 240.1,
+						"y": 317.27,
+						"width": 1115,
+						"height": 1437,
+						"sequence": { "count": 120, "start": 0, "digits": 1 }
+					}
+				}
+			}
+		}
+	],
+	"animations": {
+		"Celebration": {
+			"slots": {
+				"Upscaled-Pose-02_0": { "attachment": [{}] },
+				"Upscaled-Pose-03_0": { "attachment": [{}] },
+				"Upscaled-Pose-04_0": { "attachment": [{}] },
+				"Upscaled-Pose-06_0": { "attachment": [{}] }
+			},
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-07_0": {
+						"Upscaled-Pose-07/Upscaled-Pose-07_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 3.9667, "mode": "loop", "index": 119 }
+							]
+						}
+					}
+				}
+			}
+		},
+		"Happy": {
+			"slots": {
+				"Upscaled-Pose-02_0": { "attachment": [{}] },
+				"Upscaled-Pose-04_0": { "attachment": [{}] },
+				"Upscaled-Pose-06_0": { "attachment": [{}] },
+				"Upscaled-Pose-07_0": { "attachment": [{}] }
+			},
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-03_0": {
+						"Upscaled-Pose-03/Upscaled-Pose-03_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 2, "mode": "loop", "index": 60 }
+							]
+						}
+					}
+				}
+			}
+		},
+		"Ideal-pose": {
+			"slots": {
+				"Upscaled-Pose-02_0": { "attachment": [{}] },
+				"Upscaled-Pose-03_0": { "attachment": [{}] },
+				"Upscaled-Pose-06_0": { "attachment": [{}] },
+				"Upscaled-Pose-07_0": { "attachment": [{}] }
+			},
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-04_0": {
+						"Upscaled-Pose-04/Upscaled-Pose-04_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 3.9667, "mode": "loop", "index": 119 }
+							]
+						}
+					}
+				}
+			}
+		},
+		"Pointing": {
+			"slots": {
+				"Upscaled-Pose-03_0": { "attachment": [{}] },
+				"Upscaled-Pose-04_0": { "attachment": [{}] },
+				"Upscaled-Pose-06_0": { "attachment": [{}] },
+				"Upscaled-Pose-07_0": { "attachment": [{}] }
+			},
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-02_0": {
+						"Upscaled-Pose-02/Upscaled-Pose-02_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 2.0667, "mode": "loop", "index": 62 }
+							]
+						}
+					}
+				}
+			}
+		},
+		"Shocking": {
+			"slots": {
+				"Upscaled-Pose-02_0": { "attachment": [{}] },
+				"Upscaled-Pose-03_0": { "attachment": [{}] },
+				"Upscaled-Pose-04_0": { "attachment": [{}] },
+				"Upscaled-Pose-07_0": { "attachment": [{}] }
+			},
+			"attachments": {
+				"default": {
+					"Upscaled-Pose-06_0": {
+						"Upscaled-Pose-06/Upscaled-Pose-06_": {
+							"sequence": [
+								{ "mode": "loop", "delay": 0.0333 },
+								{ "time": 6.6, "mode": "loop", "index": 198 }
+							]
+						}
+					}
+				}
+			}
+		}
+	}
+}

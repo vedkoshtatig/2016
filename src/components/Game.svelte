@@ -50,24 +50,25 @@
 	const showBuyBoards = $derived(context.stateGame.gameType === 'basegame');
 	context.stateLayout.showLoadingScreen = true;
 
-	type TrumpState = 'welcome' | 'idle' | 'angry' | 'celebrate' | 'pointing';
+	type TrumpState = 'welcome' | 'Ideal-pose' | 'Shocking' | 'Celebration' | 'pointing'|'Happy';
 
-	let trumpState: TrumpState = $state('welcome');
+	let trumpState: TrumpState = $state('happy');
 	const spineMap = {
-		welcome: 'trumpWelcome',
-		idle: 'trumpIdle',
-		angry: 'trumpAngry',
-		celebrate: 'trumpCelebrate',
-		pointing: 'trumpPointing',
+		idle: 'trump',
+		angry: 'trump',
+		celebrate: 'trump',
+		happy:'trump',
+		pointing: 'trump',
 	};
 
 	const animationMap = {
-		welcome: 'animation',
-		idle: 'Simple-Ideal-Pose',
+		idle: 'Ideal-pose',
 		angry: 'Shocking',
-		celebrate: 'animation',
-		pointing: 'animation',
+		celebrate: 'Celebration',
+		pointing: 'Pointing',
+		happy:'Happy'
 	};
+	const values = ['idle','happy', 'idle', 'happy','idle','pointing'];
 	const isLandscape = $derived(() => {
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
@@ -75,7 +76,7 @@
 	const reelRootScale = $derived(() => (isLandscape() ? 1 : {x:1.6, y:2}));
 	const reelRootX = $derived(() => (isLandscape() ? 0 : -440));
 	const reelRootY = $derived(() => (isLandscape() ? 0 : -145));
-	let spin = false;
+	let spin = true;
 	context.eventEmitter.subscribeOnMount({
 		buyBonusConfirm: () => {
 			stateModal.modal = { name: 'buyBonusConfirm' };
@@ -83,14 +84,17 @@
 		openPopUp: () => {
 			trumpState = 'pointing';
 			console.log(trumpState);
+			spin = false;
 		},
 		closePopUp: () => {
-			trumpState = 'idle';
-			console.log(trumpState);
+			trumpState = values[Math.floor(Math.random() * values.length)];
+			console.log(animationMap[trumpState]);
+			spin = true;
 		},
 		bet: () => {
-			trumpState = 'idle';
-			spin = true;
+			trumpState =values[Math.floor(Math.random() * values.length)];
+			console.log(animationMap[trumpState])
+			
 		},
 		playAnim: () => {
 			console.log(bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount),stateBet.betAmount)
@@ -160,7 +164,7 @@
 			<MultiplierTotal />
 			{#if isLandscape()}
 				<SpineProvider
-					key={spineMap[trumpState]}
+					key={'trump'}
 					x={context.stateGameDerived.boardLayout().x * 1.8}
 					y={context.stateGameDerived.boardLayout().y * 1.25}
 					scale={{ x: 0.17, y: 0.17 }}
@@ -172,8 +176,8 @@
 						loop
 						listener={{
 							complete: () => {
-								if (trumpState != 'idle') {
-									trumpState = 'idle';
+								if (spin) {
+									trumpState = values[Math.floor(Math.random() * values.length)];
 								}
 							},
 						}}

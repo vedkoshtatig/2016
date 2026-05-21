@@ -61,51 +61,60 @@ export default {
 		},
 		preload: true,
 	},
-	trumpAngry: {
+	// trumpAngry: {
+	// 	type: 'spine',
+	// 	src: {
+	// 		atlas: new URL('../../assets/spines/Trump/Shocking.atlas', import.meta.url).href,
+	// 		skeleton: new URL('../../assets/spines/Trump/Shocking.json', import.meta.url).href,
+	// 		scale: 2,
+	// 	},
+	
+	// },
+	trump: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/Trump/Shocking.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Shocking.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/Trump/All-Pose.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/Trump/All-Pose.json', import.meta.url).href,
 			scale: 2,
 		},
 	
 	},
-	trumpCelebrate: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/Trump/Victory.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Victory.json', import.meta.url).href,
-			scale: 2,
-		},
+	// trumpCelebrate: {
+	// 	type: 'spine',
+	// 	src: {
+	// 		atlas: new URL('../../assets/spines/Trump/Victory.atlas', import.meta.url).href,
+	// 		skeleton: new URL('../../assets/spines/Trump/Victory.json', import.meta.url).href,
+	// 		scale: 2,
+	// 	},
 	
-	},
-	trumpPointing: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/Trump/Pointing.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Pointing.json', import.meta.url).href,
-			scale: 2,
-		},
+	// },
+	// trumpPointing: {
+	// 	type: 'spine',
+	// 	src: {
+	// 		atlas: new URL('../../assets/spines/Trump/Pointing.atlas', import.meta.url).href,
+	// 		skeleton: new URL('../../assets/spines/Trump/Pointing.json', import.meta.url).href,
+	// 		scale: 2,
+	// 	},
 		
-	},
-	trumpIdle: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/Trump/Simple-IdealPose.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Simple-IdealPose.json', import.meta.url).href,
-			scale: 2,
-		},
+	// },
+	// trumpIdle: {
+	// 	type: 'spine',
+	// 	src: {
+	// 		atlas: new URL('../../assets/spines/Trump/Simple-IdealPose.atlas', import.meta.url).href,
+	// 		skeleton: new URL('../../assets/spines/Trump/Simple-IdealPose.json', import.meta.url).href,
+	// 		scale: 2,
+	// 	},
 	
-	},
-	trumpWelcome: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/Trump/Welcome.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/Trump/Welcome.json', import.meta.url).href,
-			scale: 2,
-		},
+	// },
+	// trumpWelcome: {
+	// 	type: 'spine',
+	// 	src: {
+	// 		atlas: new URL('../../assets/spines/Trump/Welcome.atlas', import.meta.url).href,
+	// 		skeleton: new URL('../../assets/spines/Trump/Welcome.json', import.meta.url).href,
+	// 		scale: 2,
+	// 	},
 	
-	},
+	// },
 	
 	
 
