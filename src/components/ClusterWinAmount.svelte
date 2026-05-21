@@ -29,12 +29,14 @@
 	const context = getContext();
 	const y = new Tween(0);
 	const scale = new Tween(1);
+	const alpha = new Tween(4);
 	let show = $state(true);
 	const animationTimeScale = () => (stateBet.isTurbo ? 2.5 : 1.5);
-	const fstyle={
+	const fstyle = {
 		fontFamily: 'sans-serif',
-		 fontSize: 72, align: 'center' 
-	}
+		fontSize: 72,
+		align: 'center',
+	};
 	let showMultiplier = $state(props.win.mult > 1);
 
 	// update showMultiplier
@@ -54,8 +56,17 @@
 	});
 
 	// update y
+	// update y
 	onMount(async () => {
-		await y.set(-SYMBOL_SIZE, { duration: (SECOND * 2) / animationTimeScale() });
+		await Promise.all([
+			y.set(-SYMBOL_SIZE+20, {
+				duration: (SECOND *1.5) / animationTimeScale(),
+			}),
+			alpha.set(0, {
+				duration: 1000 / animationTimeScale(),
+			}),
+		]);
+
 		show = false;
 	});
 </script>
@@ -70,6 +81,7 @@
 	<BitmapText
 		x={SYMBOL_SIZE * (props.win.reel + 0.5)}
 		y={SYMBOL_SIZE * (props.win.row - 0.5) + y.current}
+		alpha={alpha.current}
 		scale={scale.current}
 		text={showMultiplier
 			? `${bookEventAmountToCurrencyString(props.win.win)} X ${props.win.mult}`

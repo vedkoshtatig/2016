@@ -36,7 +36,7 @@
 	} as const;
 
 const valueStyle = {
-	fontFamily: 'Times New Roman',
+	fontFamily: 'Libre Baskerville',
 	fontSize: dynamicFontSize,
 	fill: props.textColor ?? '#0c2049',
 	fontWeight: 600,
