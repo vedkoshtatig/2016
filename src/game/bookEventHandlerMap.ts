@@ -351,7 +351,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
        eventEmitter.broadcast({ type: 'winHide' });
    },
    finalWin: async (bookEvent: BookEventOfType<'finalWin'>) => {
-       eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_youwon_panel' });
+      if(stateBet.activeBetModeKey!='BASE') eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_youwon_panel' });
 
 
        // let amount=bookEventAmountToNormalisedAmount(bookEvent.amount)

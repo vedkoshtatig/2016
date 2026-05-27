@@ -32,6 +32,7 @@ declare module '$env/static/private' {
 	export const npm_config_user_agent: string;
 	export const XDG_SESSION_TYPE: string;
 	export const GIT_ASKPASS: string;
+	export const PTYXIS_VERSION: string;
 	export const npm_node_execpath: string;
 	export const SHLVL: string;
 	export const HOME: string;
@@ -47,8 +48,8 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const MANAGERPID: string;
+	export const DBUS_STARTER_BUS_TYPE: string;
 	export const SYSTEMD_EXEC_PID: string;
-	export const IM_CONFIG_CHECK_ENV: string;
 	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 	export const DBUS_SESSION_BUS_ADDRESS: string;
 	export const COLORTERM: string;
@@ -67,12 +68,14 @@ declare module '$env/static/private' {
 	export const TERM: string;
 	export const GNOME_DESKTOP_SESSION_ID: string;
 	export const FC_FONTATIONS: string;
+	export const FLATPAK_TTY_PROGRESS: string;
 	export const npm_config_node_gyp: string;
 	export const PATH: string;
 	export const INVOCATION_ID: string;
 	export const npm_package_name: string;
 	export const NODE: string;
 	export const XDG_MENU_PREFIX: string;
+	export const PTYXIS_PROFILE: string;
 	export const GNOME_SETUP_DISPLAY: string;
 	export const XDG_RUNTIME_DIR: string;
 	export const GDK_BACKEND: string;
@@ -95,6 +98,7 @@ declare module '$env/static/private' {
 	export const npm_config_verify_deps_before_run: string;
 	export const NODE_PATH: string;
 	export const QT_ACCESSIBILITY: string;
+	export const NO_AT_BRIDGE: string;
 	export const GDMSESSION: string;
 	export const LESSCLOSE: string;
 	export const GPG_AGENT_INFO: string;
@@ -105,11 +109,13 @@ declare module '$env/static/private' {
 	export const npm_execpath: string;
 	export const XDG_CONFIG_DIRS: string;
 	export const NVM_CD_FLAGS: string;
+	export const DBUS_STARTER_ADDRESS: string;
 	export const XDG_DATA_DIRS: string;
 	export const npm_command: string;
 	export const PNPM_SCRIPT_SRC_DIR: string;
 	export const QT_IM_MODULES: string;
 	export const MEMORY_PRESSURE_WRITE: string;
+	export const VTE_VERSION: string;
 	export const INIT_CWD: string;
 	export const NODE_ENV: string;
 }
@@ -149,6 +155,7 @@ declare module '$env/dynamic/private' {
 		npm_config_user_agent: string;
 		XDG_SESSION_TYPE: string;
 		GIT_ASKPASS: string;
+		PTYXIS_VERSION: string;
 		npm_node_execpath: string;
 		SHLVL: string;
 		HOME: string;
@@ -164,8 +171,8 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
 		MANAGERPID: string;
+		DBUS_STARTER_BUS_TYPE: string;
 		SYSTEMD_EXEC_PID: string;
-		IM_CONFIG_CHECK_ENV: string;
 		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
 		DBUS_SESSION_BUS_ADDRESS: string;
 		COLORTERM: string;
@@ -184,12 +191,14 @@ declare module '$env/dynamic/private' {
 		TERM: string;
 		GNOME_DESKTOP_SESSION_ID: string;
 		FC_FONTATIONS: string;
+		FLATPAK_TTY_PROGRESS: string;
 		npm_config_node_gyp: string;
 		PATH: string;
 		INVOCATION_ID: string;
 		npm_package_name: string;
 		NODE: string;
 		XDG_MENU_PREFIX: string;
+		PTYXIS_PROFILE: string;
 		GNOME_SETUP_DISPLAY: string;
 		XDG_RUNTIME_DIR: string;
 		GDK_BACKEND: string;
@@ -212,6 +221,7 @@ declare module '$env/dynamic/private' {
 		npm_config_verify_deps_before_run: string;
 		NODE_PATH: string;
 		QT_ACCESSIBILITY: string;
+		NO_AT_BRIDGE: string;
 		GDMSESSION: string;
 		LESSCLOSE: string;
 		GPG_AGENT_INFO: string;
@@ -222,11 +232,13 @@ declare module '$env/dynamic/private' {
 		npm_execpath: string;
 		XDG_CONFIG_DIRS: string;
 		NVM_CD_FLAGS: string;
+		DBUS_STARTER_ADDRESS: string;
 		XDG_DATA_DIRS: string;
 		npm_command: string;
 		PNPM_SCRIPT_SRC_DIR: string;
 		QT_IM_MODULES: string;
 		MEMORY_PRESSURE_WRITE: string;
+		VTE_VERSION: string;
 		INIT_CWD: string;
 		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;

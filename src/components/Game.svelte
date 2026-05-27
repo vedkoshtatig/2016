@@ -91,11 +91,11 @@
 			console.log(animationMap[trumpState]);
 			spin = true;
 		},
-		bet: () => {
-			trumpState =values[Math.floor(Math.random() * values.length)];
-			console.log(animationMap[trumpState])
+		// bet: () => {
+		// 	trumpState =values[Math.floor(Math.random() * values.length)];
+		// 	console.log(animationMap[trumpState])
 			
-		},
+		// },
 		playAnim: () => {
 			console.log(bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount),stateBet.betAmount)
 			if ((bookEventAmountToNormalisedAmount(stateBet.winBookEventAmount))>= stateBet.betAmount) {
@@ -176,7 +176,7 @@
 						loop
 						listener={{
 							complete: () => {
-								if (spin) {
+								if (trumpState!='pointing' && spin) {
 									trumpState = values[Math.floor(Math.random() * values.length)];
 								}
 							},

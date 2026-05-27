@@ -13,7 +13,7 @@
 			rel="stylesheet"
 		/>
 
-		<style>
+<style>
 	html,
 	body {
 		margin: 0;
@@ -43,7 +43,7 @@
 		position: absolute;
 		inset: 0;
 
-		background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/gameloaderBg.png');
+		background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/gameloaderBg.webp');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
@@ -62,7 +62,7 @@
 		width: min(620px, 84vw);
 
 		display: grid;
-		gap: 14px;
+		gap: 16px;
 
 		justify-items: center;
 		align-self: end;
@@ -79,19 +79,20 @@
 	/* ========================= */
 
 	.startup-progress-text {
-		color: #ffe7a3;
+		color: #f8f3e7;
 
 		font-family: 'Cinzel', serif;
 		font-weight: 800;
 
-		letter-spacing: 0.18em;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
 
-		font-size: clamp(15px, 2.5vw, 20px);
+		font-size: clamp(16px, 2.2vw, 22px);
 
 		text-shadow:
-			0 0 8px rgba(255,215,120,0.35),
-			0 2px 8px rgba(0,0,0,0.85);
+			0 2px 0 rgba(120, 80, 20, 0.9),
+			0 0 10px rgba(255, 220, 120, 0.45),
+			0 4px 18px rgba(0, 0, 0, 0.8);
 
 		animation: textGlow 2s ease-in-out infinite;
 	}
@@ -104,76 +105,113 @@
 		position: relative;
 
 		width: 100%;
-		height: 34px;
+		height: 42px;
 
 		padding: 4px;
+
+		border-radius: 14px;
+
+		background: linear-gradient(
+			180deg,
+			#d8b15a 0%,
+			#9b6c1f 18%,
+			#3f2506 100%
+		);
+
+		border: 2px solid #f7d98a;
+
+		box-shadow:
+			0 2px 0 rgba(255,255,255,0.4) inset,
+			0 -3px 0 rgba(60,30,0,0.7) inset,
+			0 8px 24px rgba(0,0,0,0.5),
+			0 0 18px rgba(255,210,90,0.35);
+
+		overflow: hidden;
+	}
+
+	/* inner blue panel */
+
+	.startup-progress-track::before {
+		content: '';
+
+		position: absolute;
+		inset: 4px;
 
 		border-radius: 10px;
 
 		background: linear-gradient(
 			180deg,
-			#2a1d0f 0%,
-			#3b2a17 100%
+			#001b4d 0%,
+			#002f7a 40%,
+			#00163d 100%
 		);
 
-		border: 3px solid #c89b3c;
-
 		box-shadow:
-			0 0 0 1px rgba(255,255,255,0.06) inset,
-			0 8px 24px rgba(0,0,0,0.5),
-			0 0 18px rgba(255,196,64,0.22);
+			0 2px 8px rgba(0,0,0,0.6) inset,
+			0 0 8px rgba(255,255,255,0.08);
 
-		overflow: hidden;
-	}
-
-	/* soft outer glow */
-
-	.startup-progress-track::after {
-		content: '';
-
-		position: absolute;
-		inset: -3px;
-
-		border-radius: inherit;
-
-		background: rgba(255, 211, 77, 0.12);
-
-		filter: blur(12px);
-
-		opacity: 0.7;
-
-		z-index: -1;
-
-		animation: trackPulse 2.5s ease-in-out infinite;
+		z-index: 0;
 	}
 
 	/* ========================= */
 	/* FILL */
 	/* ========================= */
 
-	.startup-progress-fill {
-		position: relative;
+.startup-progress-fill {
+	position: relative;
+	z-index: 1;
 
-		height: 100%;
-		width: var(--startup-progress);
+	height: 100%;
+	width: var(--startup-progress);
 
-		border-radius: 6px;
+	border-radius: 8px;
 
-		background: linear-gradient(
-			90deg,
-			#6e4b12 0%,
-			#b8860b 30%,
-			#ffd34d 60%,
-			#fff0b3 100%
+	background:
+		repeating-linear-gradient(
+			-55deg,
+			rgba(255,255,255,0.05) 0px,
+			rgba(255,255,255,0.05) 10px,
+			transparent 10px,
+			transparent 20px
+		),
+		linear-gradient(
+			180deg,
+			#00122e 0%,
+			#002766 40%,
+			#003b99 75%,
+			#1d5ed6 100%
 		);
 
-		box-shadow:
-			0 0 12px rgba(255, 211, 77, 0.45),
-			0 0 22px rgba(255, 211, 77, 0.25);
+	box-shadow:
+		0 0 8px rgba(70,140,255,0.28),
+		0 0 16px rgba(70,140,255,0.18),
+		0 2px 0 rgba(255,255,255,0.18) inset;
 
-		transition: width 160ms linear;
+	transition: width 160ms linear;
 
-		overflow: hidden;
+	overflow: hidden;
+}
+
+	/* bright glowing edge */
+
+	.startup-progress-fill::after {
+		content: '';
+
+		position: absolute;
+		top: -20%;
+		right: -10px;
+
+		width: 34px;
+		height: 140%;
+
+		background: radial-gradient(
+			circle,
+			rgba(255,255,255,0.95) 0%,
+			rgba(180,220,255,0.65) 45%,
+			transparent 100%
+		);
+
+		filter: blur(6px);
 	}
 
 	/* moving shine */
@@ -195,9 +233,9 @@
 			transparent
 		);
 
-		transform: skewX(-20deg);
+		transform: skewX(-25deg);
 
-		animation: shine 1.8s linear infinite;
+		animation: shine 2s linear infinite;
 	}
 
 	/* ========================= */
@@ -206,7 +244,7 @@
 
 	@media (orientation: portrait) {
 		.startup-bg {
-			background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.png');
+			background-image: url('%sveltekit.assets%/assets/sprites/symbolsStatic/bgLoadingMobile.webp');
 		}
 
 		.startup-ui {
@@ -215,11 +253,11 @@
 		}
 
 		.startup-progress-track {
-			height: 28px;
+			height: 34px;
 		}
 
 		.startup-progress-text {
-			font-size: 13px;
+			font-size: 14px;
 		}
 	}
 
@@ -245,17 +283,6 @@
 
 		50% {
 			opacity: 1;
-		}
-	}
-
-	@keyframes trackPulse {
-		0%,
-		100% {
-			opacity: 0.45;
-		}
-
-		50% {
-			opacity: 0.85;
 		}
 	}
 </style>

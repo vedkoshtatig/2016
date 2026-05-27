@@ -142,7 +142,7 @@ const LOW_SYMBOL_SIZE = 0.7;
 const SPECIAL_SYMBOL_SIZE = 1;
 
 const SPIN_OPTIONS_SHARED = {
-	reelFallInDelay: 60,
+	reelFallInDelay: 100,
 	reelPaddingMultiplierNormal: 1.25,
 	reelPaddingMultiplierAnticipated: 18,
 	reelFallOutDelay: 110,
@@ -150,11 +150,11 @@ const SPIN_OPTIONS_SHARED = {
 
 export const SPIN_OPTIONS_DEFAULT = {
 	...SPIN_OPTIONS_SHARED,
-	symbolFallInSpeed: 5.5,
-	symbolFallInInterval: 15,
+	symbolFallInSpeed: 3,
+	symbolFallInInterval: 30,
 	symbolFallInBounceSpeed: 0.2,
 	symbolFallInBounceSizeMulti: 0.4,
-	symbolFallOutSpeed: 5.5,
+	symbolFallOutSpeed: 3,
 	symbolFallOutInterval: 10,
 };
 

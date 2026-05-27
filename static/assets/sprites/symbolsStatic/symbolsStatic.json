@@ -124,7 +124,7 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.1",
-		"image": "symbolsStatic.png",
+		"image": "symbolsStatic.webp",
 		"format": "RGBA8888",
 		"size": { "w": 505, "h": 814 },
 		"scale": "1",
