@@ -32,7 +32,7 @@
 
 	{value}
 	stacked={props.stacked}
-	fontSize={45}
+	fontSize={54}
 	borderRadius={65}
 	align="center"
 />

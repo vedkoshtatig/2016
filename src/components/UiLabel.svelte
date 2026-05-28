@@ -23,10 +23,10 @@
 	const isCenter = props.align === 'center';
   const isPortrait = stateLayoutDerived.layoutType();
   const baseFontSize = props.fontSize ?? UI_BASE_FONT_SIZE * 1.8;
-  const dynamicFontSize =
-	props.value.length > 8
-		? Math.max(baseFontSize - (props.value.length - 8) * 2, baseFontSize * 0.75)
-		: baseFontSize;
+  const dynamicFontSize =$state(props.value.length > 8
+		? baseFontSize * 0.56
+		: baseFontSize)
+	
 	const labelStyle = {
 		fontFamily: 'Neuton',
 		fontSize: UI_BASE_FONT_SIZE / 1.6,
