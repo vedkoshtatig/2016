@@ -20,7 +20,7 @@
 
 	<Container
 		x={context.stateLayoutDerived.mainLayoutStandard().width * 0.5}
-		y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE}
+		y={context.stateLayoutDerived.mainLayoutStandard().height - DESKTOP_BASE_SIZE*1.5}
 		pivot={anchorToPivot({
 			anchor: { x: 0.5, y: 0 },
 			sizes: {
