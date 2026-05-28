@@ -15,6 +15,10 @@
 
 	const reelTopX = layout.x;
 	const reelTopY = layout.y - 45;
+	const isLandscape = $derived(() => {
+		const { width, height } = context.stateLayoutDerived.canvasSizes();
+		return width > height;
+	});
 </script>
 
 <Container
@@ -25,20 +29,18 @@
 	pivot={context.stateGameDerived.boardLayout().pivot}
 	sortableChildren={true}
 >
-
 	{@render props.children()}
-	
+
 	<Container
 		x={context.stateGameDerived.boardLayout().x / 2.05}
 		y={context.stateGameDerived.boardLayout().y / 1.9}
+		scale={isLandscape()?1:{ x: 1, y: 1.3 }}
 	>
 		<Sprite
 			key="reel_top"
 			anchor={0.5}
-			
 			width={context.stateGameDerived.boardLayout().width * 1.42}
 			height={context.stateGameDerived.boardLayout().height * 1.35}
-		
 			zIndex={10}
 		/>
 		<SpineProvider

@@ -73,10 +73,10 @@
 		const { width, height } = context.stateLayoutDerived.canvasSizes();
 		return width > height;
 	});
-	const reelRootScale = $derived(() => (isLandscape() ? 1 : {x:1.6, y:2}));
+	const reelRootScale = $derived(() => (isLandscape() ? 1 : {x:1.6, y:1.6}));
 	const reelRootX = $derived(() => (isLandscape() ? 0 : -440));
 	const reelRootY = $derived(() => (isLandscape() ? 0 : -145));
-	let spin = true;
+	let spin = false;
 	context.eventEmitter.subscribeOnMount({
 		buyBonusConfirm: () => {
 			stateModal.modal = { name: 'buyBonusConfirm' };
@@ -84,12 +84,12 @@
 		openPopUp: () => {
 			trumpState = 'pointing';
 			console.log(trumpState);
-			spin = false;
+			spin = true;
 		},
 		closePopUp: () => {
 			trumpState = values[Math.floor(Math.random() * values.length)];
 			console.log(animationMap[trumpState]);
-			spin = true;
+			spin = false;
 		},
 		// bet: () => {
 		// 	trumpState =values[Math.floor(Math.random() * values.length)];

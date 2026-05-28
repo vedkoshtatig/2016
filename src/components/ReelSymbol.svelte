@@ -4,7 +4,9 @@
 	import { BOARD_DIMENSIONS } from '../game/constants';
 	import { getSymbolInfo, getSymbolX } from '../game/utils';
 	import type { ReelSymbol } from '../game/stateGame.svelte';
+	import { getContext } from '../game/context';
 
+	const context = getContext();
 	type Props = {
 		reelIndex: number;
 		reelSymbol: ReelSymbol;
@@ -25,6 +27,10 @@
 		symbolInfo.type === 'spine' &&
 			(props.reelSymbol.symbolState === 'land' || props.reelSymbol.symbolState === 'win'),
 	);
+	const isLandscape = $derived(() => {
+		const { width, height } = context.stateLayoutDerived.canvasSizes();
+		return width > height;
+	});
 </script>
 
 <SymbolWrap
@@ -33,7 +39,7 @@
 	animating={animating}
 >
 	<Symbol
-		y={l4SymbolYOffset + l2SymbolYOffset}
+		y={l4SymbolYOffset + l2SymbolYOffset+(isLandscape()?0:((props.reelSymbol.symbolY.current/3.2))-60)}
 		state={props.reelSymbol.symbolState}
 		rawSymbol={props.reelSymbol.rawSymbol}
 		oncomplete={() => {

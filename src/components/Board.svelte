@@ -63,8 +63,7 @@
 {#if show}
     <BoardContext animate={false} >
         <BoardContainer>
-           
-            <BoardMask />
+            <BoardMask  />
             <BoardBase />
         </BoardContainer>
     </BoardContext>
