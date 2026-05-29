@@ -11,6 +11,9 @@
 
 	const context = getContext();
 	const layout = context.stateGameDerived.boardLayout();
+	const canvasSizes = $derived(
+		context.stateLayoutDerived.canvasSizes()
+	);
 	const scaleFactor = 1.2;
 
 	const isMobileMode = () =>
@@ -62,7 +65,7 @@
 
 	let toggleInitialized = false;
 
-	$: {
+	$effect(() => {
 		const targetX = doubleBetState.isDouble ? 15 : -15;
 
 		if (!toggleInitialized) {
@@ -74,7 +77,7 @@
 				easing: backOut,
 			});
 		}
-	}
+	})
 
 	const pulseToggle = () => {
 		const tick = ++toggleAnimTick;
@@ -314,12 +317,35 @@
 			clearStackAnimated();
 		},
 	});
+	// y={layout.y * 0.3 - (isMobileMode() ? 500: 90)}
+const topMultiplier = $derived.by(() => {
+	if (canvasSizes.height <= 700) {
+		return 0.25;
+	}
+
+	if (canvasSizes.height > 800 && canvasSizes.height <= 840) {
+		return 0.3;
+	}
+	if (canvasSizes.height > 840 && canvasSizes.height <= 900) {
+		return 0.42;
+	}
+	if (canvasSizes.height > 900 && canvasSizes.height < 1000) {
+		return 0.43;
+	}
+
+	if (canvasSizes.height > 1000) {
+		return -0.07;
+	}
+
+	return 0.3;
+});
+
 </script>
 
 <!-- ================= MAIN CONTAINER ================= -->
 <Container
 	x={layout.x + 15}
-	y={layout.y * 0.3 - (isMobileMode() ? 500: 90)}
+	y={canvasSizes.height*-scaleFactor*topMultiplier}
 	height={layout.height}
 	scale={{
 		x: scaleFactor * (isMobileMode() ? 1.7 : 1.55),
