@@ -26,7 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const GJS_DEBUG_TOPICS: string;
 	export const LESSOPEN: string;
 	export const USER: string;
 	export const npm_config_user_agent: string;
@@ -38,17 +37,11 @@ declare module '$env/static/private' {
 	export const DESKTOP_SESSION: string;
 	export const NVM_BIN: string;
 	export const NVM_INC: string;
-	export const GIO_LAUNCHED_DESKTOP_FILE: string;
 	export const npm_config_auto_install_peers: string;
 	export const GNOME_SHELL_SESSION_MODE: string;
 	export const GTK_MODULES: string;
 	export const MANAGERPID: string;
 	export const SYSTEMD_EXEC_PID: string;
-<<<<<<< HEAD
-	export const IM_CONFIG_CHECK_ENV: string;
-	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
-=======
->>>>>>> cc44228 (intro reel hous)
 	export const DBUS_SESSION_BUS_ADDRESS: string;
 	export const COLORTERM: string;
 	export const GIO_LAUNCHED_DESKTOP_FILE_PID: string;
@@ -57,7 +50,6 @@ declare module '$env/static/private' {
 	export const IM_CONFIG_PHASE: string;
 	export const WAYLAND_DISPLAY: string;
 	export const LOGNAME: string;
-	export const JOURNAL_STREAM: string;
 	export const _: string;
 	export const MEMORY_PRESSURE_WATCH: string;
 	export const XDG_SESSION_CLASS: string;
@@ -94,6 +86,7 @@ declare module '$env/static/private' {
 	export const GDMSESSION: string;
 	export const LESSCLOSE: string;
 	export const GPG_AGENT_INFO: string;
+	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const QT_IM_MODULE: string;
 	export const PWD: string;
 	export const npm_execpath: string;
@@ -137,7 +130,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		GJS_DEBUG_TOPICS: string;
 		LESSOPEN: string;
 		USER: string;
 		npm_config_user_agent: string;
@@ -149,7 +141,6 @@ declare module '$env/dynamic/private' {
 		DESKTOP_SESSION: string;
 		NVM_BIN: string;
 		NVM_INC: string;
-		GIO_LAUNCHED_DESKTOP_FILE: string;
 		npm_config_auto_install_peers: string;
 		GNOME_SHELL_SESSION_MODE: string;
 		GTK_MODULES: string;
@@ -163,7 +154,6 @@ declare module '$env/dynamic/private' {
 		IM_CONFIG_PHASE: string;
 		WAYLAND_DISPLAY: string;
 		LOGNAME: string;
-		JOURNAL_STREAM: string;
 		_: string;
 		MEMORY_PRESSURE_WATCH: string;
 		XDG_SESSION_CLASS: string;
@@ -200,6 +190,7 @@ declare module '$env/dynamic/private' {
 		GDMSESSION: string;
 		LESSCLOSE: string;
 		GPG_AGENT_INFO: string;
+		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		QT_IM_MODULE: string;
 		PWD: string;
 		npm_execpath: string;

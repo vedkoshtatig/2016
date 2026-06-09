@@ -352,7 +352,44 @@ const backgroundHigh = {
 export const SYMBOL_INFO_MAP = {
 	H1: createAnimatedSymbol('H1', HIGH_SYMBOL_SIZE),
 	H2: createAnimatedSymbol('H2', HIGH_SYMBOL_SIZE),
-	H3: createAnimatedSymbol('H3', HIGH_SYMBOL_SIZE),
+	H3: {
+		explosion:{
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'explosion',
+			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE  },
+		},
+		postWinStatic: {
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'post_win_static',
+			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE },
+		},
+		static: {
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'static',
+			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE  },
+		},
+		spin: {
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'spin',
+			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE },
+		},
+		win: {
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'win',
+			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE },
+		},
+		land: {
+			type: 'spine',
+			assetKey: 'H3',
+			animationName: 'landing',
+			sizeRatios:{ width: 0.5, height: HIGH_SYMBOL_SIZE },
+		},
+	},
 	H4: createAnimatedSymbol('H4', HIGH_SYMBOL_SIZE),
 	L1: createAnimatedSymbol('L1', LOW_SYMBOL_SIZE),
 	L2: createAnimatedSymbol('L2', LOW_SYMBOL_SIZE),

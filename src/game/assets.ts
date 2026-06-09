@@ -159,8 +159,8 @@ export default {
 	H3: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/symbols/hsymbols.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols/h3.json', import.meta.url).href,
+			atlas: new URL('../../assets/spines/symbols/justin_bieber.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/symbols/justin_bieber.json', import.meta.url).href,
 			scale: 2.5,
 		},
 	},
