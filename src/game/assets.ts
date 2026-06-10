@@ -45,8 +45,8 @@ export default {
 	introReel3: {
 		type: 'spine',
 		src: {
-			atlas: new URL('../../assets/spines/reelhouse/Intro-reel_logo3.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/reelhouse/Intro-reel_logo3.json', import.meta.url)
+			atlas: new URL('../../assets/spines/reelhouse/Intro-reel_logo4.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/reelhouse/Intro-reel_logo4.json', import.meta.url)
 				.href,
 			scale: 2,
 		},
