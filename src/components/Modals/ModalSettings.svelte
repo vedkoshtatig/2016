@@ -273,7 +273,7 @@
                    on: 'musicPortraitOn.png',
 
 
-                       off: 'musicPortraitOn.png',
+                       off: 'musicPortraitOff.png',
 
 
                        hover: 'musicPortraitHover.png',
