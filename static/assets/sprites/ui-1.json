@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":123,"h":32},
 	"sourceSize": {"w":208,"h":32}
 },
-"musicPOn":
+"musicOn":
 {
 	"frame": {"x":521,"y":725,"w":123,"h":32},
 	"rotated": true,
@@ -286,7 +286,7 @@
 	"image": "ui-1.png?v=1797b6f1225a",
 	"format": "RGBA8888",
 	"size": {"w":1526,"h":976},
-	"scale": "1",
+	"scale": "0.5",
 	"smartupdate": "$TexturePacker:SmartUpdate:0bc3f69668c331521d962a73bd8a6792:f00cc41ef59d3978c913a730e2042b04:5597d1b3cec3d829ad6b627b2baa1fee$"
 }
 }
